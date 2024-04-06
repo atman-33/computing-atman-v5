@@ -1,22 +1,24 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+// import { usePathname } from 'next/navigation';
 
 import { Icons } from '@/components/icons';
 import { siteConfig } from '@/config/site-config';
 import { cn } from '@repo/ui';
 
 export function MainNav() {
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
   return (
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-6 flex items-center space-x-2">
         <Icons.logo className="h-6 w-6" />
-        <span className="hidden font-bold sm:inline-block">{siteConfig.name}</span>
+        <span className="hidden font-bold text-2xl sm:inline-block">{siteConfig.name}</span>
       </Link>
       <nav className="flex items-center gap-4 text-sm lg:gap-6">
+        {/* 
+        // NOTE: リンクを増やす場合は、こちらに追記していく。 
         <Link
           href="/docs"
           className={cn(
@@ -25,43 +27,7 @@ export function MainNav() {
           )}
         >
           Docs
-        </Link>
-        <Link
-          href="/docs/components"
-          className={cn(
-            'transition-colors hover:text-foreground/80',
-            pathname?.startsWith('/docs/components') ? 'text-foreground' : 'text-foreground/60',
-          )}
-        >
-          Components
-        </Link>
-        <Link
-          href="/themes"
-          className={cn(
-            'transition-colors hover:text-foreground/80',
-            pathname?.startsWith('/themes') ? 'text-foreground' : 'text-foreground/60',
-          )}
-        >
-          Themes
-        </Link>
-        <Link
-          href="/examples"
-          className={cn(
-            'transition-colors hover:text-foreground/80',
-            pathname?.startsWith('/examples') ? 'text-foreground' : 'text-foreground/60',
-          )}
-        >
-          Examples
-        </Link>
-        <Link
-          href="/blocks"
-          className={cn(
-            'transition-colors hover:text-foreground/80',
-            pathname?.startsWith('/blocks') ? 'text-foreground' : 'text-foreground/60',
-          )}
-        >
-          Blocks
-        </Link>
+        </Link> */}
         <Link
           href={siteConfig.links.github}
           className={cn(

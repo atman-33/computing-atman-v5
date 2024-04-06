@@ -6,7 +6,7 @@ import { MainNav } from '@/components/main-nav';
 import { MobileNav } from '@/components/mobile-nav';
 import { ModeToggle } from '@/components/mode-toggle';
 import { siteConfig } from '@/config/site-config';
-import { buttonVariants, cn } from '@repo/ui';
+import { Button, buttonVariants, cn } from '@repo/ui';
 
 export function SiteHeader() {
   return (
@@ -47,6 +47,7 @@ export function SiteHeader() {
             </Link>
             <ModeToggle />
           </nav>
+          <Button>Log in</Button>
         </div>
       </div>
     </header>

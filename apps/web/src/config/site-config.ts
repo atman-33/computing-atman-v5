@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'computing-atman',
+  name: 'Computing Atman',
   url: 'https://computing-atman.com',
   ogImage: 'https://computing-atman.com/og.jpg',
   description: 'A blog about system development and programming related to IT.',
