@@ -39,3 +39,6 @@ yarn-error.log*
 
 # schema-codegen generated files
 /tools/schema-codegen/@generated
+
+# contentlayer
+.contentlayer
