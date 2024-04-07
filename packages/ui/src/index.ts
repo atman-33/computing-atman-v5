@@ -9,5 +9,6 @@ export * from './components/ui/scroll-area';
 export * from './components/ui/separator';
 export * from './components/ui/sheet';
 export * from './components/ui/table';
+export * from './components/ui/tabs';
 export * from './components/ui/tooltip';
 export * from './lib/utils';

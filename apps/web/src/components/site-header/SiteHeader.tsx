@@ -47,7 +47,7 @@ export function SiteHeader() {
             </Link>
             <ModeToggle />
           </nav>
-          <Button>Log in</Button>
+          <Button className="rounded-full font-bold">Log in</Button>
         </div>
       </div>
     </header>
