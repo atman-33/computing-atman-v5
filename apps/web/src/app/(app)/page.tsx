@@ -1,19 +1,19 @@
 import { Link } from '@/components/link';
 import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from '@repo/ui';
-import ArticleList from './_components/ArticleList';
+import PostList from './_components/PostList';
 
 const IndexPage = () => {
   return (
     <div className="container relative">
       <div>
-        <Tabs defaultValue="articles">
+        <Tabs defaultValue="posts">
           <TabsList>
-            <TabsTrigger value="articles">Articles</TabsTrigger>
+            <TabsTrigger value="posts">Posts</TabsTrigger>
             <TabsTrigger value="tech">Tech</TabsTrigger>
             <TabsTrigger value="explore">Explore</TabsTrigger>
           </TabsList>
-          <TabsContent value="articles">
-            <ArticleList />
+          <TabsContent value="posts">
+            <PostList />
           </TabsContent>
           <TabsContent value="tech">...making contents...</TabsContent>
           <TabsContent value="explore">...making contents...</TabsContent>

@@ -1,13 +1,13 @@
-export interface Article {
+export interface Post {
   title: string;
   emoji: string;
-  tags: [ArticleTag];
+  tags: [PostTag];
   published: boolean;
   createdAt: Date;
   updatedAt?: Date;
 }
 
-type ArticleTag =
+type PostTag =
   | 'React'
   | 'Next.js'
   | 'NestJS'

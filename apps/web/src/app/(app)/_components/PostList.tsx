@@ -1,9 +1,9 @@
 import { Icons } from '@/components/icons';
-import { Article } from '@/types/article';
+import { Post } from '@/types/post';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@repo/ui';
-import ArticleListItem from './ArticleListItem';
+import PostListItem from './PostListItem';
 
-const articles: Article[] = [
+const articles: Post[] = [
   {
     title: 'Article 1',
     emoji: '🎉',
@@ -30,7 +30,7 @@ const articles: Article[] = [
   },
 ];
 
-const ArticleList = () => {
+const PostList = () => {
   return (
     <>
       <div
@@ -53,7 +53,7 @@ const ArticleList = () => {
 
         <div className="flex flex-wrap space-y-4 items-baseline">
           {articles.map((article) => (
-            <ArticleListItem key={article.title} article={article} />
+            <PostListItem key={article.title} article={article} />
           ))}
         </div>
       </div>
@@ -61,4 +61,4 @@ const ArticleList = () => {
   );
 };
 
-export default ArticleList;
+export default PostList;
