@@ -1,11 +1,11 @@
-import { Post } from '@/types/post';
+import { type Post } from 'contentlayer/generated';
 
 interface PostListItemProps {
-  article: Post | undefined;
+  post: Post;
 }
 
 const PostListItem = (props: PostListItemProps) => {
-  const post = props.article;
+  const post = props.post;
 
   return (
     <div className="w-full md:w-1/2">
@@ -15,7 +15,7 @@ const PostListItem = (props: PostListItemProps) => {
         </div>
         <div className="flex flex-col space-y-2">
           <div className="font-bold text-wrap overflow-x-hidden">{post?.title}</div>
-          <div className="flex space-x-2 flex-wrap">
+          <div className="flex space-x-2">
             <div className="text-sm">tag1, tag2, tag3, ...</div>
             <div className="text-sm">更新日</div>
           </div>

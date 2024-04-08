@@ -1,36 +1,12 @@
 import { Icons } from '@/components/icons';
-import { Post } from '@/types/post';
+import { Link } from '@/components/link';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@repo/ui';
+import { allPosts } from 'contentlayer/generated';
 import PostListItem from './PostListItem';
 
-const articles: Post[] = [
-  {
-    title: 'Article 1',
-    emoji: '🎉',
-    tags: ['VBScript'],
-    published: true,
-    createdAt: new Date('2022-01-01'),
-    updatedAt: new Date('2022-01-01'),
-  },
-  {
-    title: 'Article 2',
-    emoji: '🚢',
-    tags: ['React'],
-    published: true,
-    createdAt: new Date('2022-01-01'),
-    updatedAt: new Date('2022-01-01'),
-  },
-  {
-    title: 'Article 3',
-    emoji: '🐶',
-    tags: ['Next.js'],
-    published: true,
-    createdAt: new Date('2022-01-01'),
-    updatedAt: new Date('2022-01-01'),
-  },
-];
-
 const PostList = () => {
+  const posts = allPosts;
+  // console.log(posts);
   return (
     <>
       <div
@@ -51,9 +27,11 @@ const PostList = () => {
 
         <span className="m-4" />
 
-        <div className="flex flex-wrap space-y-4 items-baseline">
-          {articles.map((article) => (
-            <PostListItem key={article.title} article={article} />
+        <div className="flex space-y-4 items-baseline">
+          {posts.map((post) => (
+            <Link href={post.slug} className="whitespace-nowrap">
+              <PostListItem key={post.title} post={post} />
+            </Link>
           ))}
         </div>
       </div>
