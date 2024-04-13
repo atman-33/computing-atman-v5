@@ -13,8 +13,11 @@ npm i contentlayer next-contentlayer date-fns -w apps/web
 ```
 
 ```bash
-npm i -D @shikijs/compat rehype-autolink-headings rehype-pretty-code rehype-slug rehype-citation rehype-katex rehype-preset-minify rehype-prism-plus remark-code-import remark-gfm remark-math reading-time -w apps/web
+npm i -D @shikijs/compat unist-util-visit rehype-autolink-headings rehype-pretty-code rehype-slug rehype-citation rehype-katex rehype-preset-minify rehype-prism-plus remark-code-import remark-gfm remark-math reading-time -w apps/web
 ```
+
+> `remark-gfm@4.0`で、contentlayerのファイル生成がエラーになる場合は、`remark-gfm@3.0.1`にver.をダウングレードしてみること。  
+> 参考URL: <https://github.com/contentlayerdev/contentlayer/issues/558>
 
 ### 2. next.config.js に、contentlayer の設定を追加
 

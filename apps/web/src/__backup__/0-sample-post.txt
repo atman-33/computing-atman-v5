@@ -38,7 +38,7 @@ published: true
 
 #### 見出し4
 
-`ts`  
+`TypeScript`
 
 ```ts
 const a = 1

@@ -1,8 +1,9 @@
+import { Mdx } from '@/components/mdx-components';
 import { allPosts } from 'contentlayer/generated';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { Mdx } from '@/components/mdx-components';
-import { Metadata } from 'next';
+import '@/styles/mdx.css';
 
 interface PostProps {
   params: {
