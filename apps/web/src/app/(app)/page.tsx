@@ -6,13 +6,13 @@ const IndexPage = () => {
   return (
     <div className="container relative">
       <div>
-        <Tabs defaultValue="posts">
+        <Tabs defaultValue="blog">
           <TabsList>
-            <TabsTrigger value="posts">Posts</TabsTrigger>
+            <TabsTrigger value="blog">Blog</TabsTrigger>
             <TabsTrigger value="tech">Tech</TabsTrigger>
             <TabsTrigger value="explore">Explore</TabsTrigger>
           </TabsList>
-          <TabsContent value="posts">
+          <TabsContent value="blog">
             <PostList />
           </TabsContent>
           <TabsContent value="tech">...making contents...</TabsContent>

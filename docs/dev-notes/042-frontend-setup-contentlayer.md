@@ -65,3 +65,15 @@ module.exports = withContentlayer(nextConfig)
 ```
 
 ### 5. Content Schema を追加
+
+
+
+## Note
+
+- slug  
+
+`/blog/0-sample-post`
+
+- slugAsParams  
+
+`0-sample-post`

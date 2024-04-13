@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="zCsQhXdnPDnUj5o-O-Uo" name="ページ1">
-        <mxGraphModel dx="1087" dy="471" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="none" math="0" shadow="0">
+        <mxGraphModel dx="1132" dy="471" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -10,7 +10,7 @@
                 <mxCell id="6" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.marginRect2;rectMarginTop=32;strokeColor=#666666;gradientColor=none;" parent="1" vertex="1">
                     <mxGeometry x="90" y="185" width="310" height="215" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="Posts" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fontColor=#666666;gradientColor=none;" parent="6" vertex="1">
+                <mxCell id="7" value="Blog" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fontColor=#666666;gradientColor=none;" parent="6" vertex="1">
                     <mxGeometry width="60" height="25" relative="1" as="geometry">
                         <mxPoint x="10" as="offset"/>
                     </mxGeometry>
@@ -60,7 +60,7 @@
                 <mxCell id="27" value="# top-page" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;glass=0;labelBackgroundColor=none;labelBorderColor=none;sketch=0;fontSize=16;opacity=50;" parent="1" vertex="1">
                     <mxGeometry x="80" y="90" width="130" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="30" value="# posts" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;glass=0;labelBackgroundColor=none;labelBorderColor=none;sketch=0;fontSize=16;opacity=50;" parent="1" vertex="1">
+                <mxCell id="30" value="# blog" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;glass=0;labelBackgroundColor=none;labelBorderColor=none;sketch=0;fontSize=16;opacity=50;" parent="1" vertex="1">
                     <mxGeometry x="80" y="584" width="130" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="31" value="" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;labelBackgroundColor=none;labelBorderColor=none;sketch=0;fontSize=16;gradientColor=none;opacity=50;" parent="1" vertex="1">

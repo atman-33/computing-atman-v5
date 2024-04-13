@@ -14,11 +14,13 @@ const computedFields: ComputedFields = {
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: `posts/**/*.mdx`,
+  filePathPattern: `blog/**/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
+    description: { type: 'string', required: true },
     date: { type: 'date', required: true },
+    lastmod: { type: 'date', required: false },
     emoji: { type: 'string', required: true },
     tags: { type: 'list', of: { type: 'string' } },
     published: { type: 'boolean', required: true },

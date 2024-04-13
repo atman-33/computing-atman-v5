@@ -4,6 +4,7 @@ const debugPages = [
   '/debug/001-shadcn-button',
   '/debug/002-graphql',
   '/debug/003-graphql-dummy-data',
+  '/debug/004-contentlayer',
 ];
 
 const Page = () => {
