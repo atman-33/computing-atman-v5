@@ -50,15 +50,13 @@ export default async function PostPage({ params }: PostProps) {
   }
 
   return (
-    <article
-      className="py-6 prose dark:prose-invert bg-primary/10 p-8"
-      style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}
-    >
-      <div className="container">
+    <article className="py-6 prose dark:prose-invert bg-primary/10 sm:p-8">
+      <div className="sm:container">
         <PostHeader post={post} />
 
-        <hr className="my-4" />
-        <Mdx code={post.body.code} />
+        <div className="bg-white p-4 sm:p-8 sm:rounded-sm">
+          <Mdx code={post.body.code} />
+        </div>
       </div>
     </article>
   );

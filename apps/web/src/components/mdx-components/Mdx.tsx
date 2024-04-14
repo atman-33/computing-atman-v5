@@ -8,5 +8,9 @@ interface MdxProps {
 export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
-  return <Component components={components} />;
+  return (
+    <div className="mdx">
+      <Component components={components} />
+    </div>
+  );
 }

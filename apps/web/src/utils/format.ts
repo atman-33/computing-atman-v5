@@ -1,8 +1,3 @@
-export const getFirstLine = (str: string) => {
-  const lines = str.split('\n');
-  return lines[0];
-};
-
 export const getFormattedDate = (date: Date, format: string) => {
   const symbol = {
     M: date.getMonth() + 1,
