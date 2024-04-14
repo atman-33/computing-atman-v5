@@ -18,4 +18,4 @@ const PostTags = ({ post }: { post: Post }) => {
   );
 };
 
-export default PostTags;
+export { PostTags };

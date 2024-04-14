@@ -1,4 +1,6 @@
 import { type Post } from 'contentlayer/generated';
+import { PostDate } from './PostDate';
+import { PostTags } from './PostTags';
 
 interface PostListItemProps {
   post: Post;
@@ -14,13 +16,13 @@ const PostListItem = (props: PostListItemProps) => {
       </div>
       <div className="flex flex-col space-y-2">
         <div className="font-bold text-wrap overflow-x-hidden">{post?.title}</div>
-        <div className="flex space-x-2">
-          <div className="text-sm">tag1, tag2, tag3, ...</div>
-          <div className="text-sm">更新日</div>
+        <div className="flex space-x-2 space-y-1 flex-wrap">
+          <PostTags post={post} />
+          <PostDate post={post} />
         </div>
       </div>
     </div>
   );
 };
 
-export default PostListItem;
+export { PostListItem };

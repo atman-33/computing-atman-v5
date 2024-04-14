@@ -1,6 +1,6 @@
 import { Link } from '@/components/link';
+import { PostList } from '@/features/blog';
 import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from '@repo/ui';
-import PostList from './_components/PostList';
 
 const IndexPage = () => {
   return (

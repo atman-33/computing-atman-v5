@@ -3,9 +3,8 @@ import { allPosts } from 'contentlayer/generated';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import { PostHeader, PostTags } from '@/features/blog';
 import '@/styles/mdx.css';
-import PostHeader from '../_components/PostHeader';
-import PostTags from '../_components/PostTags';
 
 interface PostProps {
   params: {

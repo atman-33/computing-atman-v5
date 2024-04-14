@@ -2,7 +2,7 @@ import { Icons } from '@/components/icons';
 import { Link } from '@/components/link';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@repo/ui';
 import { allPosts } from 'contentlayer/generated';
-import PostListItem from './PostListItem';
+import { PostListItem } from './PostListItem';
 
 const PostList = () => {
   const posts = allPosts;
@@ -41,4 +41,4 @@ const PostList = () => {
   );
 };
 
-export default PostList;
+export { PostList };
