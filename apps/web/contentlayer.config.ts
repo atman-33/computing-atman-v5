@@ -1,6 +1,5 @@
 import { getHighlighter, loadTheme } from '@shikijs/compat';
 import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files';
-// import path from 'path';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeKatex from 'rehype-katex';
 import rehypePresetMinify from 'rehype-preset-minify';
@@ -76,7 +75,7 @@ export default makeSource({
         rehypePrettyCode,
         {
           getHighlighter: async () => {
-            const theme: any = await loadTheme(themes.bundledThemes['github-dark']);
+            const theme: any = await loadTheme(themes.bundledThemes['github-dark-dimmed']);
             return await getHighlighter({ theme });
           },
           onVisitLine(node: any) {
