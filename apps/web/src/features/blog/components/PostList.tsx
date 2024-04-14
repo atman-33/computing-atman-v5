@@ -13,7 +13,7 @@ const PostList = () => {
         className="bg-primary/15 p-8"
         style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}
       >
-        <div className="container mx-auto">
+        <section className="container mx-auto  max-w-[1000px]">
           <div className="flex items-baseline space-x-2">
             <h3 className="text-3xl font-bold">Latest</h3>
             <Tooltip>
@@ -28,14 +28,17 @@ const PostList = () => {
 
           <span className="m-4" />
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {posts.map((post) => (
-              <Link href={post.slug} className="whitespace-nowrap">
-                <PostListItem key={post.title} post={post} />
-              </Link>
-            ))}
+          {/* <div className="grid grid-cols-1 gap-8 md:grid-cols-2"> */}
+          <div className="flex flex-col mx-auto items-center">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              {posts.map((post) => (
+                <Link href={post.slug} className="whitespace-nowrap">
+                  <PostListItem key={post.title} post={post} />
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
       </div>
     </>
   );

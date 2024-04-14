@@ -8,7 +8,7 @@ const PostTags = ({ post }: { post: Post }) => {
   }
 
   return (
-    <div className="flex space-x-2">
+    <div className="flex space-x-2 flex-wrap">
       {post.tags?.map((tag) => (
         <Badge key={tag} variant="outline">
           <Tag kind={tag as TagIconKind} href={`/blog/tags/${tag}`} />
