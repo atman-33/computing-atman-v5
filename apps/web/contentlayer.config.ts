@@ -55,19 +55,19 @@ export default makeSource({
               return;
             }
 
-            if (codeEl.data?.meta) {
-              // Extract event from meta and pass it down the tree.
-              const regex = /event="([^"]*)"/;
-              const match = codeEl.data?.meta.match(regex);
-              if (match) {
-                node.__event__ = match ? match[1] : null;
-                codeEl.data.meta = codeEl.data.meta.replace(regex, '');
-              }
-            }
+            // if (codeEl.data?.meta) {
+            //   // Extract event from meta and pass it down the tree.
+            //   const regex = /event="([^"]*)"/;
+            //   const match = codeEl.data?.meta.match(regex);
+            //   if (match) {
+            //     node.__event__ = match ? match[1] : null;
+            //     codeEl.data.meta = codeEl.data.meta.replace(regex, '');
+            //   }
+            // }
 
             node.__rawString__ = codeEl.children?.[0].value;
-            node.__src__ = node.properties?.__src__;
-            node.__style__ = node.properties?.__style__;
+            // node.__src__ = node.properties?.__src__;
+            // node.__style__ = node.properties?.__style__;
           }
         });
       },
@@ -94,9 +94,14 @@ export default makeSource({
         },
       ],
       () => (tree) => {
-        visit(tree, (node) => {
-          if (node?.type === 'element' && node?.tagName === 'div') {
-            if (!('data-rehype-pretty-code-fragment' in node.properties)) {
+        // eslint-disable-next-line no-unused-vars
+        visit(tree, (node, index) => {
+          // console.log(`node ${index}=> `, node);
+
+          // NOTE: コードブロック（ソースコード）に情報を付与
+          if (node?.type === 'element' && node?.tagName === 'figure') {
+            // console.log(`data-rehype-pretty-code-check => `, 'data-rehype-pretty-code-figure' in node.properties);
+            if (!('data-rehype-pretty-code-figure' in node.properties)) {
               return;
             }
 
@@ -107,18 +112,35 @@ export default makeSource({
 
             preElement.properties['__withMeta__'] = node.children.at(0).tagName === 'div';
             preElement.properties['__rawString__'] = node.__rawString__;
+            // console.log(`__rawString__ => `, node.__rawString__);
 
-            if (node.__src__) {
-              preElement.properties['__src__'] = node.__src__;
+            // if (node.__src__) {
+            //   preElement.properties['__src__'] = node.__src__;
+            // }
+
+            // if (node.__event__) {
+            //   preElement.properties['__event__'] = node.__event__;
+            // }
+
+            // if (node.__style__) {
+            //   preElement.properties['__style__'] = node.__style__;
+            // }
+
+            // console.log(`node(figure) => `, node);
+          }
+
+          // NOTE: インラインコードに情報を付与
+          if (node?.type === 'element' && node?.tagName === 'code') {
+            if ('data-theme' in node.properties) {
+              node.__isInlineCode__ = 'false';
+              // console.log(`node(code block) => `, node);
+              return;
             }
 
-            if (node.__event__) {
-              preElement.properties['__event__'] = node.__event__;
-            }
-
-            if (node.__style__) {
-              preElement.properties['__style__'] = node.__style__;
-            }
+            node.__isInlineCode__ = 'true';
+            // NOTE: propertiesに情報を追加しないと、node.__inInlineCode__の値を扱えないため注意
+            node.properties['__isInlineCode__'] = 'true';
+            // console.log(`node(inline code) => `, node);
           }
         });
       },

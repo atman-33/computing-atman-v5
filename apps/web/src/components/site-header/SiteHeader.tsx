@@ -18,7 +18,7 @@ export function SiteHeader() {
           <div className="w-full flex-1 md:w-auto md:flex-none">
             <CommandMenu />
           </div>
-          <nav className="hidden md:flex items-center">
+          <nav className="hidden sm:flex items-center">
             <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
               <div
                 className={cn(

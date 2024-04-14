@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import '@/styles/mdx.css';
+import PostHeader from '../_components/PostHeader';
 
 interface PostProps {
   params: {
@@ -49,13 +50,16 @@ export default async function PostPage({ params }: PostProps) {
   }
 
   return (
-    <article className="py-6 prose dark:prose-invert">
-      <h1 className="mb-2">{post.title}</h1>
-      {post.description && (
-        <p className="text-xl mt-0 text-slate-700 dark:text-slate-200">{post.description}</p>
-      )}
-      <hr className="my-4" />
-      <Mdx code={post.body.code} />
+    <article
+      className="py-6 prose dark:prose-invert bg-primary/10 p-8"
+      style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}
+    >
+      <div className="container">
+        <PostHeader post={post} />
+
+        <hr className="my-4" />
+        <Mdx code={post.body.code} />
+      </div>
     </article>
   );
 }

@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="zCsQhXdnPDnUj5o-O-Uo" name="ページ1">
-        <mxGraphModel dx="1208" dy="748" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="none" math="0" shadow="0">
+        <mxGraphModel dx="1208" dy="516" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -111,9 +111,9 @@
                 <mxCell id="46" value="Note&lt;br&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;rounded=0;shadow=0;glass=0;labelBackgroundColor=none;labelBorderColor=none;sketch=0;fontSize=9;align=left;verticalAlign=top;spacingLeft=0;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="440" y="145" width="160" height="195" as="geometry"/>
                 </mxCell>
-                <UserObject label="フリーアイコンサイト&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;http://flat-icon-design.com/?cat=71&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://www.flaticon.com/&quot;&gt;https://www.flaticon.com/&lt;/a&gt;&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" link="http://flat-icon-design.com/?cat=71" id="47">
+                <UserObject label="利用アイコン&lt;br&gt;&lt;br&gt;- SVG REPO&lt;br&gt;&amp;lt;&lt;a href=&quot;https://www.svgrepo.com/&quot;&gt;https://www.svgrepo.com/&lt;/a&gt;&amp;gt;" id="47">
                     <mxCell style="text;whiteSpace=wrap;html=1;fontSize=9;fontColor=#FFFFFF;labelBackgroundColor=none;" parent="1" vertex="1">
-                        <mxGeometry x="700" y="145" width="260" height="100" as="geometry"/>
+                        <mxGeometry x="670" y="120" width="260" height="100" as="geometry"/>
                     </mxCell>
                 </UserObject>
                 <mxCell id="48" value="# post" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;glass=0;labelBackgroundColor=none;labelBorderColor=none;sketch=0;fontSize=16;opacity=50;" parent="1" vertex="1">

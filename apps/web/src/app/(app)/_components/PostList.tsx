@@ -10,7 +10,7 @@ const PostList = () => {
   return (
     <>
       <div
-        className="bg-primary/10 p-8"
+        className="bg-primary/15 p-8"
         style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}
       >
         <div className="container mx-auto">
@@ -28,7 +28,7 @@ const PostList = () => {
 
           <span className="m-4" />
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {posts.map((post) => (
               <Link href={post.slug} className="whitespace-nowrap">
                 <PostListItem key={post.title} post={post} />
