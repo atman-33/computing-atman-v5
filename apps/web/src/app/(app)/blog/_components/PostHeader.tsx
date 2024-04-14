@@ -11,7 +11,10 @@ const PostHeader = ({ post }: { post: Post }) => {
         <p className="text-base mt-0 text-slate-500 dark:text-slate-200">{post.description}</p>
       )}
       <div className="flex text-slate-500 text-sm items-center space-x-2">
-        <span>{getFormattedDate(new Date(post.date), 'yyyy/MM/dd')}に公開</span>
+        <div className="flex items-center">
+          <Icons.edit className="h-5 w-5" />
+          <span>{getFormattedDate(new Date(post.date), 'yyyy/MM/dd')}</span>
+        </div>
         {post.lastmod && (
           <div className="flex items-center">
             <Icons.update className="h-5 w-5" />
