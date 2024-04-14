@@ -2,10 +2,21 @@ import { TagIcons } from './TagIcons';
 
 export * from './TagIcons';
 
+/**
+ * タグアイコンの定義。タグが増える際は、ここに定義を追加すること。
+ */
 const tagIcons = {
   csharp: {
     name: 'C#',
     icon: TagIcons.csharp,
+  },
+  vba: {
+    name: 'VBA',
+    icon: TagIcons.vba,
+  },
+  vbs: {
+    name: 'VBScript',
+    icon: TagIcons.vb,
   },
 };
 
