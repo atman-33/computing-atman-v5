@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 
 import '@/styles/mdx.css';
 import PostHeader from '../_components/PostHeader';
+import PostTags from '../_components/PostTags';
 
 interface PostProps {
   params: {
@@ -50,11 +51,12 @@ export default async function PostPage({ params }: PostProps) {
   }
 
   return (
-    <article className="py-6 prose dark:prose-invert bg-primary/10 sm:p-8">
+    <article className="py-6 prose dark:prose-invert bg-primary/10 sm:p-2">
       <div className="sm:container">
         <PostHeader post={post} />
 
-        <div className="bg-white p-4 sm:p-8 sm:rounded-sm">
+        <div className="bg-white dark:bg-zinc-950 p-4 sm:p-8 sm:rounded-sm flex flex-col space-y-4">
+          <PostTags post={post} />
           <Mdx code={post.body.code} />
         </div>
       </div>
