@@ -42,7 +42,7 @@ const Tag = ({ kind, href, size = 6 }: TagIconProps) => {
   const TagIconSvg = tagIcons[kind].icon;
 
   const TagIconAndName = (
-    <div className="flex items-center space-x-1 h-6">
+    <div className="flex items-center space-x-1 h-6 text-xs">
       <TagIconSvg className={`h-${size} w-${size}`} />
       <span>{tagIcons[kind].name}</span>
     </div>

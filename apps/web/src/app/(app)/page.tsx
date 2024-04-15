@@ -4,7 +4,7 @@ import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from '@repo/ui';
 
 const IndexPage = () => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto max-w-screen-xl">
       <div>
         <Tabs defaultValue="blog">
           <TabsList>
