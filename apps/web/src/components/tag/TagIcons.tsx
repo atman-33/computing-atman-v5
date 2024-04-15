@@ -2,14 +2,7 @@ type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const TagIcons = {
   csharp: (props: IconProps) => (
-    <svg
-      width="32px"
-      height="32px"
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M27.6947 22.9999C27.883 22.6617 28 22.2807 28 21.9385V10.0613C28 9.71913 27.8831 9.33818 27.6947 9L16 16L27.6947 22.9999Z"
         fill="#7F3A86"
@@ -35,13 +28,7 @@ export const TagIcons = {
     </svg>
   ),
   vba: (props: IconProps) => (
-    <svg
-      width="800px"
-      height="800px"
-      viewBox="0 0 32 32"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" {...props}>
       <title>file_type_vba</title>
       <polygon
         points="10.457 11.092 16.014 13.839 16.014 18.307 10.457 15.382 10.457 11.092"
@@ -106,13 +93,7 @@ export const TagIcons = {
     </svg>
   ),
   vb: (props: IconProps) => (
-    <svg
-      width="800px"
-      height="800px"
-      viewBox="0 0 32 32"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" {...props}>
       <title>file_type_vb</title>
       <path
         d="M6.67,7.836,9,18.915,11.336,7.836H16L11.336,24.164H6.672L2,7.836Z"

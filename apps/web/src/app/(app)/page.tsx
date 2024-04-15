@@ -15,8 +15,8 @@ const IndexPage = () => {
           <TabsContent value="blog">
             <PostList />
           </TabsContent>
-          <TabsContent value="tech">...making contents...</TabsContent>
-          <TabsContent value="explore">...making contents...</TabsContent>
+          <TabsContent value="tech">making contents...</TabsContent>
+          <TabsContent value="explore">making contents...</TabsContent>
         </Tabs>
       </div>
       <div className="m-4">
