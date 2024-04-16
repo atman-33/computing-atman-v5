@@ -67,9 +67,22 @@ module.exports = withContentlayer(nextConfig)
 .contentlayer
 ```
 
-### 5. Content Schema を追加
+### 5. contentlayer.config.ts を追加
 
+`/home/atman/Sites/computing-atman-v5/apps/web/contentlayer.config.ts`
 
+- ComputedFields を追加
+- defineDocumentType を追加
+- makeSource を追加
+
+### 6. mdx 用コンポーネントを追加
+
+- `apps/web/src/components/mdx-components/components.tsx`
+  - htmlタグに対する処理を記載
+- `apps/web/src/components/mdx-components/copy-button.tsx`
+  - コードブロックのコピーボタン
+- `apps/web/src/components/mdx-components/Mdx.tsx`
+  - mdxの表示用コンポーネント 
 
 ## Note
 
