@@ -4,10 +4,9 @@ import { useEffect, useState } from 'react';
 
 type ScrollTopProps = {
   fixedBottom: number;
-  fixedRight: number;
 };
 
-const ScrollTop = ({ fixedBottom, fixedRight }: ScrollTopProps) => {
+const ScrollTop = ({ fixedBottom }: ScrollTopProps) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -27,7 +26,7 @@ const ScrollTop = ({ fixedBottom, fixedRight }: ScrollTopProps) => {
   return (
     <>
       <div
-        className={`fixed bottom-${fixedBottom} right-${fixedRight} flex flex-col gap-3 ${show ? 'flex' : 'hidden'}`}
+        className={`fixed bottom-${fixedBottom} flex flex-col gap-3 ${show ? 'flex' : 'hidden'}`}
       >
         <button
           aria-label="Scroll To Top"

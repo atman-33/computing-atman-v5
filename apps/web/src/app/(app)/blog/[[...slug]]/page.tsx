@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import ScrollTop from '@/components/scroll-top/ScrollTop';
+import { Toc } from '@/components/toc';
 import { PostHeader, PostTags } from '@/features/blog';
 import '@/styles/mdx.css';
 
@@ -52,17 +53,26 @@ export default async function PostPage({ params }: PostProps) {
 
   return (
     <>
-      <ScrollTop fixedBottom={8} fixedRight={4} />
       <article className="py-6 prose dark:prose-invert bg-primary/10 sm:p-2">
         <div className="sm:container">
           <PostHeader post={post} />
 
-          <div className="bg-white dark:bg-zinc-950 p-4 sm:p-8 sm:rounded-sm flex flex-col space-y-4">
-            <PostTags post={post} />
-            <Mdx code={post.body.code} />
+          <div className="relative">
+            <div className="bg-white dark:bg-zinc-950 p-4 sm:p-8 sm:rounded-sm flex flex-col space-y-4">
+              <PostTags post={post} />
+              <div className="content">
+                <Mdx code={post.body.code} />
+              </div>
+              <div className="absolute right-4">
+                <ScrollTop fixedBottom={4} />
+              </div>
+            </div>
           </div>
         </div>
       </article>
+      <div className="hidden md:flex">
+        <Toc />
+      </div>
     </>
   );
 }
