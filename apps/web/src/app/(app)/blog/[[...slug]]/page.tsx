@@ -52,25 +52,25 @@ export default async function PostPage({ params }: PostProps) {
   }
 
   return (
-    <>
-      <article className="py-6 prose dark:prose-invert bg-primary/10 sm:p-2">
-        <div className="sm:container">
-          <PostHeader post={post} />
+    <div className="py-6 prose dark:prose-invert sm:p-2 bg-primary/10">
+      <div className="sm:container">
+        <PostHeader post={post} />
 
-          <div className="bg-white dark:bg-zinc-950 p-4 sm:p-8 sm:rounded-sm flex flex-col space-y-4">
+        <article className="grid md:grid-cols-10 ">
+          <section className="bg-white dark:bg-zinc-950 p-4 sm:p-8 sm:rounded-sm flex flex-col space-y-4 col-span-7">
             <PostTags post={post} />
             <div className="content">
               <Mdx code={post.body.code} />
             </div>
+          </section>
+          <div className="hidden md:flex col-span-3 items-start">
+            <Toc className="sticky top-20 min-w-72" />
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
       <div className="fixed bottom-4 right-4">
         <ScrollTop />
       </div>
-      <div className="hidden md:flex">
-        <Toc />
-      </div>
-    </>
+    </div>
   );
 }
