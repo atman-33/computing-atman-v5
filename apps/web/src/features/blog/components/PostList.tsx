@@ -13,7 +13,7 @@ const PostList = () => {
         className="bg-primary/15 p-8"
         style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}
       >
-        <section className="md:container mx-auto max-w-screen-lg justify-center">
+        <section className="mx-auto justify-center max-w-[1000px]">
           <div className="flex items-baseline space-x-2">
             <h3 className="text-3xl font-bold">Latest</h3>
             <Tooltip>

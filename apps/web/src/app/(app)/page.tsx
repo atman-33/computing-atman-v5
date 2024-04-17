@@ -1,6 +1,12 @@
+import { DotFlasing } from '@/components/dot-flashing';
 import { Link } from '@/components/link';
-import { PostList } from '@/features/blog';
 import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from '@repo/ui';
+import dynamic from 'next/dynamic';
+
+const PostList = dynamic(
+  () => import('@/features/blog/components/PostList').then((mod) => mod.PostList),
+  { ssr: false, loading: () => <DotFlasing /> },
+);
 
 const IndexPage = () => {
   return (
