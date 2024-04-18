@@ -64,7 +64,7 @@ export default async function PostPage({ params }: PostProps) {
             </div>
           </section>
           <div className="hidden md:flex col-span-3 items-start">
-            <Toc className="sticky top-20 min-w-72" />
+            <Toc className="sticky top-20 min-w-72 ml-6" />
           </div>
         </article>
       </div>
