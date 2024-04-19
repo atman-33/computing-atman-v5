@@ -1,7 +1,7 @@
 import { Image } from '@/components/image';
 import { Link } from '@/components/link';
 import { cn } from '@repo/ui';
-import { CopyButton } from './copy-button';
+import { CopyButton } from './CopyButton';
 
 export const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (

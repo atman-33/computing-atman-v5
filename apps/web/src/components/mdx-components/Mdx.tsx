@@ -1,5 +1,5 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import { components } from './components';
+import { components } from './Components';
 
 interface MdxProps {
   code: string;
