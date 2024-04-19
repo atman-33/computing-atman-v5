@@ -6,9 +6,7 @@ interface PostListItemProps {
   post: Post;
 }
 
-const PostListItem = (props: PostListItemProps) => {
-  const post = props.post;
-
+const PostListItem = ({ post }: PostListItemProps) => {
   return (
     <div className="flex space-x-4">
       <div className="flex h-20 min-h-20 w-20 min-w-20 items-center justify-center rounded-md bg-white text-5xl">

@@ -10,7 +10,7 @@ import { Button, buttonVariants, cn } from '@repo/ui';
 
 export function SiteHeader() {
   return (
-    <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 mx-auto flex justify-center border-b backdrop-blur">
+    <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 top-0 z-50 mx-auto flex justify-center border-b backdrop-blur">
       <div className="mx-4 flex h-14 w-full items-center justify-center md:container md:w-10/12">
         <MainNav />
         <MobileNav />
