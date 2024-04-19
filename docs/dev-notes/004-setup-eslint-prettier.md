@@ -59,3 +59,20 @@ npm -w packages/eslint-config i -D eslint-plugin-react-hooks
     'react-hooks/exhaustive-deps': 'warn',
   },
 ```
+
+## TaiwindCSSのclassの順番並び替え
+
+```bash
+npm install -D prettier prettier-plugin-tailwindcss
+```
+
+`.prittierrc`
+
+```.prittierrc
+{
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
+```
+
+> 参考URL
+> [TaiwindCSSのclassの順番並び替えを最速で導入する](https://zenn.dev/nbr41to/articles/e1fe669ae37875)
