@@ -5,12 +5,15 @@ import { CopyButton } from './copy-button';
 
 export const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h1 className={cn('font-heading mt-2 scroll-m-20 text-4xl font-bold', className)} {...props} />
+    <h1
+      className={cn('font-heading mt-2 scroll-m-20 break-words text-4xl font-bold', className)}
+      {...props}
+    />
   ),
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        'font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0',
+        'font-heading mt-12 scroll-m-20 break-words border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0',
         className,
       )}
       {...props}
@@ -19,7 +22,7 @@ export const components = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        'font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight',
+        'font-heading mt-8 scroll-m-20 break-words text-xl font-semibold tracking-tight',
         className,
       )}
       {...props}
@@ -28,7 +31,7 @@ export const components = {
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
       className={cn(
-        'font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight',
+        'font-heading mt-8 scroll-m-20 break-words text-lg font-semibold tracking-tight',
         className,
       )}
       {...props}
@@ -36,13 +39,16 @@ export const components = {
   ),
   h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h5
-      className={cn('mt-8 scroll-m-20 text-lg font-semibold tracking-tight', className)}
+      className={cn('mt-8 scroll-m-20 break-words text-lg font-semibold tracking-tight', className)}
       {...props}
     />
   ),
   h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h6
-      className={cn('mt-8 scroll-m-20 text-base font-semibold tracking-tight', className)}
+      className={cn(
+        'mt-8 scroll-m-20 break-words text-base font-semibold tracking-tight',
+        className,
+      )}
       {...props}
     />
   ),

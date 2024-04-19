@@ -10,8 +10,8 @@ import { Button, buttonVariants, cn } from '@repo/ui';
 
 export function SiteHeader() {
   return (
-    <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
-      <div className="container flex h-14 max-w-screen-xl items-center">
+    <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 mx-auto flex justify-center border-b backdrop-blur">
+      <div className="mx-4 flex h-14 w-full items-center justify-center md:container md:w-10/12">
         <MainNav />
         <MobileNav />
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
@@ -47,7 +47,7 @@ export function SiteHeader() {
             </Link>
             <ModeToggle />
           </nav>
-          <Button className="rounded-full font-bold">Log in</Button>
+          <Button className="h-8 rounded-full font-bold">Log in</Button>
         </div>
       </div>
     </header>

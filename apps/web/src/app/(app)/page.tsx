@@ -10,7 +10,7 @@ const PostList = dynamic(
 
 const IndexPage = () => {
   return (
-    <div className="container mx-auto max-w-screen-xl">
+    <div className="container mx-auto w-full md:w-10/12">
       <div>
         <Tabs defaultValue="blog">
           <TabsList>

@@ -56,15 +56,15 @@ export default async function PostPage({ params }: PostProps) {
       <div className="sm:container">
         <PostHeader post={post} />
 
-        <article className="grid lg:grid-cols-10 ">
-          <section className="col-span-7 flex flex-col space-y-4 bg-white p-4 sm:rounded-sm sm:p-8 dark:bg-zinc-950">
+        <article className="lg:grid lg:grid-cols-10 ">
+          <section className="flex flex-col space-y-4 bg-white p-4 sm:rounded-sm sm:p-8 lg:col-span-7 dark:bg-zinc-950">
             <PostTags post={post} />
             <div className="content">
               <Mdx code={post.body.code} />
             </div>
           </section>
-          <div className="col-span-3 hidden items-start lg:flex">
-            <Toc className="sticky top-20 ml-6" />
+          <div className="hidden items-start lg:col-span-3 lg:flex">
+            <Toc className="sticky top-20 ml-6 min-w-72" />
           </div>
         </article>
       </div>
