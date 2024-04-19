@@ -13,7 +13,7 @@ const PostList = () => {
         className="bg-primary/15 p-8"
         style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}
       >
-        <section className="mx-auto justify-center max-w-[1000px]">
+        <section className="mx-auto max-w-[1000px] justify-center">
           <div className="flex items-baseline space-x-2">
             <h3 className="text-3xl font-bold">Latest</h3>
             <Tooltip>
@@ -28,7 +28,7 @@ const PostList = () => {
 
           <span className="m-4" />
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid gap-4 md:grid-cols-2">
             {posts.map((post) => (
               <Link href={post.slug} className="whitespace-nowrap">
                 <PostListItem key={post.title} post={post} />

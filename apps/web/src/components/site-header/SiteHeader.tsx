@@ -10,7 +10,7 @@ import { Button, buttonVariants, cn } from '@repo/ui';
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
       <div className="container flex h-14 max-w-screen-xl items-center">
         <MainNav />
         <MobileNav />
@@ -18,7 +18,7 @@ export function SiteHeader() {
           <div className="w-full flex-1 md:w-auto md:flex-none">
             <CommandMenu />
           </div>
-          <nav className="hidden sm:flex items-center">
+          <nav className="hidden items-center sm:flex">
             <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
               <div
                 className={cn(

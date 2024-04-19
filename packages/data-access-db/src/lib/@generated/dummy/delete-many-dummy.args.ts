@@ -6,9 +6,8 @@ import { ValidateNested } from 'class-validator';
 
 @ArgsType()
 export class DeleteManyDummyArgs {
-
-    @Field(() => DummyWhereInput, {nullable:true})
-    @Type(() => DummyWhereInput)
-    @ValidateNested()
-    where?: DummyWhereInput;
+  @Field(() => DummyWhereInput, { nullable: true })
+  @Type(() => DummyWhereInput)
+  @ValidateNested()
+  where?: DummyWhereInput;
 }

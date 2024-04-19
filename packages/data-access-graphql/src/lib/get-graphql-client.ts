@@ -4,10 +4,10 @@ import { getSdk } from './types';
 
 export const getGraphqlClient = (
   url: string,
-  headers?: MaybeLazy<GraphQLClientRequestHeaders> | undefined
+  headers?: MaybeLazy<GraphQLClientRequestHeaders> | undefined,
 ) => {
   const client = new GraphQLClient(url, {
-    headers
+    headers,
   });
 
   return getSdk(client);

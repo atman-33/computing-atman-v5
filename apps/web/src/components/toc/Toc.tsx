@@ -23,8 +23,8 @@ export const Toc = ({ className }: TocProps) => {
   }, []);
 
   return (
-    <div className={`p-2 bg-white dark:bg-zinc-700 rounded-md items-start ${className}`}>
-      <h3 className="p-2 mb-1 font-semibold border-b items-center flex space-x-2">
+    <div className={`items-start rounded-md bg-white p-2 dark:bg-zinc-700 ${className}`}>
+      <h3 className="mb-1 flex items-center space-x-2 border-b p-2 font-semibold">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -42,7 +42,7 @@ export const Toc = ({ className }: TocProps) => {
         </svg>
         <span>目次</span>
       </h3>
-      <nav className="toc mt-1 mb-1"></nav>
+      <nav className="toc mb-1 mt-1"></nav>
     </div>
   );
 };

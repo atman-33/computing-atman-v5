@@ -20,7 +20,7 @@ export function MobileNav() {
           className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
         >
           <Logo />
-          <span className="ml-2 font-bold text-xl">Computing Atman</span>
+          <span className="ml-2 text-xl font-bold">Computing Atman</span>
           {/* <svg
             strokeWidth="1.5"
             viewBox="0 0 24 24"

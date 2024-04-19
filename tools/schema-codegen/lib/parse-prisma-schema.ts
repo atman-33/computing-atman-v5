@@ -27,8 +27,8 @@ const generateModelJson = (models: Model[]) => {
       columns: model.columns.map((column) => ({
         name: column.name,
         type: column.type,
-        key: column.key
-      }))
+        key: column.key,
+      })),
     };
   });
 };
@@ -57,7 +57,7 @@ const parsePrismaSchema = (schemaContent: string) => {
         camel: pascalToCamel(modelMatch[1] as string),
         pluralKebab: toKebabCase(pluralize(modelMatch[1] as string)),
         pluralCamel: pascalToCamel(pluralize(modelMatch[1] as string)),
-        columns: []
+        columns: [],
       };
     } else {
       // Check if the line contains the @id or @relation annotation
@@ -77,7 +77,11 @@ const parsePrismaSchema = (schemaContent: string) => {
         // Set the key value based on whether the line contains the @id annotation
         const key = idMatch ? 1 : 0;
         // Add the column object to the current model's columns array
-        currentModel.columns.push({ name: columnName as string, type: type as string, key: key.toString() });
+        currentModel.columns.push({
+          name: columnName as string,
+          type: type as string,
+          key: key.toString(),
+        });
       }
     }
   });

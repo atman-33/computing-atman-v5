@@ -9,7 +9,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   return (
     <div>
       <SiteHeader />
-      <main className="flex-1 mx-auto mt-2">{children}</main>
+      <main className="mx-auto mt-2 flex-1">{children}</main>
       <SiteFooter />
     </div>
   );

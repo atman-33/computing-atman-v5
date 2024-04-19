@@ -77,7 +77,7 @@ export const components = {
     </div>
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
-    <tr className={cn('m-0 border-t p-0 even:bg-muted', className)} {...props} />
+    <tr className={cn('even:bg-muted m-0 border-t p-0', className)} {...props} />
   ),
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th
@@ -142,7 +142,7 @@ export const components = {
           <code
             className={cn(
               // 'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm bg-zinc-950 dark:bg-zinc-900 text-white',
-              'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm bg-slate-200 m-1 text-black dark:text-white dark:bg-slate-800',
+              'bg-muted relative m-1 rounded bg-slate-200 px-[0.3rem] py-[0.2rem] font-mono text-sm text-black dark:bg-slate-800 dark:text-white',
               className,
             )}
             {...props}
@@ -150,7 +150,7 @@ export const components = {
         ) : (
           <code
             className={cn(
-              'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm bg-[#22272e] text-white',
+              'bg-muted relative rounded bg-[#22272e] px-[0.3rem] py-[0.2rem] font-mono text-sm text-white',
               className,
             )}
             {...props}
@@ -166,7 +166,7 @@ export const components = {
   LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn(
-        'flex w-full flex-col items-center rounded-xl border bg-card p-6 text-card-foreground shadow transition-colors hover:bg-muted/50 sm:p-10',
+        'bg-card text-card-foreground hover:bg-muted/50 flex w-full flex-col items-center rounded-xl border p-6 shadow transition-colors sm:p-10',
         className,
       )}
       {...props}

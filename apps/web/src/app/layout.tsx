@@ -75,7 +75,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-screen flex-col bg-background">{children}</div>
+          <div className="bg-background relative flex min-h-screen flex-col">{children}</div>
         </ThemeProvider>
       </body>
     </html>

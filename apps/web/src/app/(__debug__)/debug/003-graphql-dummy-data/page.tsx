@@ -25,8 +25,8 @@ const Page = () => {
   };
 
   return (
-    <div className="flex flex-col space-y-4 items-start">
-      <div className="flex flex-col space-y-4 items-start">
+    <div className="flex flex-col items-start space-y-4">
+      <div className="flex flex-col items-start space-y-4">
         <CreateDummyForm />
         <hr className="w-full" />
         <UpdateDummyForm />
@@ -49,7 +49,7 @@ const Page = () => {
           <TableBody>
             {dummies.map((dummy) => (
               <TableRow key={dummy?.id}>
-                <TableCell className="font-medium w-[220px]">{dummy?.id}</TableCell>
+                <TableCell className="w-[220px] font-medium">{dummy?.id}</TableCell>
                 <TableCell className="w-[200px]">{dummy?.text}</TableCell>
                 <TableCell className="text-right">{dummy?.int}</TableCell>
               </TableRow>

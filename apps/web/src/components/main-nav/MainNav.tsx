@@ -13,7 +13,7 @@ export function MainNav() {
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-6 flex items-center space-x-2">
         <Logo />
-        <span className="hidden font-bold text-xl sm:inline-block">{siteConfig.name}</span>
+        <span className="hidden text-xl font-bold sm:inline-block">{siteConfig.name}</span>
       </Link>
       <nav className="flex items-center gap-4 text-sm lg:gap-6">
         {/* NOTE: リンクを増やす場合は、こちらに追記していく。  */}
