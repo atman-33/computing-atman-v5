@@ -1,5 +1,6 @@
 import { getHighlighter, loadTheme } from '@shikijs/compat';
 import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files';
+import { writeFileSync } from 'node:fs';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeKatex from 'rehype-katex';
 import rehypePresetMinify from 'rehype-preset-minify';
@@ -12,6 +13,43 @@ import * as themes from 'shiki/themes';
 import { visit } from 'unist-util-visit'; // NOTE: unistユーティリティを使用してツリーを移動
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
+
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- //
+// makeSorce 実行後の処理
+
+function createTagCount(allPosts: any) {
+  const tagCount: Record<string, number> = {};
+
+  allPosts.forEach((file: any) => {
+    if (file.tags && file.published === true) {
+      file.tags.forEach((tag: any) => {
+        if (tag in tagCount) {
+          tagCount[tag] += 1;
+        } else {
+          tagCount[tag] = 1;
+        }
+      });
+    }
+  });
+  writeFileSync('./public/tag-data.json', JSON.stringify(tagCount));
+  console.log('🔖 tag-data.json generated!!');
+}
+
+function createSearchIndex(allPosts: any) {
+  const newData = structuredClone(allPosts);
+
+  newData.map((post: any) => {
+    delete post.body.code;
+    post.body.raw = post.body.raw.replace(/\n/g, ' ');
+    return post;
+  });
+  writeFileSync('./public/search.json', JSON.stringify(newData));
+  console.log('🔍 search.json generated!!');
+}
+
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- //
+// contentlayer のメイン処理
+
 const computedFields: ComputedFields = {
   slug: {
     type: 'string',
@@ -156,5 +194,10 @@ export default makeSource({
       rehypeKatex,
       rehypePresetMinify as any,
     ],
+  },
+  onSuccess: async (importData) => {
+    const { allDocuments } = await importData();
+    createTagCount(allDocuments);
+    createSearchIndex(allDocuments);
   },
 });
