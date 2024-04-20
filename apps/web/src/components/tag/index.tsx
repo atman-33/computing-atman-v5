@@ -33,7 +33,7 @@ const Tag = ({ kind, href, size = 6 }: TagIconProps) => {
 
   if (!tagKind) {
     return (
-      <div className="flex h-6 items-center">
+      <div className="flex h-6 items-center font-normal">
         <span>{kind}</span>
       </div>
     );
@@ -42,7 +42,7 @@ const Tag = ({ kind, href, size = 6 }: TagIconProps) => {
   const TagIconSvg = tagIcons[kind].icon;
 
   const TagIconAndName = (
-    <div className="flex h-6 items-center space-x-1 text-xs">
+    <div className="flex h-6 items-center space-x-1 text-xs font-normal">
       <TagIconSvg className={`h-${size} w-${size}`} />
       <span>{tagIcons[kind].name}</span>
     </div>

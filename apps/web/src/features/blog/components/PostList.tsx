@@ -1,5 +1,4 @@
 import { Icons } from '@/components/icons';
-import { Link } from '@/components/link';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@repo/ui';
 import { allPosts } from 'contentlayer/generated';
 import { PostListItem } from './PostListItem';
@@ -30,21 +29,9 @@ const PostList = () => {
 
           <div className="grid gap-4 md:grid-cols-2">
             {posts.map((post) => (
-              <Link href={post.slug} className="whitespace-nowrap">
-                <PostListItem key={post.title} post={post} />
-              </Link>
+              <PostListItem key={post.title} post={post} />
             ))}
           </div>
-          {/* <div className="grid grid-cols-1 gap-8 md:grid-cols-2"> */}
-          {/* <div className="flex flex-col mx-auto items-center">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              {posts.map((post) => (
-                <Link href={post.slug} className="whitespace-nowrap">
-                  <PostListItem key={post.title} post={post} />
-                </Link>
-              ))}
-            </div>
-          </div> */}
         </section>
       </div>
     </>
