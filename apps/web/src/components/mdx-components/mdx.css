@@ -1,27 +1,25 @@
-/* グローバルに設定する共通cssは、ここで定義 */
-
-body {
+pre {
   --sb-track-color: #cdcdce;
   --sb-thumb-color: #4d5250;
   --sb-size: 12px;
 }
 
-body::-webkit-scrollbar {
+pre::-webkit-scrollbar {
   width: var(--sb-size);
 }
 
-body::-webkit-scrollbar-track {
+pre::-webkit-scrollbar-track {
   background: var(--sb-track-color);
   border-radius: 6px;
 }
 
-body::-webkit-scrollbar-thumb {
+pre::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 6px;
 }
 
 @supports not selector(::-webkit-scrollbar) {
-  body {
+  pre {
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }

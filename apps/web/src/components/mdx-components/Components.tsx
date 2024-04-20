@@ -1,3 +1,5 @@
+import './mdx.css';
+
 import { Image } from '@/components/image';
 import { Link } from '@/components/link';
 import { cn } from '@repo/ui';
@@ -119,7 +121,7 @@ export const components = {
       <div className="rounded-sm bg-[#22272e]">
         {/* NOTE: For debug => <p>rawString: {__rawString__}</p> */}
         {__rawString__ && (
-          <CopyButton value={__rawString__} className={cn('float-right mr-2 mt-2', __withMeta__)} />
+          <CopyButton value={__rawString__} className={cn('float-right mx-2 mt-2', __withMeta__)} />
         )}
         <pre
           className={cn(
