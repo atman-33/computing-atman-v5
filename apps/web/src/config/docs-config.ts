@@ -22,23 +22,13 @@ export const docsConfig: DocsConfig = {
   ],
   sidebarNav: [
     {
-      title: 'Samples...',
+      title: 'React Samples',
       items: [
         {
-          title: 'Accordion',
-          href: '/docs/components/accordion',
+          title: 'useState',
+          href: '/xxx/xxx/xxx',
           items: [],
           label: 'New',
-        },
-        {
-          title: 'Alert',
-          href: '/docs/components/alert',
-          items: [],
-        },
-        {
-          title: 'Alert Dialog',
-          href: '/docs/components/alert-dialog',
-          items: [],
         },
       ],
     },

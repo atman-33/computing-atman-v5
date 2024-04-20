@@ -127,6 +127,7 @@ export function CommandMenu({ ...props }: DialogProps) {
               System
             </CommandItem>
           </CommandGroup>
+          <CommandSeparator />
         </CommandList>
       </CommandDialog>
     </>
