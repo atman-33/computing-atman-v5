@@ -5,6 +5,7 @@ const debugPages = [
   '/debug/002-graphql',
   '/debug/003-graphql-dummy-data',
   '/debug/004-contentlayer',
+  '/debug/005-fetch',
 ];
 
 const Page = () => {

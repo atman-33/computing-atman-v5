@@ -43,7 +43,7 @@ function createSearchIndex(allPosts: any) {
     post.body.raw = post.body.raw.replace(/\n/g, ' ');
     return post;
   });
-  writeFileSync('./public/search.json', JSON.stringify(newData));
+  writeFileSync('./public/search-data.json', JSON.stringify(newData));
   console.log('🔍 search.json generated!!');
 }
 
