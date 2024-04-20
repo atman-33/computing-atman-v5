@@ -1,6 +1,6 @@
 import { DotFlasing } from '@/components/dot-flashing';
 import { Link } from '@/components/link';
-import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from '@repo/ui';
+import { Button, SimpleTabsTrigger, Tabs, TabsContent, TabsList } from '@repo/ui';
 import dynamic from 'next/dynamic';
 
 const PostList = dynamic(
@@ -13,10 +13,16 @@ const IndexPage = () => {
     <div className="container mx-auto w-full md:w-10/12">
       <div>
         <Tabs defaultValue="blog">
-          <TabsList>
-            <TabsTrigger value="blog">Blog</TabsTrigger>
-            <TabsTrigger value="tech">Tech</TabsTrigger>
-            <TabsTrigger value="explore">Explore</TabsTrigger>
+          <TabsList className="bg-transparent">
+            <SimpleTabsTrigger value="blog" className="w-16">
+              Blog
+            </SimpleTabsTrigger>
+            <SimpleTabsTrigger value="tech" className="w-16">
+              Tech
+            </SimpleTabsTrigger>
+            <SimpleTabsTrigger value="explore" className="w-16">
+              Explore
+            </SimpleTabsTrigger>
           </TabsList>
           <TabsContent value="blog">
             <PostList />
