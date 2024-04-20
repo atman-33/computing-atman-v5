@@ -6,6 +6,7 @@ pre {
 
 pre::-webkit-scrollbar {
   width: var(--sb-size);
+  height: var(--sb-size);
 }
 
 pre::-webkit-scrollbar-track {
