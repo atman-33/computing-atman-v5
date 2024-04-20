@@ -11,9 +11,9 @@ import {
 } from '@repo/ui';
 import { usePathname } from 'next/navigation';
 
-type BreadcrumbProps = {
+interface BreadcrumbProps {
   pageName?: string;
-};
+}
 
 export const Breadcrumb = ({ pageName }: BreadcrumbProps) => {
   const pathname = usePathname();

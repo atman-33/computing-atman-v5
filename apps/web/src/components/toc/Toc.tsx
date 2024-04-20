@@ -3,9 +3,9 @@
 import { useEffect } from 'react';
 import tocbot from 'tocbot';
 import './toc.css';
-type TocProps = {
+interface TocProps {
   className?: string;
-};
+}
 
 export const Toc = ({ className }: TocProps) => {
   useEffect(() => {
