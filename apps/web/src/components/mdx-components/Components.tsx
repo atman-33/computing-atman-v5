@@ -104,7 +104,7 @@ export const components = {
     />
   ),
   figure: ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-    <figure className={cn('relative', className)} {...props} />
+    <figure className={cn('', className)} {...props} />
   ),
   pre: ({
     className,
@@ -116,23 +116,20 @@ export const components = {
     __withMeta__?: boolean;
   }) => {
     return (
-      <>
+      <div className="rounded-sm bg-[#22272e]">
+        {/* NOTE: For debug => <p>rawString: {__rawString__}</p> */}
+        {__rawString__ && (
+          <CopyButton value={__rawString__} className={cn('float-right mr-2 mt-2', __withMeta__)} />
+        )}
         <pre
           className={cn(
             // 'mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-sm border bg-zinc-950 py-4 dark:bg-zinc-900',
-            'mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-sm border px-2 py-2 ',
+            'mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-sm px-2 py-2',
             className,
           )}
           {...props}
-        />
-        {/* NOTE: For debug => <p>rawString: {__rawString__}</p> */}
-        {__rawString__ && (
-          <CopyButton
-            value={__rawString__}
-            className={cn('absolute right-8 top-4', __withMeta__)}
-          />
-        )}
-      </>
+        ></pre>
+      </div>
     );
   },
   code: ({
@@ -148,7 +145,7 @@ export const components = {
           <code
             className={cn(
               // 'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm bg-zinc-950 dark:bg-zinc-900 text-white',
-              'bg-muted relative m-1 rounded bg-slate-200 px-[0.3rem] py-[0.2rem] font-mono text-sm text-black dark:bg-slate-800 dark:text-white',
+              'bg-muted m-1 rounded bg-slate-200 px-[0.3rem] py-[0.2rem] font-mono text-sm text-black dark:bg-slate-800 dark:text-white',
               className,
             )}
             {...props}
@@ -156,7 +153,7 @@ export const components = {
         ) : (
           <code
             className={cn(
-              'bg-muted relative rounded bg-[#22272e] px-[0.3rem] py-[0.2rem] font-mono text-sm text-white',
+              'bg-muted rounded bg-[#22272e] px-[0.3rem] py-[0.2rem] font-mono text-sm text-white',
               className,
             )}
             {...props}

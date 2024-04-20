@@ -35,10 +35,7 @@ export function CopyButton({ value, className, ...props }: CopyButtonProps) {
     <Button
       size="icon"
       variant="ghost"
-      className={cn(
-        'relative z-10 h-6 w-6 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50',
-        className,
-      )}
+      className={cn('z-10 h-6 w-6 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50', className)}
       onClick={() => {
         copyToClipboardWithMeta(value);
         setHasCopied(true);
