@@ -197,7 +197,12 @@ export default makeSource({
   },
   onSuccess: async (importData) => {
     const { allDocuments } = await importData();
-    createTagCount(allDocuments);
-    createSearchIndex(allDocuments);
+    const publishedPosts = allDocuments.filter((post: any) => {
+      // console.log(`${post.title} published => `, post.published);
+      return post.published;
+    });
+    console.log(`📚 ${publishedPosts.length} posts are published.`);
+    createTagCount(publishedPosts);
+    createSearchIndex(publishedPosts);
   },
 });
