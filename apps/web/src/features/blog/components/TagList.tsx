@@ -14,7 +14,7 @@ export const TagList = () => {
   }
 
   return (
-    <div className="flex max-w-screen-lg flex-col space-y-2 md:container">
+    <div className="mx-auto flex max-w-[1000px] flex-col space-y-2">
       <h3 className="ml-3 text-xl font-bold">Tags</h3>
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {tagData && (
@@ -23,12 +23,12 @@ export const TagList = () => {
               <Link href={`/blog/tags/${tag}`}>
                 <div
                   key={tag}
-                  className="mx-3 my-3 flex h-28 max-w-32 flex-col items-center justify-between rounded-lg border-[1px] p-1"
+                  className="mx-3 my-3 flex h-24 max-w-32 flex-col items-center justify-between rounded-lg border-[1px] py-2"
                 >
                   <Tag
                     size={10}
                     kind={tag as TagIconKind}
-                    className="flex flex-col text-center text-sm"
+                    className="flex flex-col text-nowrap text-center text-sm"
                   />
                   <Badge className="bg-accent" variant="outline">
                     {count}
