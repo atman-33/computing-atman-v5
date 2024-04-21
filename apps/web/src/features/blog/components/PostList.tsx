@@ -12,9 +12,11 @@ const PostList = ({ posts }: PostListProps) => {
   // console.log(posts);
   return (
     <>
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-x-2 md:grid-cols-2">
         {posts.map((post) => (
-          <PostListItem key={post.title} post={post} />
+          <div className="my-4">
+            <PostListItem key={post.title} post={post} />
+          </div>
         ))}
       </div>
     </>
