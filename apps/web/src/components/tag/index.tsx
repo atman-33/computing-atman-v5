@@ -34,9 +34,9 @@ const Tag = ({ kind, href, size = 6, className }: TagIconProps) => {
 
   if (!tagKind) {
     return (
-      <div className="flex h-6 items-center font-normal">
+      <a className="flex h-6 items-center font-normal" href={href}>
         <span>{kind}</span>
-      </div>
+      </a>
     );
   }
 

@@ -1,8 +1,10 @@
 import '@repo/ui/globals.css';
 import '../styles/globals.css';
 
+import { Link } from '@/components/link';
 import { siteConfig } from '@/config/site-config';
 import { ThemeProvider } from '@/providers/ThemeProvider';
+import { Button } from '@repo/ui';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
@@ -76,6 +78,11 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
           disableTransitionOnChange
         >
           <div className="bg-background">{children}</div>
+          <div className="container m-8">
+            <Link href="/debug">
+              <Button variant="secondary">Debug Room</Button>
+            </Link>
+          </div>
         </ThemeProvider>
       </body>
     </html>

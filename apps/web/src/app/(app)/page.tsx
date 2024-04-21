@@ -1,7 +1,16 @@
 import { DotFlasing } from '@/components/dot-flashing';
-import { Link } from '@/components/link';
+import { Icons } from '@/components/icons';
 import { TagList } from '@/features/blog';
-import { Button, SimpleTabsTrigger, Tabs, TabsContent, TabsList } from '@repo/ui';
+import {
+  SimpleTabsTrigger,
+  Tabs,
+  TabsContent,
+  TabsList,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@repo/ui';
+import { allPosts } from 'contentlayer/generated';
 import dynamic from 'next/dynamic';
 
 const PostList = dynamic(
@@ -26,18 +35,32 @@ const IndexPage = () => {
             </SimpleTabsTrigger>
           </TabsList>
           <TabsContent value="blog">
-            <PostList />
+            <div
+              className="bg-primary/15 p-8"
+              style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}
+            >
+              <section className="mx-auto max-w-[1000px] justify-center">
+                <div className="flex items-baseline space-x-2">
+                  <h3 className="text-3xl font-bold">Latest</h3>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Icons.question className="h-4 w-4" />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>プログラミング等、IT関連のブログ記事</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
+                <span className="m-4" />
+                <PostList posts={allPosts} />
+              </section>
+            </div>
           </TabsContent>
           <TabsContent value="tech">making contents...</TabsContent>
-          <TabsContent value="explore">
+          <TabsContent value="explore" className="py-8">
             <TagList />
           </TabsContent>
         </Tabs>
-      </div>
-      <div className="m-4">
-        <Link href="/debug">
-          <Button variant="default">Debug Room</Button>
-        </Link>
       </div>
     </div>
   );
