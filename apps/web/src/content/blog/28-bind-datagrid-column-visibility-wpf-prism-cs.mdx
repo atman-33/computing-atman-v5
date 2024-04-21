@@ -1,0 +1,174 @@
+---
+title: C# | WPF Prism DataGrid ColumnのVisibilityをバインド
+description: C# WPF Prism で DataGrido カラムの Visibility をバインドする方法
+date: 2023-02-27
+emoji: 🔩
+tags: 
+  - csharp
+published: true
+---
+
+C#の **WPF Prism** でDataGridoカラムのVisibilityをバインドする方法を説明します。
+
+例えば、DataGrid内のカラムに対してコンボボックス（の選択肢）をデータバインドさせる場合、RelativeSource FindAncestor を用いた方法が考えられます。  
+しかし、**DataGridのカラムのVisibilityにデータバインドする場合、RelativeSourceを用いた方法は使えません**。
+
+そのため、ViewModelを参照可能とするクラスを作成して対応します。
+
+
+## 対象ファイル（例）
+
+コーディングが必要なファイルは下記の **A～C** です。
+
+```text
+WPF/
+ |-Services/
+ |  |-BindingProxy.cs ･･･A
+ |
+ |-Views/
+ |  |-SampleView.xaml ･･･B  
+ |
+ |-ViewModels/
+ |  |-SampleViewModel.cs ･･･C  
+```
+
+## BindingProxy.cs　･･･A
+
+通常、ItemsSourceを使うとバインドしているコレクションの各要素がDataContextとなるため、
+DataGrid内ではItemsSource以外のバインドが出来なくなります。
+
+※DataContext：Bindingの対象
+
+そこで、DataGrid内のコントロールを直接ViewModelのプロパティにアクセス可能とする**「BindingProxy」**クラスを準備します。
+
+▼BindingProxy.cs
+
+```cs
+using System.Windows;
+
+namespace Template2.WPF.Services
+{
+    /// <summary>
+    /// ViewModelのバインディングソースの代理として働くクラスです。
+    /// </summary>
+    public class BindingProxy : Freezable
+    {
+        /// <summary>
+        /// Freezableオブジェクトのインスタンスを生成します。
+        /// </summary>
+        /// <returns></returns>
+        protected override Freezable CreateInstanceCore()
+        {
+            return new BindingProxy();
+        }
+
+        /// <summary>
+        /// 間をとりもつプロパティ
+        /// データバインドした場合は、このプロパティがViewModelの代わりになる。
+        /// </summary>
+        public object Data
+        {
+            get { return (object)GetValue(DataProperty); }
+            set { SetValue(DataProperty, value); }
+        }
+
+        /// <summary>
+        /// Data の依存関係プロパティ定義
+        /// </summary>
+        public static readonly DependencyProperty DataProperty =
+            DependencyProperty.Register("Data", typeof(object), typeof(BindingProxy), new UIPropertyMetadata(null));
+    }
+}
+```
+
+## SampleView.xaml ･･･B  
+
+### ①Viewのxamlにローカルクラス参照を追加
+
+WindowもしくはUserControl要素に、BindingProxyクラスのnamespace参照を追加します。
+
+例）BindingProxy.cs の namespace が、Template2.WPF.Services の場合  
+**`xmlns:services="clr-namespace:Template2.WPF.Services"`**
+
+▼SampleView.xaml
+```xml
+<UserControl x:Class="Template2.WPF.Views.Sample002View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             Background="{StaticResource backgroundColor}"
+             xmlns:services="clr-namespace:Template2.WPF.Services"
+             >
+```
+
+### ②DataGridのリソースにBindingProxy参照を追加
+
+下記コードを追加してDataGrid内でBindingProxyを利用可能とします。
+
+```xml
+<DataGrid.Resources>
+    <!--DataGridのItemSourceとは別のアイテムをBindするために必要-->
+    <services:BindingProxy x:Key="Proxy" Data="{Binding}"/>
+</DataGrid.Resources>
+```
+
+例）DataGridへの組込み例
+
+▼SampleView.xaml
+```xml
+<DataGrid Style="{StaticResource commonDataGrid}"
+          ItemsSource="{Binding WorkerMstEntities}"
+          SelectedItem="{Binding WorkerMstEntitiesSlectedItem}"
+          VerticalAlignment="Top"
+          HorizontalAlignment="Left"
+          IsReadOnly="False"
+          CanUserAddRows="False"
+          Cursor="Hand">
+
+                <DataGrid.Resources>
+                    <!--DataGridのItemSourceとは別のアイテムをBindするために必要-->
+                    <services:BindingProxy x:Key="Proxy" Data="{Binding}"/>
+                </DataGrid.Resources>
+
+                （省略）
+```
+
+### ③DataGridカラムのVisibilityをバインド
+
+DataGridのColumn要素に、Visibilityを追加します。
+
+**ポイント**
+- Binding:Data.XXX を記載すること
+- Source:StaticResourceを記載すること
+
+▼SampleView.xaml
+```xml
+<DataGrid.Columns>
+    <!-- カラムのVisibilityは、BindingProxyクラスを利用してViewModelのプロパティを参照する必要有り -->
+    <materialDesign:DataGridTextColumn Header="作業者名称"
+           Binding="{Binding WorkerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+           Visibility="{Binding Data.WorkerNameVisibility, Source={StaticResource Proxy}}">
+
+    （省略）
+```
+
+## SampleViewModel.cs ･･･C    
+
+### ④ViewModelにVisibilityバインド用プロパティを準備
+
+通常のWPF Prismでプロパティをデータバインドする方法と同様に、Visibilityをバインドした名称のプロパティとプライベート変数を追加します。
+
+▼SampleViewModel.cs
+```cs
+private Visibility _workerNameVisibility = Visibility.Visible;
+public Visibility WorkerNameVisibility
+{
+    get { return _workerNameVisibility; }
+    set { SetProperty(ref _workerNameVisibility, value); }
+}
+```
+
+以上です。

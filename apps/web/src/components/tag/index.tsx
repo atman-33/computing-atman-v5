@@ -54,6 +54,10 @@ const tagIcons = {
     name: 'Git',
     icon: TagIcons.git,
   },
+  hexo: {
+    name: 'Hexo',
+    icon: TagIcons.hexo,
+  },
 };
 
 export type TagIconKind = keyof typeof tagIcons;
