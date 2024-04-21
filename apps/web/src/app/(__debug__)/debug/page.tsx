@@ -6,6 +6,7 @@ const debugPages = [
   '/debug/003-graphql-dummy-data',
   '/debug/004-contentlayer',
   '/debug/005-fetch',
+  '/debug/006-nextjs-search-param?search=foo',
 ];
 
 const Page = () => {
