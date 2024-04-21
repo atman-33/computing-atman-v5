@@ -18,6 +18,18 @@ const tagIcons = {
     name: 'VBScript',
     icon: TagIcons.vb,
   },
+  css: {
+    name: 'CSS',
+    icon: TagIcons.css,
+  },
+  oracle: {
+    name: 'Oracle',
+    icon: TagIcons.oracle,
+  },
+  wordpress: {
+    name: 'WordPress',
+    icon: TagIcons.wordpress,
+  },
 };
 
 export type TagIconKind = keyof typeof tagIcons;
