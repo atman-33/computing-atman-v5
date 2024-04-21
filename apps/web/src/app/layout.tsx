@@ -78,7 +78,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
           disableTransitionOnChange
         >
           <div className="bg-background">{children}</div>
-          <div className="container m-8">
+          <div className="container my-8">
             <Link href="/debug">
               <Button variant="secondary">Debug Room</Button>
             </Link>

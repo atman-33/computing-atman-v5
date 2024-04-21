@@ -121,7 +121,7 @@ export const components = {
       <div className="rounded-sm bg-[#22272e]">
         {/* NOTE: For debug => <p>rawString: {__rawString__}</p> */}
         {__rawString__ && (
-          <CopyButton value={__rawString__} className={cn('float-right mx-2 mt-2', __withMeta__)} />
+          <CopyButton value={__rawString__} className={cn('float-right mx-1 mt-1', __withMeta__)} />
         )}
         <pre
           className={cn(
