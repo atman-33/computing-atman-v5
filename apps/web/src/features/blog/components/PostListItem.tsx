@@ -11,7 +11,7 @@ const PostListItem = ({ post }: PostListItemProps) => {
   return (
     <div className="flex space-x-4">
       <Link href={post.slug} className="whitespace-nowrap">
-        <div className="flex h-20 min-h-20 w-20 min-w-20 items-center justify-center rounded-md bg-white text-5xl">
+        <div className="bg-background flex h-20 min-h-20 w-20 min-w-20 items-center justify-center rounded-md text-5xl">
           <div>{post?.emoji}</div>
         </div>
       </Link>

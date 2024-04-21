@@ -23,9 +23,13 @@ export const TagList = () => {
               <Link href={`/blog/tags/${tag}`}>
                 <div
                   key={tag}
-                  className="mx-3 my-3 flex h-24 max-w-32 flex-col items-center justify-between rounded-lg border-[1px] p-2"
+                  className="mx-3 my-3 flex h-28 max-w-32 flex-col items-center justify-between rounded-lg border-[1px] p-1"
                 >
-                  <Tag size={10} kind={tag as TagIconKind} className="flex flex-col text-sm" />
+                  <Tag
+                    size={10}
+                    kind={tag as TagIconKind}
+                    className="flex flex-col text-center text-sm"
+                  />
                   <Badge className="bg-accent" variant="outline">
                     {count}
                   </Badge>
