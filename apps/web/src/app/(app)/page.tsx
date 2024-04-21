@@ -1,4 +1,5 @@
 import { Icons } from '@/components/icons';
+import { Link } from '@/components/link';
 import { PostList, TagList } from '@/features/blog';
 import {
   SimpleTabsTrigger,
@@ -60,6 +61,11 @@ const IndexPage = () => {
             <TagList />
           </TabsContent>
         </Tabs>
+        <div className="my-8">
+          <Link href="/debug" className="bg-primary/10 m-0 rounded-md p-4">
+            Debug Room
+          </Link>
+        </div>
       </div>
     </div>
   );
