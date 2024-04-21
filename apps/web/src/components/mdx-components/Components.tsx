@@ -55,7 +55,12 @@ export const components = {
     />
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
-    <a className={cn('font-medium underline underline-offset-4', className)} {...props} />
+    <a
+      target="_blank"
+      rel="noreferrer"
+      className={cn('font-medium underline underline-offset-4', className)}
+      {...props}
+    />
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className={cn('leading-7 [&:not(:first-child)]:mt-6', className)} {...props} />

@@ -30,6 +30,30 @@ const tagIcons = {
     name: 'WordPress',
     icon: TagIcons.wordpress,
   },
+  powerbi: {
+    name: 'Power BI',
+    icon: TagIcons.powerbi,
+  },
+  javascript: {
+    name: 'JavaScript',
+    icon: TagIcons.javascript,
+  },
+  python: {
+    name: 'Python',
+    icon: TagIcons.python,
+  },
+  googleAdsense: {
+    name: 'Google Adsense',
+    icon: TagIcons.googleAdsense,
+  },
+  aws: {
+    name: 'AWS',
+    icon: TagIcons.aws,
+  },
+  git: {
+    name: 'Git',
+    icon: TagIcons.git,
+  },
 };
 
 export type TagIconKind = keyof typeof tagIcons;
