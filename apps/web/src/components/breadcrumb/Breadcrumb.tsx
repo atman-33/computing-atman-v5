@@ -1,6 +1,6 @@
 'use client';
 
-import { parsePath } from '@/utils/url-helper';
+import { parsePath } from '@/utils/url-util';
 import {
   BreadcrumbItem,
   BreadcrumbLink,
