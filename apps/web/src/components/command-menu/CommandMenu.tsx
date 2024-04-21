@@ -8,6 +8,7 @@ import * as React from 'react';
 
 import { Icons } from '@/components/icons';
 import { docsConfig } from '@/config/docs-config';
+import { useSearchData } from '@/features/blog';
 import {
   Button,
   CommandDialog,
@@ -24,6 +25,7 @@ export function CommandMenu({ ...props }: DialogProps) {
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
   const { setTheme } = useTheme();
+  const { loading, searchData } = useSearchData();
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -50,6 +52,10 @@ export function CommandMenu({ ...props }: DialogProps) {
     setOpen(false);
     command();
   }, []);
+
+  if (loading) {
+    return <Icons.spinner className="h-6 w-6 animate-spin" />;
+  }
 
   return (
     <>
@@ -112,6 +118,25 @@ export function CommandMenu({ ...props }: DialogProps) {
               ))}
             </CommandGroup>
           ))}
+          <CommandSeparator />
+          {searchData && searchData.length > 0 && (
+            <CommandGroup heading="Posts">
+              {searchData?.map((post) => (
+                <CommandItem
+                  key={post._id}
+                  value={post.title}
+                  onSelect={() => {
+                    runCommand(() => router.push(`/blog/${post.slugAsParams}`));
+                  }}
+                >
+                  <div className="mr-2 flex h-4 w-4 items-center justify-center">
+                    <CircleIcon className="h-3 w-3" />
+                  </div>
+                  {post.title}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          )}
           <CommandSeparator />
           <CommandGroup heading="Theme">
             <CommandItem onSelect={() => runCommand(() => setTheme('light'))}>

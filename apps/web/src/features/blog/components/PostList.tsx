@@ -1,10 +1,13 @@
 import { Icons } from '@/components/icons';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@repo/ui';
 import { allPosts } from 'contentlayer/generated';
+import { filterPublishedPosts, sortPostsByDate } from '../utils/post-util';
 import { PostListItem } from './PostListItem';
 
 const PostList = () => {
-  const posts = allPosts;
+  let posts = allPosts;
+  posts = filterPublishedPosts(posts);
+  posts = sortPostsByDate(posts);
   // console.log(posts);
   return (
     <>

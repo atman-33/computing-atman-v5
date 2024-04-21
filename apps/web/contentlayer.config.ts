@@ -44,7 +44,7 @@ function createSearchIndex(allPosts: any) {
     return post;
   });
   writeFileSync('./public/search-data.json', JSON.stringify(newData));
-  console.log('🔍 search.json generated!!');
+  console.log('🔍 search-data.json generated!!');
 }
 
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- //
