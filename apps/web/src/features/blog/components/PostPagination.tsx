@@ -24,6 +24,8 @@ export const PostPagination = () => {
       totalPages: totalPages,
       itemsPerPage: itemsPerPage,
     });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
