@@ -1,6 +1,7 @@
 'use client';
 
 import { DotFlasing } from '@/components/dot-flashing';
+import { Link } from '@/components/link';
 import Tag, { TagIconKind } from '@/components/tag';
 import { Badge } from '@repo/ui';
 import { useTagData } from '../hooks/useTagData';
@@ -19,20 +20,17 @@ export const TagList = () => {
         {tagData && (
           <>
             {(tagData as unknown as any).map(([tag, count]: [string, number]) => (
-              <div
-                key={tag}
-                className="mx-3 my-3 flex h-24 max-w-32 flex-col items-center justify-between rounded-lg border-[1px] p-2"
-              >
-                <Tag
-                  size={10}
-                  kind={tag as TagIconKind}
-                  href={`/blog/tags/${tag}`}
-                  className="flex flex-col text-sm"
-                />
-                <Badge className="bg-accent" variant="outline">
-                  {count}
-                </Badge>
-              </div>
+              <Link href={`/blog/tags/${tag}`}>
+                <div
+                  key={tag}
+                  className="mx-3 my-3 flex h-24 max-w-32 flex-col items-center justify-between rounded-lg border-[1px] p-2"
+                >
+                  <Tag size={10} kind={tag as TagIconKind} className="flex flex-col text-sm" />
+                  <Badge className="bg-accent" variant="outline">
+                    {count}
+                  </Badge>
+                </div>
+              </Link>
             ))}
           </>
         )}

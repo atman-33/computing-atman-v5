@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 const BlogPage = () => {
   const router = useRouter();
   useEffect(() => {
-    router.push('/');
+    router.push('/blog/tags');
   });
 
   return (
