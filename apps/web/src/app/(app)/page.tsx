@@ -1,5 +1,6 @@
 import { DotFlasing } from '@/components/dot-flashing';
 import { Link } from '@/components/link';
+import { TagList } from '@/features/blog';
 import { Button, SimpleTabsTrigger, Tabs, TabsContent, TabsList } from '@repo/ui';
 import dynamic from 'next/dynamic';
 
@@ -28,7 +29,9 @@ const IndexPage = () => {
             <PostList />
           </TabsContent>
           <TabsContent value="tech">making contents...</TabsContent>
-          <TabsContent value="explore">making contents...</TabsContent>
+          <TabsContent value="explore">
+            <TagList />
+          </TabsContent>
         </Tabs>
       </div>
       <div className="m-4">

@@ -12,9 +12,9 @@ export const useSearchData = () => {
     const fetchSearchData = async () => {
       try {
         const response = await fetch('/search-data.json');
-        let data = (await response.json()) as SearchData[];
+        const jsonData = (await response.json()) as SearchData[];
 
-        data = filterPublishedPosts(data);
+        let data = filterPublishedPosts(jsonData);
         data = sortPostsByDate(data);
 
         setSearchData(data);

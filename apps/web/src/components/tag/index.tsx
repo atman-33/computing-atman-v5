@@ -26,9 +26,10 @@ type TagIconProps = {
   kind: TagIconKind;
   href?: string;
   size?: number;
+  className?: string;
 };
 
-const Tag = ({ kind, href, size = 6 }: TagIconProps) => {
+const Tag = ({ kind, href, size = 6, className }: TagIconProps) => {
   const tagKind = tagIcons[kind];
 
   if (!tagKind) {
@@ -42,9 +43,9 @@ const Tag = ({ kind, href, size = 6 }: TagIconProps) => {
   const TagIconSvg = tagIcons[kind].icon;
 
   const TagIconAndName = (
-    <div className="flex h-6 items-center space-x-1 text-xs font-normal">
+    <div className={`items-center space-x-1 font-normal ${className}`}>
       <TagIconSvg className={`h-${size} w-${size}`} />
-      <span>{tagIcons[kind].name}</span>
+      <div>{tagIcons[kind].name}</div>
     </div>
   );
 

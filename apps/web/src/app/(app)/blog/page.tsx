@@ -19,13 +19,3 @@ const BlogPage = () => {
 };
 
 export default BlogPage;
-
-// import Router from 'next/router'
-
-// const handler = (path) => {
-//   Router.push(path)
-// }
-
-// export default () => (
-//     <button onClick={()=>handler('/about')}>Click </button>
-// )
