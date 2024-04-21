@@ -235,4 +235,27 @@ export const Icons = {
       />
     </svg>
   ),
+  right: (props: IconProps) => (
+    <svg
+      fill="#000000"
+      width="800px"
+      height="800px"
+      viewBox="0 0 24 24"
+      id="right-2"
+      data-name="Flat Line"
+      xmlns="http://www.w3.org/2000/svg"
+      className="icon flat-line"
+      {...props}
+    >
+      <polyline
+        id="primary"
+        points="7.5 3 16.5 12 7.5 21"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+        strokeWidth={2}
+        stroke="#363853"
+        style={{ fill: 'none' }}
+      ></polyline>
+    </svg>
+  ),
 };

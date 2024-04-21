@@ -1,6 +1,5 @@
-import { DotFlasing } from '@/components/dot-flashing';
 import { Icons } from '@/components/icons';
-import { TagList } from '@/features/blog';
+import { PostList, TagList } from '@/features/blog';
 import {
   SimpleTabsTrigger,
   Tabs,
@@ -11,12 +10,12 @@ import {
   TooltipTrigger,
 } from '@repo/ui';
 import { allPosts } from 'contentlayer/generated';
-import dynamic from 'next/dynamic';
 
-const PostList = dynamic(
-  () => import('@/features/blog/components/PostList').then((mod) => mod.PostList),
-  { ssr: false, loading: () => <DotFlasing /> },
-);
+// NOTE: dynamic import は、client component に対応していないため利用を中止。
+// const PostList = dynamic(
+//   () => import('@/features/blog/components/PostList').then((mod) => mod.PostList),
+//   { ssr: false, loading: () => <DotFlasing /> },
+// );
 
 const IndexPage = () => {
   return (
