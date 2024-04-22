@@ -58,6 +58,14 @@ const tagIcons = {
     name: 'Hexo',
     icon: TagIcons.hexo,
   },
+  nextjs: {
+    name: 'Next.js',
+    icon: TagIcons.nextjs, 
+  },
+  angular: {
+    name: 'Angular',
+    icon: TagIcons.angular,
+  }
 };
 
 export type TagIconKind = keyof typeof tagIcons;

@@ -1,0 +1,82 @@
+---
+title: C# WPFでObservableCollectionを非同期で更新する方法
+description: WPFで非同期更新可能なObservableCollectionを実装。AsyncObservableCollectionとPageMstCollectionの例を紹介
+date: 2024-01-30
+lastmod: 2024-01-30
+emoji: 🐱
+tags: 
+  - csharp
+published: true
+---
+
+了解しました。以下は、`AsyncObservableCollection`の処理を`PageMstCollection`に統合した場合の記事になります。
+
+---
+
+WPFアプリケーションでは、UIスレッドとバックグラウンドスレッドの間でデータを同期する必要があります。そのため、非同期でデータを取得し、UIに反映するためのObservableCollectionを実装する方法があります。この記事では、その方法について説明します。
+
+## ObservableCollectionの非同期更新
+
+WPFでは、UIへの変更はUIスレッドで行わなければなりません。しかし、非同期処理を行いつつUIを更新する必要がある場合、`BindingOperations.EnableCollectionSynchronization`と`lock文`を使うことで簡単に実現できます。
+
+```csharp
+public class PageMstCollection : ObservableCollection<PageMstViewModelEntity>
+{
+    private readonly object _lock = new object();
+    private readonly IPageMstRepository _pageMstRepository;
+
+    public PageMstCollection(IPageMstRepository pageMstRepository)
+    {
+        _pageMstRepository = pageMstRepository;
+        BindingOperations.EnableCollectionSynchronization(this, _lock);
+    }
+
+    public async Task LoadDataAsync()
+    {
+        var newData = await Task.Run(() =>
+        {
+            return _pageMstRepository.GetData().Select(entity => new PageMstViewModelEntity(entity));
+        });
+
+        lock (_lock)
+        {
+            Clear();
+            foreach (var item in newData)
+            {
+                Add(item);
+            }
+        }
+    }
+}
+```
+
+このクラスでは、`LoadDataAsync`メソッド内で`_pageMstRepository`から非同期にデータを取得し、`lock`文を使用してUIスレッドで安全に`ObservableCollection`を更新しています。
+
+## ViewModelの使用例
+
+最後に、これらのクラスをViewModelで使用する例を示します。
+
+```csharp
+public class MainViewModel : ViewModelBase
+{
+    private readonly PageMstCollection _pageMstCollection;
+
+    public MainViewModel(IPageMstRepository pageMstRepository)
+    {
+        _pageMstCollection = new PageMstCollection(pageMstRepository);
+        LoadData();
+    }
+
+    private async void LoadData()
+    {
+        await _pageMstCollection.LoadDataAsync();
+        OnPropertyChanged(nameof(PageMstCollection));
+    }
+
+    public ObservableCollection<PageMstViewModelEntity> PageMstCollection => _pageMstCollection;
+}
+```
+
+ViewModelで`LoadDataAsync`メソッドを呼び出すことで、バックグラウンドでデータを非同期に読み込み、UIに反映できます。`OnPropertyChanged`メソッドを使用して、`PageMstCollection`プロパティの変更を通知します。
+
+これで、非同期でデータを更新するObservableCollectionを作成し、WPFアプリケーションで使用する方法がわかりました。
