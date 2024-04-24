@@ -123,17 +123,22 @@ export const components = {
     __withMeta__?: boolean;
   }) => {
     return (
-      <div className="rounded-sm bg-[#22272e]">
+      <div className="mt-6 rounded-sm bg-zinc-600" style={{ display: 'grid' }}>
         {/* NOTE: For debug => <p>rawString: {__rawString__}</p> */}
         {__rawString__ && (
-          <CopyButton value={__rawString__} className={cn('float-right mx-1 mt-1', __withMeta__)} />
+          <CopyButton
+            value={__rawString__}
+            className={cn('mr-6 mt-1 justify-self-end', __withMeta__)}
+            style={{ gridArea: '1 / 1' }}
+          />
         )}
         <pre
           className={cn(
             // 'mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-sm border bg-zinc-950 py-4 dark:bg-zinc-900',
-            'mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-sm px-2 py-2',
+            'max-h-[650px] overflow-x-auto rounded-b-sm px-2 py-2',
             className,
           )}
+          style={{ gridArea: '1 / 1' }}
           {...props}
         ></pre>
       </div>
