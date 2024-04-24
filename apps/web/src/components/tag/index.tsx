@@ -58,13 +58,37 @@ const tagIcons = {
     name: 'Hexo',
     icon: TagIcons.hexo,
   },
-  nextjs: {
-    name: 'Next.js',
-    icon: TagIcons.nextjs,
+  nestjs: {
+    name: 'NestJS',
+    icon: TagIcons.nestjs,
   },
   angular: {
     name: 'Angular',
     icon: TagIcons.angular,
+  },
+  nx: {
+    name: 'Nx',
+    icon: TagIcons.nx,
+  },
+  mongodb: {
+    name: 'MongoDB',
+    icon: TagIcons.mongodb,
+  },
+  vscode: {
+    name: 'VSCode',
+    icon: TagIcons.vscode,
+  },
+  nextjs: {
+    name: 'Next.js',
+    icon: TagIcons.nextjs,
+  },
+  react: {
+    name: 'React',
+    icon: TagIcons.react,
+  },
+  electron: {
+    name: 'Electron',
+    icon: TagIcons.electron,
   },
 };
 
