@@ -27,7 +27,9 @@ npm i @dnd-kit/core @dnd-kit/sortable
 
 `DraggableList`コンポーネントは、ドラッグ可能なアイテムのコンテナとして機能します。`DraggableList.tsx`ファイルのコードは以下の通りです：
 
-```tsx:DraggableList.tsx(DraggableList)
+`DraggableList.tsx(DraggableList)`
+
+```tsx
 import {
   DndContext,
   KeyboardSensor,
@@ -112,7 +114,9 @@ export const DraggableList: FC<Props<HasId>> = ({
 
 リスト内の各ドラッグ可能なアイテムは、`DraggableItem`コンポーネントで表されます。ユーザーインタラクションを向上させるために`DraggableHandle`も含まれています。コードは以下の通りです：
 
-```tsx:DraggableList.tsx(DraggableItem)
+`DraggableList.tsx(DraggableItem)`
+
+```tsx
 // ドラッグ&ドロップ可能なリストアイテム
 export const DraggableItem: FC<{
   id: HasId['id'];

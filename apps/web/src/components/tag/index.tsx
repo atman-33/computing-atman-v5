@@ -60,12 +60,12 @@ const tagIcons = {
   },
   nextjs: {
     name: 'Next.js',
-    icon: TagIcons.nextjs, 
+    icon: TagIcons.nextjs,
   },
   angular: {
     name: 'Angular',
     icon: TagIcons.angular,
-  }
+  },
 };
 
 export type TagIconKind = keyof typeof tagIcons;
