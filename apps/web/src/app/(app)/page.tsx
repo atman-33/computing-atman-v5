@@ -47,7 +47,7 @@ const IndexPage = () => {
                       <Icons.question className="h-4 w-4" />
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>プログラミング等、IT関連のブログ記事</p>
+                      <p>These are articles related to programming and IT-related blog posts.</p>
                     </TooltipContent>
                   </Tooltip>
                 </div>

@@ -1,12 +1,14 @@
+import '@/styles/mdx.css';
+
 import { Mdx } from '@/components/mdx-components';
+import { ScrollTop } from '@/components/scroll-top/ScrollTop';
+import { Toc } from '@/components/toc';
+import { siteConfig } from '@/config/site-config';
+import { PostHeader, PostMobileNav, PostTags } from '@/features/blog';
+import { absoluteUrl } from '@/utils/url-util';
 import { allPosts } from 'contentlayer/generated';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-
-import ScrollTop from '@/components/scroll-top/ScrollTop';
-import { Toc } from '@/components/toc';
-import { PostHeader, PostMobileNav, PostTags } from '@/features/blog';
-import '@/styles/mdx.css';
 
 interface PostProps {
   params: {
@@ -35,6 +37,27 @@ export async function generateMetadata({ params }: PostProps): Promise<Metadata>
   return {
     title: post.title,
     description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: 'article',
+      url: absoluteUrl(post.slug),
+      images: [
+        {
+          url: siteConfig.ogImage,
+          width: 1200,
+          height: 630,
+          alt: siteConfig.name,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [siteConfig.ogImage],
+      creator: siteConfig.twitterCreator,
+    },
   };
 }
 

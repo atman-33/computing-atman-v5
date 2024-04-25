@@ -2,6 +2,7 @@ import '@repo/ui/globals.css';
 import '../styles/globals.css';
 
 import { siteConfig } from '@/config/site-config';
+import { webEnv } from '@/config/web-env';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -15,14 +16,14 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
-  keywords: ['Next.js', 'React', 'Tailwind CSS', 'Server Components', 'Radix UI'],
+  keywords: ['Next.js', 'React', 'Tailwind CSS', 'computing', 'atman'],
   authors: [
     {
-      name: 'shadcn',
-      url: 'https://shadcn.com',
+      name: siteConfig.creator,
+      url: webEnv.NEXT_PUBLIC_APP_URL,
     },
   ],
-  creator: 'shadcn',
+  creator: siteConfig.creator,
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: '@shadcn',
+    creator: siteConfig.twitterCreator,
   },
   icons: {
     icon: '/favicons/favicon.ico',
