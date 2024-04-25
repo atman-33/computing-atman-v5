@@ -11,7 +11,7 @@ const PostListItem = ({ post }: PostListItemProps) => {
   return (
     <div className="flex space-x-4">
       <Link href={post.slug} className="whitespace-nowrap">
-        <div className="bg-background flex h-20 min-h-20 w-20 min-w-20 items-center justify-center rounded-md text-5xl">
+        <div className="bg-background flex h-20 min-h-20 w-20 min-w-20 items-center justify-center rounded-full text-5xl">
           <div>{post?.emoji}</div>
         </div>
       </Link>
@@ -19,7 +19,7 @@ const PostListItem = ({ post }: PostListItemProps) => {
         <Link href={post.slug} className="whitespace-nowrap">
           <div className="overflow-x-hidden text-wrap font-semibold">{post?.title}</div>
         </Link>
-        <div className="flex flex-wrap space-x-2 space-y-1">
+        <div className="flex flex-wrap space-x-2">
           <PostTags post={post} />
           <PostDate post={post} />
         </div>
