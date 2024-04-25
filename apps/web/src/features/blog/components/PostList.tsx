@@ -40,7 +40,7 @@ const PostList = ({ posts }: PostListProps) => {
   // console.log(posts);
   return (
     <>
-      <div className="grid gap-x-4 md:grid-cols-2">
+      <div className="grid gap-x-12 md:grid-cols-2">
         {displayPosts.map((post) => (
           <div className="my-4" key={post.title}>
             <PostListItem key={post.title} post={post} />
