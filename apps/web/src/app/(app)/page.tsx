@@ -36,7 +36,7 @@ const IndexPage = () => {
           </TabsList>
           <TabsContent value="blog">
             <div
-              className="bg-primary/15 p-8"
+              className="bg-foreground/10 p-8"
               style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}
             >
               <section className="mx-auto max-w-[1000px] justify-center">

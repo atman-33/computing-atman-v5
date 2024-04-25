@@ -20,7 +20,7 @@ export const TagList = () => {
         {tagData && (
           <>
             {(tagData as unknown as any).map(([tag, count]: [string, number]) => (
-              <Link href={`/blog/tags/${tag}`}>
+              <Link href={`/blog/tags/${tag}`} key={tag}>
                 <div
                   key={tag}
                   className="mx-3 my-3 flex h-24 max-w-32 flex-col items-center justify-between rounded-lg border-[1px] py-2"

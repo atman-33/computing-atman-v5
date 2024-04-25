@@ -28,7 +28,7 @@ export const Breadcrumb = ({ pageName }: BreadcrumbProps) => {
         </BreadcrumbItem>
 
         {paths.map((path, index, arr) => (
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2" key={index}>
             <BreadcrumbSeparator />
 
             {index < arr.length - 1 && (
