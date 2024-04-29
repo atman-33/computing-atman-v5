@@ -1,6 +1,7 @@
 import '@repo/ui/globals.css';
 import '../styles/globals.css';
 
+import { GoogleAnalytics } from '@/components/google-analytics';
 import { siteConfig } from '@/config/site-config';
 import { webEnv } from '@/config/web-env';
 import { ThemeProvider } from '@/providers/ThemeProvider';
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
         >
           <div className="bg-background">{children}</div>
         </ThemeProvider>
+        <GoogleAnalytics />
       </body>
     </html>
   );
