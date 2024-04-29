@@ -79,7 +79,7 @@ export default async function PostPage({ params }: PostProps) {
       <div className="bg-background sticky top-0 border-b-2 p-2">
         <PostMobileNav post={post} />
       </div>
-      <div className="prose dark:prose-invert bg-primary/10 py-6 sm:p-2">
+      <div className="prose dark:prose-invert bg-foreground/10 py-6 sm:p-2">
         <div className="sm:container">
           <PostHeader post={post} />
 
