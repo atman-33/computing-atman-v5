@@ -11,7 +11,7 @@ import { PostPagination } from './PostPagination';
 /**
  * ページ毎の表示件数（ポスト数）
  */
-const POSTS_PER_PAGE = 10;
+const POSTS_PER_PAGE = 20;
 
 interface PostListProps {
   posts: Post[];
