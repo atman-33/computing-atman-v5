@@ -2,7 +2,7 @@
 
 ## 参考URL
 
-<https://zenn.dev/layerx/articles/028cb518cffd61> 
+<https://zenn.dev/layerx/articles/028cb518cffd61>
 <https://nhost.io/blog/how-to-use-graphql-code-generator-with-react-and-apollo>
 <https://zenn.dev/optimisuke/articles/8de632308cebeb>
 <https://zenn.dev/sky/articles/47b86d3387389d>

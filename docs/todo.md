@@ -1,3 +1,5 @@
+# Todo list
+
 - [x] Mongo DB を追加
 - [x] prisma を追加
 - [x] features フォルダ用のESLint設定
@@ -11,5 +13,5 @@
 
 - [x] ブログ記事一覧にページネーションを追加
 - [x] ブログ用のmetaデータを追加
-- [ ] Google Analytics を設定
+- [x] Google Analytics を設定
 - [ ] クラウド環境にデプロイ

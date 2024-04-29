@@ -10,4 +10,3 @@ Mongo DB で構築する。詳細は下記を確認すること。
 
 - docker からDBを立ち上げ
 - .env.local にDBの接続パスを追加
-

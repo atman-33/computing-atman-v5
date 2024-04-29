@@ -10,7 +10,7 @@ Next.js で、 favicon を設定する方法です。
 
 > favicon generator では、 safari-pinned-tab.svg ファイルも作成可能
 
-## 導入ステップ
+## ステップ
 
 ### 1. favicon を生成
 

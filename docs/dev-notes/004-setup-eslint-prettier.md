@@ -6,7 +6,7 @@
 
 `.prettierignore`
 
-```
+```prettierignore
 /dist
 
 *.md
@@ -14,7 +14,7 @@
 
 `.prettierrc`
 
-```
+```prettierrc
 {
   "semi": true,
   "trailingComma": "all",
@@ -23,7 +23,7 @@
 }
 ```
 
-## NextJS用のルール追加 
+## NextJS用のルール追加
 
 `packages/eslint-config/next.js`
 

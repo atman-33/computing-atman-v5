@@ -4,7 +4,7 @@
 
 <https://contentlayer.dev/docs>
 
-## 導入ステップ
+## ステップ
 
 ### 1. パッケージをインストール
 
@@ -62,7 +62,7 @@ module.exports = withContentlayer(nextConfig)
 
 `.gitignore`
 
-```
+```gitignore
 # contentlayer
 .contentlayer
 ```
@@ -82,7 +82,7 @@ module.exports = withContentlayer(nextConfig)
 - `apps/web/src/components/mdx-components/copy-button.tsx`
   - コードブロックのコピーボタン
 - `apps/web/src/components/mdx-components/Mdx.tsx`
-  - mdxの表示用コンポーネント 
+  - mdxの表示用コンポーネント
 
 ## Note
 

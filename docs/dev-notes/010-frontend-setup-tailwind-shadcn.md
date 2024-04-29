@@ -58,7 +58,7 @@ module.exports = {
 
 ### 4. tailwind.config.js を作成  
 
-`packages/ui/tailwind.config.ts`    
+`packages/ui/tailwind.config.ts`
 
 ```js: tailwind.config.ts
 import type { Config } from "tailwindcss";
@@ -335,7 +335,7 @@ module.exports = require('@repo/ui/postcss.config');
 
 ### 11. web に、globals.css をインポート
 
-最上位の layout に、 shadcn の globals.css を追加 
+最上位の layout に、 shadcn の globals.css を追加
 
 `apps/web/app/layout.tsx`
 

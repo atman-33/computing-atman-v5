@@ -5,7 +5,7 @@
 [Tocbot を使用し Next.js で構築したブログに目次を追加する](https://zenn.dev/yyykms123/articles/2023-12-03-adding-toc-to-nextjs-blog-using-tocbot)
 [tocbotでZennとかQiitaみたいな目次を作る](https://inari-tech.net/posts/zenn-toc-tocbot)
 
-## 導入ステップ
+## ステップ
 
 ### 1. パッケージをインストール
 

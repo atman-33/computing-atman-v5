@@ -4,13 +4,14 @@
 
 [jotai](https://jotai.org/)
 
-## 導入ステップ
+## ステップ
 
 ### 1. パッケージをインストール
 
 ```bash
 npm i jotai
 ```
+
 ### 2. JotaiProvider を準備
 
 `apps/web/src/providers/JotaiProvider.tsx`
