@@ -1,6 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 const Pqge = () => {
   const searchParams = useSearchParams();
@@ -9,7 +10,7 @@ const Pqge = () => {
 
   // URL -> `/dashboard?search=my-project`
   // `search` -> 'my-project'
-  return <>Search: {search}</>;
+  return <Suspense>Search: {search}</Suspense>;
 };
 
 export default Pqge;
