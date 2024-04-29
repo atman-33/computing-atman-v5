@@ -27,7 +27,8 @@ const IndexPage = () => {
             <SimpleTabsTrigger value="blog" className="w-16">
               Blog
             </SimpleTabsTrigger>
-            <SimpleTabsTrigger value="tech" className="w-16">
+            {/* TODO: 技術記事を実装 */}
+            <SimpleTabsTrigger value="tech" className="hidden w-16">
               Tech
             </SimpleTabsTrigger>
             <SimpleTabsTrigger value="explore" className="w-16">

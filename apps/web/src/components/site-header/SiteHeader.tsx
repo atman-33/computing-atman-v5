@@ -47,7 +47,8 @@ export function SiteHeader() {
             </Link>
             <ModeToggle />
           </nav>
-          <Button className="h-8 rounded-full font-bold">Log in</Button>
+          {/* TODO: ログイン機能を実装 */}
+          <Button className="hidden h-8 rounded-full font-bold">Log in</Button>
         </div>
       </div>
     </header>
