@@ -1,4 +1,4 @@
-# Google Analyticsを設定
+# Google Analytics 設定
 
 ## 参考URL
 
