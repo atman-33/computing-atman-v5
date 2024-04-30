@@ -1,3 +1,5 @@
+# Turborepoで作成したNestJSプロジェクトで、InternalPackage  を参照できない
+
 ## 現象
 
 Turborepoで作成したNestJSプロジェクトで、InternalPackage を呼び出すと、
@@ -8,15 +10,14 @@ Turborepoで作成したNestJSプロジェクトで、InternalPackage を呼び�
 <https://www.reddit.com/r/nestjs/comments/17elbwg/turborepo_internal_packages/>
 <https://www.reddit.com/r/node/comments/18xs8tq/using_an_shared_prisma_client_from_turborepo_in_a/>
 
-
 ## 対処方法
 
 現状は解決策が見つからない。  
 JS系のモノレポであればNxを利用するか、InternalPackageを利用しない構成で回避する。
 
-**2024/03/31 追記**
+- **2024/03/31 追記**
 
-InternalPackageをJavaScriptにコンパイルしたファイルであれば、NestJSプロジェクトから参照可能となる。
+    InternalPackageをJavaScriptにコンパイルしたファイルであれば、NestJSプロジェクトから参照可能となる。
 
 - tsup をワークスペースにインストール
 
