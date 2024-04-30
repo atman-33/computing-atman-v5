@@ -1,0 +1,127 @@
+---
+title: Python | Line, Discord,Slackへの通知クラス
+description: Python でLine、Discord、Slackへ『テキストメッセージ』を送って通知するクラスのサンプル
+date: 2020-03-10
+emoji: 📨
+tags: 
+  - python
+published: true
+---
+
+Python でLine、Discord、Slackへ『テキストメッセージ』を送って通知するクラスを紹介します。
+
+[【ソースコードはこちら】](https://github.com/atman-33/notification-python)
+
+## 概要
+API のトークンや Webhook URL をセットし、テキストを読み込ませることで通知を送る機能を備えています。
+
+## パッケージ構成
+パッケージというほどでもないですが、通知クラス（notification.py）とメイン処理（debug.py）を準備しました。
+
+```text
+py_notification
+|-notification.py
+|-debug.py
+```
+
+## ソースコード解説
+メイン処理（debug.py） で 通知クラス（notification.py） を呼び出して通知を実行させます。
+
+___
+### ①notification.py
+
+```py
+import requests
+import json
+
+class Notification():
+    """
+    @brief : 通知クラス
+    @note  :
+    """
+    line_notify_token = ''
+    discord_webhook_url = ''
+    discord_username = ''
+    slack_webhook_url = ''
+    slack_username = ''
+
+    def __init__(self):
+        print("Notification クラスをインスタンス化")
+
+    # ----- LINE, DISCORD, SLACK にメッセージを送るための初期設定 関連----
+    def set_line(self, token):
+        self.line_notify_token = token
+
+    def set_discord(self, url, username):
+        self.discord_webhook_url = url
+        self.discord_username = username
+
+    def set_slack(self, url, username):
+        self.slack_webhook_url = url
+        self.slack_username = username        
+
+    # ----- Notify（メッセージを送る） 関連-----
+    def send_message(self, text) :
+        try:
+            self.__line(text)
+        except:
+            pass
+        try:
+            self.__discord(text)
+        except:
+            pass
+        try:
+            self.__slack(text)
+        except:
+            pass
+
+    def __line(self, message):
+        if len(self.line_notify_token) > 0:
+            requests.post('https://notify-api.line.me/api/notify', headers={'Authorization': 'Bearer ' + self.line_notify_token}, data={'message': '\n' + message})
+            print(message + " by Line")
+
+    def __discord(self, message):
+        if len(self.discord_webhook_url) > 0:
+            requests.post(self.discord_webhook_url, data={'username': self.discord_username, 'content': message})
+            print(message + " by Discord")
+
+    def __slack(self, message):
+        if len(self.slack_webhook_url) > 0:
+            requests.post(self.slack_webhook_url, data=json.dumps({'username': self.slack_username, 'text':message}))
+            print(message + " by Slack")
+```
+
+___
+### ②debug.py
+```py
+import sys
+
+# 自作クラスを追加するために参照先を追加
+sys.path.append("..")
+# print(sys.path)
+
+# クラス読み込み：from <ファイル名> import <クラス名>
+from notification import Notification
+
+notify = Notification()
+line_token          = "LINE の トークン をここに入力"
+discord_webhook_url = "Discord の Webhook URL をここに入力"
+slack_webhook_url   = "Slack の Webhook URL をここに入力"
+
+notify.set_line(line_token)
+notify.set_discord(discord_webhook_url, "bot")
+notify.set_slack(slack_webhook_url, "bot")
+
+notify.send_message("test message")
+```
+
+詰まりやすいのが、自作クラスを呼び出す点かと思います。
+今回、下記のようにしていますが、  
+`from notification import Notification`  
+`from <ファイル名> import <クラス名>`　というように対応しています。  
+
+また、自作クラスを追加する際は参照先を syspath.append で追加することを忘れないようにしてください。
+
+以上です。
+
+余談ですが、やはりPythonは書きやすく、コードがきれいだと改めて感じました。

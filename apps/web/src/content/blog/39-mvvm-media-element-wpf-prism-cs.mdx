@@ -1,0 +1,145 @@
+---
+title: C# | WPF Prism 動画（MediaElement）をMVVMパターンで実装する方法
+description: WPF Prism の動画再生（MediaElement.Play()）を、MVVM パターンで実装する方法
+date: 2023-03-19
+emoji: 🐡
+tags: 
+  - csharp
+published: true
+---
+
+WPF Prism の動画再生（MediaElement.Play()）を、MVVM パターンで実装する方法を説明します。
+
+### IMediaService インターフェース
+
+1. IMediaService というインターフェイスを導入します。
+
+```cs
+public Interface IMediaService
+{
+    void Play();
+    void Pause();
+    void Stop();
+    void Rewind();
+    void FastForward();
+    bool IsPlaying();
+}
+```
+
+### View コードビハインド
+
+2. ビューに IMediaService を実装します。
+
+```cs
+public partial class DemoView : UserControl, IMediaService
+{
+    public DemoView()
+    {
+        InitializeComponent();
+    }
+
+    void IMediaService.FastForward()
+    {
+        this.MediaPlayer.Position += TimeSpan.FromSeconds(10);
+    }
+
+    void IMediaService.Pause()
+    {
+        this.MediaPlayer.Pause();
+    }
+
+    void IMediaService.Play()
+    {
+        this.MediaPlayer.Play();
+    }
+
+    void IMediaService.Rewind()
+    {
+        this.MediaPlayer.Position -= TimeSpan.FromSeconds(10);
+    }
+
+    void IMediaService.Stop()
+    {
+        this.MediaPlayer.Stop();
+    }
+
+    bool IMediaService.IsPlaying()
+    {
+        // ローディング完了時はtrue
+        return this.MediaPlayer.Position < this.MediaPlayer.NaturalDuration;
+    }
+}
+```
+
+### View Xaml
+
+3. 次に、DemoView.XAML にいくつかのコードを加えます。
+
+- MediaElement に名前を付けて、コード ビハインドが上記のようにアクセスできるようにします。  
+   `<MediaElement Source="{Binding CurrentMedia}" x:Name="MediaPlayer"/>`
+
+- ビューに名前を付けて、パラメーターとして渡すことができるようにします。
+- インタラクティブな名前空間をインポートしておきます。（他にも必要な名前空間は省略）
+
+```xml
+   <UserControl x:Class="Test.DemoView"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+     x:Name="MediaService">
+```
+
+- トリガーを介して Loaded イベントを接続し、コマンドを介してビュー自体（x:Name=MediaService）をビュー モデルに渡します。
+
+```xml
+   <i:Interaction.Triggers>
+         <i:EventTrigger EventName="Loaded">
+             <i:InvokeCommandAction Command="{Binding MediaServiceLoaded}" CommandParameter="{Binding ElementName=MediaService}"></i:InvokeCommandAction>
+         </i:EventTrigger>
+     </i:Interaction.Triggers>
+```
+- MediaElement を操作するボタン（コマンド）を準備しておきます。
+```xml
+   <Button Command="{Binding MoviePlayButton}" Content="Play"></Button> 
+   <Button Command="{Binding MovieStopButton}" Content="Stop"></Button> 
+```
+
+### ViewModel
+
+4. ViewModel で MediaElement のメソッドを呼び出せるようにします。
+
+```cs
+public class DemoViewModel : BindableBase
+{
+    public DemoViewModel()
+    {
+        MediaServiceLoaded = new DelegateCommand<IMediaService>(MediaServiceLoadedExecute);
+        MoviePlayButton = new DelegateCommand(MoviePlayButtonExecute);
+
+        // ...
+    }
+
+    public IMediaService MediaService {get; private set;}
+
+    public DelegateCommand<IMediaService> MediaServiceLoaded { get; }
+    private void MediaServiceLoadedExecute(IMediaService mediaService)
+    {
+        this.MediaService = mediaService;
+    }
+
+    public DelegateCommand MoviePlayButton { get; }
+    private void MoviePlayButtonExecute()
+    {
+        if (MediaService == null)
+        {
+            return;
+        }
+
+        MediaService.Play();
+    }
+
+    // ...
+}
+```
+
+これらの手順に従うことで、ViewModel内でMediaElementを再生および停止することができます。  
+少々コードビハインドに記述する必要がありますが、MVVMパターンは守られたコードになっていると思います。

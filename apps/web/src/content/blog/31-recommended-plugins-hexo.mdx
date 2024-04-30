@@ -1,0 +1,69 @@
+---
+title: Hexo | おすすめプラグイン
+description: Hexo のおすすめプラグイン
+date: 2023-03-05
+emoji: ⛅
+tags: 
+  - hexo
+published: true
+---
+
+Hexoのおすすめプラグインをまとめておきます。
+
+### ファイルの変更をブラウザに即時反映
+
+```shell
+npm install -g browser-sync
+
+npm install hexo-browsersync --save
+```
+
+### GitHub page にデプロイ
+
+```shell
+npm install hexo-deployer-git --save
+```
+
+### サイトマップ作成
+
+```shell
+npm install hexo-generator-seo-friendly-sitemap --save
+```
+
+`_config.yml`に追記  
+
+▼Hexoディレクトリ 
+
+`_config.yml`  
+
+```yml
+sitemap:
+  path: sitemap.xml
+  tag: true
+  category: true
+```
+
+### robots.txt生成
+
+```shell
+pm install hexo-generator-robotstxt --save
+```
+
+▼Hexoディレクトリ  
+
+`_config.yml`  
+
+```yml
+robotstxt:
+  useragent: "*"
+  disallow:
+    - /about/
+    - /gallery/
+    - /privacy-policy/
+    - /archives/
+    - /css/
+    - /img/
+    - /js/
+  allow:
+  sitemap: /sitemap.xml
+```

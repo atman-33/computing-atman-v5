@@ -1,0 +1,78 @@
+---
+title: electron-react-boilerplate 環境構築（Proxy, 環境変数）
+description: Electron + Reactデスクトップアプリの環境セットアップガイド。Node.jsとProxy設定、boilerplateプロジェクトのクローン、依存関係のインストール方法を提供。
+date: 2023-10-29
+lastmod: 2023-11-07
+emoji: ⚡
+tags: 
+  - electron
+published: true
+---
+
+## ElectronとReactを組み合わせたデスクトップアプリの環境セットアップ
+
+Electronは、HTML、CSS、JavaScriptを用いてデスクトップアプリケーションを開発するための強力なフレームワークです。この記事では、Windows環境でElectronとReactを組み合わせたアプリケーションの環境セットアップ方法について詳しく説明します。以下の手順に従って、プロジェクトを始めましょう。
+
+### 1. 前提条件
+
+最初に、Node.jsがインストールされていることを確認してください。Node.jsは、Electronアプリケーションを構築するために必要なランタイム環境です。Node.jsをまだインストールしていない場合は、[Node.jsの公式ウェブサイト](https://nodejs.org/)から最新バージョンをダウンロードしてインストールしてください。
+
+### 2. npmにアクセスするためのProxy設定
+
+Proxyサーバーを利用している場合、npmを正しく設定する必要があります。以下のコマンドを使用して、npmのProxy設定を行います。
+
+```powershell
+npm config set strict-ssl false
+npm config registry "http://registry.npmjs.org"
+npm config set proxy "利用しているProxyのURL"
+npm config set https-proxy "利用しているProxyのURL"
+```
+
+これにより、npmがProxyを経由して必要なパッケージをダウンロードできるようになります。
+
+### 3. electron-react-boilerplateのクローン
+
+次に、GitHubから`electron-react-boilerplate`をクローンしてプロジェクトを始めます。以下のコマンドを使用します。
+
+```powershell
+git clone --depth 1 --branch main https://github.com/electron-react-boilerplate/electron-react-boilerplate your-project-name
+```
+
+ここで`your-project-name`は、プロジェクトの名前を指定する箇所です。適切なプロジェクト名に変更してください。
+
+### 4. 必要なパッケージのインストール
+
+プロジェクトフォルダに移動し、必要なパッケージをインストールします。以下の手順を実行します。
+
+1. Powershellを開き、プロジェクトフォルダに移動します。
+
+```powershell
+cd your-project-name
+```
+
+2. 環境変数の設定
+
+Electronをインストールするために環境変数を設定する必要があります。以下のコマンドを使用して設定します。
+
+```powershell
+$env:ELECTRON_GET_USE_PROXY = 1
+$env:GLOBAL_AGENT_HTTPS_PROXY = "利用しているProxyのURL"
+```
+
+3. パッケージのインストール
+
+最後に、以下のコマンドを実行して必要なパッケージをインストールします。
+
+```powershell
+npm install
+```
+
+これで、ElectronとReactを組み合わせたデスクトップアプリのプロジェクトがセットアップされました。必要なライブラリや依存関係が解決され、開発を開始できます。
+
+### 参考URL
+
+- [Electron + Reactでデスクトップアプリを作ろう！](https://qiita.com/udayaan/items/2a7c8fd0771d4d995b69)
+- [Proxy環境でElectronインストールしようとしたら隠れた罠があったんです](https://qiita.com/LuckyRetriever/items/2f377b1ce34f7d12903c)
+
+このガイドを通じて、ElectronとReactを組み合わせたプロジェクトを効果的に開始できます。  
+開発を進めて、デスクトップアプリを作成してみてください。

@@ -1,0 +1,130 @@
+---
+title: C# | WPF Prism 画面遷移（ナビゲート）
+description: C# WPF Prism ナビゲート画面の遷移方法
+date: 2023-02-26
+emoji: 🤖
+tags: 
+  - csharp
+published: true
+---
+
+C#の **WPF Prism** でナビゲート画面の遷移方法について説明します。
+
+下記のように、ボタンを押すと画面が切り替わる処理です。
+（ダイアログではなく、画面内の表示が切り替わります。）
+
+![image](/blog/26/1.gif)
+
+## 対象ファイル（例）
+
+コーディングが必要なファイルは下記の **A～C** です。
+
+```text
+Views/
+ |-MainWindowView.xaml（画面遷移元）　･･･A
+ |-SampleNavigationView.xaml(画面遷移先)
+
+ViewModels/
+ |-MainWindowViewModel.cs（画面遷移元）　･･･B
+ |-SampleNavigationViewModel.cs(画面遷移先)　･･･C
+
+App.xaml.cs　･･･D
+```
+
+## MainWindowView.xaml（画面遷移元）　･･･A
+
+### ①ボタンにCommandを追加
+
+画面遷移元のViewのボタンに対して、CommandにBindingでデリゲートコマンド名称を記載します。
+
+```xml
+<Button Content="Sampleナビゲーション画面"
+        FontSize="14"
+        Margin="10"
+        Padding="5"
+        Command="{Binding SampleNavigationViewButton}"/>
+```
+
+## MainWindowViewModel.cs（画面遷移元）　･･･B
+
+### ②ViewModelにIRegionManagerの変数を追加
+
+画面遷移元のViewModelに、IRegionManagerのプライベート変数を追加し、コンストラクタでセットします。
+
+### ③ボタン押下時の実行メソッドを追加
+
+ボタン押下イベントを受け取るデリゲートコマンドのプロパティを追加し、ボタン押下時のExcuteメソッドを実装します。
+
+▼上記②～③のサンプルコード
+```cs
+private IRegionManager _regionManager;  //// 画面遷移（ナビゲーション）
+
+//// コンストラクタ
+public MainWindowViewModel(IRegionManager regionManager)
+{
+    //// 画面遷移用（ナビゲーション）
+    _regionManager = regionManager;
+
+    SampleNavigationViewButton = new DelegateCommand(SampleNavigationViewButtonExecute);
+}
+
+public DelegateCommand SampleNavigationViewButton { get; }
+
+private void SampleNavigationViewButtonExecute()
+{
+   //// 画面遷移処理（ナビゲーション）
+   _regionManager.RequestNavigate("ContentRegion", nameof(SampleNavigationView));
+}
+```
+
+## SampleNavigationViewModel.cs(画面遷移先)　･･･C
+
+### ④INavigationAwareインターフェースを実装
+画面遷移先のViewModelに、**INavigationAwareインターフェース** と **IRegionMemberLifetimeインターフェース**を実装します。
+
+※2023/3/5 追記
+ViewModelインスタンスのメモリ開放のため、IRegionMemberLifetimeインターフェース実装を追加しました。
+
+### ⑤インターフェースのメソッドを変更
+INavigationAwareを実装した事で追加される IsNavigationTarget の 戻り値を true とし、KeepAlive を false にして下さい。そうすれば、画面破棄でメモリが開放されます。
+
+▼上記④～⑤のサンプルコード
+```cs
+public class SampleTableEditViewModel : BindableBase, INavigationAware, IRegionMemberLifetime
+{
+    /// <summary>
+    /// ViewModel破棄に伴いメモリ開放する際はfalse
+    /// </summary>
+    public bool KeepAlive { get; set; } = false;
+
+    //// 各種処理
+
+    public bool IsNavigationTarget(NavigationContext navigationContext)
+    {
+        //// RegionMemberLifetime(KeepAlive = false)でViewModelを破棄するため、こちらはTrue
+        return true;
+    }
+
+    public virtual void OnNavigatedFrom(NavigationContext navigationContext)
+    {
+    }
+
+    public virtual void OnNavigatedTo(NavigationContext navigationContext)
+    {
+    }
+}
+```
+
+## App.xaml.cs　･･･D
+
+### ⑥RegisterTypes内でViewを登録
+
+```cs
+protected override void RegisterTypes(IContainerRegistry containerRegistry)
+{
+    //// ナビゲーション画面
+    containerRegistry.RegisterForNavigation<SampleNavigationView>();
+}
+```
+
+containerRegistry.RegisterForNavigationに設定したViewが画面遷移可能となります。

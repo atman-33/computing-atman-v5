@@ -19,7 +19,13 @@
     "db:studio": "npx env-cmd -f .env.local npx prisma studio",
     "----TOOLS SECTION----": "-------------------------",
     "ui:add": "npm run -w @repo/ui ui:add",
-    "schema-codegen": "npx ts-node tools/schema-codegen/index.ts"
+    "schema-codegen": "npx ts-node tools/schema-codegen/index.ts",
+    "----DEPLOY SECTION----": "-----------------------",
+    "cd:build-web": "npx env-cmd -f .env.local turbo build --filter=web",
+    "cd:build-api": "npm run postbuild & npx env-cmd -f .env.local turbo build --filter=api",
+    "cd:build": "npm run cd:build-api && npm run cd:build-web",
+    "cd:api-start": "node apps/api/dist/main.js",
+    "cd:api-start:local": "npx env-cmd -f .env.local node apps/api/dist/main.js"
   },
   "devDependencies": {
     "@graphql-codegen/typescript": "^4.0.6",
@@ -28,9 +34,11 @@
     "@parcel/watcher": "^2.4.1",
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
+    "@types/gtag.js": "^0.0.19",
     "autoprefixer": "^10.4.18",
     "postcss": "^8.4.35",
     "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.14",
     "turbo": "latest"
   },
   "engines": {

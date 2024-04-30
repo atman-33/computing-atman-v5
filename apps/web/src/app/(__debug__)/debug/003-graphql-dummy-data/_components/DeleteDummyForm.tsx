@@ -42,12 +42,12 @@ const DeleteDummyForm = () => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(deleteDummy)}>
           <FormLabel className="text-base font-bold underline">データ削除</FormLabel>
-          <div className="ml-4 flex space-x-2 items-start">
+          <div className="ml-4 flex items-start space-x-2">
             <FormField
               control={form.control}
               name="id"
               render={({ field }) => (
-                <FormItem className="flex space-x-2 items-baseline">
+                <FormItem className="flex items-baseline space-x-2">
                   <FormLabel className="w-[50px]">ID</FormLabel>
                   <FormControl className="w-[210px]">
                     <Input placeholder="ID" {...field} />

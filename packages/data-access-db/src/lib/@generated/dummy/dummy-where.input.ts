@@ -7,31 +7,30 @@ import { DateTimeFilter } from '../prisma/date-time-filter.input';
 
 @InputType()
 export class DummyWhereInput {
+  @Field(() => [DummyWhereInput], { nullable: true })
+  AND?: Array<DummyWhereInput>;
 
-    @Field(() => [DummyWhereInput], {nullable:true})
-    AND?: Array<DummyWhereInput>;
+  @Field(() => [DummyWhereInput], { nullable: true })
+  OR?: Array<DummyWhereInput>;
 
-    @Field(() => [DummyWhereInput], {nullable:true})
-    OR?: Array<DummyWhereInput>;
+  @Field(() => [DummyWhereInput], { nullable: true })
+  NOT?: Array<DummyWhereInput>;
 
-    @Field(() => [DummyWhereInput], {nullable:true})
-    NOT?: Array<DummyWhereInput>;
+  @Field(() => StringFilter, { nullable: true })
+  id?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    id?: StringFilter;
+  @Field(() => StringFilter, { nullable: true })
+  text?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    text?: StringFilter;
+  @Field(() => IntFilter, { nullable: true })
+  int?: IntFilter;
 
-    @Field(() => IntFilter, {nullable:true})
-    int?: IntFilter;
+  @Field(() => FloatFilter, { nullable: true })
+  float?: FloatFilter;
 
-    @Field(() => FloatFilter, {nullable:true})
-    float?: FloatFilter;
+  @Field(() => DateTimeFilter, { nullable: true })
+  createdAt?: DateTimeFilter;
 
-    @Field(() => DateTimeFilter, {nullable:true})
-    createdAt?: DateTimeFilter;
-
-    @Field(() => DateTimeFilter, {nullable:true})
-    updatedAt?: DateTimeFilter;
+  @Field(() => DateTimeFilter, { nullable: true })
+  updatedAt?: DateTimeFilter;
 }

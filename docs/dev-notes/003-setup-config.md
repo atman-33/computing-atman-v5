@@ -6,7 +6,7 @@
 
 `package.json`
 
-```bash
+```json
   "scripts": {
     "build": "npx env-cmd -f .env.local turbo build",
     "postbuild": "npx env-cmd -f .env.local turbo build --filter='./packages/*' & npm i",
@@ -18,6 +18,24 @@
 ```
 
 > postbuildは、Internal Package を利用する際に必要
+
+- tourbo.json に cache 利用無しでコマンドを設定しておく。
+
+`turbo.json`
+
+```json
+  "pipeline":{  
+    ...,
+    "dev:web": {
+      "cache": false,
+      "persistent": true
+    },
+    "dev:api": {
+      "cache": false,
+      "persistent": true
+    },
+  }
+```
 
 ### 2. web に、env 読み込みを追加
 

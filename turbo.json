@@ -1,7 +1,13 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
-  "globalEnv": ["NEXT_PUBLIC_API_ENDPOINT", "NEXT_PUBLIC_API_GQL_URL"],
+  "globalEnv": [
+    "NEXT_PUBLIC_IS_DEV",
+    "NEXT_PUBLIC_APP_URL",
+    "NEXT_PUBLIC_API_ENDPOINT",
+    "NEXT_PUBLIC_API_GQL_URL",
+    "NEXT_PUBLIC_GA_ID"
+  ],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
@@ -11,6 +17,14 @@
       "dependsOn": ["^lint"]
     },
     "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "dev:web": {
+      "cache": false,
+      "persistent": true
+    },
+    "dev:api": {
       "cache": false,
       "persistent": true
     },

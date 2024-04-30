@@ -1,4 +1,4 @@
-import { Link } from '@/components/elements/Link';
+import { Link } from '@/components/link';
 import { Button } from '@repo/ui';
 import { ReactNode } from 'react';
 

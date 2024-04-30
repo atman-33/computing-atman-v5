@@ -5,6 +5,7 @@
     "bradlc.vscode-tailwindcss",
     "dbaeumer.vscode-eslint",
     "hediet.vscode-drawio",
-    "dsznajder.es7-react-js-snippets"
+    "dsznajder.es7-react-js-snippets",
+    "davidanson.vscode-markdownlint"
   ]
 }
