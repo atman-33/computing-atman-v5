@@ -14,28 +14,41 @@
   "scripts": {
     ...
     "----DEPLOY SECTION----": "-----------------------",
-    "cd:build-web": "npx env-cmd -f .env.local turbo build --filter=web",
-    "cd:build-api": "npm run postbuild & npx env-cmd -f .env.local turbo build --filter=api",
+    "cd:postbuild": "turbo build --filter='./packages/*' & npm i",
+    "cd:build-web": "turbo build --filter=web",
+    "cd:build-api": "npm run cd:postbuild & turbo build --filter=api",
     "cd:build": "npm run cd:build-api && npm run cd:build-web",
     "cd:api-start": "node apps/api/dist/main.js",
     "cd:api-start:local": "npx env-cmd -f .env.local node apps/api/dist/main.js"
   },
 ```
 
-### 2. デプロイ用設定（Render.com）
+### 2. デプロイ時のNode ver. を指定
+
+`package.json`
+
+```json
+  ...,
+  "engines": {
+    "node": ">=18"
+  },
+  ...
+```
+
+### 3. デプロイ用設定（Render.com）
 
 #### Build Command
 
 ##### Prismaを利用しない場合  
 
 ```bash
-node --version && npm install --force && nx reset && npm run cd:build
+node --version && npm install --force && npm run cd:build
 ```
 
 ##### Prismaを利用する場合  
 
 ```bash
-node --version && npm install --force && nx reset && npx prisma generate && npm run cd:build
+node --version && npm install --force && npx prisma generate && npm run cd:build
 ```
 
 #### Start Command  
