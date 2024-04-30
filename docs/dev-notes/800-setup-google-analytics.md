@@ -37,9 +37,12 @@ npm i -D @types/gtag.js
 
 bodyタグの中に、GoogleAnalyticsコンポーネントを追加する。
 
+- **GoogleAnalyticsコンポーネントは、useSearchParamsを利用しているため、「Suspense」で囲むこと**
+
 `apps/web/src/app/layout.tsx`
 
 ```tsx
+import { Suspense } from "react";
 ...
 
 export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
@@ -54,7 +57,9 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
         >
           <div className="bg-background">{children}</div>
         </ThemeProvider>
-        <GoogleAnalytics />
+        <Suspense>
+          <GoogleAnalytics />
+        </Suspense>
       </body>
     </html>
   );

@@ -7,6 +7,7 @@ import { webEnv } from '@/config/web-env';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -79,7 +80,9 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
         >
           <div className="bg-background">{children}</div>
         </ThemeProvider>
-        <GoogleAnalytics />
+        <Suspense>
+          <GoogleAnalytics />
+        </Suspense>
       </body>
     </html>
   );

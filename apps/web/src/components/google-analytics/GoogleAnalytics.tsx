@@ -3,7 +3,7 @@
 import { webEnv } from '@/config/web-env';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
-import { Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
 
 const GA_MEASUREMENT_ID = webEnv.NEXT_PUBLIC_GA_ID || '';
 const existsGaId = GA_MEASUREMENT_ID !== '';
@@ -29,7 +29,7 @@ const GoogleAnalytics = () => {
   }, [pathname, searchParams]);
 
   return (
-    <Suspense>
+    <>
       <Script
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -44,7 +44,7 @@ const GoogleAnalytics = () => {
           });
         `}
       </Script>
-    </Suspense>
+    </>
   );
 };
 
