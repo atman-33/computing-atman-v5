@@ -8,6 +8,7 @@ const debugPages = [
   '/debug/005-fetch',
   '/debug/006-nextjs-search-param?search=foo',
   '/debug/007-tailwindcss-color',
+  '/debug/008-web-env',
 ];
 
 const Page = () => {
