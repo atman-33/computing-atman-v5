@@ -2,14 +2,14 @@
   @apply py-2 pr-3;
 
   .toc-list .toc-list {
-    @apply border-muted ml-5 border-l-2;
+    @apply border-muted ml-[18px] border-l-2;
   }
 
   .toc-link {
     --lightgray: 211 211 211;
-    @apply hover:text-foreground text-muted-foreground relative flex w-[100%] break-words py-1 pl-9 text-sm font-bold;
+    @apply hover:text-foreground text-muted-foreground relative flex w-[100%] py-1 pl-9 text-sm font-bold;
     &:before {
-      @apply border-card bg-card absolute left-4 top-2 h-[10px] w-[10px] rounded-full border-2 shadow-[0_0_0_2px_rgb(var(--lightgray))] content-[''];
+      @apply border-card bg-card absolute left-4 top-2 h-[6px] w-[6px] rounded-full border-2 shadow-[0_0_0_2px_rgb(var(--lightgray))] content-[''];
     }
   }
 
@@ -17,10 +17,7 @@
   .node-name--H4,
   .node-name--H5,
   .node-name--H6 {
-    @apply break-words text-xs font-normal;
-    &:before {
-      @apply border-card bg-card absolute left-[18px] top-2 h-[6px] w-[6px] rounded-full border-2 shadow-[0_0_0_2px_rgb(var(--lightgray))] content-[''];
-    }
+    @apply text-xs font-normal;
   }
 
   .is-active-link {
@@ -31,27 +28,3 @@
     }
   }
 }
-
-/* .toc {
-  @apply py-2 pr-3;
-
-  .toc-list .toc-list {
-    @apply border-l-2 border-muted ml-5;
-  }
-
-  .toc-link {
-    --lightgray: 211 211 211;
-    @apply flex text-sm w-[100%] py-1.5 relative pl-9 hover:text-foreground text-muted-foreground;
-    &:before {
-      @apply content-[''] w-[10px] h-[10px] border-2 border-card rounded-full top-3 left-4 bg-card absolute shadow-[0_0_0_2px_rgb(var(--lightgray))];
-    }
-  }
-
-  .is-active-link {
-    --dodgerblue: 30 144 255;
-    @apply font-bold text-foreground;
-    &:before {
-      @apply bg-primary outline-primary shadow-[0_0_0_1px_rgb(var(--dodgerblue))];
-    }
-  }
-} */
