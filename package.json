@@ -26,6 +26,10 @@
     "cd:build-api": "npm run cd:postbuild & turbo build --filter=api",
     "cd:build": "npm run cd:build-api && npm run cd:build-web",
     "cd:api-start": "node apps/api/dist/main.js",
+    "----LOCAL BUILD SECTION----": "-----------------------",
+    "cd:postbuild:local": "npx env-cmd -f .env.local turbo build --filter='./packages/*' & npm i",
+    "cd:build-web:local": "npx env-cmd -f .env.local turbo build --filter=web",
+    "cd:build-api:local": "npm run cd:postbuild & npx env-cmd -f .env.local turbo build --filter=api",
     "cd:api-start:local": "npx env-cmd -f .env.local node apps/api/dist/main.js"
   },
   "devDependencies": {
