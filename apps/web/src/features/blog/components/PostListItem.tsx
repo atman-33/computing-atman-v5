@@ -17,7 +17,7 @@ const PostListItem = ({ post }: PostListItemProps) => {
       </Link>
       <div className="flex flex-col space-y-2">
         <Link href={post.slug} className="whitespace-nowrap">
-          <div className="overflow-x-hidden text-wrap font-semibold">{post?.title}</div>
+          <h2 className="overflow-x-hidden text-wrap font-semibold">{post?.title}</h2>
         </Link>
         <div className="flex flex-wrap space-x-2">
           <PostTags post={post} />

@@ -1,6 +1,6 @@
 import { MainNavItem, SidebarNavItem } from '@/types/nav';
 
-interface DocsConfig {
+export interface DocsConfig {
   mainNav: MainNavItem[];
   sidebarNav: SidebarNavItem[];
 }
@@ -8,29 +8,13 @@ interface DocsConfig {
 export const docsConfig: DocsConfig = {
   mainNav: [
     {
-      title: 'Posts',
-      href: '/posts',
+      title: 'Home',
+      href: '/',
     },
     {
-      title: 'Tech',
-      href: '/tech',
-    },
-    {
-      title: 'Explore',
-      href: '/explore',
+      title: 'Blog Tags',
+      href: '/blog/tags',
     },
   ],
-  sidebarNav: [
-    {
-      title: 'React Samples',
-      items: [
-        {
-          title: 'useState',
-          href: '/xxx/xxx/xxx',
-          items: [],
-          label: 'New',
-        },
-      ],
-    },
-  ],
+  sidebarNav: [],
 };
