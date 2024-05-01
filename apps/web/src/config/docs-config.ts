@@ -12,6 +12,10 @@ export const docsConfig: DocsConfig = {
       href: '/',
     },
     {
+      title: 'Tech',
+      href: '/tech',
+    },
+    {
       title: 'Blog Tags',
       href: '/blog/tags',
     },
