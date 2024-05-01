@@ -11,7 +11,7 @@ export const reactDocsConfig: DocsConfig = {
   mainNav: docsConfig.mainNav,
   sidebarNav: [
     {
-      title: '🚀🚀🚀',
+      title: '🌟React🌟',
       items: [
         {
           title: 'click handler',

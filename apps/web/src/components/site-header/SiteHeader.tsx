@@ -15,6 +15,9 @@ export function SiteHeader() {
       <div className="mx-4 flex h-14 w-full items-center justify-center md:container md:w-10/12">
         <MainNav />
         <MobileNav docsConfig={docsConfig} />
+        <Link href="/">
+          <span className="ml-2 text-xl font-bold">{siteConfig.name}</span>
+        </Link>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
             <CommandMenu />

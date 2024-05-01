@@ -61,7 +61,8 @@ const IndexPage = () => {
           <TabsContent value="tech">
             <TechList />
           </TabsContent>
-          <TabsContent value="explore" className="py-8">
+          <TabsContent value="explore" className="flex flex-col space-y-4 py-8">
+            <h3 className="ml-3 text-xl font-bold">Blog Tags</h3>
             <TagList />
           </TabsContent>
         </Tabs>
