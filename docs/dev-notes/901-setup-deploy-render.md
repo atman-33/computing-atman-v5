@@ -41,13 +41,13 @@
 ##### Prismaを利用しない場合  
 
 ```bash
-node --version && npm install --force && npm run cd:build
+npm cache verify && node --version && npm install --force && npm run cd:build
 ```
 
 ##### Prismaを利用する場合  
 
 ```bash
-node --version && npm install --force && npx prisma generate && npm run cd:build
+npm cache verify && node --version && npm install --force && npx prisma generate && npm run cd:build
 ```
 
 #### Start Command  
