@@ -18,8 +18,7 @@
     "cd:build-web": "turbo build --filter=web",
     "cd:build-api": "npm run cd:postbuild & turbo build --filter=api",
     "cd:build": "npm run cd:build-api && npm run cd:build-web",
-    "cd:api-start": "node apps/api/dist/main.js",
-    "cd:api-start:local": "npx env-cmd -f .env.local node apps/api/dist/main.js"
+    "cd:api-start": "node apps/api/dist/main.js"
   },
 ```
 
