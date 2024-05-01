@@ -2,6 +2,7 @@ import { Icons } from '@/components/icons';
 import { Link } from '@/components/link';
 import { webEnv } from '@/config/web-env';
 import { PostList, TagList } from '@/features/blog';
+import { TechList } from '@/features/tech';
 import {
   SimpleTabsTrigger,
   Tabs,
@@ -28,8 +29,7 @@ const IndexPage = () => {
             <SimpleTabsTrigger value="blog" className="w-16">
               Blog
             </SimpleTabsTrigger>
-            {/* TODO: 技術記事を実装 */}
-            <SimpleTabsTrigger value="tech" className="hidden w-16">
+            <SimpleTabsTrigger value="tech" className="w-16">
               Tech
             </SimpleTabsTrigger>
             <SimpleTabsTrigger value="explore" className="w-16">
@@ -38,7 +38,7 @@ const IndexPage = () => {
           </TabsList>
           <TabsContent value="blog">
             <div
-              className="bg-foreground/10 p-8"
+              className="bg-primary/10 p-8"
               style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}
             >
               <section className="mx-auto max-w-[1000px] justify-center">
@@ -58,8 +58,11 @@ const IndexPage = () => {
               </section>
             </div>
           </TabsContent>
-          <TabsContent value="tech">making contents...</TabsContent>
-          <TabsContent value="explore" className="py-8">
+          <TabsContent value="tech">
+            <TechList />
+          </TabsContent>
+          <TabsContent value="explore" className="flex flex-col space-y-4 py-8">
+            <h3 className="ml-3 text-xl font-bold">Blog Tags</h3>
             <TagList />
           </TabsContent>
         </Tabs>

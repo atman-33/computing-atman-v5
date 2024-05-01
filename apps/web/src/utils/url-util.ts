@@ -39,3 +39,13 @@ export const parsePath = (path: string): string[] => {
 
   return result;
 };
+
+/**
+ * 最後のセグメントを取得する。
+ * @param path
+ * @returns
+ */
+export const getLastSegment = (path: string): string => {
+  const segments = path.split('/');
+  return segments[segments.length - 1] || '';
+};

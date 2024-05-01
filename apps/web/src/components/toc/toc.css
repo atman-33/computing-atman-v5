@@ -9,7 +9,7 @@
     --lightgray: 211 211 211;
     @apply hover:text-foreground text-muted-foreground relative flex w-[100%] py-1 pl-9 text-sm font-bold;
     &:before {
-      @apply border-card bg-card absolute left-4 top-2 h-[6px] w-[6px] rounded-full border-2 shadow-[0_0_0_2px_rgb(var(--lightgray))] content-[''];
+      @apply border-card bg-card absolute left-4 top-[10px] h-[6px] w-[6px] rounded-full border-2 shadow-[0_0_0_2px_rgb(var(--lightgray))] content-[''];
     }
   }
 
@@ -23,8 +23,5 @@
   .is-active-link {
     --dodgerblue: 30 144 255;
     @apply text-foreground font-bold;
-    &:before {
-      @apply bg-primary outline-primary shadow-[0_0_0_1px_rgb(var(--dodgerblue))];
-    }
   }
 }

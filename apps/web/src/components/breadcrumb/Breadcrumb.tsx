@@ -1,6 +1,6 @@
 'use client';
 
-import { parsePath } from '@/utils/url-util';
+import { getLastSegment, parsePath } from '@/utils/url-util';
 import {
   BreadcrumbItem,
   BreadcrumbLink,
@@ -33,12 +33,12 @@ export const Breadcrumb = ({ pageName }: BreadcrumbProps) => {
 
             {index < arr.length - 1 && (
               <BreadcrumbItem key={index}>
-                <BreadcrumbLink href={`${path}`}>{path.replace('/', '')}</BreadcrumbLink>
+                <BreadcrumbLink href={`${path}`}>{getLastSegment(path)}</BreadcrumbLink>
               </BreadcrumbItem>
             )}
             {index === arr.length - 1 && (
               <BreadcrumbItem key={index}>
-                <BreadcrumbPage>{pageName || path}</BreadcrumbPage>
+                <BreadcrumbPage>{pageName || getLastSegment(path)}</BreadcrumbPage>
               </BreadcrumbItem>
             )}
           </div>

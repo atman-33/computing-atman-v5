@@ -4,16 +4,14 @@ import Link from 'next/link';
 // import { usePathname } from 'next/navigation';
 
 import { Logo } from '@/components/logo';
-import { siteConfig } from '@/config/site-config';
 
 export function MainNav() {
   // const pathname = usePathname();
 
   return (
-    <div className="mr-4 hidden md:flex">
-      <Link href="/" className="mr-6 flex items-center space-x-2">
+    <div className="hidden md:flex">
+      <Link href="/">
         <Logo />
-        <span className="hidden text-xl font-bold sm:inline-block">{siteConfig.name}</span>
       </Link>
       <nav className="flex items-center gap-4 text-sm lg:gap-6">
         {/* NOTE: リンクを増やす場合は、こちらに追記していく。  */}

@@ -1,63 +1,38 @@
 'use client';
 
-import { Link } from '@/components/link';
-// import Link, { LinkProps } from 'next/link';
-import { useRouter } from 'next/navigation';
 import * as React from 'react';
 
-import { docsConfig } from '@/config/docs-config';
+import { DocsConfig } from '@/config/docs-config';
 import { siteConfig } from '@/config/site-config';
-import { Button, ScrollArea, Separator, Sheet, SheetContent, SheetTrigger, cn } from '@repo/ui';
-import { LinkProps } from 'next/link';
+import { Button, ScrollArea, Separator, Sheet, SheetContent, SheetTrigger } from '@repo/ui';
 import { Logo } from '../logo';
+import { MobileLink } from './MobileLink';
 
-export function MobileNav() {
+interface MobileNavProps {
+  docsConfig: DocsConfig;
+  children?: React.ReactNode;
+  side?: 'top' | 'bottom' | 'left' | 'right';
+}
+
+export function MobileNav({ docsConfig, children, side }: MobileNavProps) {
   const [open, setOpen] = React.useState(false);
 
   return (
     <div className="flex items-center md:hidden">
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <Button
-            variant="ghost"
-            className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
-          >
-            <Logo />
-            {/* <svg
-            strokeWidth="1.5"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-          >
-            <path
-              d="M3 5H11"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
-            <path
-              d="M3 12H16"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
-            <path
-              d="M3 19H21"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
-          </svg> */}
-            <span className="sr-only">Toggle Menu</span>
-          </Button>
+          {children || (
+            <Button
+              variant="ghost"
+              className="px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+            >
+              <Logo />
+              <span className="sr-only">Toggle Menu</span>
+            </Button>
+          )}
         </SheetTrigger>
-        <SheetContent side="left" className="pr-0">
+        <SheetContent side={side ?? 'left'} className="pr-0">
           <MobileLink href="/" className="flex items-center space-x-2" onOpenChange={setOpen}>
-            {/* <Icons.logo className="mr-2 h-4 w-4" /> */}
             <Logo />
             <span className="font-bold">{siteConfig.name}</span>
           </MobileLink>
@@ -105,33 +80,6 @@ export function MobileNav() {
           </ScrollArea>
         </SheetContent>
       </Sheet>
-      <Link href="/">
-        <div className="text-xl font-bold md:text-xl">Computing Atman</div>
-      </Link>
     </div>
-  );
-}
-
-interface MobileLinkProps extends LinkProps {
-  // eslint-disable-next-line no-unused-vars
-  onOpenChange?: (open: boolean) => void;
-  children: React.ReactNode;
-  className?: string;
-}
-
-function MobileLink({ href, onOpenChange, className, children, ...props }: MobileLinkProps) {
-  const router = useRouter();
-  return (
-    <Link
-      href={href as string}
-      onClick={() => {
-        router.push(href.toString());
-        onOpenChange?.(false);
-      }}
-      className={cn(className)}
-      {...props}
-    >
-      {children}
-    </Link>
   );
 }

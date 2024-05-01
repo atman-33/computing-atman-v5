@@ -1,6 +1,6 @@
 import { Icons } from '@/components/icons';
 import { Link } from '@/components/link';
-import Tag, { TagIconKind } from '@/components/tag';
+import { Tag, TagIconKind } from '@/components/tag';
 import { PostList, filterPublishedPosts, sortPostsByDate } from '@/features/blog';
 import { allPosts } from 'contentlayer/generated';
 import tagData from '../../../../../../public/tag-data.json';
