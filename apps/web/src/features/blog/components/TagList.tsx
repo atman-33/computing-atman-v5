@@ -2,7 +2,7 @@
 
 import { DotFlasing } from '@/components/dot-flashing';
 import { Link } from '@/components/link';
-import Tag, { TagIconKind } from '@/components/tag';
+import { Tag, TagIconKind } from '@/components/tag';
 import { Badge } from '@repo/ui';
 import { useTagData } from '../hooks/useTagData';
 

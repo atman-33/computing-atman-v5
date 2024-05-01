@@ -1,7 +1,5 @@
 import { TagIcons } from './TagIcons';
 
-export * from './TagIcons';
-
 /**
  * タグアイコンの定義。タグが増える際は、ここに定義を追加すること。
  */
@@ -94,12 +92,12 @@ const tagIcons = {
 
 export type TagIconKind = keyof typeof tagIcons;
 
-type TagIconProps = {
+interface TagIconProps {
   kind: TagIconKind;
   href?: string;
   size?: number;
   className?: string;
-};
+}
 
 const Tag = ({ kind, href, size = 6, className }: TagIconProps) => {
   const tagKind = tagIcons[kind];
@@ -132,4 +130,5 @@ const Tag = ({ kind, href, size = 6, className }: TagIconProps) => {
   }
 };
 
-export default Tag;
+export * from './TagIcons';
+export { Tag };

@@ -5,6 +5,7 @@ import { Icons } from '@/components/icons';
 import { MainNav } from '@/components/main-nav';
 import { MobileNav } from '@/components/mobile-nav';
 import { ModeToggle } from '@/components/mode-toggle';
+import { docsConfig } from '@/config/docs-config';
 import { siteConfig } from '@/config/site-config';
 import { Button, buttonVariants, cn } from '@repo/ui';
 
@@ -13,7 +14,7 @@ export function SiteHeader() {
     <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 top-0 z-50 mx-auto flex justify-center border-b backdrop-blur">
       <div className="mx-4 flex h-14 w-full items-center justify-center md:container md:w-10/12">
         <MainNav />
-        <MobileNav />
+        <MobileNav docsConfig={docsConfig} />
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
             <CommandMenu />

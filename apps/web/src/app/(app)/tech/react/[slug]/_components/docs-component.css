@@ -1,0 +1,34 @@
+h3 {
+  @apply mb-2 mt-8 font-bold;
+}
+
+pre .shiki {
+  @apply max-h-[650px] overflow-x-auto rounded-sm p-4 text-xs;
+}
+
+pre {
+  --sb-track-color: #cdcdce;
+  --sb-thumb-color: #4d5250;
+  --sb-size: 12px;
+}
+
+pre::-webkit-scrollbar {
+  width: var(--sb-size);
+  height: var(--sb-size);
+}
+
+pre::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 6px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 6px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  pre {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}

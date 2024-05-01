@@ -5,13 +5,13 @@ import { Link } from '@/components/link';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 
-import { docsConfig } from '@/config/docs-config';
+import { DocsConfig } from '@/config/docs-config';
 import { siteConfig } from '@/config/site-config';
 import { Button, ScrollArea, Separator, Sheet, SheetContent, SheetTrigger, cn } from '@repo/ui';
 import { LinkProps } from 'next/link';
 import { Logo } from '../logo';
 
-export function MobileNav() {
+export function MobileNav({ docsConfig }: { docsConfig: DocsConfig }) {
   const [open, setOpen] = React.useState(false);
 
   return (

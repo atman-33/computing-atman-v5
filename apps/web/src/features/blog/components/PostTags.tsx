@@ -1,4 +1,4 @@
-import Tag, { TagIconKind } from '@/components/tag';
+import { Tag, TagIconKind } from '@/components/tag';
 import { Badge } from '@repo/ui';
 import { Post } from 'contentlayer/generated';
 

@@ -1,5 +1,3 @@
-import '@/styles/mdx.css';
-
 import { Mdx } from '@/components/mdx-components';
 import { ScrollTop } from '@/components/scroll-top/ScrollTop';
 import { Toc } from '@/components/toc';
@@ -79,12 +77,12 @@ export default async function PostPage({ params }: PostProps) {
       <div className="bg-background sticky top-0 border-b-2 p-2">
         <PostMobileNav post={post} />
       </div>
-      <div className="prose dark:prose-invert bg-foreground/10 py-6 sm:p-2">
+      <div className="prose dark:prose-invert bg-primary/5 py-6 sm:p-2">
         <div className="sm:container">
           <PostHeader post={post} />
 
           <article className="lg:grid lg:grid-cols-10 ">
-            <section className="flex flex-col space-y-4 bg-white p-4 sm:rounded-sm sm:p-8 lg:col-span-7 dark:bg-zinc-950">
+            <section className="bg-background flex flex-col space-y-4 p-4 sm:rounded-sm sm:p-8 lg:col-span-7">
               <PostTags post={post} />
               <div className="content">
                 <Mdx code={post.body.code} />
