@@ -198,7 +198,7 @@ export default makeSource({
   onSuccess: async (importData) => {
     const { allDocuments } = await importData();
     const publishedPosts = allDocuments.filter((post: any) => {
-      console.log(`${post.slugAsParams} published => `, post.published);
+      // console.log(`${post.slugAsParams} published => `, post.published);
       return post.published;
     });
 
