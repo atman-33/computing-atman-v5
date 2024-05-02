@@ -23,20 +23,20 @@ const TagPage = ({ params }: { params: { tag: string } }) => {
 
   return (
     <div className="py-8">
-      <section className="mx-auto max-w-[1000px] justify-center">
+      <section className="mx-auto max-w-[1000px]">
         <div className="flex flex-col items-baseline space-y-4">
           <div className="flex items-center space-x-2 pl-4">
             <Link href={`/blog/tags`}>
               <div>tags</div>
             </Link>
             <Icons.right className="h-4 w-4" />
-            <h3 className="text-3xl font-bold">
+            <div>
               <Tag
                 size={10}
                 kind={tag as TagIconKind}
-                className="flex items-center text-lg font-bold"
+                className="mt-1 flex flex-nowrap items-center text-lg font-bold"
               />
-            </h3>
+            </div>
           </div>
           <hr className="bg-secondary w-full justify-center border-[1px]" />
           <PostList posts={posts} />
