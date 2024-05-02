@@ -11,6 +11,7 @@ import {
 } from '@repo/ui';
 import { allPosts } from 'contentlayer/generated';
 import AboutPage from './about/page';
+import AppPage from './app/page';
 import TagsPage from './blog/tags/page';
 import TechPage from './tech/page';
 
@@ -31,6 +32,9 @@ const IndexPage = () => {
             </SimpleTabsTrigger>
             <SimpleTabsTrigger value="tech" className="w-16">
               Tech
+            </SimpleTabsTrigger>
+            <SimpleTabsTrigger value="app" className="w-16">
+              App
             </SimpleTabsTrigger>
             <SimpleTabsTrigger value="explore" className="w-16">
               Explore
@@ -63,6 +67,9 @@ const IndexPage = () => {
           </TabsContent>
           <TabsContent value="tech">
             <TechPage />
+          </TabsContent>
+          <TabsContent value="app">
+            <AppPage />
           </TabsContent>
           <TabsContent value="explore">
             <TagsPage />
