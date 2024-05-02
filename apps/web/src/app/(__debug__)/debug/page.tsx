@@ -17,7 +17,7 @@ const Page = () => {
       {debugPages.map((page) => {
         return (
           <Link href={page} key={page}>
-            <div key={page} className="bg-primary/20 my-4 rounded-md p-2">
+            <div key={page} className="bg-primary/20 my-4 rounded-sm p-2">
               {page}
             </div>
           </Link>

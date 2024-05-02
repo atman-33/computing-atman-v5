@@ -1,4 +1,4 @@
-# Turborepo nextjs nestjs shadcn prisma boilerplate
+# Computing Atman v5
 
 ## 技術スタック
 
