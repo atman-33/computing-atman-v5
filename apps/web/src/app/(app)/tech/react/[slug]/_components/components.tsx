@@ -4,6 +4,8 @@ import { Example as HoverExample } from './hover/Example';
 import { description as HoverDescription } from './hover/description';
 import { Example as InputExample } from './input/Example';
 import { description as InputDescription } from './input/description';
+import { Example as useStateExample } from './use-state/Example';
+import { description as useStateDescription } from './use-state/description';
 
 const components = {
   clickHandler: {
@@ -20,6 +22,11 @@ const components = {
     title: 'Hover',
     component: HoverExample,
     description: HoverDescription,
+  },
+  useState: {
+    title: 'useState',
+    component: useStateExample,
+    description: useStateDescription,
   },
 };
 
