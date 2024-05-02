@@ -9,7 +9,7 @@
 ### 1. パッケージをインストール
 
 ```bash
-npm i jotai
+npm i jotai -w apps/web
 ```
 
 ### 2. JotaiProvider を準備
