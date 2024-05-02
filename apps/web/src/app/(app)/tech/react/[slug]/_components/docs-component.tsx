@@ -2,18 +2,7 @@ import './docs-component.css';
 
 import { typescriptHighlight } from '@/lib/syntax-highlighter';
 import ReactMarkdown from 'react-markdown';
-import { Example as ClickHandlerExample } from './click-handler/Example';
-import { description } from './click-handler/description';
-
-const components = {
-  clickHandler: {
-    title: 'Click Handler',
-    component: ClickHandlerExample,
-    description: description,
-  },
-};
-
-export type ComponentKind = keyof typeof components;
+import { ComponentKind, components } from './components';
 
 interface DocsComponentProps {
   kind: ComponentKind;

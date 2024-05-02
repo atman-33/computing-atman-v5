@@ -15,6 +15,7 @@ export const reactDocsConfig: DocsConfig = {
       items: [
         {
           title: 'click handler',
+          description: 'Reactでクリック時に処理を実行するサンプル',
           slug: 'clickHandler',
           href: '/tech/react/clickHandler',
           items: [],
