@@ -17,7 +17,7 @@ const AboutPage = () => {
             I am developing websites, desktop applications, and mobile apps as personal projects. To
             share the knowledge I have gained through my learning, I am creating a website.
           </p>
-          <div className="ml-2">👇</div>
+          <div className="ml-2">👇👇👇</div>
           <div className="flex items-center space-x-4">
             <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
               <div
