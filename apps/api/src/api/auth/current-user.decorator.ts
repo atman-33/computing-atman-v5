@@ -3,6 +3,7 @@ import { GqlExecutionContext } from '@nestjs/graphql';
 import { User } from '../users/models/user.model';
 
 export const getCurrentUserByContext = (context: ExecutionContext): User => {
+  // console.log('context => ', context);
   // for http
   if (context.getType() === 'http') {
     return context.switchToHttp().getRequest().user;

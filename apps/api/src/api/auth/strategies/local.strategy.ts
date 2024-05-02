@@ -6,7 +6,7 @@ import { UsersService } from '../../users/users.service';
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly usersService: UsersService) {
-    super({ usernameField: 'usename' });
+    super({ usernameField: 'username' });
   }
 
   async validate(usename: string, password: string) {

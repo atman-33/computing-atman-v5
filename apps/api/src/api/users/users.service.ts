@@ -46,7 +46,7 @@ export class UsersService {
       user === null ? '' : user.password,
     );
     if (!passwordIsValid) {
-      throw new UnauthorizedException('Email or password is incorrect.');
+      throw new UnauthorizedException('Username or password is incorrect.');
     }
     return user;
   }

@@ -3,10 +3,11 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { AuthModule } from './api/auth/auth.module';
 import { DummiesModule } from './api/dummies/dummies.module';
+import { UsersModule } from './api/users/users.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './api/users/users.module';
 
 @Module({
   imports: [
@@ -19,6 +20,9 @@ import { UsersModule } from './api/users/users.module';
       rootPath: join(__dirname, '../..', 'web/out'),
       exclude: ['/api/*', '/api/graphql'],
     }),
+    // ---- Rest API ---- //
+    AuthModule,
+
     // ---- GraphQL ---- //
     DummiesModule,
     UsersModule,
