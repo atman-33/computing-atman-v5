@@ -26,22 +26,21 @@ const Example = () => {
   console.log('hello react');
 
   return (
-    <>
-      <div className="m-8">
+    <div className="flex flex-col space-y-4">
+      <div className="mt-4">
+        <div>{hello()}</div>
+      </div>
+
+      <div>
         <h3>1. アラート表示</h3>
         <Button onClick={clickHandler}>Click me</Button>
       </div>
 
-      <div className="m-8">
+      <div>
         <h3>2. コンソール出力</h3>
         <Button onClick={clickHandler2}>Click me</Button>
       </div>
-
-      <div className="m-8">
-        <h3>3. 関数呼び出し</h3>
-        <div>{hello()}</div>
-      </div>
-    </>
+    </div>
   );
 };
 
