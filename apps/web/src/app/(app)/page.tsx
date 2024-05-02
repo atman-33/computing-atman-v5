@@ -1,8 +1,5 @@
 import { Icons } from '@/components/icons';
-import { Link } from '@/components/link';
-import { webEnv } from '@/config/web-env';
-import { PostList, TagList } from '@/features/blog';
-import { TechList } from '@/features/tech';
+import { PostList } from '@/features/blog';
 import {
   SimpleTabsTrigger,
   Tabs,
@@ -13,6 +10,9 @@ import {
   TooltipTrigger,
 } from '@repo/ui';
 import { allPosts } from 'contentlayer/generated';
+import AboutPage from './about/page';
+import TagsPage from './blog/tags/page';
+import TechPage from './tech/page';
 
 // NOTE: dynamic import は、client component に対応していないため利用を中止。
 // const PostList = dynamic(
@@ -34,6 +34,9 @@ const IndexPage = () => {
             </SimpleTabsTrigger>
             <SimpleTabsTrigger value="explore" className="w-16">
               Explore
+            </SimpleTabsTrigger>
+            <SimpleTabsTrigger value="about" className="w-16">
+              About
             </SimpleTabsTrigger>
           </TabsList>
           <TabsContent value="blog">
@@ -59,20 +62,15 @@ const IndexPage = () => {
             </div>
           </TabsContent>
           <TabsContent value="tech">
-            <TechList />
+            <TechPage />
           </TabsContent>
-          <TabsContent value="explore" className="flex flex-col space-y-4 py-8">
-            <h3 className="ml-3 self-center text-xl font-bold">Blog Tags</h3>
-            <TagList />
+          <TabsContent value="explore">
+            <TagsPage />
+          </TabsContent>
+          <TabsContent value="about">
+            <AboutPage />
           </TabsContent>
         </Tabs>
-        {webEnv.NEXT_PUBLIC_IS_DEV && (
-          <div className="my-8">
-            <Link href="/debug" className="bg-primary/10 m-0 rounded-md p-4">
-              Debug Room
-            </Link>
-          </div>
-        )}
       </div>
     </div>
   );

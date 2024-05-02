@@ -2,6 +2,7 @@ import '@repo/ui/globals.css';
 import '../styles/globals.css';
 
 import { GoogleAnalytics } from '@/components/google-analytics';
+import { Link } from '@/components/link';
 import { siteConfig } from '@/config/site-config';
 import { webEnv } from '@/config/web-env';
 import { ThemeProvider } from '@/providers/ThemeProvider';
@@ -70,8 +71,8 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
+      <body className={`${inter.className} overflow-x-hidden`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -79,6 +80,14 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
           disableTransitionOnChange
         >
           <div className="bg-background">{children}</div>
+          {/* --- Debug Room ---- */}
+          {webEnv.NEXT_PUBLIC_IS_DEV && (
+            <div className="flex justify-center py-4">
+              <Link href="/debug" className="bg-primary/100 text-primary-foreground rounded-md p-2">
+                Debug Room
+              </Link>
+            </div>
+          )}
         </ThemeProvider>
         <Suspense>
           <GoogleAnalytics />

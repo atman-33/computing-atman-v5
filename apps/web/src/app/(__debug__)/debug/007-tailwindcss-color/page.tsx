@@ -27,7 +27,7 @@ const Page = () => {
         return (
           <div key={color} className="my-2 flex flex-col">
             <p>{color}</p>
-            <div className={`bg-${color} h-10 w-10`}></div>
+            <div className={`bg-${color} h-10 w-10 border-2 border-solid`}></div>
           </div>
         );
       })}

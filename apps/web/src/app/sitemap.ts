@@ -6,7 +6,7 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = siteConfig.url;
 
-  const routes = ['', 'blog/tags', 'tech', 'tech/react'].map((route) => ({
+  const routes = ['', 'about', 'blog/tags', 'tech', 'tech/react'].map((route) => ({
     url: `${siteUrl}/${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }));
