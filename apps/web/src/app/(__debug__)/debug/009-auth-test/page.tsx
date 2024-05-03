@@ -86,12 +86,12 @@ const Login = () => {
         </label>
       </div>
       <div className="mt-4">
-        <button className="bg-primary/40 rounded-sm p-2" onClick={handleLogin}>
+        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleLogin}>
           Login Button
         </button>
       </div>
       <div className="mt-4">
-        <button className="bg-primary/40 rounded-sm p-2" onClick={handleLogout}>
+        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleLogout}>
           Logout Button
         </button>
       </div>
