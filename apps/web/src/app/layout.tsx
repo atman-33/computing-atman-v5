@@ -83,7 +83,10 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
           {/* --- Debug Room ---- */}
           {webEnv.NEXT_PUBLIC_IS_DEV && (
             <div className="flex justify-center py-4">
-              <Link href="/debug" className="bg-primary/100 text-primary-foreground rounded-md p-2">
+              <Link
+                href="/debug"
+                className="bg-destructive/100 text-primary-foreground rounded-sm px-4 py-2"
+              >
                 Debug Room
               </Link>
             </div>

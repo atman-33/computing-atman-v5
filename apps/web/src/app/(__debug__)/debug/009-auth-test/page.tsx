@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch(webEnv.NEXT_PUBLIC_API_ENDPOINT + '/auth/login', {
+      const res = await fetch(webEnv.NEXT_PUBLIC_API_ENDPOINT + '/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -20,15 +20,15 @@ const Login = () => {
         body: JSON.stringify({ username, password }),
       });
 
-      if (response.ok) {
-        const responseBody = await response.json();
-        console.log(responseBody);
+      if (res.ok) {
+        const data = await res.json();
+        console.log(data);
         // router.push('/');
       } else {
         // Handle login error
-        const responseBody = await response.json();
-        console.log(responseBody);
-        console.error('Login failed');
+        const data = await res.json();
+        console.log(data);
+        console.error('Login response failed');
       }
     } catch (error) {
       console.error('Login failed', error);
@@ -37,7 +37,7 @@ const Login = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch(webEnv.NEXT_PUBLIC_API_ENDPOINT + '/auth/logout', {
+      const res = await fetch(webEnv.NEXT_PUBLIC_API_ENDPOINT + '/auth/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,18 +45,41 @@ const Login = () => {
         credentials: 'include',
       });
 
-      if (response.ok) {
-        const responseBody = await response.json();
-        console.log(responseBody);
+      if (res.ok) {
+        const data = await res.json();
+        console.log(data);
         // router.push('/');
       } else {
         // Handle login error
-        const responseBody = await response.json();
-        console.log(responseBody);
-        console.error('Logout failed');
+        const data = await res.json();
+        console.log(data);
+        console.error('Logout response failed');
       }
     } catch (error) {
       console.error('Logout failed', error);
+    }
+  };
+
+  const handleIsAuthenticated = async () => {
+    try {
+      const res = await fetch(webEnv.NEXT_PUBLIC_API_ENDPOINT + '/auth', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        console.log(data);
+      } else {
+        const data = await res.json();
+        console.log(data);
+        console.error('is authenticated response failed');
+      }
+    } catch (error) {
+      console.error('is authenticated failed', error);
     }
   };
 
@@ -93,6 +116,11 @@ const Login = () => {
       <div className="mt-4">
         <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleLogout}>
           Logout Button
+        </button>
+      </div>
+      <div className="mt-4">
+        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleIsAuthenticated}>
+          Is Authenticated?
         </button>
       </div>
     </div>

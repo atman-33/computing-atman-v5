@@ -5,22 +5,66 @@ export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = {
-  [_ in K]?: never;
-};
-export type Incremental<T> =
-  | T
-  | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 type GraphQLClientRequestHeaders = RequestOptions['requestHeaders'];
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string };
-  String: { input: string; output: string };
-  Boolean: { input: boolean; output: boolean };
-  Int: { input: number; output: number };
-  Float: { input: number; output: number };
+  ID: { input: string; output: string; }
+  String: { input: string; output: string; }
+  Boolean: { input: boolean; output: boolean; }
+  Int: { input: number; output: number; }
+  Float: { input: number; output: number; }
   /** A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format. */
-  DateTime: { input: any; output: any };
+  DateTime: { input: any; output: any; }
+};
+
+export type BookAvgAggregate = {
+  __typename?: 'BookAvgAggregate';
+  completed?: Maybe<Scalars['Float']['output']>;
+  currentChapter?: Maybe<Scalars['Float']['output']>;
+  score?: Maybe<Scalars['Float']['output']>;
+};
+
+export type BookCountAggregate = {
+  __typename?: 'BookCountAggregate';
+  _all: Scalars['Int']['output'];
+  completed: Scalars['Int']['output'];
+  currentChapter: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  review: Scalars['Int']['output'];
+  score: Scalars['Int']['output'];
+  title: Scalars['Int']['output'];
+  userId: Scalars['Int']['output'];
+};
+
+export type BookMaxAggregate = {
+  __typename?: 'BookMaxAggregate';
+  completed?: Maybe<Scalars['Int']['output']>;
+  currentChapter?: Maybe<Scalars['Float']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  review?: Maybe<Scalars['String']['output']>;
+  score?: Maybe<Scalars['Float']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  userId?: Maybe<Scalars['String']['output']>;
+};
+
+export type BookMinAggregate = {
+  __typename?: 'BookMinAggregate';
+  completed?: Maybe<Scalars['Int']['output']>;
+  currentChapter?: Maybe<Scalars['Float']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  review?: Maybe<Scalars['String']['output']>;
+  score?: Maybe<Scalars['Float']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  userId?: Maybe<Scalars['String']['output']>;
+};
+
+export type BookSumAggregate = {
+  __typename?: 'BookSumAggregate';
+  completed?: Maybe<Scalars['Int']['output']>;
+  currentChapter?: Maybe<Scalars['Float']['output']>;
+  score?: Maybe<Scalars['Float']['output']>;
 };
 
 export type DateTimeFilter = {
@@ -152,20 +196,34 @@ export type IntFilter = {
   notIn?: InputMaybe<Array<Scalars['Int']['input']>>;
 };
 
+export type LoginUserInput = {
+  password: Scalars['String']['input'];
+  username: Scalars['String']['input'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   createDummy: Dummy;
+  createUser: User;
   deleteDummy: Dummy;
   updateDummy: Dummy;
 };
+
 
 export type MutationCreateDummyArgs = {
   data?: InputMaybe<DummyCreateInput>;
 };
 
+
+export type MutationCreateUserArgs = {
+  data: UserCreateInput;
+};
+
+
 export type MutationDeleteDummyArgs = {
   where: DummyWhereUniqueInput;
 };
+
 
 export type MutationUpdateDummyArgs = {
   data: DummyUpdateInput;
@@ -174,17 +232,31 @@ export type MutationUpdateDummyArgs = {
 
 export type Query = {
   __typename?: 'Query';
+  currentUser: User;
   dummies: Array<Dummy>;
   dummy: Dummy;
+  token: Scalars['String']['output'];
+  user: User;
 };
+
 
 export type QueryDummyArgs = {
   where: DummyWhereUniqueInput;
 };
 
+
+export type QueryTokenArgs = {
+  loginUserData: LoginUserInput;
+};
+
+
+export type QueryUserArgs = {
+  where: UserWhereUniqueInput;
+};
+
 export enum QueryMode {
   Default = 'default',
-  Insensitive = 'insensitive',
+  Insensitive = 'insensitive'
 }
 
 export type StringFilter = {
@@ -203,213 +275,213 @@ export type StringFilter = {
   startsWith?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type GetDummiesVariables = Exact<{ [key: string]: never }>;
-
-export type GetDummies = {
-  __typename?: 'Query';
-  dummies: Array<{
-    __typename?: 'Dummy';
-    id: string;
-    text?: string | null;
-    int?: number | null;
-    createdAt: any;
-    updatedAt: any;
-  }>;
+export type User = {
+  __typename?: 'User';
+  createdAt: Scalars['DateTime']['output'];
+  id: Scalars['ID']['output'];
+  password: Scalars['String']['output'];
+  updatedAt: Scalars['DateTime']['output'];
+  username: Scalars['String']['output'];
 };
+
+export type UserCountAggregate = {
+  __typename?: 'UserCountAggregate';
+  _all: Scalars['Int']['output'];
+  createdAt: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  password: Scalars['Int']['output'];
+  updatedAt: Scalars['Int']['output'];
+  username: Scalars['Int']['output'];
+};
+
+export type UserCreateInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  password: Scalars['String']['input'];
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  username: Scalars['String']['input'];
+};
+
+export type UserMaxAggregate = {
+  __typename?: 'UserMaxAggregate';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  password?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  username?: Maybe<Scalars['String']['output']>;
+};
+
+export type UserMinAggregate = {
+  __typename?: 'UserMinAggregate';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  password?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  username?: Maybe<Scalars['String']['output']>;
+};
+
+export type UserWhereInput = {
+  AND?: InputMaybe<Array<UserWhereInput>>;
+  NOT?: InputMaybe<Array<UserWhereInput>>;
+  OR?: InputMaybe<Array<UserWhereInput>>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<StringFilter>;
+  password?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  username?: InputMaybe<StringFilter>;
+};
+
+export type UserWhereUniqueInput = {
+  AND?: InputMaybe<Array<UserWhereInput>>;
+  NOT?: InputMaybe<Array<UserWhereInput>>;
+  OR?: InputMaybe<Array<UserWhereInput>>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  password?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  username?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateUserVariables = Exact<{
+  data: UserCreateInput;
+}>;
+
+
+export type CreateUser = { __typename?: 'Mutation', createUser: { __typename?: 'User', id: string, username: string } };
+
+export type GetCurrentUserVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCurrentUser = { __typename?: 'Query', currentUser: { __typename?: 'User', id: string, username: string } };
+
+export type GetDummiesVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetDummies = { __typename?: 'Query', dummies: Array<{ __typename?: 'Dummy', id: string, text?: string | null, int?: number | null, createdAt: any, updatedAt: any }> };
 
 export type CreateDummyVariables = Exact<{
   data: DummyCreateInput;
 }>;
 
-export type CreateDummy = {
-  __typename?: 'Mutation';
-  createDummy: {
-    __typename?: 'Dummy';
-    id: string;
-    text?: string | null;
-    int?: number | null;
-    createdAt: any;
-    updatedAt: any;
-  };
-};
+
+export type CreateDummy = { __typename?: 'Mutation', createDummy: { __typename?: 'Dummy', id: string, text?: string | null, int?: number | null, createdAt: any, updatedAt: any } };
 
 export type UpdateDummyVariables = Exact<{
   data: DummyUpdateInput;
   where: DummyWhereUniqueInput;
 }>;
 
-export type UpdateDummy = {
-  __typename?: 'Mutation';
-  updateDummy: {
-    __typename?: 'Dummy';
-    id: string;
-    text?: string | null;
-    int?: number | null;
-    createdAt: any;
-    updatedAt: any;
-  };
-};
+
+export type UpdateDummy = { __typename?: 'Mutation', updateDummy: { __typename?: 'Dummy', id: string, text?: string | null, int?: number | null, createdAt: any, updatedAt: any } };
 
 export type DeleteDummyVariables = Exact<{
   where: DummyWhereUniqueInput;
 }>;
 
-export type DeleteDummy = {
-  __typename?: 'Mutation';
-  deleteDummy: { __typename?: 'Dummy'; id: string };
-};
 
-export type QueryExampleVariables = Exact<{ [key: string]: never }>;
+export type DeleteDummy = { __typename?: 'Mutation', deleteDummy: { __typename?: 'Dummy', id: string } };
 
-export type QueryExample = {
-  __typename?: 'Query';
-  dummies: Array<{
-    __typename?: 'Dummy';
-    id: string;
-    text?: string | null;
-    createdAt: any;
-    updatedAt: any;
-  }>;
-};
+export type QueryExampleVariables = Exact<{ [key: string]: never; }>;
 
+
+export type QueryExample = { __typename?: 'Query', dummies: Array<{ __typename?: 'Dummy', id: string, text?: string | null, createdAt: any, updatedAt: any }> };
+
+
+export const CreateUserDocument = /*#__PURE__*/ gql`
+    mutation createUser($data: UserCreateInput!) {
+  createUser(data: $data) {
+    id
+    username
+  }
+}
+    `;
+export const GetCurrentUserDocument = /*#__PURE__*/ gql`
+    query getCurrentUser {
+  currentUser {
+    id
+    username
+  }
+}
+    `;
 export const GetDummiesDocument = /*#__PURE__*/ gql`
-  query getDummies {
-    dummies {
-      id
-      text
-      int
-      createdAt
-      updatedAt
-    }
+    query getDummies {
+  dummies {
+    id
+    text
+    int
+    createdAt
+    updatedAt
   }
-`;
+}
+    `;
 export const CreateDummyDocument = /*#__PURE__*/ gql`
-  mutation createDummy($data: DummyCreateInput!) {
-    createDummy(data: $data) {
-      id
-      text
-      int
-      createdAt
-      updatedAt
-    }
+    mutation createDummy($data: DummyCreateInput!) {
+  createDummy(data: $data) {
+    id
+    text
+    int
+    createdAt
+    updatedAt
   }
-`;
+}
+    `;
 export const UpdateDummyDocument = /*#__PURE__*/ gql`
-  mutation updateDummy($data: DummyUpdateInput!, $where: DummyWhereUniqueInput!) {
-    updateDummy(data: $data, where: $where) {
-      id
-      text
-      int
-      createdAt
-      updatedAt
-    }
+    mutation updateDummy($data: DummyUpdateInput!, $where: DummyWhereUniqueInput!) {
+  updateDummy(data: $data, where: $where) {
+    id
+    text
+    int
+    createdAt
+    updatedAt
   }
-`;
+}
+    `;
 export const DeleteDummyDocument = /*#__PURE__*/ gql`
-  mutation deleteDummy($where: DummyWhereUniqueInput!) {
-    deleteDummy(where: $where) {
-      id
-    }
+    mutation deleteDummy($where: DummyWhereUniqueInput!) {
+  deleteDummy(where: $where) {
+    id
   }
-`;
+}
+    `;
 export const QueryExampleDocument = /*#__PURE__*/ gql`
-  query queryExample {
-    dummies {
-      id
-      text
-      createdAt
-      updatedAt
-    }
+    query queryExample {
+  dummies {
+    id
+    text
+    createdAt
+    updatedAt
   }
-`;
+}
+    `;
 
-export type SdkFunctionWrapper = <T>(
-  action: (requestHeaders?: Record<string, string>) => Promise<T>,
-  operationName: string,
-  operationType?: string,
-  variables?: any,
-) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, _variables) =>
-  action();
+
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, _variables) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getDummies(
-      variables?: GetDummiesVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<GetDummies> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<GetDummies>(GetDummiesDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'getDummies',
-        'query',
-        variables,
-      );
+    createUser(variables: CreateUserVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<CreateUser> {
+      return withWrapper((wrappedRequestHeaders) => client.request<CreateUser>(CreateUserDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'createUser', 'mutation', variables);
     },
-    createDummy(
-      variables: CreateDummyVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<CreateDummy> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<CreateDummy>(CreateDummyDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'createDummy',
-        'mutation',
-        variables,
-      );
+    getCurrentUser(variables?: GetCurrentUserVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCurrentUser> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCurrentUser>(GetCurrentUserDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCurrentUser', 'query', variables);
     },
-    updateDummy(
-      variables: UpdateDummyVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<UpdateDummy> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<UpdateDummy>(UpdateDummyDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'updateDummy',
-        'mutation',
-        variables,
-      );
+    getDummies(variables?: GetDummiesVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetDummies> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetDummies>(GetDummiesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDummies', 'query', variables);
     },
-    deleteDummy(
-      variables: DeleteDummyVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<DeleteDummy> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<DeleteDummy>(DeleteDummyDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'deleteDummy',
-        'mutation',
-        variables,
-      );
+    createDummy(variables: CreateDummyVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<CreateDummy> {
+      return withWrapper((wrappedRequestHeaders) => client.request<CreateDummy>(CreateDummyDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'createDummy', 'mutation', variables);
     },
-    queryExample(
-      variables?: QueryExampleVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<QueryExample> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<QueryExample>(QueryExampleDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'queryExample',
-        'query',
-        variables,
-      );
+    updateDummy(variables: UpdateDummyVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<UpdateDummy> {
+      return withWrapper((wrappedRequestHeaders) => client.request<UpdateDummy>(UpdateDummyDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'updateDummy', 'mutation', variables);
     },
+    deleteDummy(variables: DeleteDummyVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<DeleteDummy> {
+      return withWrapper((wrappedRequestHeaders) => client.request<DeleteDummy>(DeleteDummyDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'deleteDummy', 'mutation', variables);
+    },
+    queryExample(variables?: QueryExampleVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<QueryExample> {
+      return withWrapper((wrappedRequestHeaders) => client.request<QueryExample>(QueryExampleDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'queryExample', 'query', variables);
+    }
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;

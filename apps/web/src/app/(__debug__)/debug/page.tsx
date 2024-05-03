@@ -10,6 +10,7 @@ const debugPages = [
   '/debug/007-tailwindcss-color',
   '/debug/008-web-env',
   '/debug/009-auth-test',
+  '/debug/010-auth-hook-test',
 ];
 
 const Page = () => {
