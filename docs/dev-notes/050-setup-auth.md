@@ -122,3 +122,13 @@ Postmanを利用して、下記の手順でテストを行う。
 4. POST logout => ログアウト
 
     `http://localhost:3333/api/auth/logout`
+
+## フロントエンド側の実装メモ
+
+### フォームのValidationを利用する場合
+
+パッケージをインストール
+
+```bash
+npm i -w apps/web zod react-hook-form @hookform/resolvers
+```

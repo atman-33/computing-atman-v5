@@ -160,7 +160,8 @@ export const getGraphqlClient = (
   headers?: MaybeLazy<GraphQLClientRequestHeaders> | undefined
 ) => {
   const client = new GraphQLClient(url, {
-    headers
+    headers,
+    credentials: 'include',
   });
 
   return getSdk(client);
