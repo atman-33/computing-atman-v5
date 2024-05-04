@@ -9,7 +9,7 @@ export const AppList = () => {
         <div>
           <hr className="my-2" />
           <div key={app.title} className="hover:bg-primary/10 rounded-md md:p-4">
-            <Link href={app.href}>
+            <Link href={app.href} target="_blank">
               <div className="items-center space-y-4 md:flex md:space-x-8">
                 <Image
                   src={app.image}
