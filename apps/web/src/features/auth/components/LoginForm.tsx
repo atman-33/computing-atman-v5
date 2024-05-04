@@ -31,7 +31,7 @@ const formSchema = z.object({
 
 export const LoginForm = () => {
   const router = useRouter();
-  const { login } = useAuth();
+  const { login, redirectPath } = useAuth();
   const [error, setError] = useState('');
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -51,8 +51,7 @@ export const LoginForm = () => {
     } else {
       // console.log(res);
       setError('');
-      // TODO: リダイレクトパスを指定できるようにする
-      router.push('/');
+      router.push(redirectPath ?? '/');
     }
   };
 

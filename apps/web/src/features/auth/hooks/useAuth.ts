@@ -4,7 +4,12 @@ import { webEnv } from '@/config/web-env';
 import { gql } from '@/lib/graphql-client';
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { useEffect } from 'react';
-import { currentUserAtom, currentUserVersionAtom, isAuthenticatedAtom } from '../stores/auth-atom';
+import {
+  currentUserAtom,
+  currentUserVersionAtom,
+  isAuthenticatedAtom,
+  redirectPathAtom,
+} from '../stores/auth-atom';
 
 const fetchIsAuthenticated = async (): Promise<boolean> => {
   try {
@@ -82,6 +87,7 @@ export const useAuth = () => {
   const [isAuthenticated, setIsAuthenticated] = useAtom(isAuthenticatedAtom);
   const setCurrentUserVersion = useSetAtom(currentUserVersionAtom);
   const currentUser = useAtomValue(currentUserAtom);
+  const [redirectPath, setRedirectPath] = useAtom(redirectPathAtom);
 
   useEffect(() => {
     fetchIsAuthenticated().then((res) => {
@@ -139,5 +145,7 @@ export const useAuth = () => {
     currentUser,
     refleshCurrentUser,
     createUser,
+    redirectPath,
+    setRedirectPath,
   };
 };

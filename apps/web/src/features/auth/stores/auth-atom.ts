@@ -26,3 +26,8 @@ export const currentUserAtom = atom(async (get) => {
     return null;
   }
 });
+
+/**
+ * ログイン後にリダイレクトするパス
+ */
+export const redirectPathAtom = atom('/');
