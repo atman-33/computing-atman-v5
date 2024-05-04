@@ -1,6 +1,7 @@
 'use client';
 
 import { webEnv } from '@/config/web-env';
+import { gql } from '@/lib/graphql-client';
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { useEffect } from 'react';
 import { currentUserAtom, currentUserVersionAtom, isAuthenticatedAtom } from '../stores/auth-atom';
@@ -120,6 +121,16 @@ export const useAuth = () => {
     setCurrentUserVersion((prev) => prev + 1);
   };
 
+  const createUser = async (username: string, password: string) => {
+    try {
+      const res = await gql.createUser({ data: { username, password } });
+      return res.createUser;
+    } catch (err) {
+      console.error(err);
+      return err;
+    }
+  };
+
   return {
     isAuthenticated,
     refleshIsAuthenticated,
@@ -127,5 +138,6 @@ export const useAuth = () => {
     logout,
     currentUser,
     refleshCurrentUser,
+    createUser,
   };
 };
