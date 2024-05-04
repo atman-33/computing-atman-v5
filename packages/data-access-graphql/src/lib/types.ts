@@ -19,6 +19,17 @@ export type Scalars = {
   DateTime: { input: any; output: any; }
 };
 
+export type Book = {
+  __typename?: 'Book';
+  completed: Scalars['Int']['output'];
+  currentChapter?: Maybe<Scalars['Float']['output']>;
+  id: Scalars['ID']['output'];
+  review?: Maybe<Scalars['String']['output']>;
+  score: Scalars['Float']['output'];
+  title: Scalars['String']['output'];
+  userId: Scalars['String']['output'];
+};
+
 export type BookAvgAggregate = {
   __typename?: 'BookAvgAggregate';
   completed?: Maybe<Scalars['Float']['output']>;
@@ -36,6 +47,16 @@ export type BookCountAggregate = {
   score: Scalars['Int']['output'];
   title: Scalars['Int']['output'];
   userId: Scalars['Int']['output'];
+};
+
+export type BookCreateInput = {
+  completed?: InputMaybe<Scalars['Int']['input']>;
+  currentChapter?: InputMaybe<Scalars['Float']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  review?: InputMaybe<Scalars['String']['input']>;
+  score?: InputMaybe<Scalars['Float']['input']>;
+  title: Scalars['String']['input'];
+  userId: Scalars['String']['input'];
 };
 
 export type BookMaxAggregate = {
@@ -65,6 +86,41 @@ export type BookSumAggregate = {
   completed?: Maybe<Scalars['Int']['output']>;
   currentChapter?: Maybe<Scalars['Float']['output']>;
   score?: Maybe<Scalars['Float']['output']>;
+};
+
+export type BookUpdateInput = {
+  completed?: InputMaybe<Scalars['Int']['input']>;
+  currentChapter?: InputMaybe<Scalars['Float']['input']>;
+  review?: InputMaybe<Scalars['String']['input']>;
+  score?: InputMaybe<Scalars['Float']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type BookWhereInput = {
+  AND?: InputMaybe<Array<BookWhereInput>>;
+  NOT?: InputMaybe<Array<BookWhereInput>>;
+  OR?: InputMaybe<Array<BookWhereInput>>;
+  completed?: InputMaybe<IntFilter>;
+  currentChapter?: InputMaybe<FloatFilter>;
+  id?: InputMaybe<StringFilter>;
+  review?: InputMaybe<StringFilter>;
+  score?: InputMaybe<FloatFilter>;
+  title?: InputMaybe<StringFilter>;
+  userId?: InputMaybe<StringFilter>;
+};
+
+export type BookWhereUniqueInput = {
+  AND?: InputMaybe<Array<BookWhereInput>>;
+  NOT?: InputMaybe<Array<BookWhereInput>>;
+  OR?: InputMaybe<Array<BookWhereInput>>;
+  completed?: InputMaybe<IntFilter>;
+  currentChapter?: InputMaybe<FloatFilter>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  review?: InputMaybe<StringFilter>;
+  score?: InputMaybe<FloatFilter>;
+  title?: InputMaybe<StringFilter>;
+  userId?: InputMaybe<StringFilter>;
 };
 
 export type DateTimeFilter = {
@@ -203,10 +259,18 @@ export type LoginUserInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  createBook: Book;
   createDummy: Dummy;
   createUser: User;
+  deleteBook: Book;
   deleteDummy: Dummy;
+  updateBook: Book;
   updateDummy: Dummy;
+};
+
+
+export type MutationCreateBookArgs = {
+  data: BookCreateInput;
 };
 
 
@@ -220,8 +284,19 @@ export type MutationCreateUserArgs = {
 };
 
 
+export type MutationDeleteBookArgs = {
+  where: BookWhereUniqueInput;
+};
+
+
 export type MutationDeleteDummyArgs = {
   where: DummyWhereUniqueInput;
+};
+
+
+export type MutationUpdateBookArgs = {
+  data: BookUpdateInput;
+  where: BookWhereUniqueInput;
 };
 
 
@@ -232,11 +307,18 @@ export type MutationUpdateDummyArgs = {
 
 export type Query = {
   __typename?: 'Query';
+  book: Book;
+  books: Array<Book>;
   currentUser: User;
   dummies: Array<Dummy>;
   dummy: Dummy;
   token: Scalars['String']['output'];
   user: User;
+};
+
+
+export type QueryBookArgs = {
+  where: BookWhereUniqueInput;
 };
 
 
@@ -381,6 +463,33 @@ export type DeleteDummyVariables = Exact<{
 
 export type DeleteDummy = { __typename?: 'Mutation', deleteDummy: { __typename?: 'Dummy', id: string } };
 
+export type GetBooksVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetBooks = { __typename?: 'Query', books: Array<{ __typename?: 'Book', id: string, title: string, currentChapter?: number | null, score: number, completed: number, review?: string | null, userId: string }> };
+
+export type CreateBookVariables = Exact<{
+  data: BookCreateInput;
+}>;
+
+
+export type CreateBook = { __typename?: 'Mutation', createBook: { __typename?: 'Book', id: string, title: string, currentChapter?: number | null, score: number, completed: number, review?: string | null, userId: string } };
+
+export type UpdateBookVariables = Exact<{
+  data: BookUpdateInput;
+  where: BookWhereUniqueInput;
+}>;
+
+
+export type UpdateBook = { __typename?: 'Mutation', updateBook: { __typename?: 'Book', id: string, title: string, currentChapter?: number | null, score: number, completed: number, review?: string | null, userId: string } };
+
+export type DeleteBookVariables = Exact<{
+  where: BookWhereUniqueInput;
+}>;
+
+
+export type DeleteBook = { __typename?: 'Mutation', deleteBook: { __typename?: 'Book', id: string } };
+
 export type QueryExampleVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -443,6 +552,52 @@ export const DeleteDummyDocument = /*#__PURE__*/ gql`
   }
 }
     `;
+export const GetBooksDocument = /*#__PURE__*/ gql`
+    query getBooks {
+  books {
+    id
+    title
+    currentChapter
+    score
+    completed
+    review
+    userId
+  }
+}
+    `;
+export const CreateBookDocument = /*#__PURE__*/ gql`
+    mutation createBook($data: BookCreateInput!) {
+  createBook(data: $data) {
+    id
+    title
+    currentChapter
+    score
+    completed
+    review
+    userId
+  }
+}
+    `;
+export const UpdateBookDocument = /*#__PURE__*/ gql`
+    mutation updateBook($data: BookUpdateInput!, $where: BookWhereUniqueInput!) {
+  updateBook(data: $data, where: $where) {
+    id
+    title
+    currentChapter
+    score
+    completed
+    review
+    userId
+  }
+}
+    `;
+export const DeleteBookDocument = /*#__PURE__*/ gql`
+    mutation deleteBook($where: BookWhereUniqueInput!) {
+  deleteBook(where: $where) {
+    id
+  }
+}
+    `;
 export const QueryExampleDocument = /*#__PURE__*/ gql`
     query queryExample {
   dummies {
@@ -478,6 +633,18 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     deleteDummy(variables: DeleteDummyVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<DeleteDummy> {
       return withWrapper((wrappedRequestHeaders) => client.request<DeleteDummy>(DeleteDummyDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'deleteDummy', 'mutation', variables);
+    },
+    getBooks(variables?: GetBooksVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetBooks> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetBooks>(GetBooksDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBooks', 'query', variables);
+    },
+    createBook(variables: CreateBookVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<CreateBook> {
+      return withWrapper((wrappedRequestHeaders) => client.request<CreateBook>(CreateBookDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'createBook', 'mutation', variables);
+    },
+    updateBook(variables: UpdateBookVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<UpdateBook> {
+      return withWrapper((wrappedRequestHeaders) => client.request<UpdateBook>(UpdateBookDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'updateBook', 'mutation', variables);
+    },
+    deleteBook(variables: DeleteBookVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<DeleteBook> {
+      return withWrapper((wrappedRequestHeaders) => client.request<DeleteBook>(DeleteBookDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'deleteBook', 'mutation', variables);
     },
     queryExample(variables?: QueryExampleVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<QueryExample> {
       return withWrapper((wrappedRequestHeaders) => client.request<QueryExample>(QueryExampleDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'queryExample', 'query', variables);

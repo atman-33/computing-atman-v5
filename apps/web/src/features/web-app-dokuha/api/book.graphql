@@ -1,0 +1,41 @@
+query getBooks {
+  books {
+    id
+    title
+    currentChapter
+    score
+    completed
+    review
+    userId
+  }
+}
+
+mutation createBook($data: BookCreateInput!) {
+  createBook(data: $data) {
+    id
+    title
+    currentChapter
+    score
+    completed
+    review
+    userId
+  }
+}
+
+mutation updateBook($data: BookUpdateInput!, $where: BookWhereUniqueInput!) {
+  updateBook(data: $data, where: $where) {
+    id
+    title
+    currentChapter
+    score
+    completed
+    review
+    userId
+  }
+}
+
+mutation deleteBook($where: BookWhereUniqueInput!) {
+  deleteBook(where: $where) {
+    id
+  }
+}
