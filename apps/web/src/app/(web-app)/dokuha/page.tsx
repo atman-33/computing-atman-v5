@@ -7,8 +7,7 @@ import { useEffect } from 'react';
 
 const DokuhaPage = () => {
   const router = useRouter();
-  const { isAuthenticated, logout, currentUser, setRedirectPath, refleshIsAuthenticated } =
-    useAuth();
+  const { setRedirectPath, refleshIsAuthenticated } = useAuth();
 
   useEffect(() => {
     refleshIsAuthenticated().then((res) => {

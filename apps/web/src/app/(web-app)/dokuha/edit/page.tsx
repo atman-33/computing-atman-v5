@@ -9,8 +9,7 @@ const EditPage = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
   const router = useRouter();
-  const { isAuthenticated, logout, currentUser, setRedirectPath, refleshIsAuthenticated } =
-    useAuth();
+  const { setRedirectPath, refleshIsAuthenticated } = useAuth();
 
   useEffect(() => {
     refleshIsAuthenticated().then((res) => {
