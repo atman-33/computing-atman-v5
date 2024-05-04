@@ -2,6 +2,7 @@
 
 import { Input, ScrollArea, Separator } from '@repo/ui';
 import { useAtomValue } from 'jotai';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useBookDispatcher } from '../hooks/useBookDispatcher';
 import { bookSelectors } from '../stores/book-atom';
@@ -10,6 +11,7 @@ import { transformScore } from '../utils/rate-util';
 import { DokuhaSortButton } from './DokuhaSortButton';
 
 export const DokuhaList = () => {
+  const router = useRouter();
   const [searchText, setSearchText] = useState<string>('');
   const sortCriteria = useAtomValue(sortCriteriaAtom);
   const { loadBooks } = useBookDispatcher();
@@ -22,6 +24,10 @@ export const DokuhaList = () => {
     fetchBooks();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleBookClick = (bookId: string) => {
+    router.push(`/dokuha/edit?id=${bookId}`);
+  };
 
   return (
     <div className="flex flex-col space-y-2">
@@ -41,7 +47,10 @@ export const DokuhaList = () => {
           .map((book) => (
             <div key={book.id}>
               <Separator orientation="horizontal" className="my-2" />
-              <button className="hover:bg-primary/10 w-full rounded-sm px-2 hover:cursor-pointer">
+              <button
+                className="hover:bg-primary/10 w-full rounded-sm px-2 hover:cursor-pointer"
+                onClick={() => handleBookClick(book.id as string)}
+              >
                 <div className="grid min-h-16 grid-cols-10 items-center gap-2 text-wrap">
                   <div className="col-span-4 text-left">{book.title}</div>
                   <div className="col-span-2 text-right">{book.currentChapter}</div>

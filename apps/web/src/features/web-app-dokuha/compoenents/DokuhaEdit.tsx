@@ -17,17 +17,18 @@ import {
   Switch,
   Textarea,
 } from '@repo/ui';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { useBookDispatcher } from '../hooks/useBookDispatcher';
+import { bookSelectors } from '../stores/book-atom';
 
 const formSchema = z.object({
   title: z.string().min(1, { message: 'one character or more' }),
   currentChapter: z
     .string()
     .refine((val) => Number(val) >= 0, { message: 'input numbers' })
-    .transform(Number)
     .optional(),
   score: z
     .string()
@@ -40,8 +41,7 @@ const formSchema = z.object({
         return true;
       },
       { message: 'input numbers between 0 and 5' },
-    )
-    .transform(Number),
+    ),
   completed: z.boolean(),
   review: z.string().optional(),
 });
@@ -51,19 +51,12 @@ interface DokuhaEditProps {
 }
 
 export const DokuhaEdit = ({ id }: DokuhaEditProps) => {
+  const router = useRouter();
   const [isNew, setIsNew] = useState<boolean>(false);
+  const book = bookSelectors.useGetBook(id ?? '');
   const { createBook, updateBook, deleteBook } = useBookDispatcher();
   const { currentUser } = useAuth();
   const [error, setError] = useState('');
-
-  useEffect(() => {
-    // console.log('current user', currentUser);
-    if (id) {
-      setIsNew(false);
-    } else {
-      setIsNew(true);
-    }
-  }, [id]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -76,6 +69,26 @@ export const DokuhaEdit = ({ id }: DokuhaEditProps) => {
     },
   });
 
+  useEffect(() => {
+    // console.log('current user', currentUser);
+    if (id) {
+      setIsNew(false);
+      form.setValue('title', book.title ?? '');
+      form.setValue('currentChapter', String(book.currentChapter));
+      form.setValue('score', String(book.score));
+      form.setValue('completed', book.completed === 1 ? true : false);
+      form.setValue('review', book.review ?? '');
+    } else {
+      setIsNew(true);
+      form.setValue('title', '');
+      form.setValue('currentChapter', '');
+      form.setValue('score', '');
+      form.setValue('completed', false);
+      form.setValue('review', '');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+
   /**
    * 保存ボタン押下時の処理。
    * 本データを新規作成、もしくは更新する。
@@ -83,13 +96,13 @@ export const DokuhaEdit = ({ id }: DokuhaEditProps) => {
    */
   const handleSaveButtonClick = async () => {
     // console.log('current user => ', currentUser);
-    // console.log(
-    //   form.getValues('title'),
-    //   form.getValues('currentChapter'),
-    //   form.getValues('score'),
-    //   form.getValues('completed'),
-    //   form.getValues('review'),
-    // );
+    console.log(
+      form.getValues('title'),
+      form.getValues('currentChapter'),
+      form.getValues('score'),
+      form.getValues('completed'),
+      form.getValues('review'),
+    );
 
     if (!currentUser) {
       return;
@@ -111,11 +124,13 @@ export const DokuhaEdit = ({ id }: DokuhaEditProps) => {
         await createBook({
           data: dataToSave,
         });
+        router.push('/dokuha');
         return;
       } catch (err) {
         // console.error(err);
         const errJson = JSON.parse(JSON.stringify(err));
         setError(errJson.response.errors[0].message);
+        return;
       }
     } else {
       try {
@@ -125,9 +140,12 @@ export const DokuhaEdit = ({ id }: DokuhaEditProps) => {
           },
           data: dataToSave,
         });
+        router.push('/dokuha');
+        return;
       } catch (err) {
         const errJson = JSON.parse(JSON.stringify(err));
         setError(errJson.response.errors[0].message);
+        return;
       }
     }
   };
