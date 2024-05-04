@@ -16,7 +16,7 @@ const Login = () => {
   const [password, setPassword] = useState('test1234');
   const [error, setError] = useState<string>('');
 
-  const handleLogin = async () => {
+  const handleLoginButtonClick = async () => {
     const res = await login(username, password);
     if (res instanceof Error) {
       console.error(res);
@@ -27,7 +27,7 @@ const Login = () => {
     }
   };
 
-  const handleLogout = async () => {
+  const handleLogoutButtonClick = async () => {
     const res = await logout();
     if (res instanceof Error) {
       setError(res.message);
@@ -36,11 +36,11 @@ const Login = () => {
     }
   };
 
-  const handleIsAuthenticated = async () => {
+  const handleIsAuthenticatedButtonClick = async () => {
     refleshIsAuthenticated();
   };
 
-  const handleRefleshCurrentUser = async () => {
+  const handleRefleshCurrentUserButtonClick = async () => {
     refleshCurrentUser();
   };
 
@@ -74,22 +74,28 @@ const Login = () => {
         </label>
       </div>
       <div>
-        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleLogin}>
+        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleLoginButtonClick}>
           Login Button
         </button>
       </div>
       <div>
-        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleLogout}>
+        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleLogoutButtonClick}>
           Logout Button
         </button>
       </div>
       <div>
-        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleIsAuthenticated}>
+        <button
+          className="bg-primary/40 w-40 rounded-sm p-2"
+          onClick={handleIsAuthenticatedButtonClick}
+        >
           Is Authenticated?
         </button>
       </div>
       <div>
-        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleRefleshCurrentUser}>
+        <button
+          className="bg-primary/40 w-40 rounded-sm p-2"
+          onClick={handleRefleshCurrentUserButtonClick}
+        >
           Reflesh Current User
         </button>
       </div>

@@ -10,7 +10,7 @@ const LoginButton = () => {
   const router = useRouter();
   const { isAuthenticated, logout, currentUser } = useAuth();
 
-  const handleLogin = async () => {
+  const handleLoginButtonClick = async () => {
     if (isAuthenticated) {
       const res = await logout();
       if (res instanceof Error) {
@@ -22,7 +22,7 @@ const LoginButton = () => {
 
   return (
     <div className="flex items-center space-x-2">
-      <Button className="h-8 rounded-full font-bold" onClick={() => handleLogin()}>
+      <Button className="h-8 rounded-full font-bold" onClick={() => handleLoginButtonClick()}>
         {isAuthenticated ? 'Log out' : 'Log in'}
       </Button>
       <Suspense fallback={<Icons.spinner className="h-6 w-6 animate-spin" />}>

@@ -9,7 +9,7 @@ const Login = () => {
   const [username, setEmail] = useState('test-user1');
   const [password, setPassword] = useState('test1234');
 
-  const handleLogin = async () => {
+  const handleLoginButtonClick = async () => {
     try {
       const res = await fetch(webEnv.NEXT_PUBLIC_API_ENDPOINT + '/auth/login', {
         method: 'POST',
@@ -35,7 +35,7 @@ const Login = () => {
     }
   };
 
-  const handleLogout = async () => {
+  const handleLogoutButtonClick = async () => {
     try {
       const res = await fetch(webEnv.NEXT_PUBLIC_API_ENDPOINT + '/auth/logout', {
         method: 'POST',
@@ -60,7 +60,7 @@ const Login = () => {
     }
   };
 
-  const handleIsAuthenticated = async () => {
+  const handleIsAuthenticatedButtonClick = async () => {
     try {
       const res = await fetch(webEnv.NEXT_PUBLIC_API_ENDPOINT + '/auth', {
         method: 'GET',
@@ -109,17 +109,20 @@ const Login = () => {
         </label>
       </div>
       <div className="mt-4">
-        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleLogin}>
+        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleLoginButtonClick}>
           Login Button
         </button>
       </div>
       <div className="mt-4">
-        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleLogout}>
+        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleLogoutButtonClick}>
           Logout Button
         </button>
       </div>
       <div className="mt-4">
-        <button className="bg-primary/40 w-40 rounded-sm p-2" onClick={handleIsAuthenticated}>
+        <button
+          className="bg-primary/40 w-40 rounded-sm p-2"
+          onClick={handleIsAuthenticatedButtonClick}
+        >
           Is Authenticated?
         </button>
       </div>

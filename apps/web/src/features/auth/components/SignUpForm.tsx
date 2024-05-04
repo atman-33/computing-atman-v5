@@ -45,7 +45,7 @@ export const SignUpForm = () => {
     },
   });
 
-  const handleSignUp = async () => {
+  const handleSignUpButtonClick = async () => {
     // console.log('sign up');
     const res = await createUser(form.getValues('username'), form.getValues('password'));
     if (res instanceof Error) {
@@ -64,7 +64,7 @@ export const SignUpForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSignUp)}>
+      <form onSubmit={form.handleSubmit(handleSignUpButtonClick)}>
         <Card className="mx-auto max-w-sm">
           <CardHeader>
             <CardTitle className="text-xl">Sign Up</CardTitle>
