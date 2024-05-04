@@ -1,6 +1,5 @@
 'use client';
 
-import { Icons } from '@/components/icons';
 import { useAuth } from '@/features/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
@@ -23,6 +22,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { useBookDispatcher } from '../hooks/useBookDispatcher';
 import { bookSelectors } from '../stores/book-atom';
+import { DokuhaDeleteButton } from './DokuhaDeleteButton';
 
 const formSchema = z.object({
   title: z.string().min(1, { message: 'one character or more' }),
@@ -54,7 +54,7 @@ export const DokuhaEdit = ({ id }: DokuhaEditProps) => {
   const router = useRouter();
   const [isNew, setIsNew] = useState<boolean>(false);
   const book = bookSelectors.useGetBook(id ?? '');
-  const { createBook, updateBook, deleteBook } = useBookDispatcher();
+  const { createBook, updateBook } = useBookDispatcher();
   const { currentUser } = useAuth();
   const [error, setError] = useState('');
 
@@ -159,7 +159,7 @@ export const DokuhaEdit = ({ id }: DokuhaEditProps) => {
         >
           <div className="flex justify-between">
             <h2 className="text-xl font-bold">{isNew ? 'Register book...' : 'Edit book...'}</h2>
-            {isNew ? null : <Icons.delete className="h-8 w-8" />}
+            {isNew ? null : <DokuhaDeleteButton id={id as string} />}
           </div>
           {isNew ? null : <div>id: {id}</div>}
 
