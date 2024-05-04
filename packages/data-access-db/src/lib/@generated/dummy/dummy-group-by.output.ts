@@ -10,36 +10,37 @@ import { DummyMaxAggregate } from './dummy-max-aggregate.output';
 
 @ObjectType()
 export class DummyGroupBy {
-  @Field(() => String, { nullable: false })
-  id!: string;
 
-  @Field(() => String, { nullable: true })
-  text?: string;
+    @Field(() => String, {nullable:false})
+    id!: string;
 
-  @Field(() => Int, { nullable: true })
-  int?: number;
+    @Field(() => String, {nullable:true})
+    text?: string;
 
-  @Field(() => Float, { nullable: true })
-  float?: number;
+    @Field(() => Int, {nullable:true})
+    int?: number;
 
-  @Field(() => Date, { nullable: false })
-  createdAt!: Date | string;
+    @Field(() => Float, {nullable:true})
+    float?: number;
 
-  @Field(() => Date, { nullable: false })
-  updatedAt!: Date | string;
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date | string;
 
-  @Field(() => DummyCountAggregate, { nullable: true })
-  _count?: DummyCountAggregate;
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date | string;
 
-  @Field(() => DummyAvgAggregate, { nullable: true })
-  _avg?: DummyAvgAggregate;
+    @Field(() => DummyCountAggregate, {nullable:true})
+    _count?: DummyCountAggregate;
 
-  @Field(() => DummySumAggregate, { nullable: true })
-  _sum?: DummySumAggregate;
+    @Field(() => DummyAvgAggregate, {nullable:true})
+    _avg?: DummyAvgAggregate;
 
-  @Field(() => DummyMinAggregate, { nullable: true })
-  _min?: DummyMinAggregate;
+    @Field(() => DummySumAggregate, {nullable:true})
+    _sum?: DummySumAggregate;
 
-  @Field(() => DummyMaxAggregate, { nullable: true })
-  _max?: DummyMaxAggregate;
+    @Field(() => DummyMinAggregate, {nullable:true})
+    _min?: DummyMinAggregate;
+
+    @Field(() => DummyMaxAggregate, {nullable:true})
+    _max?: DummyMaxAggregate;
 }

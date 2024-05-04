@@ -4,9 +4,10 @@ import { GraphQLJSON } from 'graphql-type-json';
 
 @ArgsType()
 export class AggregateDummyRawArgs {
-  @Field(() => [GraphQLJSON], { nullable: true })
-  pipeline?: Array<any>;
 
-  @Field(() => GraphQLJSON, { nullable: true })
-  options?: any;
+    @Field(() => [GraphQLJSON], {nullable:true})
+    pipeline?: Array<any>;
+
+    @Field(() => GraphQLJSON, {nullable:true})
+    options?: any;
 }

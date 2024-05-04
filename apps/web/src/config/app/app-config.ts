@@ -7,6 +7,12 @@ interface AppConfig {
 
 export const appConfig: AppConfig[] = [
   {
+    title: '本 Dokuha',
+    description: `読書中の本・漫画の進捗を記録しておくアプリ`,
+    image: 'og.jpg',
+    href: '/dokuha',
+  },
+  {
     title: 'Infinite Runner',
     description: `It is a game where you control a running mouse to collect coins while avoiding obstacles.`,
     image: '/app/infinite-runner.png',

@@ -15,35 +15,36 @@ import { DummyMaxAggregateInput } from './dummy-max-aggregate.input';
 
 @ArgsType()
 export class DummyAggregateArgs {
-  @Field(() => DummyWhereInput, { nullable: true })
-  @Type(() => DummyWhereInput)
-  @ValidateNested()
-  where?: DummyWhereInput;
 
-  @Field(() => [DummyOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<DummyOrderByWithRelationInput>;
+    @Field(() => DummyWhereInput, {nullable:true})
+    @Type(() => DummyWhereInput)
+    @ValidateNested()
+    where?: DummyWhereInput;
 
-  @Field(() => DummyWhereUniqueInput, { nullable: true })
-  cursor?: Prisma.AtLeast<DummyWhereUniqueInput, 'id'>;
+    @Field(() => [DummyOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<DummyOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => DummyWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<DummyWhereUniqueInput, 'id'>;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => DummyCountAggregateInput, { nullable: true })
-  _count?: DummyCountAggregateInput;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 
-  @Field(() => DummyAvgAggregateInput, { nullable: true })
-  _avg?: DummyAvgAggregateInput;
+    @Field(() => DummyCountAggregateInput, {nullable:true})
+    _count?: DummyCountAggregateInput;
 
-  @Field(() => DummySumAggregateInput, { nullable: true })
-  _sum?: DummySumAggregateInput;
+    @Field(() => DummyAvgAggregateInput, {nullable:true})
+    _avg?: DummyAvgAggregateInput;
 
-  @Field(() => DummyMinAggregateInput, { nullable: true })
-  _min?: DummyMinAggregateInput;
+    @Field(() => DummySumAggregateInput, {nullable:true})
+    _sum?: DummySumAggregateInput;
 
-  @Field(() => DummyMaxAggregateInput, { nullable: true })
-  _max?: DummyMaxAggregateInput;
+    @Field(() => DummyMinAggregateInput, {nullable:true})
+    _min?: DummyMinAggregateInput;
+
+    @Field(() => DummyMaxAggregateInput, {nullable:true})
+    _max?: DummyMaxAggregateInput;
 }

@@ -1,13 +1,13 @@
-import Link from 'next/link';
-
+import { LoginButton } from '@/components//login-button';
 import { CommandMenu } from '@/components/command-menu';
 import { Icons } from '@/components/icons';
+import { Link } from '@/components/link';
 import { MainNav } from '@/components/main-nav';
 import { MobileNav } from '@/components/mobile-nav';
 import { ModeToggle } from '@/components/mode-toggle';
 import { docsConfig } from '@/config/docs-config';
 import { siteConfig } from '@/config/site-config';
-import { Button, buttonVariants, cn } from '@repo/ui';
+import { buttonVariants, cn } from '@repo/ui';
 
 export function SiteHeader() {
   return (
@@ -16,7 +16,7 @@ export function SiteHeader() {
         <MainNav />
         <MobileNav docsConfig={docsConfig} />
         <Link href="/">
-          <span className="ml-2 text-xl font-bold">{siteConfig.name}</span>
+          <span className="ml-2 text-nowrap text-lg font-bold md:text-xl">{siteConfig.name}</span>
         </Link>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
@@ -51,8 +51,9 @@ export function SiteHeader() {
             </Link>
             <ModeToggle />
           </nav>
-          {/* TODO: ログイン機能を実装 */}
-          <Button className="hidden h-8 rounded-full font-bold">Log in</Button>
+          <div className="flex items-center space-x-2">
+            <LoginButton />
+          </div>
         </div>
       </div>
     </header>

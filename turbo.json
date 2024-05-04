@@ -20,6 +20,9 @@
       "cache": false,
       "persistent": true
     },
+    "postbuild": {
+      "cache": false
+    },
     "dev:web": {
       "cache": false,
       "persistent": true
