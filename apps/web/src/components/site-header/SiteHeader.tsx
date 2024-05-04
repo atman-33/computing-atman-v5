@@ -1,5 +1,4 @@
-'use client';
-
+import { LoginButton } from '@/components//login-button';
 import { CommandMenu } from '@/components/command-menu';
 import { Icons } from '@/components/icons';
 import { Link } from '@/components/link';
@@ -8,24 +7,9 @@ import { MobileNav } from '@/components/mobile-nav';
 import { ModeToggle } from '@/components/mode-toggle';
 import { docsConfig } from '@/config/docs-config';
 import { siteConfig } from '@/config/site-config';
-import { useAuth } from '@/features/auth';
-import { Button, buttonVariants, cn } from '@repo/ui';
-import { useRouter } from 'next/navigation';
+import { buttonVariants, cn } from '@repo/ui';
 
 export function SiteHeader() {
-  const router = useRouter();
-  const { isAuthenticated, logout, currentUser } = useAuth();
-
-  const handleLogin = async () => {
-    if (isAuthenticated) {
-      const res = await logout();
-      if (res instanceof Error) {
-        console.log(res.message);
-      }
-    }
-    router.push('/auth/login');
-  };
-
   return (
     <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 top-0 z-50 mx-auto flex justify-center border-b backdrop-blur">
       <div className="mx-4 flex h-14 w-full items-center justify-center md:container md:w-10/12">
@@ -68,10 +52,7 @@ export function SiteHeader() {
             <ModeToggle />
           </nav>
           <div className="flex items-center space-x-2">
-            <Button className="h-8 rounded-full font-bold" onClick={() => handleLogin()}>
-              {isAuthenticated ? 'Log out' : 'Log in'}
-            </Button>
-            <div className="hidden text-sm font-bold md:block">{currentUser?.username}</div>
+            <LoginButton />
           </div>
         </div>
       </div>
