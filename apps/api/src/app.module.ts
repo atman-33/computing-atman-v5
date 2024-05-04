@@ -4,6 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { AuthModule } from './api/auth/auth.module';
+import { BooksModule } from './api/books/books.module';
 import { DummiesModule } from './api/dummies/dummies.module';
 import { UsersModule } from './api/users/users.module';
 import { AppController } from './app.controller';
@@ -26,6 +27,7 @@ import { AppService } from './app.service';
     // ---- GraphQL ---- //
     DummiesModule,
     UsersModule,
+    BooksModule,
   ],
   controllers: [AppController],
   providers: [AppService],
