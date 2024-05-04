@@ -21,6 +21,12 @@ export class BookUpdateInput {
     @Field(() => String, {nullable:true})
     review?: string;
 
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+
     @Field(() => String, {nullable:true})
     userId?: string;
 }

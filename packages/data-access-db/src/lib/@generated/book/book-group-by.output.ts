@@ -29,6 +29,12 @@ export class BookGroupBy {
     @Field(() => String, {nullable:true})
     review?: string;
 
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date | string;
+
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date | string;
+
     @Field(() => String, {nullable:false})
     userId!: string;
 

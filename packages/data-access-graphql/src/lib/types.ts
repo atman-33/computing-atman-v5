@@ -22,11 +22,13 @@ export type Scalars = {
 export type Book = {
   __typename?: 'Book';
   completed: Scalars['Int']['output'];
+  createdAt: Scalars['DateTime']['output'];
   currentChapter?: Maybe<Scalars['Float']['output']>;
   id: Scalars['ID']['output'];
   review?: Maybe<Scalars['String']['output']>;
   score: Scalars['Float']['output'];
   title: Scalars['String']['output'];
+  updatedAt: Scalars['DateTime']['output'];
   userId: Scalars['String']['output'];
 };
 
@@ -41,43 +43,51 @@ export type BookCountAggregate = {
   __typename?: 'BookCountAggregate';
   _all: Scalars['Int']['output'];
   completed: Scalars['Int']['output'];
+  createdAt: Scalars['Int']['output'];
   currentChapter: Scalars['Int']['output'];
   id: Scalars['Int']['output'];
   review: Scalars['Int']['output'];
   score: Scalars['Int']['output'];
   title: Scalars['Int']['output'];
+  updatedAt: Scalars['Int']['output'];
   userId: Scalars['Int']['output'];
 };
 
 export type BookCreateInput = {
   completed?: InputMaybe<Scalars['Int']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   currentChapter?: InputMaybe<Scalars['Float']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   review?: InputMaybe<Scalars['String']['input']>;
   score?: InputMaybe<Scalars['Float']['input']>;
   title: Scalars['String']['input'];
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   userId: Scalars['String']['input'];
 };
 
 export type BookMaxAggregate = {
   __typename?: 'BookMaxAggregate';
   completed?: Maybe<Scalars['Int']['output']>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
   currentChapter?: Maybe<Scalars['Float']['output']>;
   id?: Maybe<Scalars['String']['output']>;
   review?: Maybe<Scalars['String']['output']>;
   score?: Maybe<Scalars['Float']['output']>;
   title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
   userId?: Maybe<Scalars['String']['output']>;
 };
 
 export type BookMinAggregate = {
   __typename?: 'BookMinAggregate';
   completed?: Maybe<Scalars['Int']['output']>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
   currentChapter?: Maybe<Scalars['Float']['output']>;
   id?: Maybe<Scalars['String']['output']>;
   review?: Maybe<Scalars['String']['output']>;
   score?: Maybe<Scalars['Float']['output']>;
   title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
   userId?: Maybe<Scalars['String']['output']>;
 };
 
@@ -90,11 +100,18 @@ export type BookSumAggregate = {
 
 export type BookUpdateInput = {
   completed?: InputMaybe<Scalars['Int']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   currentChapter?: InputMaybe<Scalars['Float']['input']>;
   review?: InputMaybe<Scalars['String']['input']>;
   score?: InputMaybe<Scalars['Float']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type BookUserIdTitleCompoundUniqueInput = {
+  title: Scalars['String']['input'];
+  userId: Scalars['String']['input'];
 };
 
 export type BookWhereInput = {
@@ -102,11 +119,13 @@ export type BookWhereInput = {
   NOT?: InputMaybe<Array<BookWhereInput>>;
   OR?: InputMaybe<Array<BookWhereInput>>;
   completed?: InputMaybe<IntFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
   currentChapter?: InputMaybe<FloatFilter>;
   id?: InputMaybe<StringFilter>;
   review?: InputMaybe<StringFilter>;
   score?: InputMaybe<FloatFilter>;
   title?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
   userId?: InputMaybe<StringFilter>;
 };
 
@@ -115,12 +134,15 @@ export type BookWhereUniqueInput = {
   NOT?: InputMaybe<Array<BookWhereInput>>;
   OR?: InputMaybe<Array<BookWhereInput>>;
   completed?: InputMaybe<IntFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
   currentChapter?: InputMaybe<FloatFilter>;
   id?: InputMaybe<Scalars['String']['input']>;
   review?: InputMaybe<StringFilter>;
   score?: InputMaybe<FloatFilter>;
   title?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
   userId?: InputMaybe<StringFilter>;
+  userId_title?: InputMaybe<BookUserIdTitleCompoundUniqueInput>;
 };
 
 export type DateTimeFilter = {
@@ -466,7 +488,7 @@ export type DeleteDummy = { __typename?: 'Mutation', deleteDummy: { __typename?:
 export type GetBooksVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetBooks = { __typename?: 'Query', books: Array<{ __typename?: 'Book', id: string, title: string, currentChapter?: number | null, score: number, completed: number, review?: string | null, userId: string }> };
+export type GetBooks = { __typename?: 'Query', books: Array<{ __typename?: 'Book', id: string, title: string, currentChapter?: number | null, score: number, completed: number, review?: string | null, userId: string, createdAt: any, updatedAt: any }> };
 
 export type CreateBookVariables = Exact<{
   data: BookCreateInput;
@@ -562,6 +584,8 @@ export const GetBooksDocument = /*#__PURE__*/ gql`
     completed
     review
     userId
+    createdAt
+    updatedAt
   }
 }
     `;

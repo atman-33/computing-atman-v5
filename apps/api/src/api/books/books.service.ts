@@ -1,5 +1,5 @@
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
-import { PrismaService } from '@repo/data-access-db';
+import { PrismaService, User } from '@repo/data-access-db';
 import { DeleteBookInput } from './dto//input/delete-book-input.dto';
 import { GetBookArgs } from './dto/args/get-book-args.dto';
 import { CreateBookInput } from './dto/input/create-book-input.dto';
@@ -9,7 +9,11 @@ import { UpdateBookInput } from './dto/input/update-book-input.dto';
 export class BooksService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async getBooks() {
+  async getBooks(user: User) {
+    if (user) {
+      return await this.prisma.book.findMany({ where: { userId: user.id } });
+    }
+
     return await this.prisma.book.findMany();
   }
 

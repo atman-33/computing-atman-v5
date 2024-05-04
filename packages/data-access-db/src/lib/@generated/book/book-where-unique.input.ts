@@ -5,6 +5,7 @@ import { BookWhereInput } from './book-where.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { FloatFilter } from '../prisma/float-filter.input';
 import { IntFilter } from '../prisma/int-filter.input';
+import { DateTimeFilter } from '../prisma/date-time-filter.input';
 
 @InputType()
 export class BookWhereUniqueInput {
@@ -38,6 +39,12 @@ export class BookWhereUniqueInput {
 
     @Field(() => StringFilter, {nullable:true})
     review?: StringFilter;
+
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: DateTimeFilter;
+
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: DateTimeFilter;
 
     @Field(() => StringFilter, {nullable:true})
     userId?: StringFilter;

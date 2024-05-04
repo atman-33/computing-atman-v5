@@ -1,10 +1,12 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
+import { User } from '@repo/data-access-db';
+import { CurrentUser } from '../auth/current-user.decorator';
+import { BooksService } from './books.service';
 import { GetBookArgs } from './dto/args/get-book-args.dto';
 import { CreateBookInput } from './dto/input/create-book-input.dto';
 import { DeleteBookInput } from './dto/input/delete-book-input.dto';
 import { UpdateBookInput } from './dto/input/update-book-input.dto';
-import { BooksService } from './books.service';
 import { Book } from './models/book.model';
 
 @Resolver(() => Book)
@@ -12,8 +14,8 @@ export class BooksResolver {
   constructor(private readonly booksService: BooksService) {}
 
   @Query(() => [Book], { name: 'books' })
-  async getBooks() {
-    return await this.booksService.getBooks();
+  async getBooks(@CurrentUser() user: User) {
+    return await this.booksService.getBooks(user);
   }
 
   @Query(() => Book, { name: 'book' })

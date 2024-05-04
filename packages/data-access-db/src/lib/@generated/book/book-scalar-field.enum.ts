@@ -7,6 +7,8 @@ export enum BookScalarFieldEnum {
     score = "score",
     completed = "completed",
     review = "review",
+    createdAt = "createdAt",
+    updatedAt = "updatedAt",
     userId = "userId"
 }
 

@@ -23,5 +23,11 @@ export class BookMaxAggregateInput {
     review?: true;
 
     @Field(() => Boolean, {nullable:true})
+    createdAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    updatedAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
     userId?: true;
 }

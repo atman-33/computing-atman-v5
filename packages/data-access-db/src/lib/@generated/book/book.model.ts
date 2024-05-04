@@ -25,6 +25,12 @@ export class Book {
     @Field(() => String, {nullable:true})
     review!: string | null;
 
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date;
+
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date;
+
     @Field(() => String, {nullable:false})
     userId!: string;
 }

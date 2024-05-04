@@ -24,6 +24,12 @@ export class BookCreateInput {
     @Field(() => String, {nullable:true})
     review?: string;
 
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+
     @Field(() => String, {nullable:false})
     userId!: string;
 }
