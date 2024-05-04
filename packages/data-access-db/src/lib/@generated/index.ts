@@ -28,6 +28,7 @@ export { BookUncheckedUpdateManyInput } from './book/book-unchecked-update-many.
 export { BookUncheckedUpdateInput } from './book/book-unchecked-update.input';
 export { BookUpdateManyMutationInput } from './book/book-update-many-mutation.input';
 export { BookUpdateInput } from './book/book-update.input';
+export { BookUserIdTitleCompoundUniqueInput } from './book/book-user-id-title-compound-unique.input';
 export { BookWhereUniqueInput } from './book/book-where-unique.input';
 export { BookWhereInput } from './book/book-where.input';
 export { Book } from './book/book.model';

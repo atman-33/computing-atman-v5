@@ -133,8 +133,7 @@ export const useAuth = () => {
   };
 
   /**
-   * ログイン中のユーザーを取得する。
-   * もしログインしていなければnullを返す。
+   * 新規ユーザーを作成する。
    * @param username
    * @param password
    * @returns

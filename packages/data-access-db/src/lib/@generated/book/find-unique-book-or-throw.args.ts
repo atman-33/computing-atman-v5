@@ -11,5 +11,5 @@ export class FindUniqueBookOrThrowArgs {
     @Field(() => BookWhereUniqueInput, {nullable:false})
     @Type(() => BookWhereUniqueInput)
     @ValidateNested()
-    where!: Prisma.AtLeast<BookWhereUniqueInput, 'id'>;
+    where!: Prisma.AtLeast<BookWhereUniqueInput, 'id' | 'userId_title'>;
 }

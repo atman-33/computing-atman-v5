@@ -13,7 +13,7 @@ export class UpsertOneBookArgs {
     @Field(() => BookWhereUniqueInput, {nullable:false})
     @Type(() => BookWhereUniqueInput)
     @ValidateNested()
-    where!: Prisma.AtLeast<BookWhereUniqueInput, 'id'>;
+    where!: Prisma.AtLeast<BookWhereUniqueInput, 'id' | 'userId_title'>;
 
     @Field(() => BookCreateInput, {nullable:false})
     @Type(() => BookCreateInput)

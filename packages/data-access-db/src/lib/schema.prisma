@@ -62,4 +62,6 @@ model Book {
 
     // ---- Relations ---- //
     userId String // User.id
+
+    @@unique([userId, title]) // 複合ユニーク制約
 }

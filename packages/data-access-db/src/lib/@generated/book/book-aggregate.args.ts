@@ -25,7 +25,7 @@ export class BookAggregateArgs {
     orderBy?: Array<BookOrderByWithRelationInput>;
 
     @Field(() => BookWhereUniqueInput, {nullable:true})
-    cursor?: Prisma.AtLeast<BookWhereUniqueInput, 'id'>;
+    cursor?: Prisma.AtLeast<BookWhereUniqueInput, 'id' | 'userId_title'>;
 
     @Field(() => Int, {nullable:true})
     take?: number;

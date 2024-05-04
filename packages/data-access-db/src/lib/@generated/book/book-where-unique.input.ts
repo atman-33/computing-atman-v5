@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { BookUserIdTitleCompoundUniqueInput } from './book-user-id-title-compound-unique.input';
 import { BookWhereInput } from './book-where.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { FloatFilter } from '../prisma/float-filter.input';
@@ -10,6 +11,9 @@ export class BookWhereUniqueInput {
 
     @Field(() => String, {nullable:true})
     id?: string;
+
+    @Field(() => BookUserIdTitleCompoundUniqueInput, {nullable:true})
+    userId_title?: BookUserIdTitleCompoundUniqueInput;
 
     @Field(() => [BookWhereInput], {nullable:true})
     AND?: Array<BookWhereInput>;
