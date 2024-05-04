@@ -96,9 +96,14 @@ export const useAuth = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  /**
+   * 認証状態をリフレッシュし、ログイン済みならtrue、未ログインならfalseを返す。
+   * @returns
+   */
   const refleshIsAuthenticated = () => {
-    fetchIsAuthenticated().then((res) => {
+    return fetchIsAuthenticated().then((res) => {
       setIsAuthenticated(res);
+      return res;
     });
   };
 
@@ -127,13 +132,20 @@ export const useAuth = () => {
     setCurrentUserVersion((prev) => prev + 1);
   };
 
+  /**
+   * ログイン中のユーザーを取得する。
+   * もしログインしていなければnullを返す。
+   * @param username
+   * @param password
+   * @returns
+   */
   const createUser = async (username: string, password: string) => {
     try {
       const res = await gql.createUser({ data: { username, password } });
       return res.createUser;
     } catch (err) {
-      console.error(err);
-      return err;
+      // console.error(err);
+      return null;
     }
   };
 
