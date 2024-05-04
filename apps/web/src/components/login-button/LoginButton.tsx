@@ -21,14 +21,16 @@ const LoginButton = () => {
   };
 
   return (
-    <>
+    <div className="flex items-center space-x-2">
       <Button className="h-8 rounded-full font-bold" onClick={() => handleLogin()}>
         {isAuthenticated ? 'Log out' : 'Log in'}
       </Button>
       <Suspense fallback={<Icons.spinner className="h-6 w-6 animate-spin" />}>
-        {currentUser && <div className="text-sm font-bold">{currentUser?.username}</div>}
+        {currentUser && (
+          <div className="hidden text-sm font-bold md:block">{currentUser?.username}</div>
+        )}
       </Suspense>
-    </>
+    </div>
   );
 };
 
