@@ -9,36 +9,37 @@ import { DummySumOrderByAggregateInput } from './dummy-sum-order-by-aggregate.in
 
 @InputType()
 export class DummyOrderByWithAggregationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  text?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  int?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    text?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  float?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    int?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    float?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  updatedAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => DummyCountOrderByAggregateInput, { nullable: true })
-  _count?: DummyCountOrderByAggregateInput;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => DummyAvgOrderByAggregateInput, { nullable: true })
-  _avg?: DummyAvgOrderByAggregateInput;
+    @Field(() => DummyCountOrderByAggregateInput, {nullable:true})
+    _count?: DummyCountOrderByAggregateInput;
 
-  @Field(() => DummyMaxOrderByAggregateInput, { nullable: true })
-  _max?: DummyMaxOrderByAggregateInput;
+    @Field(() => DummyAvgOrderByAggregateInput, {nullable:true})
+    _avg?: DummyAvgOrderByAggregateInput;
 
-  @Field(() => DummyMinOrderByAggregateInput, { nullable: true })
-  _min?: DummyMinOrderByAggregateInput;
+    @Field(() => DummyMaxOrderByAggregateInput, {nullable:true})
+    _max?: DummyMaxOrderByAggregateInput;
 
-  @Field(() => DummySumOrderByAggregateInput, { nullable: true })
-  _sum?: DummySumOrderByAggregateInput;
+    @Field(() => DummyMinOrderByAggregateInput, {nullable:true})
+    _min?: DummyMinOrderByAggregateInput;
+
+    @Field(() => DummySumOrderByAggregateInput, {nullable:true})
+    _sum?: DummySumOrderByAggregateInput;
 }

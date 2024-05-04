@@ -43,3 +43,27 @@ model Dummy {
 }
 
 // -------------------------------------------------------------- // 
+
+model User {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    username  String   @unique
+    password  String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Book {
+    id             String   @id @default(auto()) @map("_id") @db.ObjectId
+    title          String
+    currentChapter Float?
+    score          Float    @default(0.0)
+    completed      Int      @default(0) // 0:未完結, 1:完結
+    review         String?
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @default(now()) @updatedAt
+
+    // ---- Relations ---- //
+    userId String // User.id
+
+    @@unique([userId, title]) // 複合ユニーク制約
+}

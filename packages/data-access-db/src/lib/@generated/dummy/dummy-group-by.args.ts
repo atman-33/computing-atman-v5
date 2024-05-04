@@ -15,38 +15,39 @@ import { DummyMaxAggregateInput } from './dummy-max-aggregate.input';
 
 @ArgsType()
 export class DummyGroupByArgs {
-  @Field(() => DummyWhereInput, { nullable: true })
-  @Type(() => DummyWhereInput)
-  @ValidateNested()
-  where?: DummyWhereInput;
 
-  @Field(() => [DummyOrderByWithAggregationInput], { nullable: true })
-  orderBy?: Array<DummyOrderByWithAggregationInput>;
+    @Field(() => DummyWhereInput, {nullable:true})
+    @Type(() => DummyWhereInput)
+    @ValidateNested()
+    where?: DummyWhereInput;
 
-  @Field(() => [DummyScalarFieldEnum], { nullable: false })
-  by!: Array<keyof typeof DummyScalarFieldEnum>;
+    @Field(() => [DummyOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<DummyOrderByWithAggregationInput>;
 
-  @Field(() => DummyScalarWhereWithAggregatesInput, { nullable: true })
-  having?: DummyScalarWhereWithAggregatesInput;
+    @Field(() => [DummyScalarFieldEnum], {nullable:false})
+    by!: Array<keyof typeof DummyScalarFieldEnum>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => DummyScalarWhereWithAggregatesInput, {nullable:true})
+    having?: DummyScalarWhereWithAggregatesInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => DummyCountAggregateInput, { nullable: true })
-  _count?: DummyCountAggregateInput;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 
-  @Field(() => DummyAvgAggregateInput, { nullable: true })
-  _avg?: DummyAvgAggregateInput;
+    @Field(() => DummyCountAggregateInput, {nullable:true})
+    _count?: DummyCountAggregateInput;
 
-  @Field(() => DummySumAggregateInput, { nullable: true })
-  _sum?: DummySumAggregateInput;
+    @Field(() => DummyAvgAggregateInput, {nullable:true})
+    _avg?: DummyAvgAggregateInput;
 
-  @Field(() => DummyMinAggregateInput, { nullable: true })
-  _min?: DummyMinAggregateInput;
+    @Field(() => DummySumAggregateInput, {nullable:true})
+    _sum?: DummySumAggregateInput;
 
-  @Field(() => DummyMaxAggregateInput, { nullable: true })
-  _max?: DummyMaxAggregateInput;
+    @Field(() => DummyMinAggregateInput, {nullable:true})
+    _min?: DummyMinAggregateInput;
+
+    @Field(() => DummyMaxAggregateInput, {nullable:true})
+    _max?: DummyMaxAggregateInput;
 }

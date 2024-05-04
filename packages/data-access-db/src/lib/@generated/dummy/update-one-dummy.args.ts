@@ -8,13 +8,14 @@ import { DummyWhereUniqueInput } from './dummy-where-unique.input';
 
 @ArgsType()
 export class UpdateOneDummyArgs {
-  @Field(() => DummyUpdateInput, { nullable: false })
-  @Type(() => DummyUpdateInput)
-  @ValidateNested()
-  data!: DummyUpdateInput;
 
-  @Field(() => DummyWhereUniqueInput, { nullable: false })
-  @Type(() => DummyWhereUniqueInput)
-  @ValidateNested()
-  where!: Prisma.AtLeast<DummyWhereUniqueInput, 'id'>;
+    @Field(() => DummyUpdateInput, {nullable:false})
+    @Type(() => DummyUpdateInput)
+    @ValidateNested()
+    data!: DummyUpdateInput;
+
+    @Field(() => DummyWhereUniqueInput, {nullable:false})
+    @Type(() => DummyWhereUniqueInput)
+    @ValidateNested()
+    where!: Prisma.AtLeast<DummyWhereUniqueInput, 'id'>;
 }

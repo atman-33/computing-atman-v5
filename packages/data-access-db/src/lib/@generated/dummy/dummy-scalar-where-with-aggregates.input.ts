@@ -7,30 +7,31 @@ import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregate
 
 @InputType()
 export class DummyScalarWhereWithAggregatesInput {
-  @Field(() => [DummyScalarWhereWithAggregatesInput], { nullable: true })
-  AND?: Array<DummyScalarWhereWithAggregatesInput>;
 
-  @Field(() => [DummyScalarWhereWithAggregatesInput], { nullable: true })
-  OR?: Array<DummyScalarWhereWithAggregatesInput>;
+    @Field(() => [DummyScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<DummyScalarWhereWithAggregatesInput>;
 
-  @Field(() => [DummyScalarWhereWithAggregatesInput], { nullable: true })
-  NOT?: Array<DummyScalarWhereWithAggregatesInput>;
+    @Field(() => [DummyScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<DummyScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  id?: StringWithAggregatesFilter;
+    @Field(() => [DummyScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<DummyScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  text?: StringWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    id?: StringWithAggregatesFilter;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  int?: IntWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    text?: StringWithAggregatesFilter;
 
-  @Field(() => FloatWithAggregatesFilter, { nullable: true })
-  float?: FloatWithAggregatesFilter;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    int?: IntWithAggregatesFilter;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  createdAt?: DateTimeWithAggregatesFilter;
+    @Field(() => FloatWithAggregatesFilter, {nullable:true})
+    float?: FloatWithAggregatesFilter;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  updatedAt?: DateTimeWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    createdAt?: DateTimeWithAggregatesFilter;
+
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    updatedAt?: DateTimeWithAggregatesFilter;
 }

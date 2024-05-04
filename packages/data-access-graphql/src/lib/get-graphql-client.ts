@@ -8,6 +8,7 @@ export const getGraphqlClient = (
 ) => {
   const client = new GraphQLClient(url, {
     headers,
+    credentials: 'include',
   });
 
   return getSdk(client);

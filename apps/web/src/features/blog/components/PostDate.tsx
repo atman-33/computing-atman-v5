@@ -1,5 +1,5 @@
 import { Icons } from '@/components/icons';
-import { getFormattedDate } from '@/utils/format';
+import { getFormattedDate } from '@/utils/format-util';
 import { Post } from 'contentlayer/generated';
 
 const PostDate = ({ post }: { post: Post }) => {

@@ -1,0 +1,13 @@
+mutation createUser($data: UserCreateInput!) {
+  createUser(data: $data) {
+    id
+    username
+  }
+}
+
+query getCurrentUser {
+  currentUser {
+    id
+    username
+  }
+}

@@ -72,6 +72,8 @@ NEXT_PUBLIC_GA_ID=****
 API_PORT=10000
 WEB_ORIGIN=https://computing-atman.com
 DATABASE_URL="****"
+JWT_SECRET=****
+JWT_EXPIRATION=3600
 ```
 
 - `PORT: 10000` (10000はRender.comのデフォルトポート)  **PORTを設定していなければ、画面が空白になってしまうため注意！**

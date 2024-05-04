@@ -14,7 +14,7 @@ export const PostPagination = () => {
   const [pagination, setPagination] = useAtom(paginationAtom);
   const { currentPage, totalPages, itemsPerPage } = pagination;
 
-  const handlePageChange = (page: number) => {
+  const handlePageChangeLinkClick = (page: number) => {
     if (page < 1 || page > totalPages) {
       return;
     }
@@ -33,14 +33,14 @@ export const PostPagination = () => {
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            onClick={() => handlePageChange(currentPage - 1)}
+            onClick={() => handlePageChangeLinkClick(currentPage - 1)}
             className="cursor-pointer"
           />
         </PaginationItem>
 
         {currentPage > 1 && (
           <PaginationItem>
-            <PaginationLink onClick={() => handlePageChange(1)} className="cursor-pointer">
+            <PaginationLink onClick={() => handlePageChangeLinkClick(1)} className="cursor-pointer">
               1
             </PaginationLink>
           </PaginationItem>
@@ -66,7 +66,10 @@ export const PostPagination = () => {
 
         {currentPage < totalPages && (
           <PaginationItem>
-            <PaginationLink onClick={() => handlePageChange(totalPages)} className="cursor-pointer">
+            <PaginationLink
+              onClick={() => handlePageChangeLinkClick(totalPages)}
+              className="cursor-pointer"
+            >
               {totalPages}
             </PaginationLink>
           </PaginationItem>
@@ -74,7 +77,7 @@ export const PostPagination = () => {
 
         <PaginationItem>
           <PaginationNext
-            onClick={() => handlePageChange(currentPage + 1)}
+            onClick={() => handlePageChangeLinkClick(currentPage + 1)}
             className="cursor-pointer"
           />
         </PaginationItem>

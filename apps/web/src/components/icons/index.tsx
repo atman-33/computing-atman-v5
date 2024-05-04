@@ -1,5 +1,9 @@
 import { Icons } from './Icons';
 
+/**
+ * アイコンを表示するためのコンポーネント。
+ * 文字列からアイコンを特定する場合は、こちらに追加する。
+ */
 const icons = {
   react: {
     name: 'React',
@@ -16,6 +20,12 @@ interface IconProps {
   className?: string;
 }
 
+/**
+ * 指定した kind のアイコンを表示する。
+ * 直接 `Icons` から呼び出すこともできるため、こちらは文字列からアイコンを特定する場合に利用する。
+ * @param param0
+ * @returns
+ */
 const Icon = ({ kind, href, size = 6, className }: IconProps) => {
   const IconSvg = icons[kind].icon;
 

@@ -26,6 +26,9 @@
 ```json
   "pipeline":{  
     ...,
+    "postbuild": {
+      "cache": false
+    },
     "dev:web": {
       "cache": false,
       "persistent": true
