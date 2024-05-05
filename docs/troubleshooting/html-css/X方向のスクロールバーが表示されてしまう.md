@@ -27,6 +27,18 @@
     ...
 ```
 
+## 問題点
+
+上記のように、overflow-x-hidden を設定すると、stickyのような固定位置コンポーネントが機能しなくなる。  
+そのため固定位置を利用している場合は、別方法で調整すること。
+
+参考までに、md以上は +6px のスクロールバー幅を考慮し、md未満は横いっぱいにする方法もある（下記コード）。
+
+```ts
+<div className="bg-primary/10 ml-[calc(-50dvw+50%)] mr-[calc(-50dvw+50%)] p-8 md:ml-[calc(-50dvw+50%+6px)] md:mr-[calc(-50dvw+50%+6px)]">
+...
+```
+
 ## 参考URL
 
 [コンテナからの解放。](https://lopan.jp/breaking-out/)

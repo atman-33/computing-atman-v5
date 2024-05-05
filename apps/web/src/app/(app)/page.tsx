@@ -26,7 +26,7 @@ const IndexPage = () => {
     <div className="container mx-auto w-full md:w-10/12">
       <div>
         <Tabs defaultValue="blog">
-          <TabsList className="bg-transparent">
+          <TabsList className="bg-primary-foreground/30 sticky top-0 z-10 rounded-none backdrop-blur">
             <SimpleTabsTrigger value="blog" className="w-16">
               Blog
             </SimpleTabsTrigger>
@@ -44,10 +44,8 @@ const IndexPage = () => {
             </SimpleTabsTrigger>
           </TabsList>
           <TabsContent value="blog">
-            <div
-              className="bg-primary/10 p-8"
-              style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}
-            >
+            {/* NOTE: md以上は、スクロールバー幅を考慮して左右マージンに6pxを上乗せしている。 */}
+            <div className="bg-primary/10 ml-[calc(-50dvw+50%)] mr-[calc(-50dvw+50%)] p-8 md:ml-[calc(-50dvw+50%+6px)] md:mr-[calc(-50dvw+50%+6px)]">
               <section className="mx-auto max-w-[1000px] justify-center">
                 <div className="flex items-baseline space-x-2">
                   <h3 className="text-3xl font-bold">Latest</h3>
