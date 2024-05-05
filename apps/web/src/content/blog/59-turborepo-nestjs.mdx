@@ -1,0 +1,73 @@
+---
+title: How to Resolve Inability to Reference Internal Packages from Turborepo NestJS
+description: Learn how to resolve the issue of being unable to reference internal packages (such as Prisma) from Turborepo NestJS.
+date: 2024-05-05
+lastmod: 2024-05-05
+emoji: 🐺
+tags: 
+  - turborepo
+published: true
+---
+
+When utilizing internal packages in a Turborepo project, frontend projects like Next.js function smoothly and can utilize internal packages without issues thanks to the `transpilePackages` configuration option.
+
+However, backend projects like NestJS encounter errors when attempting to import internal packages directly.
+
+e.g. error  
+
+```bash
+"C:\Program Files\nodejs\npm.cmd" run start
+
+> nest@0.0.1 start
+> nest start               
+
+Error: Cannot find module '@repo/database'
+Require stack:
+```
+
+This issue can be circumvented by compiling internal packages to JavaScript before importing.
+
+## Solution
+
+### 1. Install `tsup` in the Internal Package
+
+```bash
+npm i -D tsup -w <workspace>
+```
+
+e.g. For an internal package named `data-access-db` (assuming it uses PrismaClient):
+
+```bash
+npm i -D tsup -w packages/data-access-db
+```
+
+### 2. Modify the Internal Package's `package.json`
+
+Configure the build command to export JavaScript files to the `dist` folder.
+
+`package.json`
+
+```json
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "npm run build -- --watch"
+  },
+```
+
+### 3. Build & Install the Internal Package Before Starting NestJS Project
+
+```bash
+npm run build -w <workspace>
+npm i
+```
+
+e.g.  
+
+```bash
+npm run build -w packages/data-access-db
+```
+
+As rebuilding the internal package every time you start NestJS is cumbersome, it's advisable to prepare a script in the top-level `package.json` to build and install internal packages before starting the NestJS project.
