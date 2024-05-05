@@ -88,6 +88,18 @@ const tagIcons = {
     name: 'Electron',
     icon: TagIcons.electron,
   },
+  turborepo: {
+    name: 'Turborepo',
+    icon: TagIcons.turborepo,
+  },
+  tailwindcss: {
+    name: 'TailwindCSS',
+    icon: TagIcons.tailwindcss,
+  },
+  shadcnui: {
+    name: 'shadcn/ui',
+    icon: TagIcons.shadcnui,
+  },
 };
 
 export type TagIconKind = keyof typeof tagIcons;

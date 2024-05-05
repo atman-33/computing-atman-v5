@@ -4,11 +4,10 @@ import { appConfig } from '@/config/app/app-config';
 
 export const AppList = () => {
   return (
-    <div className="mt-8 flex flex-col space-y-4">
+    <div className="mt-8 flex flex-col space-y-4 divide-y">
       {appConfig.map((app) => (
-        <div>
-          <hr className="my-2" />
-          <div key={app.title} className="hover:bg-primary/10 rounded-md md:p-4">
+        <div key={app.title}>
+          <div className="hover:bg-primary/10 rounded-md md:p-4">
             <Link href={app.href} target="_blank">
               <div className="items-center space-y-4 md:flex md:space-x-8">
                 <Image

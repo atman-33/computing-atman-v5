@@ -8,7 +8,7 @@ interface AppConfig {
 export const appConfig: AppConfig[] = [
   {
     title: '本 Dokuha',
-    description: `読書中の本・漫画の進捗を記録しておくアプリ`,
+    description: `An app to keep track of the progress in reading books and manga.`,
     image: '/app/dokuha.png',
     href: '/dokuha',
   },

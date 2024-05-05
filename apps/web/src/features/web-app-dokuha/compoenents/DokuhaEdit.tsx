@@ -161,7 +161,6 @@ export const DokuhaEdit = ({ id }: DokuhaEditProps) => {
             <h2 className="text-xl font-bold">{isNew ? 'Register book...' : 'Edit book...'}</h2>
             {isNew ? null : <DokuhaDeleteButton id={id as string} />}
           </div>
-          {isNew ? null : <div>id: {id}</div>}
 
           <FormFiledInput form={form} name="title" label="Title" placeHolder="e.g. DRAGON BALL" />
           <FormFiledInput
@@ -208,6 +207,7 @@ export const DokuhaEdit = ({ id }: DokuhaEditProps) => {
             Save
           </Button>
           <div className="text-center font-bold text-red-500">{error}</div>
+          {isNew ? null : <div className="text-xs">id: {id}</div>}
         </form>
       </Form>
     </>

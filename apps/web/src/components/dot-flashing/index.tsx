@@ -1,1 +1,1 @@
-export * from './DotFlasing';
+export * from './DotFlashing';
