@@ -90,9 +90,14 @@ export const useAuth = () => {
   const [redirectPath, setRedirectPath] = useAtom(redirectPathAtom);
 
   useEffect(() => {
-    fetchIsAuthenticated().then((res) => {
-      setIsAuthenticated(res);
-    });
+    fetchIsAuthenticated()
+      .then((res) => {
+        setIsAuthenticated(res);
+      })
+      .catch((err) => {
+        console.error(err);
+        setIsAuthenticated(false);
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
