@@ -55,14 +55,8 @@ export const metadata: Metadata = {
     apple: '/favicons/apple-touch-icon.png',
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
 };
-
-// export const viewport: Viewport = {
-//   themeColor: [
-//     { media: "(prefers-color-scheme: light)", color: "white" },
-//     { media: "(prefers-color-scheme: dark)", color: "black" },
-//   ],
-// }
 
 interface RootLayoutProps {
   children: React.ReactNode;
