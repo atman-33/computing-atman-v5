@@ -21,7 +21,8 @@
 - [x] Tech記事で、React サンプルを追加
 - [x] Aboutページを追加
 - [x] loginページを追加
-- [ ] sign upページを追加
-- [ ] マンガ読破アプリを追加
-- [ ] 電卓アプリを追加
+- [x] sign upページを追加
+- [x] マンガ読破アプリを追加
 - [ ] Google Adsense 対応
+- [ ] 記事（turborepo nestjs, react sample）を追加
+- [ ] 電卓アプリを追加
