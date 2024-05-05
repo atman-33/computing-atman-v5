@@ -12,7 +12,7 @@ export const DokuhaHeader = () => {
         </div>
         <LoginButton />
       </div>
-      <Separator orientation="horizontal" className="my-2" />
+      <Separator orientation="horizontal" className="mt-2" />
     </>
   );
 };

@@ -48,14 +48,14 @@ export const DokuhaSortButton = () => {
             <div className="flex flex-col space-y-2">
               <Button
                 variant="ghost"
-                className="self-start rounded-sm"
+                className="w-full justify-start rounded-sm"
                 onClick={() => handleSortButtonClick(SortCriteria.TopRated)}
               >
                 Top Rated
               </Button>
               <Button
                 variant="ghost"
-                className="self-start rounded-sm"
+                className="w-full justify-start rounded-sm"
                 onClick={() => handleSortButtonClick(SortCriteria.LastUpdated)}
               >
                 Last Updated

@@ -1,7 +1,7 @@
 'use client';
 
 import { Icons } from '@/components/icons';
-import { Button, Separator } from '@repo/ui';
+import { Separator } from '@repo/ui';
 import { useRouter } from 'next/navigation';
 
 export const DokuhaFooter = () => {
@@ -17,26 +17,24 @@ export const DokuhaFooter = () => {
 
   return (
     <>
-      <div className="bg-background absolute bottom-0 mx-auto w-full">
+      <div className="bg-background mx-auto w-full">
         <Separator orientation="horizontal" />
-        <div className="flex justify-evenly">
-          <Button
-            variant="ghost"
-            className="flex h-16 flex-col items-center rounded-full"
+        <div className="flex items-center justify-evenly">
+          <button
+            className="hover:bg-primary/10 flex w-full flex-col items-center py-2"
             onClick={() => handleListButtonClick()}
           >
-            <Icons.list className="h-8 w-8" />
-            <div className="text-center">List</div>
-          </Button>
-          <Separator orientation="vertical" className="h-16" />
-          <Button
-            variant="ghost"
-            className="flex h-16 flex-col items-center rounded-full"
+            <Icons.list className="h-6 w-6" />
+            <div className="text-center text-xs">List</div>
+          </button>
+          <Separator orientation="vertical" className="h-14" />
+          <button
+            className="hover:bg-primary/10 flex w-full flex-col items-center py-2"
             onClick={() => handleAddButtonClick()}
           >
-            <Icons.plusCircle className="h-8 w-8" />
-            <div className="text-center">Add</div>
-          </Button>
+            <Icons.plusCircle className="h-6 w-6" />
+            <div className="text-center text-xs">Add</div>
+          </button>
         </div>
       </div>
     </>
