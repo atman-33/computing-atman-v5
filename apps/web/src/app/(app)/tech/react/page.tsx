@@ -39,6 +39,7 @@ const ReactPage = () => {
     <>
       <div className="mt-8 flex flex-col space-y-8">
         <h2 className="text-3xl font-bold">Introduction</h2>
+        <p>React - A JavaScript library for building user interfaces -</p>
         <p>Next.js + React + Tailwind CSS + Shadcn のサンプルコードを公開しています。</p>
         <Icon kind="react" size={24} />
         <div className="md:hidden">

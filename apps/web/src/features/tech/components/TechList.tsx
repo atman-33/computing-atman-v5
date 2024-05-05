@@ -8,7 +8,7 @@ export const TechList = () => {
       {techConfig.map((tech) => (
         <div>
           <hr className="my-2" />
-          <div key={tech.title} className="hover:bg-primary/10 rounded-md md:p-4">
+          <div key={tech.title} className="hover:bg-primary/10 rounded-md p-2 md:p-4">
             <Link href={tech.href}>
               <div className="flex items-center space-x-8">
                 <Icon kind={tech.icon as IconKind} size={24} />

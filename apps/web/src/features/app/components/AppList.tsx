@@ -16,7 +16,7 @@ export const AppList = () => {
                   alt={app.title}
                   width={200}
                   height={200}
-                  className="rounded-sm"
+                  className="max-h-72 rounded-sm object-contain hover:object-scale-down"
                 />
                 <div className="flex flex-col">
                   <h2 className="text-3xl font-bold">{app.title}</h2>
