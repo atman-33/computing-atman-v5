@@ -1,6 +1,6 @@
 'use client';
 
-import { DotFlasing } from '@/components/dot-flashing';
+import { DotFlashing } from '@/components/dot-flashing';
 import { Link } from '@/components/link';
 import { Tag, TagIconKind } from '@/components/tag';
 import { Badge } from '@repo/ui';
@@ -10,7 +10,7 @@ export const TagList = () => {
   const { loading, tagData } = useTagData();
 
   if (loading) {
-    return <DotFlasing />;
+    return <DotFlashing />;
   }
 
   return (
