@@ -9,7 +9,7 @@ export const techConfig: TechConfig[] = [
   {
     title: 'React Samples',
     icon: 'react',
-    description: 'Some of my React samples.',
+    description: 'Next.js + React + Tailwind CSS + Shadcn のサンプルコード',
     href: '/tech/react',
   },
 ];

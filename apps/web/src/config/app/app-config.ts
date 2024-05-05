@@ -9,7 +9,7 @@ export const appConfig: AppConfig[] = [
   {
     title: '本 Dokuha',
     description: `読書中の本・漫画の進捗を記録しておくアプリ`,
-    image: 'og.jpg',
+    image: '/app/dokuha.png',
     href: '/dokuha',
   },
   {
