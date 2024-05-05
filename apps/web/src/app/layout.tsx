@@ -5,7 +5,7 @@ import { GoogleAnalytics } from '@/components/google-analytics';
 import { siteConfig } from '@/config/site-config';
 import { webEnv } from '@/config/web-env';
 import { ThemeProvider } from '@/providers/ThemeProvider';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import { Suspense } from 'react';
 
@@ -55,8 +55,14 @@ export const metadata: Metadata = {
     apple: '/favicons/apple-touch-icon.png',
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
 };
+
+const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
+export { viewport };
 
 interface RootLayoutProps {
   children: React.ReactNode;
