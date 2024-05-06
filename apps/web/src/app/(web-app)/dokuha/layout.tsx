@@ -7,7 +7,7 @@ interface DokuhaLayoutProps {
 
 const DokuhaLayout = ({ children }: DokuhaLayoutProps) => {
   return (
-    <div className="mx-auto flex h-[100dvh] flex-col sm:max-w-screen-sm">
+    <div className="mx-auto flex h-[100dvh] flex-col sm:max-w-screen-sm md:border">
       <div className="px-4 py-2">
         <DokuhaHeader />
       </div>

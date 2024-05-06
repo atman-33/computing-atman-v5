@@ -1,21 +1,20 @@
 'use client';
 
 import { Input } from '@repo/ui';
-import { useAtomValue } from 'jotai';
+import { useAtomValue, useSetAtom } from 'jotai';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useBookDispatcher } from '../hooks/useBookDispatcher';
-import { bookSelectors } from '../stores/book-atom';
-import { sortCriteriaAtom, sortFunctions } from '../stores/sort-criteria-atom';
+import { bookSelectors, searchQueryAtom, sortCriteriaAtom } from '../stores/book-atom';
 import { transformScore } from '../utils/rate-util';
 import { DokuhaSortButton } from './DokuhaSortButton';
 
 export const DokuhaList = () => {
   const router = useRouter();
-  const [searchText, setSearchText] = useState<string>('');
+  const setSearchQuery = useSetAtom(searchQueryAtom);
   const sortCriteria = useAtomValue(sortCriteriaAtom);
   const { loadBooks } = useBookDispatcher();
-  const books = bookSelectors.useGetBooks();
+  const books = bookSelectors.useGetFilterAndSortBooks();
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -35,7 +34,7 @@ export const DokuhaList = () => {
         <Input
           type="email"
           placeholder="🔍 Search title..."
-          onChange={(e) => setSearchText(e.target.value)}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
         <div className="flex items-center space-x-4">
           <DokuhaSortButton />
@@ -43,29 +42,23 @@ export const DokuhaList = () => {
         </div>
       </div>
       <div className="flex flex-col divide-y rounded-sm border-2 p-2">
-        {books
-          .filter((book) => book.title?.includes(searchText))
-          .sort(sortFunctions[sortCriteria])
-          .map((book) => (
-            <div key={book.id}>
-              {/* <Separator orientation="horizontal" className="my-2" /> */}
-              <button
-                className="hover:bg-primary/10 w-full rounded-sm px-2 hover:cursor-pointer"
-                onClick={() => handleBookClick(book.id as string)}
-              >
-                <div className="grid min-h-16 grid-cols-10 items-center gap-2 text-wrap">
-                  <div className="col-span-4 text-left text-sm">{book.title}</div>
-                  <div className="col-span-2 text-right text-sm">{book.currentChapter}</div>
-                  <div className="col-span-3 text-right text-sm">
-                    {transformScore(book.score ?? 0)}
-                  </div>
-                  <div className="col-span-1 text-right text-2xl">
-                    {book.completed ? '✅' : '🏃'}
-                  </div>
+        {books.map((book) => (
+          <div key={book.id}>
+            <button
+              className="hover:bg-primary/10 w-full rounded-sm px-2 hover:cursor-pointer"
+              onClick={() => handleBookClick(book.id as string)}
+            >
+              <div className="grid min-h-16 grid-cols-10 items-center gap-2 text-wrap">
+                <div className="col-span-4 text-left text-sm">{book.title}</div>
+                <div className="col-span-2 text-right text-sm">{book.currentChapter}</div>
+                <div className="col-span-3 text-right text-sm">
+                  {transformScore(book.score ?? 0)}
                 </div>
-              </button>
-            </div>
-          ))}
+                <div className="col-span-1 text-right text-2xl">{book.completed ? '✅' : '🏃'}</div>
+              </div>
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -495,7 +495,7 @@ export type CreateBookVariables = Exact<{
 }>;
 
 
-export type CreateBook = { __typename?: 'Mutation', createBook: { __typename?: 'Book', id: string, title: string, currentChapter?: number | null, score: number, completed: number, review?: string | null, userId: string } };
+export type CreateBook = { __typename?: 'Mutation', createBook: { __typename?: 'Book', id: string, title: string, currentChapter?: number | null, score: number, completed: number, review?: string | null, userId: string, createdAt: any, updatedAt: any } };
 
 export type UpdateBookVariables = Exact<{
   data: BookUpdateInput;
@@ -503,7 +503,7 @@ export type UpdateBookVariables = Exact<{
 }>;
 
 
-export type UpdateBook = { __typename?: 'Mutation', updateBook: { __typename?: 'Book', id: string, title: string, currentChapter?: number | null, score: number, completed: number, review?: string | null, userId: string } };
+export type UpdateBook = { __typename?: 'Mutation', updateBook: { __typename?: 'Book', id: string, title: string, currentChapter?: number | null, score: number, completed: number, review?: string | null, userId: string, createdAt: any, updatedAt: any } };
 
 export type DeleteBookVariables = Exact<{
   where: BookWhereUniqueInput;
@@ -599,6 +599,8 @@ export const CreateBookDocument = /*#__PURE__*/ gql`
     completed
     review
     userId
+    createdAt
+    updatedAt
   }
 }
     `;
@@ -612,6 +614,8 @@ export const UpdateBookDocument = /*#__PURE__*/ gql`
     completed
     review
     userId
+    createdAt
+    updatedAt
   }
 }
     `;
