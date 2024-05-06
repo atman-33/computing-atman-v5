@@ -80,7 +80,7 @@ export const reactDocsConfig: DocsConfig = {
       ],
     },
     {
-      title: '🦋 React Advanced',
+      title: '🦋 React Intermediate',
       items: [
         {
           title: 'list component',
@@ -119,6 +119,30 @@ export const reactDocsConfig: DocsConfig = {
           description: 'Reactでチェックボックスを表示するサンプル',
           slug: 'singleCheckbox',
           href: '/tech/react/singleCheckbox',
+          items: [],
+          label: '',
+        },
+        {
+          title: 'multi checkbox',
+          description: 'Reactで複数のチェックボックスを表示するサンプル',
+          slug: 'multiCheckbox',
+          href: '/tech/react/multiCheckbox',
+          items: [],
+          label: '',
+        },
+        {
+          title: 'select',
+          description: 'Reactでセレクトボックスを表示するサンプル',
+          slug: 'select',
+          href: '/tech/react/select',
+          items: [],
+          label: '',
+        },
+        {
+          title: 'reminder',
+          description: 'Reactでリマインダーを表示するサンプル',
+          slug: 'reminder',
+          href: '/tech/react/reminder',
           items: [],
           label: '',
         },

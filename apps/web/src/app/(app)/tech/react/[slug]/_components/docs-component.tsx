@@ -3,6 +3,7 @@ import './docs-component.css';
 import { typescriptHighlight } from '@/lib/syntax-highlighter';
 import { Separator } from '@repo/ui';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { ComponentKind, components } from './components';
 
 interface DocsComponentProps {
@@ -20,6 +21,7 @@ const DocsComponent = ({ kind }: DocsComponentProps) => {
       <Separator orientation="horizontal" />
 
       <ReactMarkdown
+        remarkPlugins={[remarkGfm as any]}
         children={contents.description}
         components={{
           // @ts-ignore: next-line

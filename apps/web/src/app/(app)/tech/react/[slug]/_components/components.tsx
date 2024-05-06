@@ -37,6 +37,15 @@ import { description as RadioDescription } from './radio/description';
 import { Example as SingleCheckboxExample } from './single-checkbox/Example';
 import { description as SingleCheckboxDescription } from './single-checkbox/description';
 
+import { Example as MultiCheckboxExample } from './multi-checkbox/Example';
+import { description as MultiCheckboxDescription } from './multi-checkbox/description';
+
+import { Example as SelectExample } from './select/Example';
+import { description as SelectDescription } from './select/description';
+
+import { Example as ReminderExample } from './reminder/Example';
+import { description as ReminderDescription } from './reminder/description';
+
 const components = {
   clickHandler: {
     title: 'Click Handler',
@@ -102,6 +111,21 @@ const components = {
     title: 'Single Checkbox',
     component: SingleCheckboxExample,
     description: SingleCheckboxDescription,
+  },
+  multiCheckbox: {
+    title: 'Multi Checkbox',
+    component: MultiCheckboxExample,
+    description: MultiCheckboxDescription,
+  },
+  select: {
+    title: 'Select',
+    component: SelectExample,
+    description: SelectDescription,
+  },
+  reminder: {
+    title: 'Reminder',
+    component: ReminderExample,
+    description: ReminderDescription,
   },
 };
 

@@ -1,5 +1,13 @@
+h2 {
+  @apply font-bold;
+}
+
 h3 {
-  @apply mb-2 mt-8 font-bold;
+  @apply pt-4 font-bold;
+}
+
+h4 {
+  @apply pl-2;
 }
 
 pre .shiki {

@@ -14,6 +14,7 @@ export * from './components/ui/navigation-menu';
 export * from './components/ui/pagination';
 export * from './components/ui/radio-group';
 export * from './components/ui/scroll-area';
+export * from './components/ui/select';
 export * from './components/ui/separator';
 export * from './components/ui/sheet';
 export * from './components/ui/switch';
