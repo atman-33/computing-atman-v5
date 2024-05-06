@@ -1,7 +1,9 @@
 import './docs-component.css';
 
 import { typescriptHighlight } from '@/lib/syntax-highlighter';
+import { Separator } from '@repo/ui';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { ComponentKind, components } from './components';
 
 interface DocsComponentProps {
@@ -12,13 +14,14 @@ const DocsComponent = ({ kind }: DocsComponentProps) => {
   const Component = contents.component;
 
   return (
-    <div>
+    <div className="flex flex-col space-y-4">
       <h2 className="text-2xl font-bold">{contents.title}</h2>
       <Component />
 
-      <hr className="my-4" />
+      <Separator orientation="horizontal" />
 
       <ReactMarkdown
+        remarkPlugins={[remarkGfm as any]}
         children={contents.description}
         components={{
           // @ts-ignore: next-line

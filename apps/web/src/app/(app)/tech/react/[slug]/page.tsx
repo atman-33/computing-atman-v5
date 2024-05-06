@@ -1,5 +1,5 @@
 import { siteConfig } from '@/config/site-config';
-import { reactDocsConfig } from '@/config/tech/react-docs-config';
+import { reactDocsAllItems } from '@/config/tech/react-docs-config';
 import { SidebarNavItem } from '@/types/nav';
 import { absoluteUrl } from '@/utils/url-util';
 import { Metadata } from 'next';
@@ -15,9 +15,8 @@ interface TechReactPageProps {
 export async function generateMetadata({ params }: TechReactPageProps): Promise<Metadata> {
   const metaData: Metadata = {};
 
-  const nav = reactDocsConfig.sidebarNav[0];
-  if (nav) {
-    const item = nav.items.find((item) => item.slug === params.slug);
+  if (reactDocsAllItems.length > 0) {
+    const item = reactDocsAllItems.find((item) => item.slug === params.slug);
 
     return {
       title: item?.title,
@@ -64,9 +63,8 @@ export async function generateStaticParams(): Promise<TechReactPageProps['params
     });
   };
 
-  const nav = reactDocsConfig.sidebarNav[0];
-  if (nav) {
-    generateParamsRecursively(nav.items);
+  if (reactDocsAllItems.length > 0) {
+    generateParamsRecursively(reactDocsAllItems);
   }
 
   // console.log('staticParams =>', staticParams);
