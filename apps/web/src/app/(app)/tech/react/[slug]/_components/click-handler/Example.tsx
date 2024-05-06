@@ -19,17 +19,17 @@ const Example = () => {
 
   return (
     <div className="flex flex-col space-y-4">
-      <div className="mt-4">
+      <div>
         <div>{hello()}</div>
       </div>
 
       <div>
-        <h3>1. アラート表示</h3>
+        <h3>1. Display alert</h3>
         <Button onClick={clickHandler}>Click me</Button>
       </div>
 
       <div>
-        <h3>2. コンソール出力</h3>
+        <h3>2. Output to console</h3>
         <Button onClick={clickHandler2}>Click me</Button>
       </div>
     </div>

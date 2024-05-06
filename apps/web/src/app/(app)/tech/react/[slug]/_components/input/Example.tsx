@@ -6,7 +6,7 @@ const Example = () => {
   return (
     <>
       <div className="flex flex-col space-y-4">
-        <h3>コンソールを確認しながら、入力イベントを実施してください。</h3>
+        <p>Please input something while checking the console.</p>
         <Label>
           Input event:
           <Input
@@ -19,7 +19,7 @@ const Example = () => {
         </Label>
 
         <Label>
-          Get input data (コンソール出力):
+          Get input data (👉 output to console):
           <Input type="text" className="my-2" onChange={(e) => console.log(e.target.value)}></Input>
         </Label>
       </div>

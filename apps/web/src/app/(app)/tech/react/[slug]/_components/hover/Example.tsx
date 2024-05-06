@@ -3,9 +3,9 @@
 export const Example = () => {
   return (
     <>
-      <p>コンソールを確認しながら、マウスをコンポーネントに重ねてください。</p>
+      <p>Please hover over the component while checking the console.</p>
       <div
-        className="bg-primary/50 my-8 rounded-md p-2 hover:cursor-pointer"
+        className="bg-primary/50 my-8 h-40 p-2 hover:cursor-pointer"
         onMouseEnter={() => console.log('Mouse enter')}
         onMouseLeave={() => console.log('Mouse leave')}
       >
