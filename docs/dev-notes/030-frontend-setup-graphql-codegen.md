@@ -140,6 +140,16 @@ query getDummies {
     ...,
 ```
 
+turbo で cache を利用しないように設定しておくこと。  
+
+`turbo.json`
+
+```json
+    "start:gql": {
+      "cache": false
+    },
+```
+
 スクリプト実行により、コードを自動生成する。
 
 ```bash
