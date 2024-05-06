@@ -1,17 +1,15 @@
 import { Dummy } from '@repo/data-access-graphql';
-import { atom, useAtomValue } from 'jotai';
+import { PrimitiveAtom, atom, useAtomValue } from 'jotai';
 import { atomFamily } from 'jotai/utils';
 
-export type PartialDummy = Partial<Dummy>;
-
-export const dummyAtomFamily = atomFamily(
-  (dummy: PartialDummy) => atom(dummy),
-  (a: PartialDummy, b: PartialDummy) => a.id === b.id,
+export const dummyAtomFamily = atomFamily<Partial<Dummy>, PrimitiveAtom<Dummy>>(
+  (dummy: Partial<Dummy>) => atom(dummy as Dummy),
+  (a: Partial<Dummy>, b: Partial<Dummy>) => a.id === b.id,
 );
 
 export const dummyIdsAtom = atom<string[]>([]);
 
-export const dummiesAtom = atom<PartialDummy[]>((get) => {
+export const dummiesAtom = atom<Dummy[]>((get) => {
   const ids = get(dummyIdsAtom);
   return ids.map((id) =>
     get(

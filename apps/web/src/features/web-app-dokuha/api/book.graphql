@@ -21,6 +21,8 @@ mutation createBook($data: BookCreateInput!) {
     completed
     review
     userId
+    createdAt
+    updatedAt
   }
 }
 
@@ -33,6 +35,8 @@ mutation updateBook($data: BookUpdateInput!, $where: BookWhereUniqueInput!) {
     completed
     review
     userId
+    createdAt
+    updatedAt
   }
 }
 

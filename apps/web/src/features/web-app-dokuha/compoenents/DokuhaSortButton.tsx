@@ -12,7 +12,7 @@ import {
 } from '@repo/ui';
 import { useSetAtom } from 'jotai';
 import { useState } from 'react';
-import { SortCriteria, SortCriteriaKind, sortCriteriaAtom } from '../stores/sort-criteria-atom';
+import { SortCriteria, SortCriteriaKind, sortCriteriaAtom } from '../stores/book-atom';
 
 export const DokuhaSortButton = () => {
   const [open, setOpen] = useState(false);
