@@ -1,7 +1,7 @@
 'use client';
 
 import { Input } from '@repo/ui';
-import { useAtomValue, useSetAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useBookDispatcher } from '../hooks/useBookDispatcher';
@@ -11,7 +11,7 @@ import { DokuhaSortButton } from './DokuhaSortButton';
 
 export const DokuhaList = () => {
   const router = useRouter();
-  const setSearchQuery = useSetAtom(searchQueryAtom);
+  const [searchQuery,setSearchQuery] = useAtom(searchQueryAtom);
   const sortCriteria = useAtomValue(sortCriteriaAtom);
   const { loadBooks } = useBookDispatcher();
   const books = bookSelectors.useGetFilterAndSortBooks();
@@ -34,6 +34,7 @@ export const DokuhaList = () => {
         <Input
           type="email"
           placeholder="🔍 Search title..."
+          value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         <div className="flex items-center space-x-4">
