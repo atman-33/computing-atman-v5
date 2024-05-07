@@ -8,10 +8,10 @@ interface DokuhaLayoutProps {
 const DokuhaLayout = ({ children }: DokuhaLayoutProps) => {
   return (
     <div className="mx-auto flex h-[100dvh] flex-col sm:max-w-screen-sm md:border">
-      <div className="px-4 py-2">
+      <div className="px-4 pt-2">
         <DokuhaHeader />
       </div>
-      <div className="flex-1 overflow-y-auto px-2">{children}</div>
+      <div className="flex-1 overflow-y-auto px-2 pt-2">{children}</div>
       <div>
         <DokuhaFooter />
       </div>
