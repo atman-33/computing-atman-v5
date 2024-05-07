@@ -16,9 +16,24 @@ export const docsConfig: DocsConfig = {
       href: '/tech',
     },
     {
-      title: 'Blog Tags',
-      href: '/blog/tags',
+      title: 'App',
+      href: '/app',
+    },
+    {
+      title: 'About',
+      href: '/about',
     },
   ],
-  sidebarNav: [],
+  sidebarNav: [
+    {
+      title: 'Blog',
+      items: [
+        {
+          title: 'Tags',
+          href: '/blog/tags',
+          items: [],
+        },
+      ],
+    },
+  ],
 };

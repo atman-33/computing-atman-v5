@@ -31,12 +31,12 @@ export function MobileNav({ docsConfig, children, side }: MobileNavProps) {
             </Button>
           )}
         </SheetTrigger>
-        <SheetContent side={side ?? 'left'} className="pr-0">
-          <MobileLink href="/" className="flex items-center space-x-2" onOpenChange={setOpen}>
+        <SheetContent side={side ?? 'left'} className="px-4">
+          <MobileLink href="/" className="mt-6 flex items-center space-x-2" onOpenChange={setOpen}>
             <Logo />
-            <span className="font-bold">{siteConfig.name}</span>
+            <span className="text-base font-bold">{siteConfig.name}</span>
           </MobileLink>
-          <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
+          <ScrollArea className="my-4 h-[calc(100vh-8rem)] px-4 pb-20">
             <div className="flex flex-col space-y-3">
               {docsConfig.mainNav?.map(
                 (item) =>
@@ -60,7 +60,7 @@ export function MobileNav({ docsConfig, children, side }: MobileNavProps) {
                             <MobileLink
                               href={item.href}
                               onOpenChange={setOpen}
-                              className="text-muted-foreground"
+                              className="text-muted-foreground ml-2"
                             >
                               {item.title}
                               {item.label && (
