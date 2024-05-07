@@ -1,17 +1,16 @@
 'use client';
 
-import { Input } from '@repo/ui';
-import { useAtom, useAtomValue } from 'jotai';
+import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useBookDispatcher } from '../hooks/useBookDispatcher';
-import { bookSelectors, searchQueryAtom, sortCriteriaAtom } from '../stores/book-atom';
+import { bookSelectors, sortCriteriaAtom } from '../stores/book-atom';
 import { transformScore } from '../utils/rate-util';
+import { DokuhaSearchInput } from './DokuhaSearchInput';
 import { DokuhaSortButton } from './DokuhaSortButton';
 
 export const DokuhaList = () => {
   const router = useRouter();
-  const [searchQuery,setSearchQuery] = useAtom(searchQueryAtom);
   const sortCriteria = useAtomValue(sortCriteriaAtom);
   const { loadBooks } = useBookDispatcher();
   const books = bookSelectors.useGetFilterAndSortBooks();
@@ -31,12 +30,7 @@ export const DokuhaList = () => {
   return (
     <div className="flex flex-col">
       <div className="bg-primary-foreground/30 sticky top-0 z-10 backdrop-blur">
-        <Input
-          type="email"
-          placeholder="🔍 Search title..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
+        <DokuhaSearchInput />
         <div className="flex items-center space-x-4">
           <DokuhaSortButton />
           <div className="text-sm">Sort by: {sortCriteria.toString()}</div>
