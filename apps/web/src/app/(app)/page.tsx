@@ -36,11 +36,11 @@ const IndexPage = () => {
             <SimpleTabsTrigger value="app" className="w-16">
               App
             </SimpleTabsTrigger>
-            <SimpleTabsTrigger value="explore" className="w-16">
-              Explore
-            </SimpleTabsTrigger>
             <SimpleTabsTrigger value="about" className="w-16">
               About
+            </SimpleTabsTrigger>
+            <SimpleTabsTrigger value="explore" className="w-16">
+              Explore
             </SimpleTabsTrigger>
           </TabsList>
           <TabsContent value="blog">
@@ -69,11 +69,11 @@ const IndexPage = () => {
           <TabsContent value="app">
             <AppPage />
           </TabsContent>
-          <TabsContent value="explore">
-            <TagsPage />
-          </TabsContent>
           <TabsContent value="about">
             <AboutPage />
+          </TabsContent>
+          <TabsContent value="explore">
+            <TagsPage />
           </TabsContent>
         </Tabs>
       </div>

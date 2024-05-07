@@ -22,13 +22,13 @@ export const PostMobileNav = ({ post }: PostMobileNavProps) => {
       <div className="flex md:hidden">
         <div className="ml-2 text-sm">{post?.title}</div>{' '}
       </div>
-      <div className="flex lg:hidden">
+      <div className="relative flex lg:hidden">
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Contents</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="fixed right-2">
+                <div className="fixed right-2 top-32">
                   <Toc className="z-50 shadow-[0px_0px_8px_0px_rgba(0,0,0,0.3)]" />
                 </div>
               </NavigationMenuContent>
