@@ -35,6 +35,7 @@ export const DokuhaList = () => {
         <DokuhaSortButton />
         <div className="text-sm">Sort by: {sortCriteria.toString()}</div>
       </div>
+      {/* NOTE: スマホアプリでスクロールエリアの高さを固定する場合は、h-[calc(100dvh-XXXpx)で指定するとよい */}
       <ScrollArea className="mb-2 h-[calc(100dvh-220px)] rounded-sm border-[1px] p-2">
         {books.map((book, index, array) => (
           <div key={book.id}>
