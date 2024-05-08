@@ -19,6 +19,7 @@ import {
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 import { useBookDispatcher } from '../hooks/useBookDispatcher';
 import { bookSelectors } from '../stores/book-atom';
@@ -56,7 +57,6 @@ export const DokuhaEdit = ({ id }: DokuhaEditProps) => {
   const book = bookSelectors.useGetBook(id ?? '');
   const { createBook, updateBook } = useBookDispatcher();
   const { currentUser } = useAuth();
-  const [error, setError] = useState('');
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -119,34 +119,33 @@ export const DokuhaEdit = ({ id }: DokuhaEditProps) => {
       userId: currentUser?.id,
     };
 
-    if (isNew) {
-      try {
+    try {
+      if (isNew) {
         await createBook({
           data: dataToSave,
         });
-        router.push('/dokuha');
-        return;
-      } catch (err) {
-        // console.error(err);
-        const errJson = JSON.parse(JSON.stringify(err));
-        setError(errJson.response.errors[0].message);
-        return;
-      }
-    } else {
-      try {
+      } else {
         await updateBook({
           where: {
             id,
           },
           data: dataToSave,
         });
-        router.push('/dokuha');
-        return;
-      } catch (err) {
-        const errJson = JSON.parse(JSON.stringify(err));
-        setError(errJson.response.errors[0].message);
-        return;
       }
+      toast.success('Book saved.', {
+        duration: 2000,
+        position: 'bottom-center',
+      });
+
+      router.push('/dokuha');
+      return;
+    } catch (err) {
+      const errJson = JSON.parse(JSON.stringify(err));
+      toast.error(errJson.response.errors[0].message, {
+        duration: 2000,
+        position: 'bottom-center',
+      });
+      return;
     }
   };
 
@@ -206,7 +205,6 @@ export const DokuhaEdit = ({ id }: DokuhaEditProps) => {
           <Button type="submit" className="w-full">
             Save
           </Button>
-          <div className="text-center font-bold text-red-500">{error}</div>
           {isNew ? null : <div className="text-xs">id: {id}</div>}
         </form>
       </Form>
