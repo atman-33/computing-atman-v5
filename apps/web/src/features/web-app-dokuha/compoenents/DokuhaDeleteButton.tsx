@@ -3,6 +3,7 @@
 import { Icons } from '@/components/icons';
 import { OkCancelDialog } from '@/components/ok-cancel-dialog';
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 import { useBookDispatcher } from '../hooks/useBookDispatcher';
 
 interface DokuhaDeleteButtonProps {
@@ -19,6 +20,11 @@ export const DokuhaDeleteButton = ({ id }: DokuhaDeleteButtonProps) => {
         id: id,
       },
     });
+    toast.info('Book deleted.', {
+      duration: 2000,
+      position: 'bottom-center',
+    });
+
     router.push('/dokuha');
   };
 
