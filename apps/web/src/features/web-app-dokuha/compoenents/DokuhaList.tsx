@@ -1,5 +1,6 @@
 'use client';
 
+import { ScrollArea, Separator } from '@repo/ui';
 import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -29,15 +30,13 @@ export const DokuhaList = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="bg-primary-foreground/30 sticky top-0 z-10 backdrop-blur">
-        <DokuhaSearchInput />
-        <div className="flex items-center space-x-4">
-          <DokuhaSortButton />
-          <div className="text-sm">Sort by: {sortCriteria.toString()}</div>
-        </div>
+      <DokuhaSearchInput />
+      <div className="flex items-center space-x-4">
+        <DokuhaSortButton />
+        <div className="text-sm">Sort by: {sortCriteria.toString()}</div>
       </div>
-      <div className="flex flex-col divide-y rounded-sm border-2 p-2">
-        {books.map((book) => (
+      <ScrollArea className="mb-2 h-[calc(100dvh-220px)] rounded-sm border-[1px] p-2">
+        {books.map((book, index, array) => (
           <div key={book.id}>
             <button
               className="hover:bg-primary/10 w-full rounded-sm px-2 hover:cursor-pointer"
@@ -52,9 +51,10 @@ export const DokuhaList = () => {
                 <div className="col-span-1 text-right text-2xl">{book.completed ? '✅' : '🏃'}</div>
               </div>
             </button>
+            {index !== array.length - 1 && <Separator orientation="horizontal" />}
           </div>
         ))}
-      </div>
+      </ScrollArea>
     </div>
   );
 };
