@@ -19,8 +19,8 @@ import {
   Input,
 } from '@repo/ui';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 import { useAuth } from '../hooks/useAuth';
 
@@ -32,7 +32,6 @@ const formSchema = z.object({
 export const LoginForm = () => {
   const router = useRouter();
   const { login, redirectPath } = useAuth();
-  const [error, setError] = useState('');
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -47,10 +46,12 @@ export const LoginForm = () => {
     const res = await login(form.getValues('username'), form.getValues('password'));
     if (res instanceof Error) {
       console.error(res);
-      setError(res.message);
+      toast.error(res.message, {
+        duration: 2000,
+        position: 'bottom-center',
+      });
     } else {
       // console.log(res);
-      setError('');
       router.push(redirectPath ?? '/');
     }
   };
@@ -95,7 +96,6 @@ export const LoginForm = () => {
               <Button type="submit" className="w-full">
                 Login
               </Button>
-              <div className="text-center font-bold text-red-500">{error}</div>
             </div>
             <div className="mt-4 text-center text-sm">
               Don&apos;t have an account?{' '}

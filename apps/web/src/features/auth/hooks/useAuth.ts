@@ -144,13 +144,8 @@ export const useAuth = () => {
    * @returns
    */
   const createUser = async (username: string, password: string) => {
-    try {
-      const res = await gql.createUser({ data: { username, password } });
-      return res.createUser;
-    } catch (err) {
-      // console.error(err);
-      return null;
-    }
+    const res = await gql.createUser({ data: { username, password } });
+    return res.createUser;
   };
 
   return {
