@@ -1,6 +1,5 @@
 'use client';
 
-import { Link } from '@/components/link';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
   Button,
@@ -25,55 +24,67 @@ import { z } from 'zod';
 import { useAuth } from '../hooks/useAuth';
 
 const formSchema = z.object({
-  username: z.string().min(1, { message: 'one character or more' }),
-  password: z.string().min(4, { message: 'four characters or more' }),
+  newPassword: z.string().min(4, { message: 'four characteres or more' }),
+  confirmPassword: z.string().min(4, { message: 'four characters or more' }),
 });
 
-export const LoginForm = () => {
+export const PasswordResetForm = () => {
   const router = useRouter();
-  const { login, redirectPath } = useAuth();
+  const { redirectPath, changeUserPassword } = useAuth();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: '',
-      password: '',
+      newPassword: '',
+      confirmPassword: '',
     },
   });
 
-  const handleLoginButtonClick = async () => {
-    // console.log(form.getValues('username'), form.getValues('password'));
-    const res = await login(form.getValues('username'), form.getValues('password'));
-    if (res instanceof Error) {
-      console.error(res);
-      toast.error(res.message, {
+  const handleChangePasswordButtonClick = async () => {
+    // console.log(form.getValues('newPassword'), form.getValues('confirmPassword'));
+    if (form.getValues('newPassword') !== form.getValues('confirmPassword')) {
+      toast.error('Passwords do not match', {
         duration: 2000,
         position: 'bottom-center',
       });
-    } else {
-      // console.log(res);
-      router.push(redirectPath ?? '/');
+      return;
+    }
+
+    try {
+      await changeUserPassword(form.getValues('newPassword'));
+      toast.success('Password changed successfully.', {
+        duration: 2000,
+        position: 'bottom-center',
+      });
+      // console.log('redirectPath => ', redirectPath);
+      router.push(redirectPath);
+    } catch (err) {
+      const errJson = JSON.parse(JSON.stringify(err));
+      toast.error(errJson.response.errors[0].message, {
+        duration: 2000,
+        position: 'bottom-center',
+      });
     }
   };
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleLoginButtonClick)}>
+      <form onSubmit={form.handleSubmit(handleChangePasswordButtonClick)}>
         <Card className="mx-auto max-w-sm">
           <CardHeader>
-            <CardTitle className="text-2xl">Login</CardTitle>
-            <CardDescription>Enter your username below to login to your account</CardDescription>
+            <CardTitle className="text-2xl">Change Password</CardTitle>
+            <CardDescription>Enter your new password</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid gap-4">
               <FormField
                 control={form.control}
-                name="username"
+                name="newPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Username</FormLabel>
+                    <FormLabel>New Password</FormLabel>
                     <FormControl>
-                      <Input placeholder="Username" {...field} />
+                      <Input placeholder="New Password" {...field} type="password" />
                     </FormControl>
                     <FormDescription></FormDescription>
                     <FormMessage />
@@ -82,26 +93,20 @@ export const LoginForm = () => {
               />
               <FormField
                 control={form.control}
-                name="password"
+                name="confirmPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>Confirm Password</FormLabel>
                     <FormControl>
-                      <Input placeholder="Password" {...field} type="password" />
+                      <Input placeholder="Confirm Password" {...field} type="password" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <Button type="submit" className="w-full">
-                Login
+                Change Password
               </Button>
-            </div>
-            <div className="mt-4 text-center text-sm">
-              Don&apos;t have an account?{' '}
-              <Link href="/auth/signup" className="underline">
-                Sign up
-              </Link>
             </div>
           </CardContent>
         </Card>

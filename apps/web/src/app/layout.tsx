@@ -92,7 +92,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
                   'group toast group-[.toaster]:bg-green-100 group-[.toaster]:text-green-600 dark:group-[.toaster]:text-foreground group-[.toaster]:shadow-lg',
                 warning:
                   'group toast group-[.toaster]:bg-yellow-100 group-[.toaster]:text-yellow-600 dark:group-[.toaster]:text-foreground group-[.toaster]:shadow-lg',
-                info: 'group toast group-[.toaster]:bg-blue-100 group-[.toaster]:text-blue-600 dark:group-[.toaster]:text-foreground group-[.toaster]:shadow-lg',
+                info: 'group toast group-[.toaster]:bg-gray-100 group-[.toaster]:text-gray-600 dark:group-[.toaster]:text-foreground group-[.toaster]:shadow-lg',
               },
             }}
           />

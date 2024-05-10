@@ -3,10 +3,10 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CurrentUser } from '../auth/current-user.decorator';
 import { GqlAuthGuard } from '../auth/guards/gql-auth.guard';
 import { GetUserArgs } from './dto/args/get-user-args.dto';
+import { ChangeUserPasswordInput } from './dto/input/change-user-password-args.dto';
 import { CreateUserInput } from './dto/input/create-user-input.dto';
 import { User } from './models/user.model';
 import { UsersService } from './users.service';
-
 @Resolver(() => User)
 export class UsersResolver {
   constructor(private readonly usersService: UsersService) {}
@@ -26,5 +26,17 @@ export class UsersResolver {
   @Query(() => User, { name: 'currentUser' })
   async getCurrentUser(@CurrentUser() user: User): Promise<User> {
     return user;
+  }
+
+  @UseGuards(GqlAuthGuard)
+  @Mutation(() => User, { name: 'changeUserPassword' })
+  async changeUserPassword(
+    @Args('data') changeUserPasswordData: ChangeUserPasswordInput,
+    @CurrentUser() user: User,
+  ) {
+    return await this.usersService.changeUserPassword(
+      changeUserPasswordData,
+      user,
+    );
   }
 }

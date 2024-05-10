@@ -144,13 +144,18 @@ export const useAuth = () => {
    * @returns
    */
   const createUser = async (username: string, password: string) => {
-    try {
-      const res = await gql.createUser({ data: { username, password } });
-      return res.createUser;
-    } catch (err) {
-      // console.error(err);
-      return null;
-    }
+    const res = await gql.createUser({ data: { username, password } });
+    return res.createUser;
+  };
+
+  /**
+   * パスワードを変更する。
+   * @param password
+   * @returns
+   */
+  const changeUserPassword = async (password: string) => {
+    const res = await gql.changeUserPassword({ data: { password } });
+    return res.changeUserPassword;
   };
 
   return {
@@ -163,5 +168,6 @@ export const useAuth = () => {
     createUser,
     redirectPath,
     setRedirectPath,
+    changeUserPassword,
   };
 };
