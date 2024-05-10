@@ -145,6 +145,10 @@ export type BookWhereUniqueInput = {
   userId_title?: InputMaybe<BookUserIdTitleCompoundUniqueInput>;
 };
 
+export type ChangeUserPasswordInput = {
+  password: Scalars['String']['input'];
+};
+
 export type DateTimeFilter = {
   equals?: InputMaybe<Scalars['DateTime']['input']>;
   gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -281,6 +285,7 @@ export type LoginUserInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  changeUserPassword: User;
   createBook: Book;
   createDummy: Dummy;
   createUser: User;
@@ -288,6 +293,11 @@ export type Mutation = {
   deleteDummy: Dummy;
   updateBook: Book;
   updateDummy: Dummy;
+};
+
+
+export type MutationChangeUserPasswordArgs = {
+  data: ChangeUserPasswordInput;
 };
 
 
@@ -458,6 +468,13 @@ export type GetCurrentUserVariables = Exact<{ [key: string]: never; }>;
 
 export type GetCurrentUser = { __typename?: 'Query', currentUser: { __typename?: 'User', id: string, username: string } };
 
+export type ChangeUserPasswordVariables = Exact<{
+  data: ChangeUserPasswordInput;
+}>;
+
+
+export type ChangeUserPassword = { __typename?: 'Mutation', changeUserPassword: { __typename?: 'User', id: string, username: string } };
+
 export type GetDummiesVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -529,6 +546,14 @@ export const CreateUserDocument = /*#__PURE__*/ gql`
 export const GetCurrentUserDocument = /*#__PURE__*/ gql`
     query getCurrentUser {
   currentUser {
+    id
+    username
+  }
+}
+    `;
+export const ChangeUserPasswordDocument = /*#__PURE__*/ gql`
+    mutation changeUserPassword($data: ChangeUserPasswordInput!) {
+  changeUserPassword(data: $data) {
     id
     username
   }
@@ -649,6 +674,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getCurrentUser(variables?: GetCurrentUserVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCurrentUser> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetCurrentUser>(GetCurrentUserDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCurrentUser', 'query', variables);
+    },
+    changeUserPassword(variables: ChangeUserPasswordVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<ChangeUserPassword> {
+      return withWrapper((wrappedRequestHeaders) => client.request<ChangeUserPassword>(ChangeUserPasswordDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'changeUserPassword', 'mutation', variables);
     },
     getDummies(variables?: GetDummiesVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetDummies> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetDummies>(GetDummiesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDummies', 'query', variables);

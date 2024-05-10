@@ -11,3 +11,10 @@ query getCurrentUser {
     username
   }
 }
+
+mutation changeUserPassword($data: ChangeUserPasswordInput!) {
+  changeUserPassword(data: $data) {
+    id
+    username
+  }
+}

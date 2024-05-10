@@ -148,6 +148,16 @@ export const useAuth = () => {
     return res.createUser;
   };
 
+  /**
+   * パスワードを変更する。
+   * @param password
+   * @returns
+   */
+  const changeUserPassword = async (password: string) => {
+    const res = await gql.changeUserPassword({ data: { password } });
+    return res.changeUserPassword;
+  };
+
   return {
     isAuthenticated,
     refleshIsAuthenticated,
@@ -158,5 +168,6 @@ export const useAuth = () => {
     createUser,
     redirectPath,
     setRedirectPath,
+    changeUserPassword,
   };
 };

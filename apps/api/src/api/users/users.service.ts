@@ -3,9 +3,10 @@ import {
   UnauthorizedException,
   UnprocessableEntityException,
 } from '@nestjs/common';
-import { PrismaService } from '@repo/data-access-db';
+import { PrismaService, User } from '@repo/data-access-db';
 import * as bcrypt from 'bcrypt';
 import { GetUserArgs } from './dto/args/get-user-args.dto';
+import { ChangeUserPasswordInput } from './dto/input/change-user-password-args.dto';
 import { CreateUserInput } from './dto/input/create-user-input.dto';
 
 @Injectable()
@@ -36,6 +37,18 @@ export class UsersService {
   async getUser(getUserArgs: GetUserArgs) {
     return await this.prisma.user.findUnique({
       where: getUserArgs.where,
+    });
+  }
+
+  async changeUserPassword(
+    changeUserPasswordData: ChangeUserPasswordInput,
+    user: User,
+  ) {
+    return await this.prisma.user.update({
+      where: { id: user.id },
+      data: {
+        password: await bcrypt.hash(changeUserPasswordData.password, 10),
+      },
     });
   }
 
