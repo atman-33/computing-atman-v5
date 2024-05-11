@@ -1,17 +1,5 @@
-h2 {
-  @apply font-bold;
-}
-
-h3 {
-  @apply pt-4 font-bold;
-}
-
-h4 {
-  @apply pl-2;
-}
-
 pre .shiki {
-  @apply max-h-[650px] overflow-x-auto rounded-sm p-4 text-xs;
+  @apply max-h-[650px] overflow-x-auto rounded-sm p-4 text-xs md:text-sm;
 }
 
 pre {
@@ -39,4 +27,24 @@ pre::-webkit-scrollbar-thumb {
   pre {
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
+}
+
+.react-docs h2 {
+  @apply pb-2 pt-8 text-lg font-bold;
+}
+
+.react-docs h3 {
+  @apply pb-2 pt-8 text-lg font-bold;
+}
+
+.react-docs h4 {
+  @apply pl-2 pt-4;
+}
+
+.react-docs p {
+  @apply pl-2;
+}
+
+.react-docs li {
+  @apply mx-8 my-2 list-disc;
 }

@@ -7,8 +7,8 @@ import { description as InputDescription } from './input/description';
 import { Example as HoverExample } from './hover/Example';
 import { description as HoverDescription } from './hover/description';
 
-import { Example as useStateExample } from './use-state/Example';
-import { description as useStateDescription } from './use-state/description';
+import { Example as UseStateExample } from './use-state/Example';
+import { description as UseStateDescription } from './use-state/description';
 
 import { Example as MultipleStateExample } from './multiple-state/Example';
 import { description as MultipleStateDescription } from './multiple-state/description';
@@ -46,6 +46,18 @@ import { description as SelectDescription } from './select/description';
 import { Example as ReminderExample } from './reminder/Example';
 import { description as ReminderDescription } from './reminder/description';
 
+import { Example as DialogExample } from './dialog/Example';
+import { description as DialogDescription } from './dialog/description';
+
+import { Example as UseRefExample } from './use-ref/Example';
+import { description as UseRefDescription } from './use-ref/description';
+
+import { Example as ForwardRefExample } from './forward-ref/Example';
+import { description as ForwardRefDescription } from './forward-ref/description';
+
+import { Example as UseReducerExample } from './use-reducer/Example';
+import { description as UseReducerDescription } from './use-reducer/description';
+
 const components = {
   clickHandler: {
     title: 'Click Handler',
@@ -64,8 +76,8 @@ const components = {
   },
   useState: {
     title: 'useState',
-    component: useStateExample,
-    description: useStateDescription,
+    component: UseStateExample,
+    description: UseStateDescription,
   },
   multipleState: {
     title: 'Multiple states',
@@ -126,6 +138,26 @@ const components = {
     title: 'Reminder',
     component: ReminderExample,
     description: ReminderDescription,
+  },
+  dialog: {
+    title: 'Dialog',
+    component: DialogExample,
+    description: DialogDescription,
+  },
+  useRef: {
+    title: 'useRef',
+    component: UseRefExample,
+    description: UseRefDescription,
+  },
+  forwardRef: {
+    title: 'forwardRef',
+    component: ForwardRefExample,
+    description: ForwardRefDescription,
+  },
+  useReducer: {
+    title: 'useReducer',
+    component: UseReducerExample,
+    description: UseReducerDescription,
   },
 };
 
