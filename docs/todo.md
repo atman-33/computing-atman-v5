@@ -31,3 +31,6 @@
 - [ ] 記事（turborepo nestjs, react sample）を追加
 - [ ] GitHub Action で自動テストを追加
 - [ ] 電卓アプリを追加
+- [ ] テストコードを追加
+- [ ] 各デザインパターン用のTech記事を追加
+- [ ] C#のTech記事を追加

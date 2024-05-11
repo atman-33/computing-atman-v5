@@ -20,29 +20,31 @@ const DocsComponent = ({ kind }: DocsComponentProps) => {
 
       <Separator orientation="horizontal" />
 
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm as any]}
-        children={contents.description}
-        components={{
-          // @ts-ignore: next-line
-          async code(props) {
-            const { children, className, ...rest } = props;
-            const match = /language-(\w+)/.exec(className || '');
+      <div className="react-docs">
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm as any]}
+          children={contents.description}
+          components={{
+            // @ts-ignore: next-line
+            async code(props) {
+              const { children, className, ...rest } = props;
+              const match = /language-(\w+)/.exec(className || '');
 
-            let code: string = '';
-            if (match) {
-              code = await typescriptHighlight(String(children).replace(/\n$/, '') as string);
-            }
-            return match ? (
-              <div className="" dangerouslySetInnerHTML={{ __html: code }} />
-            ) : (
-              <code {...rest} className={className}>
-                {children}
-              </code>
-            );
-          },
-        }}
-      />
+              let code: string = '';
+              if (match) {
+                code = await typescriptHighlight(String(children).replace(/\n$/, '') as string);
+              }
+              return match ? (
+                <div className="" dangerouslySetInnerHTML={{ __html: code }} />
+              ) : (
+                <code {...rest} className={className}>
+                  {children}
+                </code>
+              );
+            },
+          }}
+        />
+      </div>
     </div>
   );
 };
