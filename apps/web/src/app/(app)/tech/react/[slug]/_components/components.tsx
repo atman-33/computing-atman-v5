@@ -73,6 +73,21 @@ import { description as ContextFileRenderDescription } from './context-file-rend
 import { Example as ContextWithReducerExample } from './context-with-reducer/Example';
 import { description as ContextWithReducerDescription } from './context-with-reducer/description';
 
+import { Example as UseEffectInitExample } from './use-effect-init/Example';
+import { description as UseEffectInitDescription } from './use-effect-init/description';
+
+import { Example as UseEffectUpdateExample } from './use-effect-update/Example';
+import { description as UseEffectUpdateDescription } from './use-effect-update/description';
+
+import { Example as UseLayoutEffectExample } from './use-layout-effect/Example';
+import { description as UseLayoutEffectDescription } from './use-layout-effect/description';
+
+import { Example as UseEffectClickExample } from './use-effect-click/Example';
+import { description as UseEffectClickDescription } from './use-effect-click/description';
+
+import { Example as CustomHookExample } from './custom-hook/Example';
+import { description as CustomHookDescription } from './custom-hook/description';
+
 const components = {
   clickHandler: {
     title: 'Click Handler',
@@ -198,6 +213,31 @@ const components = {
     title: 'Context with reducer',
     component: ContextWithReducerExample,
     description: ContextWithReducerDescription,
+  },
+  useEffectInit: {
+    title: 'useEffect init',
+    component: UseEffectInitExample,
+    description: UseEffectInitDescription,
+  },
+  useEffectUpdate: {
+    title: 'useEffect update',
+    component: UseEffectUpdateExample,
+    description: UseEffectUpdateDescription,
+  },
+  useLayoutEffect: {
+    title: 'useLayoutEffect',
+    component: UseLayoutEffectExample,
+    description: UseLayoutEffectDescription,
+  },
+  useEffectClick: {
+    title: 'useEffect click',
+    component: UseEffectClickExample,
+    description: UseEffectClickDescription,
+  },
+  customHook: {
+    title: 'Custom Hook',
+    component: CustomHookExample,
+    description: CustomHookDescription,
   },
 };
 
