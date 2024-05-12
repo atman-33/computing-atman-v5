@@ -34,4 +34,4 @@ const Timer = () => {
   );
 };
 
-export { Example };
+export { Example as CustomHookExample };

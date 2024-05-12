@@ -1,6 +1,6 @@
 'use client';
 
-export const Example = () => {
+const Example = () => {
   return (
     <>
       <p>Please hover over the component while checking the console.</p>
@@ -14,3 +14,5 @@ export const Example = () => {
     </>
   );
 };
+
+export { Example as HoverExample };

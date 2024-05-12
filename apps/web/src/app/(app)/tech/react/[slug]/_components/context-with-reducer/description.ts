@@ -108,4 +108,4 @@ export { CounterButton };
 
 `;
 
-export { description };
+export { description as ContextWithReducerDescription };

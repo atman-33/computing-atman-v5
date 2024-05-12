@@ -124,4 +124,4 @@ export {Main};
 
 `;
 
-export { description };
+export { description as ContextFileDescription };

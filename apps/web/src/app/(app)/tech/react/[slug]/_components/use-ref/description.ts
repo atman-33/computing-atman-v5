@@ -113,4 +113,4 @@ export { DynamicVideo };
 
 `;
 
-export { description };
+export { description as UseRefDescription };

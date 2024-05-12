@@ -111,4 +111,4 @@ export { OtherChild };
 
 `;
 
-export { description };
+export { description as UseContextWithStateDescription };

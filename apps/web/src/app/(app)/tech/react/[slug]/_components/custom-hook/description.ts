@@ -127,4 +127,4 @@ export default useTimer;
 
 `;
 
-export { description };
+export { description as CustomHookDescription };

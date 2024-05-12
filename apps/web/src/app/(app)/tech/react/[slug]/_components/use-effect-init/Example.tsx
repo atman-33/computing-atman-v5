@@ -27,4 +27,4 @@ const Example = () => {
   );
 };
 
-export { Example };
+export { Example as UseEffectInitExample };

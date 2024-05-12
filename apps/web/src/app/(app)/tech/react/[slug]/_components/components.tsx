@@ -1,109 +1,75 @@
-import { Example as ClickHandlerExample } from './click-handler/Example';
-import { description as ClickHandlerDescription } from './click-handler/description';
-
-import { Example as InputExample } from './input/Example';
-import { description as InputDescription } from './input/description';
-
-import { Example as HoverExample } from './hover/Example';
-import { description as HoverDescription } from './hover/description';
-
-import { Example as UseStateExample } from './use-state/Example';
-import { description as UseStateDescription } from './use-state/description';
-
-import { Example as MultipleStateExample } from './multiple-state/Example';
-import { description as MultipleStateDescription } from './multiple-state/description';
-
-import { Example as StateObjectExample } from './state-object/Example';
-import { description as StateObjectDescription } from './state-object/description';
-
-import { Example as StateArrayExample } from './state-array/Example';
-import { description as StateArrayDescription } from './state-array/description';
-
-import { Example as StateAndPropsExample } from './state-and-props/Example';
-import { description as StateAndPropsDescription } from './state-and-props/description';
-
-import { Example as ListComponentExample } from './list-component/Example';
-import { description as ListComponentDescription } from './list-component/description';
-
-import { Example as ListAndFilterExample } from './list-and-filter/Example';
-import { description as ListAndFilterDescription } from './list-and-filter/description';
-
-import { Example as InputTextareaExample } from './input-textarea/Example';
-import { description as InputTextareaDescription } from './input-textarea/description';
-
-import { Example as RadioExample } from './radio/Example';
-import { description as RadioDescription } from './radio/description';
-
-import { Example as SingleCheckboxExample } from './single-checkbox/Example';
-import { description as SingleCheckboxDescription } from './single-checkbox/description';
-
-import { Example as MultiCheckboxExample } from './multi-checkbox/Example';
-import { description as MultiCheckboxDescription } from './multi-checkbox/description';
-
-import { Example as SelectExample } from './select/Example';
-import { description as SelectDescription } from './select/description';
-
-import { Example as ReminderExample } from './reminder/Example';
-import { description as ReminderDescription } from './reminder/description';
-
-import { Example as DialogExample } from './dialog/Example';
-import { description as DialogDescription } from './dialog/description';
-
-import { Example as UseRefExample } from './use-ref/Example';
-import { description as UseRefDescription } from './use-ref/description';
-
-import { Example as ForwardRefExample } from './forward-ref/Example';
-import { description as ForwardRefDescription } from './forward-ref/description';
-
-import { Example as UseReducerExample } from './use-reducer/Example';
-import { description as UseReducerDescription } from './use-reducer/description';
-
-import { Example as UseContextExample } from './use-context/Example';
-import { description as UseContextDescription } from './use-context/description';
-
-import { Example as UseContextWithStateExample } from './use-context-with-state/Example';
-import { description as UseContextWithStateDescription } from './use-context-with-state/description';
-
-import { Example as ContextFileExample } from './context-file/Example';
-import { description as ContextFileDescription } from './context-file/description';
-
-import { Example as ContextFileRenderExample } from './context-file-render/Example';
-import { description as ContextFileRenderDescription } from './context-file-render/description';
-
-import { Example as ContextWithReducerExample } from './context-with-reducer/Example';
-import { description as ContextWithReducerDescription } from './context-with-reducer/description';
-
-import { Example as UseEffectInitExample } from './use-effect-init/Example';
-import { description as UseEffectInitDescription } from './use-effect-init/description';
-
-import { Example as UseEffectUpdateExample } from './use-effect-update/Example';
-import { description as UseEffectUpdateDescription } from './use-effect-update/description';
-
-import { Example as UseLayoutEffectExample } from './use-layout-effect/Example';
-import { description as UseLayoutEffectDescription } from './use-layout-effect/description';
-
-import { Example as UseEffectClickExample } from './use-effect-click/Example';
-import { description as UseEffectClickDescription } from './use-effect-click/description';
-
-import { Example as CustomHookExample } from './custom-hook/Example';
-import { description as CustomHookDescription } from './custom-hook/description';
-
-import { Example as MemoExample } from './memo/Example';
-import { description as MemoDescription } from './memo/description';
-
-import { Example as UseCallbackExample } from './use-callback/Example';
-import { description as UseCallbackDescription } from './use-callback/description';
-
-import { Example as UseCallbackDepsExample } from './use-callback-deps/Example';
-import { description as UseCallbackDepsDescription } from './use-callback-deps/description';
-
-import { Example as UseMemoExample } from './use-memo/Example';
-import { description as UseMemoDescription } from './use-memo/description';
-
+import { ClickHandlerExample } from './click-handler/Example';
+import { ClickHandlerDescription } from './click-handler/description';
+import { ContextFileRenderExample } from './context-file-render/Example';
+import { ContextFileRenderDescription } from './context-file-render/description';
+import { ContextFileExample } from './context-file/Example';
+import { ContextFileDescription } from './context-file/description';
+import { ContextWithReducerExample } from './context-with-reducer/Example';
+import { ContextWithReducerDescription } from './context-with-reducer/description';
+import { CustomHookExample } from './custom-hook/Example';
+import { CustomHookDescription } from './custom-hook/description';
+import { DialogExample } from './dialog/Example';
+import { DialogDescription } from './dialog/description';
+import { ForwardRefExample } from './forward-ref/Example';
+import { ForwardRefDescription } from './forward-ref/description';
+import { HoverExample } from './hover/Example';
+import { HoverDescription } from './hover/description';
+import { InputTextareaExample } from './input-textarea/Example';
+import { InputTextareaDescription } from './input-textarea/description';
+import { InputExample } from './input/Example';
+import { InputDescription } from './input/description';
+import { ListAndFilterExample } from './list-and-filter/Example';
+import { ListAndFilterDescription } from './list-and-filter/description';
+import { ListComponentExample } from './list-component/Example';
+import { ListComponentDescription } from './list-component/description';
+import { MemoExample } from './memo/Example';
+import { MemoDescription } from './memo/description';
+import { MultiCheckboxExample } from './multi-checkbox/Example';
+import { MultiCheckboxDescription } from './multi-checkbox/description';
+import { MultipleStateExample } from './multiple-state/Example';
+import { MultipleStateDescription } from './multiple-state/description';
+import { RadioExample } from './radio/Example';
+import { RadioDescription } from './radio/description';
+import { ReminderExample } from './reminder/Example';
+import { ReminderDescription } from './reminder/description';
+import { SelectExample } from './select/Example';
+import { SelectDescription } from './select/description';
+import { SingleCheckboxExample } from './single-checkbox/Example';
+import { SingleCheckboxDescription } from './single-checkbox/description';
+import { StateAndPropsExample } from './state-and-props/Example';
+import { StateAndPropsDescription } from './state-and-props/description';
+import { StateArrayExample } from './state-array/Example';
+import { StateArrayDescription } from './state-array/description';
+import { StateObjectExample } from './state-object/Example';
+import { StateObjectDescription } from './state-object/description';
+import { UseCallbackDepsExample } from './use-callback-deps/Example';
+import { UseCallbackDepsDescription } from './use-callback-deps/description';
+import { UseCallbackExample } from './use-callback/Example';
+import { UseCallbackDescription } from './use-callback/description';
+import { UseContextWithStateExample } from './use-context-with-state/Example';
+import { UseContextWithStateDescription } from './use-context-with-state/description';
+import { UseContextExample } from './use-context/Example';
+import { UseContextDescription } from './use-context/description';
 import { UseDeferredValueExample } from './use-deferred-value/Example';
 import { UseDeferredValueDescription } from './use-deferred-value/description';
-import { Example as UseTransitionExample } from './use-transition/Example';
-import { description as UseTransitionDescription } from './use-transition/description';
+import { UseEffectClickExample } from './use-effect-click/Example';
+import { UseEffectClickDescription } from './use-effect-click/description';
+import { UseEffectInitExample } from './use-effect-init/Example';
+import { UseEffectInitDescription } from './use-effect-init/description';
+import { UseEffectUpdateExample } from './use-effect-update/Example';
+import { UseEffectUpdateDescription } from './use-effect-update/description';
+import { UseLayoutEffectExample } from './use-layout-effect/Example';
+import { UseLayoutEffectDescription } from './use-layout-effect/description';
+import { UseMemoExample } from './use-memo/Example';
+import { UseMemoDescription } from './use-memo/description';
+import { UseReducerExample } from './use-reducer/Example';
+import { UseReducerDescription } from './use-reducer/description';
+import { UseRefExample } from './use-ref/Example';
+import { UseRefDescription } from './use-ref/description';
+import { UseStateExample } from './use-state/Example';
+import { UseStateDescription } from './use-state/description';
+import { UseTransitionExample } from './use-transition/Example';
+import { UseTransitionDescription } from './use-transition/description';
 
 const components = {
   clickHandler: {

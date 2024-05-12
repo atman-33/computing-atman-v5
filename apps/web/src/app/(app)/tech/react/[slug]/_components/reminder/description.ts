@@ -200,4 +200,4 @@ export { InputForm };
 
 `;
 
-export { description };
+export { description as ReminderDescription };

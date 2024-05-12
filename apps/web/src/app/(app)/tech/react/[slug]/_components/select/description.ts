@@ -52,4 +52,4 @@ export { Example };
 ~~~
 `;
 
-export { description };
+export { description as SelectDescription };

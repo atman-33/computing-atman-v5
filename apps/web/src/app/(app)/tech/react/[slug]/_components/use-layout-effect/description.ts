@@ -112,4 +112,4 @@ export { Random };
 
 `;
 
-export { description };
+export { description as UseLayoutEffectDescription };

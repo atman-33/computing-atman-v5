@@ -165,4 +165,4 @@ export { Footer };
 
 `;
 
-export { description };
+export { description as ContextFileRenderDescription };

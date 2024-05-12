@@ -52,4 +52,4 @@ const Count = (props: {
   );
 };
 
-export { Example };
+export { Example as StateAndPropsExample };

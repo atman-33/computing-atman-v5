@@ -13,4 +13,4 @@ const Example = () => {
   );
 };
 
-export { Example };
+export { Example as ContextFileExample };

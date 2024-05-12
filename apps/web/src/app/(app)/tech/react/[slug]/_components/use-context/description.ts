@@ -76,4 +76,4 @@ export { GrandChild };
 
 `;
 
-export { description };
+export { description as UseContextDescription };

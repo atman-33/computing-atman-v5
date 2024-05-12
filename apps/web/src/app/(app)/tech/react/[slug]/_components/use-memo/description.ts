@@ -101,4 +101,4 @@ export { ChildMemo as Child };
 
 `;
 
-export { description };
+export { description as UseMemoDescription };

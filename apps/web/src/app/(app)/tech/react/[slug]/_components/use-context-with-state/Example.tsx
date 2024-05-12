@@ -21,4 +21,4 @@ const Example = () => {
   );
 };
 
-export { Example, MyContext };
+export { MyContext, Example as UseContextWithStateExample };
