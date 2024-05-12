@@ -3,6 +3,12 @@ const description = `
 
 リマインダーのサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- button
+- input
+- form
+
 ### コンポーネント構成
 
 ~~~txt
@@ -200,4 +206,4 @@ export { InputForm };
 
 `;
 
-export { description };
+export { description as ReminderDescription };

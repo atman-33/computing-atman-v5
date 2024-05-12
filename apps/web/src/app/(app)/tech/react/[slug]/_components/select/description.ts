@@ -3,6 +3,10 @@ const description = `
 
 セレクトボックス（コンボボックス）のサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- select
+
 ### サンプルコード
 
 ~~~typescript
@@ -52,4 +56,4 @@ export { Example };
 ~~~
 `;
 
-export { description };
+export { description as SelectDescription };

@@ -3,6 +3,13 @@ const description = `
 
 テキストエリアのサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- button
+- input
+- lable
+- textarea
+
 ### サンプルコード
 
 ~~~typescript
@@ -51,4 +58,4 @@ export { Example };
 ~~~
 `;
 
-export { description };
+export { description as InputTextareaDescription };

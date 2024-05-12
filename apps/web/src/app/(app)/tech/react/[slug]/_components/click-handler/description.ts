@@ -3,6 +3,10 @@ const description = `
 
 ボタンクリック時に処理を実行するサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- button
+
 ### サンプルコード
 
 ~~~typescript
@@ -48,4 +52,4 @@ export { Example };
 ~~~
 `;
 
-export { description };
+export { description as ClickHandlerDescription };

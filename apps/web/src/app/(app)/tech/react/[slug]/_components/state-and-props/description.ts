@@ -3,6 +3,10 @@ const description = `
 
 コンポーネントに、状態とプロパティを渡すサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- button
+
 ### サンプルコード
 
 ~~~typescript
@@ -65,4 +69,4 @@ export { Example };
 
 `;
 
-export { description };
+export { description as StateAndPropsDescription };

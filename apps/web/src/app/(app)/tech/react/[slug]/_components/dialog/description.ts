@@ -97,4 +97,4 @@ export { Example };
 ~~~
 `;
 
-export { description };
+export { description as DialogDescription };

@@ -28,7 +28,7 @@
 - [x] 本アプリの検索エリアを固定に変更
 - [x] 成功、エラーメッセージをソナーで表現
 - [x] ログアウトとパスワード用のボタン追加
-- [ ] 記事（turborepo nestjs, react sample）を追加
+- [x] 記事（turborepo nestjs, react sample）を追加
 - [ ] GitHub Action で自動テストを追加
 - [ ] 電卓アプリを追加
 - [ ] テストコードを追加

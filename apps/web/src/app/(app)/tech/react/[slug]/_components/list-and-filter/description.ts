@@ -3,6 +3,11 @@ const description = `
 
 リストをフィルターして表示するサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- input
+- label
+
 ### サンプルコード
 
 ~~~typescript
@@ -46,4 +51,4 @@ export { Example };
 
 `;
 
-export { description };
+export { description as ListAndFilterDescription };

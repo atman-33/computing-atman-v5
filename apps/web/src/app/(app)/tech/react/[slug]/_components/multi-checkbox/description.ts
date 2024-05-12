@@ -3,6 +3,10 @@ const description = `
 
 複数チェックボックスのサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- checkbox
+
 ### サンプルコード
 
 ~~~typescript
@@ -73,4 +77,4 @@ export { Example };
 
 `;
 
-export { description };
+export { description as MultiCheckboxDescription };

@@ -3,6 +3,11 @@ const description = `
 
 useStateでObjectを扱うサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- input
+- button
+
 ### サンプルコード
 
 ~~~typescript
@@ -46,4 +51,4 @@ export { Example };
 
 `;
 
-export { description };
+export { description as StateObjectDescription };

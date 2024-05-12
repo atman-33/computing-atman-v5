@@ -3,6 +3,10 @@ const description = `
 
 複数のstateを扱うサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- button
+
 ### サンプルコード
 
 ~~~typescript
@@ -44,4 +48,4 @@ export { Example };
 ~~~
 `;
 
-export { description };
+export { description as MultipleStateDescription };

@@ -25,4 +25,4 @@ export const Example = () => {
 ~~~
 `;
 
-export { description };
+export { description as HoverDescription };
