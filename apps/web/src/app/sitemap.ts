@@ -1,5 +1,5 @@
 import { siteConfig } from '@/config/site-config';
-import { reactDocsConfig } from '@/config/tech/react-docs-config';
+import { reactDocsAllItems } from '@/config/tech/react-docs-config';
 import { allPosts } from 'contentlayer/generated';
 import { MetadataRoute } from 'next';
 
@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: post.lastmod || post.date,
   }));
 
-  const techReactRoutes = reactDocsConfig.sidebarNav[0]?.items.map((item) => ({
+  const techReactRoutes = reactDocsAllItems.map((item) => ({
     url: `${siteUrl}/${item.slug}`,
     lastModified: new Date().toISOString().split('T')[0],
   }));
