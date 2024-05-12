@@ -38,7 +38,7 @@ pre::-webkit-scrollbar-thumb {
 }
 
 .react-docs h4 {
-  @apply pl-2 pt-4;
+  @apply pb-2 pl-2 pt-4;
 }
 
 .react-docs p {

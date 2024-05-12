@@ -74,7 +74,7 @@ export async function generateStaticParams(): Promise<TechReactPageProps['params
 const TechReactPage = ({ params }: TechReactPageProps) => {
   return (
     <>
-      <div className="mt-8">
+      <div className="my-8">
         <DocsComponent kind={params.slug as ComponentKind} />
       </div>
     </>

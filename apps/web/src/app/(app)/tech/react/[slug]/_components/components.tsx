@@ -58,6 +58,21 @@ import { description as ForwardRefDescription } from './forward-ref/description'
 import { Example as UseReducerExample } from './use-reducer/Example';
 import { description as UseReducerDescription } from './use-reducer/description';
 
+import { Example as UseContextExample } from './use-context/Example';
+import { description as UseContextDescription } from './use-context/description';
+
+import { Example as UseContextWithStateExample } from './use-context-with-state/Example';
+import { description as UseContextWithStateDescription } from './use-context-with-state/description';
+
+import { Example as ContextFileExample } from './context-file/Example';
+import { description as ContextFileDescription } from './context-file/description';
+
+import { Example as ContextFileRenderExample } from './context-file-render/Example';
+import { description as ContextFileRenderDescription } from './context-file-render/description';
+
+import { Example as ContextWithReducerExample } from './context-with-reducer/Example';
+import { description as ContextWithReducerDescription } from './context-with-reducer/description';
+
 const components = {
   clickHandler: {
     title: 'Click Handler',
@@ -158,6 +173,31 @@ const components = {
     title: 'useReducer',
     component: UseReducerExample,
     description: UseReducerDescription,
+  },
+  useContext: {
+    title: 'useContext',
+    component: UseContextExample,
+    description: UseContextDescription,
+  },
+  useContextWithState: {
+    title: 'useContext with state',
+    component: UseContextWithStateExample,
+    description: UseContextWithStateDescription,
+  },
+  contextFile: {
+    title: 'Context File',
+    component: ContextFileExample,
+    description: ContextFileDescription,
+  },
+  contextFileRender: {
+    title: 'Context File Render',
+    component: ContextFileRenderExample,
+    description: ContextFileRenderDescription,
+  },
+  contextWithReducer: {
+    title: 'Context with reducer',
+    component: ContextWithReducerExample,
+    description: ContextWithReducerDescription,
   },
 };
 
