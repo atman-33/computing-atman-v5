@@ -88,6 +88,23 @@ import { description as UseEffectClickDescription } from './use-effect-click/des
 import { Example as CustomHookExample } from './custom-hook/Example';
 import { description as CustomHookDescription } from './custom-hook/description';
 
+import { Example as MemoExample } from './memo/Example';
+import { description as MemoDescription } from './memo/description';
+
+import { Example as UseCallbackExample } from './use-callback/Example';
+import { description as UseCallbackDescription } from './use-callback/description';
+
+import { Example as UseCallbackDepsExample } from './use-callback-deps/Example';
+import { description as UseCallbackDepsDescription } from './use-callback-deps/description';
+
+import { Example as UseMemoExample } from './use-memo/Example';
+import { description as UseMemoDescription } from './use-memo/description';
+
+import { UseDeferredValueExample } from './use-deferred-value/Example';
+import { UseDeferredValueDescription } from './use-deferred-value/description';
+import { Example as UseTransitionExample } from './use-transition/Example';
+import { description as UseTransitionDescription } from './use-transition/description';
+
 const components = {
   clickHandler: {
     title: 'Click Handler',
@@ -238,6 +255,36 @@ const components = {
     title: 'Custom Hook',
     component: CustomHookExample,
     description: CustomHookDescription,
+  },
+  memo: {
+    title: 'Memo',
+    component: MemoExample,
+    description: MemoDescription,
+  },
+  useCallback: {
+    title: 'useCallback',
+    component: UseCallbackExample,
+    description: UseCallbackDescription,
+  },
+  useCallbackDeps: {
+    title: 'useCallback deps',
+    component: UseCallbackDepsExample,
+    description: UseCallbackDepsDescription,
+  },
+  useMemo: {
+    title: 'useMemo',
+    component: UseMemoExample,
+    description: UseMemoDescription,
+  },
+  useTransition: {
+    title: 'useTransition',
+    component: UseTransitionExample,
+    description: UseTransitionDescription,
+  },
+  useDeferredValue: {
+    title: 'useDeferredValue',
+    component: UseDeferredValueExample,
+    description: UseDeferredValueDescription,
   },
 };
 
