@@ -3,6 +3,11 @@ const description = `
 
 ラジオボタンのサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- radio
+- label
+
 ### サンプルコード
 
 ~~~typescript

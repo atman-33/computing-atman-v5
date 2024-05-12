@@ -10,6 +10,8 @@ import { CustomHookExample } from './custom-hook/Example';
 import { CustomHookDescription } from './custom-hook/description';
 import { DialogExample } from './dialog/Example';
 import { DialogDescription } from './dialog/description';
+import { DynamicImportExample } from './dynamic-import/Example';
+import { DynamicImportDescription } from './dynamic-import/description';
 import { ForwardRefExample } from './forward-ref/Example';
 import { ForwardRefDescription } from './forward-ref/description';
 import { HoverExample } from './hover/Example';
@@ -30,6 +32,8 @@ import { MultipleStateExample } from './multiple-state/Example';
 import { MultipleStateDescription } from './multiple-state/description';
 import { RadioExample } from './radio/Example';
 import { RadioDescription } from './radio/description';
+import { ReactLazyExample } from './react-lazy/Example';
+import { ReactLazyDescription } from './react-lazy/description';
 import { ReminderExample } from './reminder/Example';
 import { ReminderDescription } from './reminder/description';
 import { SelectExample } from './select/Example';
@@ -251,6 +255,16 @@ const components = {
     title: 'useDeferredValue',
     component: UseDeferredValueExample,
     description: UseDeferredValueDescription,
+  },
+  dynamicImport: {
+    title: 'Dynamic Import',
+    component: DynamicImportExample,
+    description: DynamicImportDescription,
+  },
+  reactLazy: {
+    title: 'React lazy',
+    component: ReactLazyExample,
+    description: ReactLazyDescription,
   },
 };
 

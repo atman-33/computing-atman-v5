@@ -3,6 +3,10 @@ const description = `
 
 チェックボックスのサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- checkbox
+
 ### サンプルコード
 
 ~~~typescript

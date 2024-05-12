@@ -80,7 +80,7 @@ export const reactDocsConfig: DocsConfig = {
       ],
     },
     {
-      title: '🦋 React Intermediate',
+      title: '🦋 React Intermediate - 1',
       items: [
         {
           title: 'list component',
@@ -258,6 +258,11 @@ export const reactDocsConfig: DocsConfig = {
           items: [],
           label: '',
         },
+      ],
+    },
+    {
+      title: '🐦 React Intermediate - 2',
+      items: [
         {
           title: 'memo',
           description: 'Reactでメモを使用するサンプル',
@@ -303,6 +308,22 @@ export const reactDocsConfig: DocsConfig = {
           description: 'ReactでuseDeferredValueを使用するサンプル',
           slug: 'useDeferredValue',
           href: '/tech/react/useDeferredValue',
+          items: [],
+          label: '',
+        },
+        {
+          title: 'dynamic import',
+          description: 'ReactでDynamic Importを使用するサンプル',
+          slug: 'dynamicImport',
+          href: '/tech/react/dynamicImport',
+          items: [],
+          label: '',
+        },
+        {
+          title: 'react lazy',
+          description: 'Reactでlazyを使用するサンプル',
+          slug: 'reactLazy',
+          href: '/tech/react/reactLazy',
           items: [],
           label: '',
         },

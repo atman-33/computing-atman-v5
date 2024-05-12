@@ -1,10 +1,9 @@
 const description = `
 ### 説明
 
-xxx
+React lazy を使ったサンプルコード
 
 #### 補足
-
 - xxx
 
 ### 利用するshadcn/uiコンポーネント
@@ -20,4 +19,4 @@ xxx
 
 `;
 
-export { description };
+export { description as ReactLazyDescription };

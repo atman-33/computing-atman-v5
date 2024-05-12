@@ -3,6 +3,13 @@ const description = `
 
 テキストエリアのサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- button
+- input
+- lable
+- textarea
+
 ### サンプルコード
 
 ~~~typescript

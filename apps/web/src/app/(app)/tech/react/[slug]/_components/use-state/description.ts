@@ -3,6 +3,10 @@ const description = `
 
 useStateコンポーネントのサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- input
+
 ### サンプルコード
 
 ~~~typescript

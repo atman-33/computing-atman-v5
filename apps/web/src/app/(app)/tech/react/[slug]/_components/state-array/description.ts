@@ -3,6 +3,10 @@ const description = `
 
 useStateで配列を扱うサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- button
+
 ### サンプルコード
 
 ~~~typescript

@@ -3,6 +3,11 @@ const description = `
 
 リストをフィルターして表示するサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- input
+- label
+
 ### サンプルコード
 
 ~~~typescript

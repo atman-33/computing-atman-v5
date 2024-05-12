@@ -3,6 +3,10 @@ const description = `
 
 Inputコンポーネントのサンプルコード
 
+### 利用するshadcn/uiコンポーネント
+
+- input
+
 ### サンプルコード
 
 ~~~typescript
