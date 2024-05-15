@@ -12,12 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const blogRoutes = allPosts.map((post) => ({
-    url: `${siteUrl}/${post.slug}`,
+    url: `${siteUrl}${post.slug}`,
     lastModified: post.lastmod || post.date,
   }));
 
   const techReactRoutes = reactDocsAllItems.map((item) => ({
-    url: `${siteUrl}/${item.slug}`,
+    url: `${siteUrl}/tech/react/${item.slug}`,
     lastModified: new Date().toISOString().split('T')[0],
   }));
 
