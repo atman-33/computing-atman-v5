@@ -418,4 +418,62 @@ export const Icons = {
       />
     </svg>
   ),
+  design: (props: IconProps) => (
+    <svg
+      version="1.1"
+      id="Uploaded to svgrepo.com"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 32 32"
+      xmlSpace="preserve"
+      {...props}
+    >
+      <style type="text/css">
+        {`
+          .avocado_een{fill:#231F20;}
+          .avocado_zes{fill:#FFFAEE;}
+          .avocado_twintig{fill:#EAD13F;}
+          .avocado_negen{fill:#6F9B45;}
+          .avocado_twaalf{fill:#248EBC;}
+          .avocado_achttien{fill:#D1712A;}
+          .avocado_zeventien{fill:#CC4121;}
+          .avocado_dertien{fill:#8D3E93;}
+          .avocado_vijf{fill:#DBD2C1;}
+          .avocado_acht{fill:#A3AEB5;}
+          .avocado_zeven{fill:#788287;}
+          .st0{fill:#3D3935;}
+          .st1{fill:#E0A838;}
+          .st2{fill:#716558;}
+          .st3{fill:#AF9480;}
+          .st4{fill:#C3CC6A;}
+    `}
+      </style>
+      <g>
+        <g>
+          <rect x="0.5" y="4.5" className="avocado_vijf" width="31" height="21" />
+        </g>
+        <g>
+          <path className="avocado_acht" d="M0.5,4.5v21h13v4h6v-4h12v-21H0.5z M30,24H2V6h28V24z" />
+        </g>
+        <rect x="13.5" y="25.5" className="avocado_zeven" width="6" height="1.5" />
+        <g>
+          <rect x="21" y="12" className="avocado_twintig" width="3" height="3" />
+        </g>
+        <g>
+          <rect x="21" y="15" className="avocado_achttien" width="3" height="3" />
+        </g>
+        <rect x="21" y="18" className="avocado_zeventien" width="3" height="3" />
+        <g>
+          <rect x="24" y="18" className="avocado_dertien" width="3" height="3" />
+        </g>
+        <rect x="24" y="15" className="avocado_twaalf" width="3" height="3" />
+        <rect x="24" y="12" className="avocado_negen" width="3" height="3" />
+        <path className="avocado_zes" d="M5,9h14v12H5V9z M21,9v3h3V9H21z" />
+        <path
+          className="avocado_een"
+          d="M32,26V4H0v22h13v3h-1v1h9v-1h-1v-3H32z M1,25V5h30v20H1z M19,29h-5v-3h5V29z M27,12h-3V9h3V12z"
+        />
+      </g>
+    </svg>
+  ),
 };
