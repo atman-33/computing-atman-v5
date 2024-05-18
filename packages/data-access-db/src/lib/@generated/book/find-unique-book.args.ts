@@ -7,9 +7,8 @@ import { ValidateNested } from 'class-validator';
 
 @ArgsType()
 export class FindUniqueBookArgs {
-
-    @Field(() => BookWhereUniqueInput, {nullable:false})
-    @Type(() => BookWhereUniqueInput)
-    @ValidateNested()
-    where!: Prisma.AtLeast<BookWhereUniqueInput, 'id' | 'userId_title'>;
+  @Field(() => BookWhereUniqueInput, { nullable: false })
+  @Type(() => BookWhereUniqueInput)
+  @ValidateNested()
+  where!: Prisma.AtLeast<BookWhereUniqueInput, 'id' | 'userId_title'>;
 }

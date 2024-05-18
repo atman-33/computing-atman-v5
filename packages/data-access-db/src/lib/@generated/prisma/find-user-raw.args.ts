@@ -4,10 +4,9 @@ import { GraphQLJSON } from 'graphql-type-json';
 
 @ArgsType()
 export class FindUserRawArgs {
+  @Field(() => GraphQLJSON, { nullable: true })
+  filter?: any;
 
-    @Field(() => GraphQLJSON, {nullable:true})
-    filter?: any;
-
-    @Field(() => GraphQLJSON, {nullable:true})
-    options?: any;
+  @Field(() => GraphQLJSON, { nullable: true })
+  options?: any;
 }

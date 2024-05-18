@@ -7,14 +7,13 @@ import { BookWhereInput } from './book-where.input';
 
 @ArgsType()
 export class UpdateManyBookArgs {
+  @Field(() => BookUpdateManyMutationInput, { nullable: false })
+  @Type(() => BookUpdateManyMutationInput)
+  @ValidateNested()
+  data!: BookUpdateManyMutationInput;
 
-    @Field(() => BookUpdateManyMutationInput, {nullable:false})
-    @Type(() => BookUpdateManyMutationInput)
-    @ValidateNested()
-    data!: BookUpdateManyMutationInput;
-
-    @Field(() => BookWhereInput, {nullable:true})
-    @Type(() => BookWhereInput)
-    @ValidateNested()
-    where?: BookWhereInput;
+  @Field(() => BookWhereInput, { nullable: true })
+  @Type(() => BookWhereInput)
+  @ValidateNested()
+  where?: BookWhereInput;
 }

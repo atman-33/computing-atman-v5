@@ -15,39 +15,38 @@ import { BookMaxAggregateInput } from './book-max-aggregate.input';
 
 @ArgsType()
 export class BookGroupByArgs {
+  @Field(() => BookWhereInput, { nullable: true })
+  @Type(() => BookWhereInput)
+  @ValidateNested()
+  where?: BookWhereInput;
 
-    @Field(() => BookWhereInput, {nullable:true})
-    @Type(() => BookWhereInput)
-    @ValidateNested()
-    where?: BookWhereInput;
+  @Field(() => [BookOrderByWithAggregationInput], { nullable: true })
+  orderBy?: Array<BookOrderByWithAggregationInput>;
 
-    @Field(() => [BookOrderByWithAggregationInput], {nullable:true})
-    orderBy?: Array<BookOrderByWithAggregationInput>;
+  @Field(() => [BookScalarFieldEnum], { nullable: false })
+  by!: Array<keyof typeof BookScalarFieldEnum>;
 
-    @Field(() => [BookScalarFieldEnum], {nullable:false})
-    by!: Array<keyof typeof BookScalarFieldEnum>;
+  @Field(() => BookScalarWhereWithAggregatesInput, { nullable: true })
+  having?: BookScalarWhereWithAggregatesInput;
 
-    @Field(() => BookScalarWhereWithAggregatesInput, {nullable:true})
-    having?: BookScalarWhereWithAggregatesInput;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 
-    @Field(() => Int, {nullable:true})
-    skip?: number;
+  @Field(() => BookCountAggregateInput, { nullable: true })
+  _count?: BookCountAggregateInput;
 
-    @Field(() => BookCountAggregateInput, {nullable:true})
-    _count?: BookCountAggregateInput;
+  @Field(() => BookAvgAggregateInput, { nullable: true })
+  _avg?: BookAvgAggregateInput;
 
-    @Field(() => BookAvgAggregateInput, {nullable:true})
-    _avg?: BookAvgAggregateInput;
+  @Field(() => BookSumAggregateInput, { nullable: true })
+  _sum?: BookSumAggregateInput;
 
-    @Field(() => BookSumAggregateInput, {nullable:true})
-    _sum?: BookSumAggregateInput;
+  @Field(() => BookMinAggregateInput, { nullable: true })
+  _min?: BookMinAggregateInput;
 
-    @Field(() => BookMinAggregateInput, {nullable:true})
-    _min?: BookMinAggregateInput;
-
-    @Field(() => BookMaxAggregateInput, {nullable:true})
-    _max?: BookMaxAggregateInput;
+  @Field(() => BookMaxAggregateInput, { nullable: true })
+  _max?: BookMaxAggregateInput;
 }

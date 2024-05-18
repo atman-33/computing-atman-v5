@@ -9,46 +9,45 @@ import { BookSumOrderByAggregateInput } from './book-sum-order-by-aggregate.inpu
 
 @InputType()
 export class BookOrderByWithAggregationInput {
+  @Field(() => SortOrder, { nullable: true })
+  id?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  title?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    title?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  currentChapter?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    currentChapter?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  score?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    score?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  completed?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    completed?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  review?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    review?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  createdAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  updatedAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  userId?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    userId?: keyof typeof SortOrder;
+  @Field(() => BookCountOrderByAggregateInput, { nullable: true })
+  _count?: BookCountOrderByAggregateInput;
 
-    @Field(() => BookCountOrderByAggregateInput, {nullable:true})
-    _count?: BookCountOrderByAggregateInput;
+  @Field(() => BookAvgOrderByAggregateInput, { nullable: true })
+  _avg?: BookAvgOrderByAggregateInput;
 
-    @Field(() => BookAvgOrderByAggregateInput, {nullable:true})
-    _avg?: BookAvgOrderByAggregateInput;
+  @Field(() => BookMaxOrderByAggregateInput, { nullable: true })
+  _max?: BookMaxOrderByAggregateInput;
 
-    @Field(() => BookMaxOrderByAggregateInput, {nullable:true})
-    _max?: BookMaxOrderByAggregateInput;
+  @Field(() => BookMinOrderByAggregateInput, { nullable: true })
+  _min?: BookMinOrderByAggregateInput;
 
-    @Field(() => BookMinOrderByAggregateInput, {nullable:true})
-    _min?: BookMinOrderByAggregateInput;
-
-    @Field(() => BookSumOrderByAggregateInput, {nullable:true})
-    _sum?: BookSumOrderByAggregateInput;
+  @Field(() => BookSumOrderByAggregateInput, { nullable: true })
+  _sum?: BookSumOrderByAggregateInput;
 }

@@ -1,9 +1,5 @@
 import { gql } from '@/lib/graphql-client';
-import {
-  BookCreateInput,
-  BookUpdateInput,
-  BookWhereUniqueInput,
-} from '@repo/data-access-graphql';
+import { BookCreateInput, BookUpdateInput, BookWhereUniqueInput } from '@repo/data-access-graphql';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import { bookAtomFamily, bookIdsAtom } from '../stores/book-atom';
@@ -36,11 +32,7 @@ const useBookDispatcher = () => {
 
   const updateBook = useAtomCallback(
     useCallback(
-      async (
-        get,
-        set,
-        { data, where }: { data: BookUpdateInput; where: BookWhereUniqueInput },
-      ) => {
+      async (get, set, { data, where }: { data: BookUpdateInput; where: BookWhereUniqueInput }) => {
         const res = await gql.updateBook({ where: where, data: data });
         set(bookAtomFamily({ id: res.updateBook.id }), res.updateBook);
         return res.updateBook;

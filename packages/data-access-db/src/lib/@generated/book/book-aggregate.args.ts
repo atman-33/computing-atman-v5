@@ -15,36 +15,35 @@ import { BookMaxAggregateInput } from './book-max-aggregate.input';
 
 @ArgsType()
 export class BookAggregateArgs {
+  @Field(() => BookWhereInput, { nullable: true })
+  @Type(() => BookWhereInput)
+  @ValidateNested()
+  where?: BookWhereInput;
 
-    @Field(() => BookWhereInput, {nullable:true})
-    @Type(() => BookWhereInput)
-    @ValidateNested()
-    where?: BookWhereInput;
+  @Field(() => [BookOrderByWithRelationInput], { nullable: true })
+  orderBy?: Array<BookOrderByWithRelationInput>;
 
-    @Field(() => [BookOrderByWithRelationInput], {nullable:true})
-    orderBy?: Array<BookOrderByWithRelationInput>;
+  @Field(() => BookWhereUniqueInput, { nullable: true })
+  cursor?: Prisma.AtLeast<BookWhereUniqueInput, 'id' | 'userId_title'>;
 
-    @Field(() => BookWhereUniqueInput, {nullable:true})
-    cursor?: Prisma.AtLeast<BookWhereUniqueInput, 'id' | 'userId_title'>;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 
-    @Field(() => Int, {nullable:true})
-    skip?: number;
+  @Field(() => BookCountAggregateInput, { nullable: true })
+  _count?: BookCountAggregateInput;
 
-    @Field(() => BookCountAggregateInput, {nullable:true})
-    _count?: BookCountAggregateInput;
+  @Field(() => BookAvgAggregateInput, { nullable: true })
+  _avg?: BookAvgAggregateInput;
 
-    @Field(() => BookAvgAggregateInput, {nullable:true})
-    _avg?: BookAvgAggregateInput;
+  @Field(() => BookSumAggregateInput, { nullable: true })
+  _sum?: BookSumAggregateInput;
 
-    @Field(() => BookSumAggregateInput, {nullable:true})
-    _sum?: BookSumAggregateInput;
+  @Field(() => BookMinAggregateInput, { nullable: true })
+  _min?: BookMinAggregateInput;
 
-    @Field(() => BookMinAggregateInput, {nullable:true})
-    _min?: BookMinAggregateInput;
-
-    @Field(() => BookMaxAggregateInput, {nullable:true})
-    _max?: BookMaxAggregateInput;
+  @Field(() => BookMaxAggregateInput, { nullable: true })
+  _max?: BookMaxAggregateInput;
 }

@@ -8,14 +8,13 @@ import { BookWhereUniqueInput } from './book-where-unique.input';
 
 @ArgsType()
 export class UpdateOneBookArgs {
+  @Field(() => BookUpdateInput, { nullable: false })
+  @Type(() => BookUpdateInput)
+  @ValidateNested()
+  data!: BookUpdateInput;
 
-    @Field(() => BookUpdateInput, {nullable:false})
-    @Type(() => BookUpdateInput)
-    @ValidateNested()
-    data!: BookUpdateInput;
-
-    @Field(() => BookWhereUniqueInput, {nullable:false})
-    @Type(() => BookWhereUniqueInput)
-    @ValidateNested()
-    where!: Prisma.AtLeast<BookWhereUniqueInput, 'id' | 'userId_title'>;
+  @Field(() => BookWhereUniqueInput, { nullable: false })
+  @Type(() => BookWhereUniqueInput)
+  @ValidateNested()
+  where!: Prisma.AtLeast<BookWhereUniqueInput, 'id' | 'userId_title'>;
 }

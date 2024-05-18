@@ -5,19 +5,18 @@ import { Float } from '@nestjs/graphql';
 
 @InputType()
 export class DummyUpdateInput {
+  @Field(() => String, { nullable: true })
+  text?: string;
 
-    @Field(() => String, {nullable:true})
-    text?: string;
+  @Field(() => Int, { nullable: true })
+  int?: number;
 
-    @Field(() => Int, {nullable:true})
-    int?: number;
+  @Field(() => Float, { nullable: true })
+  float?: number;
 
-    @Field(() => Float, {nullable:true})
-    float?: number;
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    createdAt?: Date | string;
-
-    @Field(() => Date, {nullable:true})
-    updatedAt?: Date | string;
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date | string;
 }

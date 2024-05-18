@@ -5,13 +5,12 @@ import { Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class BookSumAggregate {
+  @Field(() => Float, { nullable: true })
+  currentChapter?: number;
 
-    @Field(() => Float, {nullable:true})
-    currentChapter?: number;
+  @Field(() => Float, { nullable: true })
+  score?: number;
 
-    @Field(() => Float, {nullable:true})
-    score?: number;
-
-    @Field(() => Int, {nullable:true})
-    completed?: number;
+  @Field(() => Int, { nullable: true })
+  completed?: number;
 }

@@ -7,9 +7,8 @@ import { ValidateNested } from 'class-validator';
 
 @ArgsType()
 export class FindUniqueDummyOrThrowArgs {
-
-    @Field(() => DummyWhereUniqueInput, {nullable:false})
-    @Type(() => DummyWhereUniqueInput)
-    @ValidateNested()
-    where!: Prisma.AtLeast<DummyWhereUniqueInput, 'id'>;
+  @Field(() => DummyWhereUniqueInput, { nullable: false })
+  @Type(() => DummyWhereUniqueInput)
+  @ValidateNested()
+  where!: Prisma.AtLeast<DummyWhereUniqueInput, 'id'>;
 }

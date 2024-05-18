@@ -6,9 +6,8 @@ import { ValidateNested } from 'class-validator';
 
 @ArgsType()
 export class CreateManyDummyArgs {
-
-    @Field(() => [DummyCreateManyInput], {nullable:false})
-    @Type(() => DummyCreateManyInput)
-    @ValidateNested()
-    data!: Array<DummyCreateManyInput>;
+  @Field(() => [DummyCreateManyInput], { nullable: false })
+  @Type(() => DummyCreateManyInput)
+  @ValidateNested()
+  data!: Array<DummyCreateManyInput>;
 }

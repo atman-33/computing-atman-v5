@@ -3,13 +3,12 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class BookSumAggregateInput {
+  @Field(() => Boolean, { nullable: true })
+  currentChapter?: true;
 
-    @Field(() => Boolean, {nullable:true})
-    currentChapter?: true;
+  @Field(() => Boolean, { nullable: true })
+  score?: true;
 
-    @Field(() => Boolean, {nullable:true})
-    score?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    completed?: true;
+  @Field(() => Boolean, { nullable: true })
+  completed?: true;
 }
