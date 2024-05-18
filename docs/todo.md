@@ -30,10 +30,12 @@
 - [x] 記事（turborepo nestjs, react sample）を追加
 - [x] モノレポ NextJS を Jest debug する方法を整理
 - [x] 数字を英語表記にするサンプルを追加
+- [x] GitHub Action で自動テストを追加
+- [x] テストコードを追加
 
-- [ ] GitHub Action で自動テストを追加
-- [ ] 電卓アプリを追加
-- [ ] テストコードを追加
 - [ ] 各デザインパターン用のTech記事を追加
+- [ ] 動画鑑賞アプリ(Kansho App)を追加
+- [ ] 電卓アプリを追加
 - [ ] C#のTech記事を追加
 - [ ] ASP.net x react の記事を追加
+- [ ] スライドショーアプリを追加
