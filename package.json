@@ -22,6 +22,7 @@
     "schema-codegen": "npx ts-node tools/schema-codegen/index.ts",
     "----TEST SECTION----": "-------------------------",
     "test": "npx env-cmd -f .env.local turbo test",
+    "verify": "npm run lint && npm run format && npm run test",
     "----DEPLOY SECTION----": "-----------------------",
     "cd:postbuild": "turbo build --filter='./packages/*' & npm i",
     "cd:build-web": "turbo build --filter=web",

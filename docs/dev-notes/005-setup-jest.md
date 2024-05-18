@@ -106,12 +106,24 @@ export default config;
 
 ##### tsconfig.json を編集
 
+`apps/web/tsconfig.json`
+
 ```json
   "exclude": [
     "node_modules",
     "**/*.test.ts",
     "**/*.test.tsx"
   ]
+```
+
+##### .eslintignore を編集
+
+`apps/web/.eslintignore`
+
+```.eslintignore
+# test
+**/*.test.ts
+**/*.test.tsx
 ```
 
 ##### package.json を編集
