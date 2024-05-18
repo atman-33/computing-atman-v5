@@ -31,7 +31,7 @@ function createTagCount(allPosts: any) {
       });
     }
   });
-  writeFileSync('./public/tag-data.json', JSON.stringify(tagCount));
+  writeFileSync('./src/config/@generated/tag-data.json', JSON.stringify(tagCount));
   console.log('🔖 tag-data.json generated!!');
 }
 
@@ -43,7 +43,7 @@ function createSearchIndex(allPosts: any) {
     post.body.raw = post.body.raw.replace(/\n/g, ' ');
     return post;
   });
-  writeFileSync('./public/search-data.json', JSON.stringify(newData));
+  writeFileSync('./src/config/@generated/search-data.json', JSON.stringify(newData));
   console.log('🔍 search-data.json generated!!');
 }
 

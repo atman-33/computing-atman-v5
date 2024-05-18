@@ -7,40 +7,39 @@ import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregate
 
 @InputType()
 export class BookScalarWhereWithAggregatesInput {
+  @Field(() => [BookScalarWhereWithAggregatesInput], { nullable: true })
+  AND?: Array<BookScalarWhereWithAggregatesInput>;
 
-    @Field(() => [BookScalarWhereWithAggregatesInput], {nullable:true})
-    AND?: Array<BookScalarWhereWithAggregatesInput>;
+  @Field(() => [BookScalarWhereWithAggregatesInput], { nullable: true })
+  OR?: Array<BookScalarWhereWithAggregatesInput>;
 
-    @Field(() => [BookScalarWhereWithAggregatesInput], {nullable:true})
-    OR?: Array<BookScalarWhereWithAggregatesInput>;
+  @Field(() => [BookScalarWhereWithAggregatesInput], { nullable: true })
+  NOT?: Array<BookScalarWhereWithAggregatesInput>;
 
-    @Field(() => [BookScalarWhereWithAggregatesInput], {nullable:true})
-    NOT?: Array<BookScalarWhereWithAggregatesInput>;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  id?: StringWithAggregatesFilter;
 
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    id?: StringWithAggregatesFilter;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  title?: StringWithAggregatesFilter;
 
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    title?: StringWithAggregatesFilter;
+  @Field(() => FloatWithAggregatesFilter, { nullable: true })
+  currentChapter?: FloatWithAggregatesFilter;
 
-    @Field(() => FloatWithAggregatesFilter, {nullable:true})
-    currentChapter?: FloatWithAggregatesFilter;
+  @Field(() => FloatWithAggregatesFilter, { nullable: true })
+  score?: FloatWithAggregatesFilter;
 
-    @Field(() => FloatWithAggregatesFilter, {nullable:true})
-    score?: FloatWithAggregatesFilter;
+  @Field(() => IntWithAggregatesFilter, { nullable: true })
+  completed?: IntWithAggregatesFilter;
 
-    @Field(() => IntWithAggregatesFilter, {nullable:true})
-    completed?: IntWithAggregatesFilter;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  review?: StringWithAggregatesFilter;
 
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    review?: StringWithAggregatesFilter;
+  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
+  createdAt?: DateTimeWithAggregatesFilter;
 
-    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
-    createdAt?: DateTimeWithAggregatesFilter;
+  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
+  updatedAt?: DateTimeWithAggregatesFilter;
 
-    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
-    updatedAt?: DateTimeWithAggregatesFilter;
-
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    userId?: StringWithAggregatesFilter;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  userId?: StringWithAggregatesFilter;
 }

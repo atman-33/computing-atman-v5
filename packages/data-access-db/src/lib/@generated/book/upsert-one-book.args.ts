@@ -9,17 +9,16 @@ import { BookUpdateInput } from './book-update.input';
 
 @ArgsType()
 export class UpsertOneBookArgs {
+  @Field(() => BookWhereUniqueInput, { nullable: false })
+  @Type(() => BookWhereUniqueInput)
+  @ValidateNested()
+  where!: Prisma.AtLeast<BookWhereUniqueInput, 'id' | 'userId_title'>;
 
-    @Field(() => BookWhereUniqueInput, {nullable:false})
-    @Type(() => BookWhereUniqueInput)
-    @ValidateNested()
-    where!: Prisma.AtLeast<BookWhereUniqueInput, 'id' | 'userId_title'>;
+  @Field(() => BookCreateInput, { nullable: false })
+  @Type(() => BookCreateInput)
+  create!: BookCreateInput;
 
-    @Field(() => BookCreateInput, {nullable:false})
-    @Type(() => BookCreateInput)
-    create!: BookCreateInput;
-
-    @Field(() => BookUpdateInput, {nullable:false})
-    @Type(() => BookUpdateInput)
-    update!: BookUpdateInput;
+  @Field(() => BookUpdateInput, { nullable: false })
+  @Type(() => BookUpdateInput)
+  update!: BookUpdateInput;
 }

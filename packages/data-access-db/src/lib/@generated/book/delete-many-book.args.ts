@@ -6,9 +6,8 @@ import { ValidateNested } from 'class-validator';
 
 @ArgsType()
 export class DeleteManyBookArgs {
-
-    @Field(() => BookWhereInput, {nullable:true})
-    @Type(() => BookWhereInput)
-    @ValidateNested()
-    where?: BookWhereInput;
+  @Field(() => BookWhereInput, { nullable: true })
+  @Type(() => BookWhereInput)
+  @ValidateNested()
+  where?: BookWhereInput;
 }

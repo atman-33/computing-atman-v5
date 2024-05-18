@@ -7,9 +7,8 @@ import { ValidateNested } from 'class-validator';
 
 @ArgsType()
 export class FindUniqueUserOrThrowArgs {
-
-    @Field(() => UserWhereUniqueInput, {nullable:false})
-    @Type(() => UserWhereUniqueInput)
-    @ValidateNested()
-    where!: Prisma.AtLeast<UserWhereUniqueInput, 'id' | 'username'>;
+  @Field(() => UserWhereUniqueInput, { nullable: false })
+  @Type(() => UserWhereUniqueInput)
+  @ValidateNested()
+  where!: Prisma.AtLeast<UserWhereUniqueInput, 'id' | 'username'>;
 }

@@ -11,24 +11,23 @@ import { BookScalarFieldEnum } from './book-scalar-field.enum';
 
 @ArgsType()
 export class FindManyBookArgs {
+  @Field(() => BookWhereInput, { nullable: true })
+  @Type(() => BookWhereInput)
+  @ValidateNested()
+  where?: BookWhereInput;
 
-    @Field(() => BookWhereInput, {nullable:true})
-    @Type(() => BookWhereInput)
-    @ValidateNested()
-    where?: BookWhereInput;
+  @Field(() => [BookOrderByWithRelationInput], { nullable: true })
+  orderBy?: Array<BookOrderByWithRelationInput>;
 
-    @Field(() => [BookOrderByWithRelationInput], {nullable:true})
-    orderBy?: Array<BookOrderByWithRelationInput>;
+  @Field(() => BookWhereUniqueInput, { nullable: true })
+  cursor?: Prisma.AtLeast<BookWhereUniqueInput, 'id' | 'userId_title'>;
 
-    @Field(() => BookWhereUniqueInput, {nullable:true})
-    cursor?: Prisma.AtLeast<BookWhereUniqueInput, 'id' | 'userId_title'>;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 
-    @Field(() => Int, {nullable:true})
-    skip?: number;
-
-    @Field(() => [BookScalarFieldEnum], {nullable:true})
-    distinct?: Array<keyof typeof BookScalarFieldEnum>;
+  @Field(() => [BookScalarFieldEnum], { nullable: true })
+  distinct?: Array<keyof typeof BookScalarFieldEnum>;
 }

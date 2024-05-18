@@ -10,46 +10,45 @@ import { BookMaxAggregate } from './book-max-aggregate.output';
 
 @ObjectType()
 export class BookGroupBy {
+  @Field(() => String, { nullable: false })
+  id!: string;
 
-    @Field(() => String, {nullable:false})
-    id!: string;
+  @Field(() => String, { nullable: false })
+  title!: string;
 
-    @Field(() => String, {nullable:false})
-    title!: string;
+  @Field(() => Float, { nullable: true })
+  currentChapter?: number;
 
-    @Field(() => Float, {nullable:true})
-    currentChapter?: number;
+  @Field(() => Float, { nullable: false })
+  score!: number;
 
-    @Field(() => Float, {nullable:false})
-    score!: number;
+  @Field(() => Int, { nullable: false })
+  completed!: number;
 
-    @Field(() => Int, {nullable:false})
-    completed!: number;
+  @Field(() => String, { nullable: true })
+  review?: string;
 
-    @Field(() => String, {nullable:true})
-    review?: string;
+  @Field(() => Date, { nullable: false })
+  createdAt!: Date | string;
 
-    @Field(() => Date, {nullable:false})
-    createdAt!: Date | string;
+  @Field(() => Date, { nullable: false })
+  updatedAt!: Date | string;
 
-    @Field(() => Date, {nullable:false})
-    updatedAt!: Date | string;
+  @Field(() => String, { nullable: false })
+  userId!: string;
 
-    @Field(() => String, {nullable:false})
-    userId!: string;
+  @Field(() => BookCountAggregate, { nullable: true })
+  _count?: BookCountAggregate;
 
-    @Field(() => BookCountAggregate, {nullable:true})
-    _count?: BookCountAggregate;
+  @Field(() => BookAvgAggregate, { nullable: true })
+  _avg?: BookAvgAggregate;
 
-    @Field(() => BookAvgAggregate, {nullable:true})
-    _avg?: BookAvgAggregate;
+  @Field(() => BookSumAggregate, { nullable: true })
+  _sum?: BookSumAggregate;
 
-    @Field(() => BookSumAggregate, {nullable:true})
-    _sum?: BookSumAggregate;
+  @Field(() => BookMinAggregate, { nullable: true })
+  _min?: BookMinAggregate;
 
-    @Field(() => BookMinAggregate, {nullable:true})
-    _min?: BookMinAggregate;
-
-    @Field(() => BookMaxAggregate, {nullable:true})
-    _max?: BookMaxAggregate;
+  @Field(() => BookMaxAggregate, { nullable: true })
+  _max?: BookMaxAggregate;
 }

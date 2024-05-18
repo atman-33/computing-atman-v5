@@ -1,5 +1,6 @@
 'use client';
 
+import originalTagData from '@/config/@generated/tag-data.json';
 import { useEffect, useState } from 'react';
 
 export const useTagData = () => {
@@ -7,11 +8,14 @@ export const useTagData = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchTagData = async () => {
+    const fetchTagData = () => {
       try {
-        const response = await fetch('/tag-data.json');
-        let jsonData = await response.json();
+        // NOTE: publicフォルダにtag-data.jsonを配置する場合は、こちらを使用する。
+        // const response = await fetch('/tag-data.json');
+        // let jsonData = await response.json();
         // console.log('🐜 jsonData:', jsonData);
+
+        let jsonData = originalTagData;
 
         const arrayData = Object.entries<number>(jsonData);
         // console.log('🐜 arrayData', arrayData);

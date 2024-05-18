@@ -3,16 +3,15 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class UserUpdateManyMutationInput {
+  @Field(() => String, { nullable: true })
+  username?: string;
 
-    @Field(() => String, {nullable:true})
-    username?: string;
+  @Field(() => String, { nullable: true })
+  password?: string;
 
-    @Field(() => String, {nullable:true})
-    password?: string;
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    createdAt?: Date | string;
-
-    @Field(() => Date, {nullable:true})
-    updatedAt?: Date | string;
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date | string;
 }

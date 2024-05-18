@@ -1,4 +1,4 @@
-import { DocsSidebarNav } from '@/components/sidebar-nav/sidebar-nav';
+import { DocsSidebarNav } from '@/components/sidebar-nav';
 import { reactDocsConfig } from '@/config/tech/react-docs-config';
 import { TechMobileNav } from '@/features/tech';
 import { ScrollArea } from '@repo/ui';

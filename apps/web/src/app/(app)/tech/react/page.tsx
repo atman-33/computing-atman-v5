@@ -1,5 +1,5 @@
 import { Icon } from '@/components/icons';
-import { DocsSidebarNav } from '@/components/sidebar-nav/sidebar-nav';
+import { DocsSidebarNav } from '@/components/sidebar-nav';
 import { siteConfig } from '@/config/site-config';
 import { reactDocsConfig } from '@/config/tech/react-docs-config';
 import { absoluteUrl } from '@/utils/url-util';

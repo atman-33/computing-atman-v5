@@ -20,6 +20,7 @@ import {
   CommandSeparator,
   cn,
 } from '@repo/ui';
+import { DotFlashing } from '../dot-flashing';
 
 export function CommandMenu({ ...props }: DialogProps) {
   const router = useRouter();
@@ -54,7 +55,7 @@ export function CommandMenu({ ...props }: DialogProps) {
   }, []);
 
   if (loading) {
-    return <Icons.spinner className="h-6 w-6 animate-spin" />;
+    return <DotFlashing />;
   }
 
   return (

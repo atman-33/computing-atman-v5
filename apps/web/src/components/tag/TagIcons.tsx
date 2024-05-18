@@ -186,8 +186,8 @@ export const TagIcons = {
           y2="22.7407"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#327EBD" />
-          <stop offset="1" stop-color="#1565A7" />
+          <stop stopColor="#327EBD" />
+          <stop offset="1" stopColor="#1565A7" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_87_8204"
@@ -197,8 +197,8 @@ export const TagIcons = {
           y2="30"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFDA4B" />
-          <stop offset="1" stop-color="#F9C600" />
+          <stop stopColor="#FFDA4B" />
+          <stop offset="1" stopColor="#F9C600" />
         </linearGradient>
       </defs>
     </svg>
@@ -367,7 +367,7 @@ export const TagIcons = {
   ),
   turborepo: (props: IconProps) => (
     <svg viewBox="0 0 104 104" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <g clip-path="url(#clip0_1_17)">
+      <g clipPath="url(#clip0_1_17)">
         <path
           d="M26.0192 7C42.0962 -2.28203 61.9038 -2.28203 77.9808 7C94.0577 16.282 103.962 33.4359 103.962 52C103.962 70.5641 94.0577 87.718 77.9808 97C61.9038 106.282 42.0962 106.282 26.0192 97C9.94229 87.718 0.038475 70.5641 0.038475 52C0.038475 33.4359 9.94229 16.282 26.0192 7Z"
           fill="black"
@@ -413,8 +413,8 @@ export const TagIcons = {
           y2="112"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#3286F1" />
-          <stop offset="1" stop-color="#C43AC4" />
+          <stop stopColor="#3286F1" />
+          <stop offset="1" stopColor="#C43AC4" />
         </linearGradient>
         <radialGradient
           id="paint1_radial_1_17"
@@ -424,8 +424,8 @@ export const TagIcons = {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(52 -7.99999) rotate(90) scale(154.286 154.286)"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" />
         </radialGradient>
         <linearGradient
           id="paint2_linear_1_17"
@@ -435,8 +435,8 @@ export const TagIcons = {
           y2="40.75"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_1_17"
@@ -446,8 +446,8 @@ export const TagIcons = {
           y2="54.5717"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0096FF" />
-          <stop offset="1" stop-color="#FF1E56" />
+          <stop stopColor="#0096FF" />
+          <stop offset="1" stopColor="#FF1E56" />
         </linearGradient>
         <clipPath id="clip0_1_17">
           <rect width="104" height="104" fill="white" />
@@ -457,10 +457,10 @@ export const TagIcons = {
   ),
   tailwindcss: (props: IconProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 54 33" {...props}>
-      <g clip-path="url(#prefix__clip0)">
+      <g clipPath="url(#prefix__clip0)">
         <path
           fill="#38bdf8"
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z"
           clipRule="evenodd"
         />

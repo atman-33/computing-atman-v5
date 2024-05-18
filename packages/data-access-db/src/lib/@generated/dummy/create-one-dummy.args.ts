@@ -6,9 +6,8 @@ import { ValidateNested } from 'class-validator';
 
 @ArgsType()
 export class CreateOneDummyArgs {
-
-    @Field(() => DummyCreateInput, {nullable:true})
-    @Type(() => DummyCreateInput)
-    @ValidateNested()
-    data?: DummyCreateInput;
+  @Field(() => DummyCreateInput, { nullable: true })
+  @Type(() => DummyCreateInput)
+  @ValidateNested()
+  data?: DummyCreateInput;
 }
