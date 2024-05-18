@@ -175,7 +175,7 @@ BreakPointを設定後、実行とデバッグからデバッグを起動する
 ```json
   "scripts": {
     "----TEST SECTION----": "-------------------------",
-    "test": "npx env-cmd -f .env.local turbo test",
+    "test": "turbo test",
 ```
 
 `turbo.json`
