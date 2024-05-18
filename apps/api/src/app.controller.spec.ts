@@ -34,6 +34,24 @@ describe('AppController', () => {
     it('35 should convert a number to words thirty five', () => {
       expect(convertIntToWords(35)).toEqual('thirty five');
     });
+
+    it('100 should convert a number to words one hundred', () => {
+      expect(convertIntToWords(100)).toEqual('one hundred');
+    });
+
+    it('135 should convert a number to words one hundred thirty five', () => {
+      expect(convertIntToWords(135)).toEqual('one hundred thirty five');
+    });
+
+    it('1000 should convert a number to words one thousand', () => {
+      expect(convertIntToWords(1000)).toEqual('one thousand');
+    });
+
+    it('1234 should convert a number to words one thousand two hundred thirty four', () => {
+      expect(convertIntToWords(1234)).toEqual(
+        'one thousand two hundred thirty four',
+      );
+    });
   });
 });
 
@@ -88,6 +106,16 @@ const convertIntToWords = (num: number): string => {
 
   let words: string = '';
 
+  if (num >= 1000) {
+    words += convertIntToWords(Math.floor(num / 1000)) + ' thousand ';
+    num %= 1000;
+  }
+
+  if (num >= 100) {
+    words += convertIntToWords(Math.floor(num / 100)) + ' hundred ';
+    num %= 100;
+  }
+
   if (num > 0) {
     if (num < 20) {
       return unitsMap[num];
@@ -99,5 +127,5 @@ const convertIntToWords = (num: number): string => {
     }
   }
 
-  return words;
+  return words.trim();
 };

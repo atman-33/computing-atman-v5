@@ -155,3 +155,22 @@ export default config;
 BreakPointを設定後、実行とデバッグからデバッグを起動する
 
 ![alt text](image/jest-debug.png)
+
+### test コマンドを準備
+
+`package.json`
+
+```json
+  "scripts": {
+    "----TEST SECTION----": "-------------------------",
+    "test": "npx env-cmd -f .env.local turbo test",
+```
+
+`turbo.json`
+
+```json
+  "pipeline": {
+    "test": {
+      "dependsOn": ["^test"]
+    },
+```
