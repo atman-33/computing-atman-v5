@@ -1,6 +1,7 @@
-import { Logger, ValidationPipe } from '@nestjs/common';
+import { INestApplication, Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import * as cookieParser from 'cookie-parser';
+import { VideoTypesService } from './api/video-types/video-types.service';
 import { AppModule } from './app.module';
 import { apiEnv } from './config/api-env';
 
@@ -13,6 +14,9 @@ async function bootstrap() {
 
   app.use(cookieParser());
   app.useGlobalPipes(new ValidationPipe());
+
+  // DB初期化
+  await initialize(app);
 
   const port = apiEnv.API_PORT || 3000;
   app.enableCors({
@@ -30,3 +34,13 @@ async function bootstrap() {
 }
 
 bootstrap();
+
+/**
+ * DB初期化
+ * @param app
+ */
+async function initialize(app: INestApplication<any>) {
+  const videoTypesService = app.get(VideoTypesService);
+  await videoTypesService.initialize();
+  console.log('📀 initialized DB data done.');
+}
