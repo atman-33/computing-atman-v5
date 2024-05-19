@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TabsTrigger } from './ui/tabs';
+import { TabsTrigger } from '../ui/tabs';
 
 interface SimpleTabsProps {
   children: React.ReactNode;
