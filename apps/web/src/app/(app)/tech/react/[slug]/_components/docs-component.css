@@ -6,6 +6,7 @@ pre {
   --sb-track-color: #cdcdce;
   --sb-thumb-color: #4d5250;
   --sb-size: 12px;
+  @apply my-2;
 }
 
 pre::-webkit-scrollbar {
@@ -29,22 +30,22 @@ pre::-webkit-scrollbar-thumb {
   }
 }
 
-.react-docs h2 {
+.tech-docs h2 {
   @apply pb-2 pt-8 text-lg font-bold;
 }
 
-.react-docs h3 {
+.tech-docs h3 {
   @apply pb-2 pt-8 text-lg font-bold;
 }
 
-.react-docs h4 {
+.tech-docs h4 {
   @apply pb-2 pl-2 pt-4 font-bold;
 }
 
-.react-docs p {
+.tech-docs p {
   @apply pl-2;
 }
 
-.react-docs li {
+.tech-docs li {
   @apply mx-8 my-2 list-disc;
 }

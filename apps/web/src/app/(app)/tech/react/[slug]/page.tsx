@@ -3,16 +3,16 @@ import { reactDocsAllItems } from '@/config/tech/react-docs-config';
 import { SidebarNavItem } from '@/types/nav';
 import { absoluteUrl } from '@/utils/url-util';
 import { Metadata } from 'next';
+import { DocsComponent } from './_components/DocsComponent';
 import { ComponentKind } from './_components/components';
-import { DocsComponent } from './_components/docs-component';
 
-interface TechReactPageProps {
+interface TechReactSlugPageProps {
   params: {
     slug: string;
   };
 }
 
-export async function generateMetadata({ params }: TechReactPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: TechReactSlugPageProps): Promise<Metadata> {
   const metaData: Metadata = {};
 
   if (reactDocsAllItems.length > 0) {
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: TechReactPageProps): Promise<
   return metaData;
 }
 
-export async function generateStaticParams(): Promise<TechReactPageProps['params'][]> {
+export async function generateStaticParams(): Promise<TechReactSlugPageProps['params'][]> {
   const staticParams: any = [];
 
   const generateParamsRecursively = (items: SidebarNavItem[]) => {
@@ -71,7 +71,7 @@ export async function generateStaticParams(): Promise<TechReactPageProps['params
   return staticParams;
 }
 
-const TechReactPage = ({ params }: TechReactPageProps) => {
+const TechReactSlugPage = ({ params }: TechReactSlugPageProps) => {
   return (
     <>
       <div className="my-8">
@@ -81,4 +81,4 @@ const TechReactPage = ({ params }: TechReactPageProps) => {
   );
 };
 
-export default TechReactPage;
+export default TechReactSlugPage;

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
 };
 
-const ReactPage = () => {
+const TechReactPage = () => {
   return (
     <>
       <div className="mt-8 flex flex-col space-y-8">
@@ -50,4 +50,4 @@ const ReactPage = () => {
   );
 };
 
-export default ReactPage;
+export default TechReactPage;
