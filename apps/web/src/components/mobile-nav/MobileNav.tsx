@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 
-import { DocsConfig } from '@/config/docs-config';
 import { siteConfig } from '@/config/site-config';
+import { DocsConfig } from '@/types/docs';
 import { Button, ScrollArea, Separator, Sheet, SheetContent, SheetTrigger } from '@repo/ui';
 import { Logo } from '../logo';
 import { MobileLink } from './MobileLink';
