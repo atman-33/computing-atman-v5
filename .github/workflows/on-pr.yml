@@ -16,4 +16,6 @@ jobs:
 
       - run: npm run lint
       - run: npm run format
+      - run: npm run ci:build-web
+      - run: npm run ci:build-api
       - run: npm run test

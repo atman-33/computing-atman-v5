@@ -1,9 +1,9 @@
 import { Icons } from '@/components/icons';
 import { Link } from '@/components/link';
 import { Tag, TagIconKind } from '@/components/tag';
+import tagData from '@/config/@generated/tag-data.json';
 import { PostList, filterPublishedPosts, sortPostsByDate } from '@/features/blog';
 import { allPosts } from 'contentlayer/generated';
-import tagData from '../../../../../../public/tag-data.json';
 
 export const generateStaticParams = async () => {
   const tagCounts = tagData as Record<string, number>;
