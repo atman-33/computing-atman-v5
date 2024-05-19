@@ -10,12 +10,14 @@
 
 実行内容
 
-- type-check
-- lint
-- format
-- test
+- **lint**
+- **format**
+- **build** - 各プロジェクトのCI用ビルドでは、`.env.example`を利用する。
+- **test**
 
 ## type-check の追加方法
+
+type-check は、buildを実行する場合は不要。参考のため手順を残しておく。
 
 ### 1. 各プロジェクトに、type-check コマンドを追加
 

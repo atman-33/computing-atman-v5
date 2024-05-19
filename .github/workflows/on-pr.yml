@@ -14,8 +14,8 @@ jobs:
           fetch-depth: 0
       - run: npm ci
 
-      - run: npm run cd:postbuild
-      - run: npm run type-check
       - run: npm run lint
       - run: npm run format
+      - run: npm run ci:build-web
+      - run: npm run ci:build-api
       - run: npm run test
