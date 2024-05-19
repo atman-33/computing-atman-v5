@@ -1,4 +1,5 @@
 import { siteConfig } from '@/config/site-config';
+import { designPatternsDocsAllItems } from '@/config/tech/design-patterns-docs-config';
 import { reactDocsAllItems } from '@/config/tech/react-docs-config';
 import { allPosts } from 'contentlayer/generated';
 import { MetadataRoute } from 'next';
@@ -21,5 +22,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date().toISOString().split('T')[0],
   }));
 
-  return [...routes, ...blogRoutes, ...(techReactRoutes ?? [])];
+  const techDesignPatternsRoutes = designPatternsDocsAllItems.map((item) => ({
+    url: `${siteUrl}/tech/design-patterns/${item.slug}`,
+    lastModified: new Date().toISOString().split('T')[0],
+  }));
+
+  return [
+    ...routes,
+    ...blogRoutes,
+    ...(techReactRoutes ?? []),
+    ...(techDesignPatternsRoutes ?? []),
+  ];
 }
