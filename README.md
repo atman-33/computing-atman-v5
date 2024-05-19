@@ -50,3 +50,9 @@ npm run dev:web
 # api のみ実行
 npm run dev:api
 ```
+
+### 5. プルリク前のチェック
+
+```bash
+npm run verify
+```
