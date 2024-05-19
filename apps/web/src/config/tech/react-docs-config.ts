@@ -1,11 +1,5 @@
-import { MainNavItem, SidebarNavItem } from '@/types/nav';
-
+import { DocsConfig } from '@/types/docs';
 import { docsConfig } from '../docs-config';
-
-interface DocsConfig {
-  mainNav: MainNavItem[];
-  sidebarNav: SidebarNavItem[];
-}
 
 export const reactDocsConfig: DocsConfig = {
   mainNav: docsConfig.mainNav,

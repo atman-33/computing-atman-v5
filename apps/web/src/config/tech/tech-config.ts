@@ -15,7 +15,7 @@ export const techConfig: TechConfig[] = [
   {
     title: 'Design Patterns',
     icon: 'design',
-    description: 'Gofデザインパターンのサンプルコード',
+    description: 'デザインパターンのサンプルコード',
     href: '/tech/design-patterns',
   },
 ];

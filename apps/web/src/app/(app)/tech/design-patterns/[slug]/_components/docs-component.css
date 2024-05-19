@@ -1,0 +1,51 @@
+pre .shiki {
+  @apply max-h-[650px] overflow-x-auto rounded-sm p-4 text-xs md:text-sm;
+}
+
+pre {
+  --sb-track-color: #cdcdce;
+  --sb-thumb-color: #4d5250;
+  --sb-size: 12px;
+  @apply my-2;
+}
+
+pre::-webkit-scrollbar {
+  width: var(--sb-size);
+  height: var(--sb-size);
+}
+
+pre::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 6px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 6px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  pre {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+.tech-docs h2 {
+  @apply pb-2 pt-8 text-lg font-bold;
+}
+
+.tech-docs h3 {
+  @apply pb-2 pt-8 text-lg font-bold;
+}
+
+.tech-docs h4 {
+  @apply pb-2 pl-2 pt-4 font-bold;
+}
+
+.tech-docs p {
+  @apply pl-2;
+}
+
+.tech-docs li {
+  @apply mx-8 my-2 list-disc;
+}
