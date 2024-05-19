@@ -4,9 +4,11 @@ VSCodeのJest拡張機能は、標準の方法だとモノレポ構造で利用�
 
 ## 参考URL
 
-VSCodeのJest拡張機能をmonorepo構成で使いたい[https://qiita.com/uenok0108/items/0c2865e5540046a120fa]
+[モノレポでVSCodeのJest拡張機能を利用する](https://qiita.com/chima91/items/03342aee581cacd411b9)
 
-Next.js + TypeScript + Jestでテストを実行できる環境を構築する[https://qiita.com/masakiwakabayashi/items/204ed2b32254bbc9a5c1]
+[VSCodeのJest拡張機能をmonorepo構成で使いたい](https://qiita.com/uenok0108/items/0c2865e5540046a120fa)
+
+[Next.js + TypeScript + Jestでテストを実行できる環境を構築する](https://qiita.com/masakiwakabayashi/items/204ed2b32254bbc9a5c1)
 
 ## ステップ
 
@@ -16,27 +18,25 @@ Next.js + TypeScript + Jestでテストを実行できる環境を構築する[h
 
 ```code-workspace
 {
-  "folders": [
-    {
-      "name": "root",
-      "path": "."
-    },
-    {
-      "name": "web",
-      "path": "apps/web"
-    },
-    {
-      "name": "api",
-      "path": "apps/api"
-    }
-  ],
-  "settings": {
-    "jest.autoRun": "off",
-    "jest.jestCommandLine": "npm run test",
-    "jest.disabledWorkspaceFolders": [
-      "root"
-    ]
+ "folders": [
+  {
+   "name": "root",
+   "path": "."
+  },
+  {
+   "name": "web",
+   "path": "apps/web"
+  },
+  {
+   "name": "api",
+   "path": "apps/api"
   }
+ ],
+ "settings": {
+  "jest.disabledWorkspaceFolders": [
+   "root"
+  ]
+ }
 }
 ```
 
