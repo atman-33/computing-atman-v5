@@ -1,4 +1,4 @@
-export * from './components/simple-tabs';
+export * from './components/custom-ui/simple-tabs';
 export * from './components/ui/alert-dialog';
 export * from './components/ui/badge';
 export * from './components/ui/breadcrumb';

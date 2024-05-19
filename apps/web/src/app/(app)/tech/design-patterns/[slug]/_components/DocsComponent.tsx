@@ -20,7 +20,7 @@ const DocsComponent = ({ kind }: DocsComponentProps) => {
 
       <Separator orientation="horizontal" />
 
-      <div className="react-docs">
+      <div className="tech-docs">
         <ReactMarkdown
           remarkPlugins={[remarkGfm as any]}
           children={contents.description}

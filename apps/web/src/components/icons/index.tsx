@@ -9,6 +9,10 @@ const icons = {
     name: 'React',
     icon: Icons.react,
   },
+  design: {
+    name: 'Design',
+    icon: Icons.design,
+  },
 };
 
 export type IconKind = keyof typeof icons;

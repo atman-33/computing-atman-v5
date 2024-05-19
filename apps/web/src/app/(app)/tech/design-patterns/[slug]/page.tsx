@@ -1,22 +1,24 @@
 import { siteConfig } from '@/config/site-config';
-import { reactDocsAllItems } from '@/config/tech/react-docs-config';
+import { designPatternsDocsAllItems } from '@/config/tech/design-patterns-docs-config';
 import { SidebarNavItem } from '@/types/nav';
 import { absoluteUrl } from '@/utils/url-util';
 import { Metadata } from 'next';
 import { DocsComponent } from './_components/DocsComponent';
 import { ComponentKind } from './_components/components';
 
-interface TechReactSlugPageProps {
+interface TechDesignPatternsSlugPageProps {
   params: {
     slug: string;
   };
 }
 
-export async function generateMetadata({ params }: TechReactSlugPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: TechDesignPatternsSlugPageProps): Promise<Metadata> {
   const metaData: Metadata = {};
 
-  if (reactDocsAllItems.length > 0) {
-    const item = reactDocsAllItems.find((item) => item.slug === params.slug);
+  if (designPatternsDocsAllItems.length > 0) {
+    const item = designPatternsDocsAllItems.find((item) => item.slug === params.slug);
 
     return {
       title: item?.title,
@@ -48,7 +50,7 @@ export async function generateMetadata({ params }: TechReactSlugPageProps): Prom
   return metaData;
 }
 
-export async function generateStaticParams(): Promise<TechReactSlugPageProps['params'][]> {
+export async function generateStaticParams(): Promise<TechDesignPatternsSlugPageProps['params'][]> {
   const staticParams: any = [];
 
   const generateParamsRecursively = (items: SidebarNavItem[]) => {
@@ -63,15 +65,14 @@ export async function generateStaticParams(): Promise<TechReactSlugPageProps['pa
     });
   };
 
-  if (reactDocsAllItems.length > 0) {
-    generateParamsRecursively(reactDocsAllItems);
+  if (designPatternsDocsAllItems.length > 0) {
+    generateParamsRecursively(designPatternsDocsAllItems);
   }
 
-  // console.log('staticParams =>', staticParams);
   return staticParams;
 }
 
-const TechReactSlugPage = ({ params }: TechReactSlugPageProps) => {
+const TechDesignPatternsSlugPage = ({ params }: TechDesignPatternsSlugPageProps) => {
   return (
     <>
       <div className="my-8">
@@ -81,4 +82,4 @@ const TechReactSlugPage = ({ params }: TechReactSlugPageProps) => {
   );
 };
 
-export default TechReactSlugPage;
+export default TechDesignPatternsSlugPage;

@@ -12,4 +12,10 @@ export const techConfig: TechConfig[] = [
     description: 'Next.js + React + Tailwind CSS + Shadcn のサンプルコード',
     href: '/tech/react',
   },
+  {
+    title: 'Design Patterns',
+    icon: 'design',
+    description: 'デザインパターンのサンプルコード',
+    href: '/tech/design-patterns',
+  },
 ];
