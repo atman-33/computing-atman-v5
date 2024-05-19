@@ -1,6 +1,6 @@
 import { Breadcrumb } from '@/components/breadcrumb';
 import { MobileNav } from '@/components/mobile-nav';
-import { DocsConfig } from '@/config/docs-config';
+import { DocsConfig } from '@/types/docs';
 import { Button } from '@repo/ui';
 
 interface TechMobileNavProps {
