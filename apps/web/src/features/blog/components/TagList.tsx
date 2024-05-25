@@ -16,14 +16,14 @@ export const TagList = () => {
   return (
     <div className="mx-auto flex max-w-[1000px] flex-col space-y-2">
       {/* <h3 className="ml-3 text-xl font-bold">Blog Tags</h3> */}
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+      <div className="grid grid-cols-3 gap-8 md:grid-cols-4 lg:grid-cols-6">
         {tagData && (
           <>
             {(tagData as unknown as any).map(([tag, count]: [string, number]) => (
               <Link href={`/blog/tags/${tag}`} key={tag}>
                 <div
                   key={tag}
-                  className="mx-3 my-3 flex h-24 max-w-32 flex-col items-center justify-between rounded-lg border-[1px] py-2"
+                  className="hover:bg-primary/10 flex h-24 max-w-32 flex-col items-center justify-between rounded-lg border-[1px] py-2 "
                 >
                   <Tag
                     size={10}
