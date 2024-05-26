@@ -3,7 +3,7 @@ import { IntegerToWordsStrategy } from './integer-to-words-strategy';
 import { NumberToWordsContext } from './number-to-words-context';
 import { NumberToWordsStrategy } from './number-to-words-strategy.interface';
 
-describe('interget-to-words', () => {
+describe('interger-to-words', () => {
   let context: NumberToWordsContext;
 
   beforeEach(async () => {
@@ -57,6 +57,10 @@ describe('interget-to-words', () => {
       expect(context.convert('1212.1234')).toBe(
         'one thousand two hundred twelve point one two three four',
       );
+    });
+
+    it('abc は "NaN"', () => {
+      expect(context.convert('abc')).toBe('NaN');
     });
   });
 });

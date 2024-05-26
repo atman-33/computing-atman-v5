@@ -13,6 +13,10 @@ export class NumberToWordsContext {
   }
 
   convert(number: string): string {
+    if (isNaN(Number(number))) {
+      return 'NaN';
+    }
+
     const [integerPart, decimalPart] = number.split('.');
     let result = this.integerStrategy.convert(integerPart);
     if (this.decimalStrategy && decimalPart) {
