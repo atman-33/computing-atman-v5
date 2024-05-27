@@ -4,7 +4,7 @@ import { techConfig } from '@/config/tech/tech-config';
 
 export const TechList = () => {
   return (
-    <div className="mt-8 flex flex-col space-y-4 divide-y">
+    <div className="mt-8 flex flex-col space-y-4 divide-y md:container">
       {techConfig.map((tech) => (
         <div key={tech.title}>
           <div className="hover:bg-primary/10 rounded-md p-2 md:p-4">

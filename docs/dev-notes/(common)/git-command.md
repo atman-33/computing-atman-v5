@@ -13,3 +13,7 @@ git push origin --tags
 ```bash
 git reset --soft HEAD~
 ```
+
+## git commit メッセージを変更
+
+[Gitのコミットメッセージを後から変更する方法をわかりやすく書いてみた](https://www.granfairs.com/blog/entry-3159/)
