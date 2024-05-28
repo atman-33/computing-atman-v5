@@ -1,0 +1,62 @@
+query getVideos {
+  videos {
+    id
+    title
+    currentChapter
+    score
+    completed
+    review
+    createdAt
+    updatedAt
+    userId
+    videoTypeId
+    videoType {
+      id
+      name
+    }
+  }
+}
+
+mutation createVideo($data: VideoCreateInput!) {
+  createVideo(data: $data) {
+    id
+    title
+    currentChapter
+    score
+    completed
+    review
+    createdAt
+    updatedAt
+    userId
+    videoTypeId
+    videoType {
+      id
+      name
+    }
+  }
+}
+
+mutation updateVideo($data: VideoUpdateInput!, $where: VideoWhereUniqueInput!) {
+  updateVideo(data: $data, where: $where) {
+    id
+    title
+    currentChapter
+    score
+    completed
+    review
+    createdAt
+    updatedAt
+    userId
+    videoTypeId
+    videoType {
+      id
+      name
+    }
+  }
+}
+
+mutation deleteVideo($where: VideoWhereUniqueInput!) {
+  deleteVideo(where: $where) {
+    id
+  }
+}

@@ -1,8 +1,8 @@
-import { PrismaService } from '@repo/data-access-db';
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from '@repo/data-access-db';
+import { DeleteVideoInput } from './dto//input/delete-video-input.dto';
 import { GetVideoArgs } from './dto/args/get-video-args.dto';
 import { CreateVideoInput } from './dto/input/create-video-input.dto';
-import { DeleteVideoInput } from './dto//input/delete-video-input.dto';
 import { UpdateVideoInput } from './dto/input/update-video-input.dto';
 
 @Injectable()
@@ -10,11 +10,20 @@ export class VideosService {
   constructor(private readonly prisma: PrismaService) {}
 
   async getVideos() {
-    return await this.prisma.video.findMany();
+    return await this.prisma.video.findMany({
+      include: {
+        videoType: true,
+      },
+    });
   }
 
   async getVideo(getVideoArgs: GetVideoArgs) {
-    return await this.prisma.video.findUnique({ where: getVideoArgs.where });
+    return await this.prisma.video.findUnique({
+      include: {
+        videoType: true,
+      },
+      where: getVideoArgs.where,
+    });
   }
 
   async createVideo(createVideoData: CreateVideoInput) {
