@@ -293,10 +293,16 @@ export type Mutation = {
   createBook: Book;
   createDummy: Dummy;
   createUser: User;
+  createVideo: Video;
+  createVideoType: VideoType;
   deleteBook: Book;
   deleteDummy: Dummy;
+  deleteVideo: Video;
+  deleteVideoType: VideoType;
   updateBook: Book;
   updateDummy: Dummy;
+  updateVideo: Video;
+  updateVideoType: VideoType;
 };
 
 export type MutationChangeUserPasswordArgs = {
@@ -315,12 +321,28 @@ export type MutationCreateUserArgs = {
   data: UserCreateInput;
 };
 
+export type MutationCreateVideoArgs = {
+  data: VideoCreateInput;
+};
+
+export type MutationCreateVideoTypeArgs = {
+  data: VideoTypeCreateInput;
+};
+
 export type MutationDeleteBookArgs = {
   where: BookWhereUniqueInput;
 };
 
 export type MutationDeleteDummyArgs = {
   where: DummyWhereUniqueInput;
+};
+
+export type MutationDeleteVideoArgs = {
+  where: VideoWhereUniqueInput;
+};
+
+export type MutationDeleteVideoTypeArgs = {
+  where: VideoTypeWhereUniqueInput;
 };
 
 export type MutationUpdateBookArgs = {
@@ -333,6 +355,16 @@ export type MutationUpdateDummyArgs = {
   where: DummyWhereUniqueInput;
 };
 
+export type MutationUpdateVideoArgs = {
+  data: VideoUpdateInput;
+  where: VideoWhereUniqueInput;
+};
+
+export type MutationUpdateVideoTypeArgs = {
+  data: VideoTypeUpdateInput;
+  where: VideoTypeWhereUniqueInput;
+};
+
 export type Query = {
   __typename?: 'Query';
   book: Book;
@@ -342,6 +374,10 @@ export type Query = {
   dummy: Dummy;
   token: Scalars['String']['output'];
   user: User;
+  video: Video;
+  videoType: VideoType;
+  videoTypes: Array<VideoType>;
+  videos: Array<Video>;
 };
 
 export type QueryBookArgs = {
@@ -358,6 +394,14 @@ export type QueryTokenArgs = {
 
 export type QueryUserArgs = {
   where: UserWhereUniqueInput;
+};
+
+export type QueryVideoArgs = {
+  where: VideoWhereUniqueInput;
+};
+
+export type QueryVideoTypeArgs = {
+  where: VideoTypeWhereUniqueInput;
 };
 
 export enum QueryMode {
@@ -446,6 +490,402 @@ export type UserWhereUniqueInput = {
   password?: InputMaybe<StringFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
   username?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Video = {
+  __typename?: 'Video';
+  completed: Scalars['Int']['output'];
+  createdAt: Scalars['DateTime']['output'];
+  currentChapter?: Maybe<Scalars['Float']['output']>;
+  id: Scalars['ID']['output'];
+  review?: Maybe<Scalars['String']['output']>;
+  score: Scalars['Float']['output'];
+  title: Scalars['String']['output'];
+  type: VideoType;
+  updatedAt: Scalars['DateTime']['output'];
+  userId: Scalars['String']['output'];
+  videoTypeId: Scalars['String']['output'];
+};
+
+export type VideoAvgAggregate = {
+  __typename?: 'VideoAvgAggregate';
+  completed?: Maybe<Scalars['Float']['output']>;
+  currentChapter?: Maybe<Scalars['Float']['output']>;
+  score?: Maybe<Scalars['Float']['output']>;
+};
+
+export type VideoCountAggregate = {
+  __typename?: 'VideoCountAggregate';
+  _all: Scalars['Int']['output'];
+  completed: Scalars['Int']['output'];
+  createdAt: Scalars['Int']['output'];
+  currentChapter: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  review: Scalars['Int']['output'];
+  score: Scalars['Int']['output'];
+  title: Scalars['Int']['output'];
+  updatedAt: Scalars['Int']['output'];
+  userId: Scalars['Int']['output'];
+  videoTypeId: Scalars['Int']['output'];
+};
+
+export type VideoCreateInput = {
+  completed?: InputMaybe<Scalars['Int']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  currentChapter?: InputMaybe<Scalars['Float']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  review?: InputMaybe<Scalars['String']['input']>;
+  score?: InputMaybe<Scalars['Float']['input']>;
+  title: Scalars['String']['input'];
+  type: VideoTypeCreateNestedOneWithoutVideoInput;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  userId: Scalars['String']['input'];
+};
+
+export type VideoCreateManyTypeInput = {
+  completed?: InputMaybe<Scalars['Int']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  currentChapter?: InputMaybe<Scalars['Float']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  review?: InputMaybe<Scalars['String']['input']>;
+  score?: InputMaybe<Scalars['Float']['input']>;
+  title: Scalars['String']['input'];
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  userId: Scalars['String']['input'];
+};
+
+export type VideoCreateManyTypeInputEnvelope = {
+  data: Array<VideoCreateManyTypeInput>;
+};
+
+export type VideoCreateNestedManyWithoutTypeInput = {
+  connect?: InputMaybe<Array<VideoWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<VideoCreateOrConnectWithoutTypeInput>>;
+  create?: InputMaybe<Array<VideoCreateWithoutTypeInput>>;
+  createMany?: InputMaybe<VideoCreateManyTypeInputEnvelope>;
+};
+
+export type VideoCreateOrConnectWithoutTypeInput = {
+  create: VideoCreateWithoutTypeInput;
+  where: VideoWhereUniqueInput;
+};
+
+export type VideoCreateWithoutTypeInput = {
+  completed?: InputMaybe<Scalars['Int']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  currentChapter?: InputMaybe<Scalars['Float']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  review?: InputMaybe<Scalars['String']['input']>;
+  score?: InputMaybe<Scalars['Float']['input']>;
+  title: Scalars['String']['input'];
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  userId: Scalars['String']['input'];
+};
+
+export type VideoListRelationFilter = {
+  every?: InputMaybe<VideoWhereInput>;
+  none?: InputMaybe<VideoWhereInput>;
+  some?: InputMaybe<VideoWhereInput>;
+};
+
+export type VideoMaxAggregate = {
+  __typename?: 'VideoMaxAggregate';
+  completed?: Maybe<Scalars['Int']['output']>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  currentChapter?: Maybe<Scalars['Float']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  review?: Maybe<Scalars['String']['output']>;
+  score?: Maybe<Scalars['Float']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  userId?: Maybe<Scalars['String']['output']>;
+  videoTypeId?: Maybe<Scalars['String']['output']>;
+};
+
+export type VideoMinAggregate = {
+  __typename?: 'VideoMinAggregate';
+  completed?: Maybe<Scalars['Int']['output']>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  currentChapter?: Maybe<Scalars['Float']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  review?: Maybe<Scalars['String']['output']>;
+  score?: Maybe<Scalars['Float']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  userId?: Maybe<Scalars['String']['output']>;
+  videoTypeId?: Maybe<Scalars['String']['output']>;
+};
+
+export type VideoScalarWhereInput = {
+  AND?: InputMaybe<Array<VideoScalarWhereInput>>;
+  NOT?: InputMaybe<Array<VideoScalarWhereInput>>;
+  OR?: InputMaybe<Array<VideoScalarWhereInput>>;
+  completed?: InputMaybe<IntFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  currentChapter?: InputMaybe<FloatFilter>;
+  id?: InputMaybe<StringFilter>;
+  review?: InputMaybe<StringFilter>;
+  score?: InputMaybe<FloatFilter>;
+  title?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  userId?: InputMaybe<StringFilter>;
+  videoTypeId?: InputMaybe<StringFilter>;
+};
+
+export type VideoSumAggregate = {
+  __typename?: 'VideoSumAggregate';
+  completed?: Maybe<Scalars['Int']['output']>;
+  currentChapter?: Maybe<Scalars['Float']['output']>;
+  score?: Maybe<Scalars['Float']['output']>;
+};
+
+export type VideoType = {
+  __typename?: 'VideoType';
+  Video?: Maybe<Array<Video>>;
+  _count: VideoTypeCount;
+  createdAt: Scalars['DateTime']['output'];
+  id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
+  sortOrder: Scalars['Int']['output'];
+  updatedAt: Scalars['DateTime']['output'];
+};
+
+export type VideoTypeAvgAggregate = {
+  __typename?: 'VideoTypeAvgAggregate';
+  sortOrder?: Maybe<Scalars['Float']['output']>;
+};
+
+export type VideoTypeCount = {
+  __typename?: 'VideoTypeCount';
+  Video: Scalars['Int']['output'];
+};
+
+export type VideoTypeCountAggregate = {
+  __typename?: 'VideoTypeCountAggregate';
+  _all: Scalars['Int']['output'];
+  createdAt: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  name: Scalars['Int']['output'];
+  sortOrder: Scalars['Int']['output'];
+  updatedAt: Scalars['Int']['output'];
+};
+
+export type VideoTypeCreateInput = {
+  Video?: InputMaybe<VideoCreateNestedManyWithoutTypeInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  sortOrder: Scalars['Int']['input'];
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type VideoTypeCreateNestedOneWithoutVideoInput = {
+  connect?: InputMaybe<VideoTypeWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<VideoTypeCreateOrConnectWithoutVideoInput>;
+  create?: InputMaybe<VideoTypeCreateWithoutVideoInput>;
+};
+
+export type VideoTypeCreateOrConnectWithoutVideoInput = {
+  create: VideoTypeCreateWithoutVideoInput;
+  where: VideoTypeWhereUniqueInput;
+};
+
+export type VideoTypeCreateWithoutVideoInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  sortOrder: Scalars['Int']['input'];
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type VideoTypeMaxAggregate = {
+  __typename?: 'VideoTypeMaxAggregate';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  sortOrder?: Maybe<Scalars['Int']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type VideoTypeMinAggregate = {
+  __typename?: 'VideoTypeMinAggregate';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  sortOrder?: Maybe<Scalars['Int']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type VideoTypeRelationFilter = {
+  is?: InputMaybe<VideoTypeWhereInput>;
+  isNot?: InputMaybe<VideoTypeWhereInput>;
+};
+
+export type VideoTypeSumAggregate = {
+  __typename?: 'VideoTypeSumAggregate';
+  sortOrder?: Maybe<Scalars['Int']['output']>;
+};
+
+export type VideoTypeUpdateInput = {
+  Video?: InputMaybe<VideoUpdateManyWithoutTypeNestedInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  sortOrder?: InputMaybe<Scalars['Int']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type VideoTypeUpdateOneRequiredWithoutVideoNestedInput = {
+  connect?: InputMaybe<VideoTypeWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<VideoTypeCreateOrConnectWithoutVideoInput>;
+  create?: InputMaybe<VideoTypeCreateWithoutVideoInput>;
+  update?: InputMaybe<VideoTypeUpdateToOneWithWhereWithoutVideoInput>;
+  upsert?: InputMaybe<VideoTypeUpsertWithoutVideoInput>;
+};
+
+export type VideoTypeUpdateToOneWithWhereWithoutVideoInput = {
+  data: VideoTypeUpdateWithoutVideoInput;
+  where?: InputMaybe<VideoTypeWhereInput>;
+};
+
+export type VideoTypeUpdateWithoutVideoInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  sortOrder?: InputMaybe<Scalars['Int']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type VideoTypeUpsertWithoutVideoInput = {
+  create: VideoTypeCreateWithoutVideoInput;
+  update: VideoTypeUpdateWithoutVideoInput;
+  where?: InputMaybe<VideoTypeWhereInput>;
+};
+
+export type VideoTypeWhereInput = {
+  AND?: InputMaybe<Array<VideoTypeWhereInput>>;
+  NOT?: InputMaybe<Array<VideoTypeWhereInput>>;
+  OR?: InputMaybe<Array<VideoTypeWhereInput>>;
+  Video?: InputMaybe<VideoListRelationFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<StringFilter>;
+  name?: InputMaybe<StringFilter>;
+  sortOrder?: InputMaybe<IntFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+};
+
+export type VideoTypeWhereUniqueInput = {
+  AND?: InputMaybe<Array<VideoTypeWhereInput>>;
+  NOT?: InputMaybe<Array<VideoTypeWhereInput>>;
+  OR?: InputMaybe<Array<VideoTypeWhereInput>>;
+  Video?: InputMaybe<VideoListRelationFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  sortOrder?: InputMaybe<IntFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+};
+
+export type VideoUpdateInput = {
+  completed?: InputMaybe<Scalars['Int']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  currentChapter?: InputMaybe<Scalars['Float']['input']>;
+  review?: InputMaybe<Scalars['String']['input']>;
+  score?: InputMaybe<Scalars['Float']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<VideoTypeUpdateOneRequiredWithoutVideoNestedInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type VideoUpdateManyMutationInput = {
+  completed?: InputMaybe<Scalars['Int']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  currentChapter?: InputMaybe<Scalars['Float']['input']>;
+  review?: InputMaybe<Scalars['String']['input']>;
+  score?: InputMaybe<Scalars['Float']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type VideoUpdateManyWithWhereWithoutTypeInput = {
+  data: VideoUpdateManyMutationInput;
+  where: VideoScalarWhereInput;
+};
+
+export type VideoUpdateManyWithoutTypeNestedInput = {
+  connect?: InputMaybe<Array<VideoWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<VideoCreateOrConnectWithoutTypeInput>>;
+  create?: InputMaybe<Array<VideoCreateWithoutTypeInput>>;
+  createMany?: InputMaybe<VideoCreateManyTypeInputEnvelope>;
+  delete?: InputMaybe<Array<VideoWhereUniqueInput>>;
+  deleteMany?: InputMaybe<Array<VideoScalarWhereInput>>;
+  disconnect?: InputMaybe<Array<VideoWhereUniqueInput>>;
+  set?: InputMaybe<Array<VideoWhereUniqueInput>>;
+  update?: InputMaybe<Array<VideoUpdateWithWhereUniqueWithoutTypeInput>>;
+  updateMany?: InputMaybe<Array<VideoUpdateManyWithWhereWithoutTypeInput>>;
+  upsert?: InputMaybe<Array<VideoUpsertWithWhereUniqueWithoutTypeInput>>;
+};
+
+export type VideoUpdateWithWhereUniqueWithoutTypeInput = {
+  data: VideoUpdateWithoutTypeInput;
+  where: VideoWhereUniqueInput;
+};
+
+export type VideoUpdateWithoutTypeInput = {
+  completed?: InputMaybe<Scalars['Int']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  currentChapter?: InputMaybe<Scalars['Float']['input']>;
+  review?: InputMaybe<Scalars['String']['input']>;
+  score?: InputMaybe<Scalars['Float']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type VideoUpsertWithWhereUniqueWithoutTypeInput = {
+  create: VideoCreateWithoutTypeInput;
+  update: VideoUpdateWithoutTypeInput;
+  where: VideoWhereUniqueInput;
+};
+
+export type VideoUserIdTitleCompoundUniqueInput = {
+  title: Scalars['String']['input'];
+  userId: Scalars['String']['input'];
+};
+
+export type VideoWhereInput = {
+  AND?: InputMaybe<Array<VideoWhereInput>>;
+  NOT?: InputMaybe<Array<VideoWhereInput>>;
+  OR?: InputMaybe<Array<VideoWhereInput>>;
+  completed?: InputMaybe<IntFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  currentChapter?: InputMaybe<FloatFilter>;
+  id?: InputMaybe<StringFilter>;
+  review?: InputMaybe<StringFilter>;
+  score?: InputMaybe<FloatFilter>;
+  title?: InputMaybe<StringFilter>;
+  type?: InputMaybe<VideoTypeRelationFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  userId?: InputMaybe<StringFilter>;
+  videoTypeId?: InputMaybe<StringFilter>;
+};
+
+export type VideoWhereUniqueInput = {
+  AND?: InputMaybe<Array<VideoWhereInput>>;
+  NOT?: InputMaybe<Array<VideoWhereInput>>;
+  OR?: InputMaybe<Array<VideoWhereInput>>;
+  completed?: InputMaybe<IntFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  currentChapter?: InputMaybe<FloatFilter>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  review?: InputMaybe<StringFilter>;
+  score?: InputMaybe<FloatFilter>;
+  title?: InputMaybe<StringFilter>;
+  type?: InputMaybe<VideoTypeRelationFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  userId?: InputMaybe<StringFilter>;
+  userId_title?: InputMaybe<VideoUserIdTitleCompoundUniqueInput>;
+  videoTypeId?: InputMaybe<StringFilter>;
 };
 
 export type CreateUserVariables = Exact<{
@@ -597,6 +1037,94 @@ export type DeleteBook = {
   deleteBook: { __typename?: 'Book'; id: string };
 };
 
+export type GetVideoTypesVariables = Exact<{ [key: string]: never }>;
+
+export type GetVideoTypes = {
+  __typename?: 'Query';
+  videoTypes: Array<{
+    __typename?: 'VideoType';
+    id: string;
+    name: string;
+    sortOrder: number;
+    createdAt: any;
+    updatedAt: any;
+  }>;
+};
+
+export type GetVideosVariables = Exact<{ [key: string]: never }>;
+
+export type GetVideos = {
+  __typename?: 'Query';
+  videos: Array<{
+    __typename?: 'Video';
+    id: string;
+    title: string;
+    currentChapter?: number | null;
+    score: number;
+    completed: number;
+    review?: string | null;
+    createdAt: any;
+    updatedAt: any;
+    userId: string;
+    videoTypeId: string;
+    type: { __typename?: 'VideoType'; id: string; name: string };
+  }>;
+};
+
+export type CreateVideoVariables = Exact<{
+  data: VideoCreateInput;
+}>;
+
+export type CreateVideo = {
+  __typename?: 'Mutation';
+  createVideo: {
+    __typename?: 'Video';
+    id: string;
+    title: string;
+    currentChapter?: number | null;
+    score: number;
+    completed: number;
+    review?: string | null;
+    createdAt: any;
+    updatedAt: any;
+    userId: string;
+    videoTypeId: string;
+    type: { __typename?: 'VideoType'; id: string; name: string };
+  };
+};
+
+export type UpdateVideoVariables = Exact<{
+  data: VideoUpdateInput;
+  where: VideoWhereUniqueInput;
+}>;
+
+export type UpdateVideo = {
+  __typename?: 'Mutation';
+  updateVideo: {
+    __typename?: 'Video';
+    id: string;
+    title: string;
+    currentChapter?: number | null;
+    score: number;
+    completed: number;
+    review?: string | null;
+    createdAt: any;
+    updatedAt: any;
+    userId: string;
+    videoTypeId: string;
+    type: { __typename?: 'VideoType'; id: string; name: string };
+  };
+};
+
+export type DeleteVideoVariables = Exact<{
+  where: VideoWhereUniqueInput;
+}>;
+
+export type DeleteVideo = {
+  __typename?: 'Mutation';
+  deleteVideo: { __typename?: 'Video'; id: string };
+};
+
 export type QueryExampleVariables = Exact<{ [key: string]: never }>;
 
 export type QueryExample = {
@@ -722,6 +1250,84 @@ export const UpdateBookDocument = /*#__PURE__*/ gql`
 export const DeleteBookDocument = /*#__PURE__*/ gql`
   mutation deleteBook($where: BookWhereUniqueInput!) {
     deleteBook(where: $where) {
+      id
+    }
+  }
+`;
+export const GetVideoTypesDocument = /*#__PURE__*/ gql`
+  query getVideoTypes {
+    videoTypes {
+      id
+      name
+      sortOrder
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const GetVideosDocument = /*#__PURE__*/ gql`
+  query getVideos {
+    videos {
+      id
+      title
+      currentChapter
+      score
+      completed
+      review
+      createdAt
+      updatedAt
+      userId
+      videoTypeId
+      type {
+        id
+        name
+      }
+    }
+  }
+`;
+export const CreateVideoDocument = /*#__PURE__*/ gql`
+  mutation createVideo($data: VideoCreateInput!) {
+    createVideo(data: $data) {
+      id
+      title
+      currentChapter
+      score
+      completed
+      review
+      createdAt
+      updatedAt
+      userId
+      videoTypeId
+      type {
+        id
+        name
+      }
+    }
+  }
+`;
+export const UpdateVideoDocument = /*#__PURE__*/ gql`
+  mutation updateVideo($data: VideoUpdateInput!, $where: VideoWhereUniqueInput!) {
+    updateVideo(data: $data, where: $where) {
+      id
+      title
+      currentChapter
+      score
+      completed
+      review
+      createdAt
+      updatedAt
+      userId
+      videoTypeId
+      type {
+        id
+        name
+      }
+    }
+  }
+`;
+export const DeleteVideoDocument = /*#__PURE__*/ gql`
+  mutation deleteVideo($where: VideoWhereUniqueInput!) {
+    deleteVideo(where: $where) {
       id
     }
   }
@@ -910,6 +1516,81 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
             ...wrappedRequestHeaders,
           }),
         'deleteBook',
+        'mutation',
+        variables,
+      );
+    },
+    getVideoTypes(
+      variables?: GetVideoTypesVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetVideoTypes> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetVideoTypes>(GetVideoTypesDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'getVideoTypes',
+        'query',
+        variables,
+      );
+    },
+    getVideos(
+      variables?: GetVideosVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetVideos> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetVideos>(GetVideosDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'getVideos',
+        'query',
+        variables,
+      );
+    },
+    createVideo(
+      variables: CreateVideoVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<CreateVideo> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<CreateVideo>(CreateVideoDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'createVideo',
+        'mutation',
+        variables,
+      );
+    },
+    updateVideo(
+      variables: UpdateVideoVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<UpdateVideo> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<UpdateVideo>(UpdateVideoDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'updateVideo',
+        'mutation',
+        variables,
+      );
+    },
+    deleteVideo(
+      variables: DeleteVideoVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<DeleteVideo> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<DeleteVideo>(DeleteVideoDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'deleteVideo',
         'mutation',
         variables,
       );

@@ -34,5 +34,5 @@ export class VideoCreateInput {
   userId!: string;
 
   @Field(() => VideoTypeCreateNestedOneWithoutVideoInput, { nullable: false })
-  type!: VideoTypeCreateNestedOneWithoutVideoInput;
+  videoType!: VideoTypeCreateNestedOneWithoutVideoInput;
 }

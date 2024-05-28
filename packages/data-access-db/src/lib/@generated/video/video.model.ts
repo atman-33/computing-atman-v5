@@ -38,5 +38,5 @@ export class Video {
   videoTypeId!: string;
 
   @Field(() => VideoType, { nullable: false })
-  type?: VideoType;
+  videoType?: VideoType;
 }

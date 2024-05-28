@@ -53,5 +53,5 @@ export class VideoWhereUniqueInput {
   videoTypeId?: StringFilter;
 
   @Field(() => VideoTypeRelationFilter, { nullable: true })
-  type?: VideoTypeRelationFilter;
+  videoType?: VideoTypeRelationFilter;
 }

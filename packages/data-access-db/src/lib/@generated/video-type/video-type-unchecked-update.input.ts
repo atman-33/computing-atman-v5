@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
-import { VideoUncheckedUpdateManyWithoutTypeNestedInput } from '../video/video-unchecked-update-many-without-type-nested.input';
+import { VideoUncheckedUpdateManyWithoutVideoTypeNestedInput } from '../video/video-unchecked-update-many-without-video-type-nested.input';
 
 @InputType()
 export class VideoTypeUncheckedUpdateInput {
@@ -17,6 +17,6 @@ export class VideoTypeUncheckedUpdateInput {
   @Field(() => Date, { nullable: true })
   updatedAt?: Date | string;
 
-  @Field(() => VideoUncheckedUpdateManyWithoutTypeNestedInput, { nullable: true })
-  Video?: VideoUncheckedUpdateManyWithoutTypeNestedInput;
+  @Field(() => VideoUncheckedUpdateManyWithoutVideoTypeNestedInput, { nullable: true })
+  Video?: VideoUncheckedUpdateManyWithoutVideoTypeNestedInput;
 }

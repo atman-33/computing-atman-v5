@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
-import { VideoCreateNestedManyWithoutTypeInput } from '../video/video-create-nested-many-without-type.input';
+import { VideoCreateNestedManyWithoutVideoTypeInput } from '../video/video-create-nested-many-without-video-type.input';
 
 @InputType()
 export class VideoTypeCreateInput {
@@ -20,6 +20,6 @@ export class VideoTypeCreateInput {
   @Field(() => Date, { nullable: true })
   updatedAt?: Date | string;
 
-  @Field(() => VideoCreateNestedManyWithoutTypeInput, { nullable: true })
-  Video?: VideoCreateNestedManyWithoutTypeInput;
+  @Field(() => VideoCreateNestedManyWithoutVideoTypeInput, { nullable: true })
+  Video?: VideoCreateNestedManyWithoutVideoTypeInput;
 }

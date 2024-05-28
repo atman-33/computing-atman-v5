@@ -71,7 +71,7 @@ model Book {
 model Video {
     id             String    @id @default(auto()) @map("_id") @db.ObjectId
     title          String
-    type           VideoType @relation(fields: [videoTypeId], references: [id])
+    videoType      VideoType @relation(fields: [videoTypeId], references: [id])
     currentChapter Float?
     score          Float     @default(0.0)
     completed      Int       @default(0) // 0:未完結, 1:完結

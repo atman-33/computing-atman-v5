@@ -36,5 +36,5 @@ export class VideoOrderByWithRelationInput {
   videoTypeId?: keyof typeof SortOrder;
 
   @Field(() => VideoTypeOrderByWithRelationInput, { nullable: true })
-  type?: VideoTypeOrderByWithRelationInput;
+  videoType?: VideoTypeOrderByWithRelationInput;
 }
