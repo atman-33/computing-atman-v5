@@ -55,7 +55,7 @@ export const sortCriteriaAtom = atom<SortCriteriaKind>(SortCriteria.TopRated);
 /**
  * Bookのフィルター&ソート済みデータ
  */
-const filteredAndSortedBooksAtom = atom((get) => {
+const filteredAndSortedBooksAtom = atom<Book[]>((get) => {
   const books = get(booksAtom);
 
   const searchQuery = get(searchQueryAtom);
