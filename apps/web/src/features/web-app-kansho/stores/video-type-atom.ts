@@ -1,26 +1,22 @@
-import { VideoType } from '@/gql/graphql';
-import { PrimitiveAtom, atom, useAtomValue } from 'jotai';
-import { atomFamily } from 'jotai/utils';
+import { graphql } from '@/gql';
+import { gql } from '@/lib/graphql-client';
+import { atom, useAtomValue } from 'jotai';
 
-export const videoTypeAtomFamily = atomFamily<Partial<VideoType>, PrimitiveAtom<VideoType>>(
-  (videoType: Partial<VideoType>) => atom(videoType as VideoType),
-  (a: Partial<VideoType>, b: Partial<VideoType>) => a.id === b.id,
-);
+const getVideoTypesGql = graphql(`
+  query getVideoTypes {
+    videoTypes {
+      id
+      name
+      sortOrder
+    }
+  }
+`);
 
-export const videoTypeIdsAtom = atom<string[]>([]);
-
-export const videoTypesAtom = atom<VideoType[]>((get) => {
-  const ids = get(videoTypeIdsAtom);
-  return ids.map((id) =>
-    get(
-      videoTypeAtomFamily({
-        id,
-      }),
-    ),
-  );
+const videoTypes = atom(async () => {
+  const res = await gql.request(getVideoTypesGql);
+  return res.videoTypes.sort((a, b) => a.sortOrder - b.sortOrder);
 });
 
 export const videoTypeSelectors = {
-  useGetVideoTypes: () => useAtomValue(videoTypesAtom),
-  useGetVideoType: (id: string) => useAtomValue(videoTypeAtomFamily({ id })),
+  useGetVideoTypes: () => useAtomValue(videoTypes),
 };

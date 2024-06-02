@@ -1,14 +1,14 @@
 'use client';
 
-import { DotFlashing } from '@/components/dot-flashing';
 import { useAuth } from '@/features/auth';
-import { KanshoList } from '@/features/web-app-kansho';
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { KanshoEdit } from '@/features/web-app-kansho';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 
-const KanshoPage = () => {
+const EditPage = () => {
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id');
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
   const { setRedirectPath, refleshIsAuthenticated } = useAuth();
 
   useEffect(() => {
@@ -17,14 +17,16 @@ const KanshoPage = () => {
       if (!res) {
         setRedirectPath('/kansho');
         router.push('/auth/login');
-        return;
       }
-      setLoading(false);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <div>{loading ? <DotFlashing /> : <KanshoList />}</div>;
+  return (
+    <>
+      <KanshoEdit id={id} />
+    </>
+  );
 };
 
-export default KanshoPage;
+export default EditPage;
