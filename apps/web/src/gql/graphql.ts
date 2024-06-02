@@ -1,5 +1,5 @@
-import { GraphQLClient, RequestOptions } from 'graphql-request';
-import { gql } from 'graphql-request';
+/* eslint-disable */
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -11,7 +11,6 @@ export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> =
 export type Incremental<T> =
   | T
   | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
-type GraphQLClientRequestHeaders = RequestOptions['requestHeaders'];
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: { input: string; output: string };
@@ -501,9 +500,9 @@ export type Video = {
   review?: Maybe<Scalars['String']['output']>;
   score: Scalars['Float']['output'];
   title: Scalars['String']['output'];
-  type: VideoType;
   updatedAt: Scalars['DateTime']['output'];
   userId: Scalars['String']['output'];
+  videoType: VideoType;
   videoTypeId: Scalars['String']['output'];
 };
 
@@ -537,12 +536,12 @@ export type VideoCreateInput = {
   review?: InputMaybe<Scalars['String']['input']>;
   score?: InputMaybe<Scalars['Float']['input']>;
   title: Scalars['String']['input'];
-  type: VideoTypeCreateNestedOneWithoutVideoInput;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   userId: Scalars['String']['input'];
+  videoType: VideoTypeCreateNestedOneWithoutVideoInput;
 };
 
-export type VideoCreateManyTypeInput = {
+export type VideoCreateManyVideoTypeInput = {
   completed?: InputMaybe<Scalars['Int']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   currentChapter?: InputMaybe<Scalars['Float']['input']>;
@@ -554,23 +553,23 @@ export type VideoCreateManyTypeInput = {
   userId: Scalars['String']['input'];
 };
 
-export type VideoCreateManyTypeInputEnvelope = {
-  data: Array<VideoCreateManyTypeInput>;
+export type VideoCreateManyVideoTypeInputEnvelope = {
+  data: Array<VideoCreateManyVideoTypeInput>;
 };
 
-export type VideoCreateNestedManyWithoutTypeInput = {
+export type VideoCreateNestedManyWithoutVideoTypeInput = {
   connect?: InputMaybe<Array<VideoWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<VideoCreateOrConnectWithoutTypeInput>>;
-  create?: InputMaybe<Array<VideoCreateWithoutTypeInput>>;
-  createMany?: InputMaybe<VideoCreateManyTypeInputEnvelope>;
+  connectOrCreate?: InputMaybe<Array<VideoCreateOrConnectWithoutVideoTypeInput>>;
+  create?: InputMaybe<Array<VideoCreateWithoutVideoTypeInput>>;
+  createMany?: InputMaybe<VideoCreateManyVideoTypeInputEnvelope>;
 };
 
-export type VideoCreateOrConnectWithoutTypeInput = {
-  create: VideoCreateWithoutTypeInput;
+export type VideoCreateOrConnectWithoutVideoTypeInput = {
+  create: VideoCreateWithoutVideoTypeInput;
   where: VideoWhereUniqueInput;
 };
 
-export type VideoCreateWithoutTypeInput = {
+export type VideoCreateWithoutVideoTypeInput = {
   completed?: InputMaybe<Scalars['Int']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   currentChapter?: InputMaybe<Scalars['Float']['input']>;
@@ -671,7 +670,7 @@ export type VideoTypeCountAggregate = {
 };
 
 export type VideoTypeCreateInput = {
-  Video?: InputMaybe<VideoCreateNestedManyWithoutTypeInput>;
+  Video?: InputMaybe<VideoCreateNestedManyWithoutVideoTypeInput>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   name: Scalars['String']['input'];
@@ -727,7 +726,7 @@ export type VideoTypeSumAggregate = {
 };
 
 export type VideoTypeUpdateInput = {
-  Video?: InputMaybe<VideoUpdateManyWithoutTypeNestedInput>;
+  Video?: InputMaybe<VideoUpdateManyWithoutVideoTypeNestedInput>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   sortOrder?: InputMaybe<Scalars['Int']['input']>;
@@ -791,9 +790,9 @@ export type VideoUpdateInput = {
   review?: InputMaybe<Scalars['String']['input']>;
   score?: InputMaybe<Scalars['Float']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
-  type?: InputMaybe<VideoTypeUpdateOneRequiredWithoutVideoNestedInput>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   userId?: InputMaybe<Scalars['String']['input']>;
+  videoType?: InputMaybe<VideoTypeUpdateOneRequiredWithoutVideoNestedInput>;
 };
 
 export type VideoUpdateManyMutationInput = {
@@ -807,31 +806,31 @@ export type VideoUpdateManyMutationInput = {
   userId?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type VideoUpdateManyWithWhereWithoutTypeInput = {
+export type VideoUpdateManyWithWhereWithoutVideoTypeInput = {
   data: VideoUpdateManyMutationInput;
   where: VideoScalarWhereInput;
 };
 
-export type VideoUpdateManyWithoutTypeNestedInput = {
+export type VideoUpdateManyWithoutVideoTypeNestedInput = {
   connect?: InputMaybe<Array<VideoWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<VideoCreateOrConnectWithoutTypeInput>>;
-  create?: InputMaybe<Array<VideoCreateWithoutTypeInput>>;
-  createMany?: InputMaybe<VideoCreateManyTypeInputEnvelope>;
+  connectOrCreate?: InputMaybe<Array<VideoCreateOrConnectWithoutVideoTypeInput>>;
+  create?: InputMaybe<Array<VideoCreateWithoutVideoTypeInput>>;
+  createMany?: InputMaybe<VideoCreateManyVideoTypeInputEnvelope>;
   delete?: InputMaybe<Array<VideoWhereUniqueInput>>;
   deleteMany?: InputMaybe<Array<VideoScalarWhereInput>>;
   disconnect?: InputMaybe<Array<VideoWhereUniqueInput>>;
   set?: InputMaybe<Array<VideoWhereUniqueInput>>;
-  update?: InputMaybe<Array<VideoUpdateWithWhereUniqueWithoutTypeInput>>;
-  updateMany?: InputMaybe<Array<VideoUpdateManyWithWhereWithoutTypeInput>>;
-  upsert?: InputMaybe<Array<VideoUpsertWithWhereUniqueWithoutTypeInput>>;
+  update?: InputMaybe<Array<VideoUpdateWithWhereUniqueWithoutVideoTypeInput>>;
+  updateMany?: InputMaybe<Array<VideoUpdateManyWithWhereWithoutVideoTypeInput>>;
+  upsert?: InputMaybe<Array<VideoUpsertWithWhereUniqueWithoutVideoTypeInput>>;
 };
 
-export type VideoUpdateWithWhereUniqueWithoutTypeInput = {
-  data: VideoUpdateWithoutTypeInput;
+export type VideoUpdateWithWhereUniqueWithoutVideoTypeInput = {
+  data: VideoUpdateWithoutVideoTypeInput;
   where: VideoWhereUniqueInput;
 };
 
-export type VideoUpdateWithoutTypeInput = {
+export type VideoUpdateWithoutVideoTypeInput = {
   completed?: InputMaybe<Scalars['Int']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   currentChapter?: InputMaybe<Scalars['Float']['input']>;
@@ -842,9 +841,9 @@ export type VideoUpdateWithoutTypeInput = {
   userId?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type VideoUpsertWithWhereUniqueWithoutTypeInput = {
-  create: VideoCreateWithoutTypeInput;
-  update: VideoUpdateWithoutTypeInput;
+export type VideoUpsertWithWhereUniqueWithoutVideoTypeInput = {
+  create: VideoCreateWithoutVideoTypeInput;
+  update: VideoUpdateWithoutVideoTypeInput;
   where: VideoWhereUniqueInput;
 };
 
@@ -864,9 +863,9 @@ export type VideoWhereInput = {
   review?: InputMaybe<StringFilter>;
   score?: InputMaybe<FloatFilter>;
   title?: InputMaybe<StringFilter>;
-  type?: InputMaybe<VideoTypeRelationFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
   userId?: InputMaybe<StringFilter>;
+  videoType?: InputMaybe<VideoTypeRelationFilter>;
   videoTypeId?: InputMaybe<StringFilter>;
 };
 
@@ -881,97 +880,113 @@ export type VideoWhereUniqueInput = {
   review?: InputMaybe<StringFilter>;
   score?: InputMaybe<FloatFilter>;
   title?: InputMaybe<StringFilter>;
-  type?: InputMaybe<VideoTypeRelationFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
   userId?: InputMaybe<StringFilter>;
   userId_title?: InputMaybe<VideoUserIdTitleCompoundUniqueInput>;
+  videoType?: InputMaybe<VideoTypeRelationFilter>;
   videoTypeId?: InputMaybe<StringFilter>;
 };
 
-export type CreateUserVariables = Exact<{
+export type QueryExampleQueryVariables = Exact<{ [key: string]: never }>;
+
+export type QueryExampleQuery = {
+  __typename?: 'Query';
+  dummies: Array<{
+    __typename?: 'Dummy';
+    id: string;
+    text?: string | null;
+    createdAt: any;
+    updatedAt: any;
+  }>;
+};
+
+export type CreateUserMutationVariables = Exact<{
   data: UserCreateInput;
 }>;
 
-export type CreateUser = {
+export type CreateUserMutation = {
   __typename?: 'Mutation';
   createUser: { __typename?: 'User'; id: string; username: string };
 };
 
-export type GetCurrentUserVariables = Exact<{ [key: string]: never }>;
-
-export type GetCurrentUser = {
-  __typename?: 'Query';
-  currentUser: { __typename?: 'User'; id: string; username: string };
-};
-
-export type ChangeUserPasswordVariables = Exact<{
+export type ChangeUserPasswordMutationVariables = Exact<{
   data: ChangeUserPasswordInput;
 }>;
 
-export type ChangeUserPassword = {
+export type ChangeUserPasswordMutation = {
   __typename?: 'Mutation';
   changeUserPassword: { __typename?: 'User'; id: string; username: string };
 };
 
-export type GetDummiesVariables = Exact<{ [key: string]: never }>;
+export type GetCurrentUserQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetDummies = {
+export type GetCurrentUserQuery = {
+  __typename?: 'Query';
+  currentUser: { __typename?: 'User'; id: string; username: string };
+};
+
+export type GetDummiesQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetDummiesQuery = {
   __typename?: 'Query';
   dummies: Array<{
     __typename?: 'Dummy';
     id: string;
     text?: string | null;
     int?: number | null;
+    float?: number | null;
     createdAt: any;
     updatedAt: any;
   }>;
 };
 
-export type CreateDummyVariables = Exact<{
+export type CreateDummyMutationVariables = Exact<{
   data: DummyCreateInput;
 }>;
 
-export type CreateDummy = {
+export type CreateDummyMutation = {
   __typename?: 'Mutation';
   createDummy: {
     __typename?: 'Dummy';
     id: string;
     text?: string | null;
     int?: number | null;
+    float?: number | null;
     createdAt: any;
     updatedAt: any;
   };
 };
 
-export type UpdateDummyVariables = Exact<{
+export type UpdateDummyMutationVariables = Exact<{
   data: DummyUpdateInput;
   where: DummyWhereUniqueInput;
 }>;
 
-export type UpdateDummy = {
+export type UpdateDummyMutation = {
   __typename?: 'Mutation';
   updateDummy: {
     __typename?: 'Dummy';
     id: string;
     text?: string | null;
     int?: number | null;
+    float?: number | null;
     createdAt: any;
     updatedAt: any;
   };
 };
 
-export type DeleteDummyVariables = Exact<{
+export type DeleteDummyMutationVariables = Exact<{
   where: DummyWhereUniqueInput;
 }>;
 
-export type DeleteDummy = {
+export type DeleteDummyMutation = {
   __typename?: 'Mutation';
   deleteDummy: { __typename?: 'Dummy'; id: string };
 };
 
-export type GetBooksVariables = Exact<{ [key: string]: never }>;
+export type GetBooksQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetBooks = {
+export type GetBooksQuery = {
   __typename?: 'Query';
   books: Array<{
     __typename?: 'Book';
@@ -981,17 +996,17 @@ export type GetBooks = {
     score: number;
     completed: number;
     review?: string | null;
-    userId: string;
     createdAt: any;
     updatedAt: any;
+    userId: string;
   }>;
 };
 
-export type CreateBookVariables = Exact<{
+export type CreateBookMutationVariables = Exact<{
   data: BookCreateInput;
 }>;
 
-export type CreateBook = {
+export type CreateBookMutation = {
   __typename?: 'Mutation';
   createBook: {
     __typename?: 'Book';
@@ -1001,18 +1016,18 @@ export type CreateBook = {
     score: number;
     completed: number;
     review?: string | null;
-    userId: string;
     createdAt: any;
     updatedAt: any;
+    userId: string;
   };
 };
 
-export type UpdateBookVariables = Exact<{
+export type UpdateBookMutationVariables = Exact<{
   data: BookUpdateInput;
   where: BookWhereUniqueInput;
 }>;
 
-export type UpdateBook = {
+export type UpdateBookMutation = {
   __typename?: 'Mutation';
   updateBook: {
     __typename?: 'Book';
@@ -1022,38 +1037,24 @@ export type UpdateBook = {
     score: number;
     completed: number;
     review?: string | null;
-    userId: string;
     createdAt: any;
     updatedAt: any;
+    userId: string;
   };
 };
 
-export type DeleteBookVariables = Exact<{
+export type DeleteBookMutationVariables = Exact<{
   where: BookWhereUniqueInput;
 }>;
 
-export type DeleteBook = {
+export type DeleteBookMutation = {
   __typename?: 'Mutation';
   deleteBook: { __typename?: 'Book'; id: string };
 };
 
-export type GetVideoTypesVariables = Exact<{ [key: string]: never }>;
+export type GetVideosQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetVideoTypes = {
-  __typename?: 'Query';
-  videoTypes: Array<{
-    __typename?: 'VideoType';
-    id: string;
-    name: string;
-    sortOrder: number;
-    createdAt: any;
-    updatedAt: any;
-  }>;
-};
-
-export type GetVideosVariables = Exact<{ [key: string]: never }>;
-
-export type GetVideos = {
+export type GetVideosQuery = {
   __typename?: 'Query';
   videos: Array<{
     __typename?: 'Video';
@@ -1067,15 +1068,14 @@ export type GetVideos = {
     updatedAt: any;
     userId: string;
     videoTypeId: string;
-    type: { __typename?: 'VideoType'; id: string; name: string };
   }>;
 };
 
-export type CreateVideoVariables = Exact<{
+export type CreateVideoMutationVariables = Exact<{
   data: VideoCreateInput;
 }>;
 
-export type CreateVideo = {
+export type CreateVideoMutation = {
   __typename?: 'Mutation';
   createVideo: {
     __typename?: 'Video';
@@ -1089,16 +1089,15 @@ export type CreateVideo = {
     updatedAt: any;
     userId: string;
     videoTypeId: string;
-    type: { __typename?: 'VideoType'; id: string; name: string };
   };
 };
 
-export type UpdateVideoVariables = Exact<{
+export type UpdateVideoMutationVariables = Exact<{
   data: VideoUpdateInput;
   where: VideoWhereUniqueInput;
 }>;
 
-export type UpdateVideo = {
+export type UpdateVideoMutation = {
   __typename?: 'Mutation';
   updateVideo: {
     __typename?: 'Video';
@@ -1112,504 +1111,707 @@ export type UpdateVideo = {
     updatedAt: any;
     userId: string;
     videoTypeId: string;
-    type: { __typename?: 'VideoType'; id: string; name: string };
   };
 };
 
-export type DeleteVideoVariables = Exact<{
+export type DeleteVideoMutationVariables = Exact<{
   where: VideoWhereUniqueInput;
 }>;
 
-export type DeleteVideo = {
+export type DeleteVideoMutation = {
   __typename?: 'Mutation';
   deleteVideo: { __typename?: 'Video'; id: string };
 };
 
-export type QueryExampleVariables = Exact<{ [key: string]: never }>;
-
-export type QueryExample = {
-  __typename?: 'Query';
-  dummies: Array<{
-    __typename?: 'Dummy';
-    id: string;
-    text?: string | null;
-    createdAt: any;
-    updatedAt: any;
-  }>;
-};
-
-export const CreateUserDocument = /*#__PURE__*/ gql`
-  mutation createUser($data: UserCreateInput!) {
-    createUser(data: $data) {
-      id
-      username
-    }
-  }
-`;
-export const GetCurrentUserDocument = /*#__PURE__*/ gql`
-  query getCurrentUser {
-    currentUser {
-      id
-      username
-    }
-  }
-`;
-export const ChangeUserPasswordDocument = /*#__PURE__*/ gql`
-  mutation changeUserPassword($data: ChangeUserPasswordInput!) {
-    changeUserPassword(data: $data) {
-      id
-      username
-    }
-  }
-`;
-export const GetDummiesDocument = /*#__PURE__*/ gql`
-  query getDummies {
-    dummies {
-      id
-      text
-      int
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const CreateDummyDocument = /*#__PURE__*/ gql`
-  mutation createDummy($data: DummyCreateInput!) {
-    createDummy(data: $data) {
-      id
-      text
-      int
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const UpdateDummyDocument = /*#__PURE__*/ gql`
-  mutation updateDummy($data: DummyUpdateInput!, $where: DummyWhereUniqueInput!) {
-    updateDummy(data: $data, where: $where) {
-      id
-      text
-      int
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const DeleteDummyDocument = /*#__PURE__*/ gql`
-  mutation deleteDummy($where: DummyWhereUniqueInput!) {
-    deleteDummy(where: $where) {
-      id
-    }
-  }
-`;
-export const GetBooksDocument = /*#__PURE__*/ gql`
-  query getBooks {
-    books {
-      id
-      title
-      currentChapter
-      score
-      completed
-      review
-      userId
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const CreateBookDocument = /*#__PURE__*/ gql`
-  mutation createBook($data: BookCreateInput!) {
-    createBook(data: $data) {
-      id
-      title
-      currentChapter
-      score
-      completed
-      review
-      userId
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const UpdateBookDocument = /*#__PURE__*/ gql`
-  mutation updateBook($data: BookUpdateInput!, $where: BookWhereUniqueInput!) {
-    updateBook(data: $data, where: $where) {
-      id
-      title
-      currentChapter
-      score
-      completed
-      review
-      userId
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const DeleteBookDocument = /*#__PURE__*/ gql`
-  mutation deleteBook($where: BookWhereUniqueInput!) {
-    deleteBook(where: $where) {
-      id
-    }
-  }
-`;
-export const GetVideoTypesDocument = /*#__PURE__*/ gql`
-  query getVideoTypes {
-    videoTypes {
-      id
-      name
-      sortOrder
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const GetVideosDocument = /*#__PURE__*/ gql`
-  query getVideos {
-    videos {
-      id
-      title
-      currentChapter
-      score
-      completed
-      review
-      createdAt
-      updatedAt
-      userId
-      videoTypeId
-      type {
-        id
-        name
-      }
-    }
-  }
-`;
-export const CreateVideoDocument = /*#__PURE__*/ gql`
-  mutation createVideo($data: VideoCreateInput!) {
-    createVideo(data: $data) {
-      id
-      title
-      currentChapter
-      score
-      completed
-      review
-      createdAt
-      updatedAt
-      userId
-      videoTypeId
-      type {
-        id
-        name
-      }
-    }
-  }
-`;
-export const UpdateVideoDocument = /*#__PURE__*/ gql`
-  mutation updateVideo($data: VideoUpdateInput!, $where: VideoWhereUniqueInput!) {
-    updateVideo(data: $data, where: $where) {
-      id
-      title
-      currentChapter
-      score
-      completed
-      review
-      createdAt
-      updatedAt
-      userId
-      videoTypeId
-      type {
-        id
-        name
-      }
-    }
-  }
-`;
-export const DeleteVideoDocument = /*#__PURE__*/ gql`
-  mutation deleteVideo($where: VideoWhereUniqueInput!) {
-    deleteVideo(where: $where) {
-      id
-    }
-  }
-`;
-export const QueryExampleDocument = /*#__PURE__*/ gql`
-  query queryExample {
-    dummies {
-      id
-      text
-      createdAt
-      updatedAt
-    }
-  }
-`;
-
-export type SdkFunctionWrapper = <T>(
-  action: (requestHeaders?: Record<string, string>) => Promise<T>,
-  operationName: string,
-  operationType?: string,
-  variables?: any,
-) => Promise<T>;
-
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, _variables) =>
-  action();
-
-export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
-  return {
-    createUser(
-      variables: CreateUserVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<CreateUser> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<CreateUser>(CreateUserDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'createUser',
-        'mutation',
-        variables,
-      );
+export const QueryExampleDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'queryExample' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'dummies' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'text' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'createdAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'updatedAt' } },
+              ],
+            },
+          },
+        ],
+      },
     },
-    getCurrentUser(
-      variables?: GetCurrentUserVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<GetCurrentUser> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<GetCurrentUser>(GetCurrentUserDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'getCurrentUser',
-        'query',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<QueryExampleQuery, QueryExampleQueryVariables>;
+export const CreateUserDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'createUser' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'UserCreateInput' } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'createUser' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'data' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'username' } },
+              ],
+            },
+          },
+        ],
+      },
     },
-    changeUserPassword(
-      variables: ChangeUserPasswordVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<ChangeUserPassword> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<ChangeUserPassword>(ChangeUserPasswordDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'changeUserPassword',
-        'mutation',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<CreateUserMutation, CreateUserMutationVariables>;
+export const ChangeUserPasswordDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'changeUserPassword' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'ChangeUserPasswordInput' } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'changeUserPassword' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'data' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'username' } },
+              ],
+            },
+          },
+        ],
+      },
     },
-    getDummies(
-      variables?: GetDummiesVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<GetDummies> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<GetDummies>(GetDummiesDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'getDummies',
-        'query',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<ChangeUserPasswordMutation, ChangeUserPasswordMutationVariables>;
+export const GetCurrentUserDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'getCurrentUser' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'currentUser' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'username' } },
+              ],
+            },
+          },
+        ],
+      },
     },
-    createDummy(
-      variables: CreateDummyVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<CreateDummy> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<CreateDummy>(CreateDummyDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'createDummy',
-        'mutation',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<GetCurrentUserQuery, GetCurrentUserQueryVariables>;
+export const GetDummiesDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'getDummies' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'dummies' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'text' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'int' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'float' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'createdAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'updatedAt' } },
+              ],
+            },
+          },
+        ],
+      },
     },
-    updateDummy(
-      variables: UpdateDummyVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<UpdateDummy> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<UpdateDummy>(UpdateDummyDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'updateDummy',
-        'mutation',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<GetDummiesQuery, GetDummiesQueryVariables>;
+export const CreateDummyDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'createDummy' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'DummyCreateInput' } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'createDummy' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'data' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'text' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'int' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'float' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'createdAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'updatedAt' } },
+              ],
+            },
+          },
+        ],
+      },
     },
-    deleteDummy(
-      variables: DeleteDummyVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<DeleteDummy> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<DeleteDummy>(DeleteDummyDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'deleteDummy',
-        'mutation',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<CreateDummyMutation, CreateDummyMutationVariables>;
+export const UpdateDummyDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'updateDummy' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'DummyUpdateInput' } },
+          },
+        },
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'where' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'DummyWhereUniqueInput' } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'updateDummy' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'data' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+              },
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'where' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'where' } },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'text' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'int' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'float' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'createdAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'updatedAt' } },
+              ],
+            },
+          },
+        ],
+      },
     },
-    getBooks(
-      variables?: GetBooksVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<GetBooks> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<GetBooks>(GetBooksDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'getBooks',
-        'query',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<UpdateDummyMutation, UpdateDummyMutationVariables>;
+export const DeleteDummyDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'deleteDummy' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'where' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'DummyWhereUniqueInput' } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'deleteDummy' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'where' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'where' } },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [{ kind: 'Field', name: { kind: 'Name', value: 'id' } }],
+            },
+          },
+        ],
+      },
     },
-    createBook(
-      variables: CreateBookVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<CreateBook> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<CreateBook>(CreateBookDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'createBook',
-        'mutation',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<DeleteDummyMutation, DeleteDummyMutationVariables>;
+export const GetBooksDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'getBooks' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'books' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'currentChapter' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'score' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'completed' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'review' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'createdAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'updatedAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'userId' } },
+              ],
+            },
+          },
+        ],
+      },
     },
-    updateBook(
-      variables: UpdateBookVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<UpdateBook> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<UpdateBook>(UpdateBookDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'updateBook',
-        'mutation',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<GetBooksQuery, GetBooksQueryVariables>;
+export const CreateBookDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'createBook' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'BookCreateInput' } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'createBook' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'data' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'currentChapter' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'score' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'completed' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'review' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'createdAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'updatedAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'userId' } },
+              ],
+            },
+          },
+        ],
+      },
     },
-    deleteBook(
-      variables: DeleteBookVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<DeleteBook> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<DeleteBook>(DeleteBookDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'deleteBook',
-        'mutation',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<CreateBookMutation, CreateBookMutationVariables>;
+export const UpdateBookDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'updateBook' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'BookUpdateInput' } },
+          },
+        },
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'where' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'BookWhereUniqueInput' } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'updateBook' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'data' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+              },
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'where' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'where' } },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'currentChapter' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'score' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'completed' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'review' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'createdAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'updatedAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'userId' } },
+              ],
+            },
+          },
+        ],
+      },
     },
-    getVideoTypes(
-      variables?: GetVideoTypesVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<GetVideoTypes> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<GetVideoTypes>(GetVideoTypesDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'getVideoTypes',
-        'query',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<UpdateBookMutation, UpdateBookMutationVariables>;
+export const DeleteBookDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'deleteBook' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'where' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'BookWhereUniqueInput' } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'deleteBook' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'where' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'where' } },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [{ kind: 'Field', name: { kind: 'Name', value: 'id' } }],
+            },
+          },
+        ],
+      },
     },
-    getVideos(
-      variables?: GetVideosVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<GetVideos> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<GetVideos>(GetVideosDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'getVideos',
-        'query',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<DeleteBookMutation, DeleteBookMutationVariables>;
+export const GetVideosDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'getVideos' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'videos' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'currentChapter' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'score' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'completed' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'review' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'createdAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'updatedAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'userId' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'videoTypeId' } },
+              ],
+            },
+          },
+        ],
+      },
     },
-    createVideo(
-      variables: CreateVideoVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<CreateVideo> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<CreateVideo>(CreateVideoDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'createVideo',
-        'mutation',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<GetVideosQuery, GetVideosQueryVariables>;
+export const CreateVideoDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'createVideo' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'VideoCreateInput' } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'createVideo' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'data' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'currentChapter' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'score' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'completed' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'review' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'createdAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'updatedAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'userId' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'videoTypeId' } },
+              ],
+            },
+          },
+        ],
+      },
     },
-    updateVideo(
-      variables: UpdateVideoVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<UpdateVideo> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<UpdateVideo>(UpdateVideoDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'updateVideo',
-        'mutation',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<CreateVideoMutation, CreateVideoMutationVariables>;
+export const UpdateVideoDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'updateVideo' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'VideoUpdateInput' } },
+          },
+        },
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'where' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'VideoWhereUniqueInput' } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'updateVideo' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'data' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'data' } },
+              },
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'where' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'where' } },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'currentChapter' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'score' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'completed' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'review' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'createdAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'updatedAt' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'userId' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'videoTypeId' } },
+              ],
+            },
+          },
+        ],
+      },
     },
-    deleteVideo(
-      variables: DeleteVideoVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<DeleteVideo> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<DeleteVideo>(DeleteVideoDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'deleteVideo',
-        'mutation',
-        variables,
-      );
+  ],
+} as unknown as DocumentNode<UpdateVideoMutation, UpdateVideoMutationVariables>;
+export const DeleteVideoDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'deleteVideo' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'where' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'VideoWhereUniqueInput' } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'deleteVideo' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'where' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'where' } },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [{ kind: 'Field', name: { kind: 'Name', value: 'id' } }],
+            },
+          },
+        ],
+      },
     },
-    queryExample(
-      variables?: QueryExampleVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<QueryExample> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<QueryExample>(QueryExampleDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'queryExample',
-        'query',
-        variables,
-      );
-    },
-  };
-}
-export type Sdk = ReturnType<typeof getSdk>;
+  ],
+} as unknown as DocumentNode<DeleteVideoMutation, DeleteVideoMutationVariables>;

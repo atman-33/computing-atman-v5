@@ -1,15 +1,15 @@
 import { PrimitiveAtom, atom, useAtomValue } from 'jotai';
 import { atomFamily } from 'jotai/utils';
-import { BasicVideo } from '../types/video';
+import { PartialVideo } from '../types/video';
 
-export const videoAtomFamily = atomFamily<Partial<BasicVideo>, PrimitiveAtom<BasicVideo>>(
-  (video: Partial<BasicVideo>) => atom(video as BasicVideo),
-  (a: Partial<BasicVideo>, b: Partial<BasicVideo>) => a.id === b.id,
+export const videoAtomFamily = atomFamily<Partial<PartialVideo>, PrimitiveAtom<PartialVideo>>(
+  (video: Partial<PartialVideo>) => atom(video),
+  (a: Partial<PartialVideo>, b: Partial<PartialVideo>) => a.id === b.id,
 );
 
 export const videoIdsAtom = atom<string[]>([]);
 
-export const videosAtom = atom<BasicVideo[]>((get) => {
+export const videosAtom = atom<PartialVideo[]>((get) => {
   const ids = get(videoIdsAtom);
   return ids.map((id) =>
     get(
@@ -32,7 +32,7 @@ export type SortCriteriaKind = keyof typeof SortCriteria;
 
 export const sortCriteriaAtom = atom<SortCriteriaKind>(SortCriteria.TopRated);
 
-const filteredAndSortedVideosAtom = atom<BasicVideo[]>((get) => {
+const filteredAndSortedVideosAtom = atom<PartialVideo[]>((get) => {
   const videos = get(videosAtom);
 
   const searchQuery = get(searchQueryAtom);
@@ -58,7 +58,7 @@ export const videoSelectors = {
  * b - a: 降順
  */
 const sortFunctions = {
-  [SortCriteria.TopRated]: (a: BasicVideo, b: BasicVideo) => (b.score ?? 0) - (a.score ?? 0),
-  [SortCriteria.LastUpdated]: (a: BasicVideo, b: BasicVideo) =>
+  [SortCriteria.TopRated]: (a: PartialVideo, b: PartialVideo) => (b.score ?? 0) - (a.score ?? 0),
+  [SortCriteria.LastUpdated]: (a: PartialVideo, b: PartialVideo) =>
     new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
 };

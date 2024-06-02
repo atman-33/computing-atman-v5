@@ -1,9 +1,0 @@
-query getVideoTypes {
-  videoTypes {
-    id
-    name
-    sortOrder
-    createdAt
-    updatedAt
-  }
-}

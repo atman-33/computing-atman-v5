@@ -1,6 +1,7 @@
 'use client';
 
 import { webEnv } from '@/config/web-env';
+import { graphql } from '@/gql';
 import { gql } from '@/lib/graphql-client';
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { useEffect } from 'react';
@@ -10,6 +11,30 @@ import {
   isAuthenticatedAtom,
   redirectPathAtom,
 } from '../stores/auth-atom';
+
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+// 1. GraphQL
+
+const createUserGql = graphql(`
+  mutation createUser($data: UserCreateInput!) {
+    createUser(data: $data) {
+      id
+      username
+    }
+  }
+`);
+
+const changeUserPasswordGql = graphql(`
+  mutation changeUserPassword($data: ChangeUserPasswordInput!) {
+    changeUserPassword(data: $data) {
+      id
+      username
+    }
+  }
+`);
+
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+// 2. REST API fetch
 
 const fetchIsAuthenticated = async (): Promise<boolean> => {
   try {
@@ -79,6 +104,9 @@ const fetchLogout = async (): Promise<any> => {
   }
 };
 
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+// 3. カスタムフック
+
 /**
  * 認証に関するHooks
  * @returns
@@ -144,7 +172,7 @@ export const useAuth = () => {
    * @returns
    */
   const createUser = async (username: string, password: string) => {
-    const res = await gql.createUser({ data: { username, password } });
+    const res = await gql.request(createUserGql, { data: { username, password } });
     return res.createUser;
   };
 
@@ -154,7 +182,7 @@ export const useAuth = () => {
    * @returns
    */
   const changeUserPassword = async (password: string) => {
-    const res = await gql.changeUserPassword({ data: { password } });
+    const res = await gql.request(changeUserPasswordGql, { data: { password } });
     return res.changeUserPassword;
   };
 

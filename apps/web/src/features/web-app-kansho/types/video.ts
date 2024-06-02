@@ -1,11 +1,6 @@
-import { Video } from '@repo/data-access-graphql';
+import { Video } from '@/gql/graphql';
 
 /**
- * Video タイプ。アプリで利用する基本情報のみ保持したデータ型
+ * Video タイプ。アプリで利用するためのPartial型
  */
-export type BasicVideo = Omit<Video, 'type'> & {
-  type: {
-    id: string;
-    name: string;
-  };
-};
+export type PartialVideo = Partial<Video>;
