@@ -1,5 +1,15 @@
+import { graphql } from '@/gql';
 import { gql } from '@/lib/graphql-client';
 import { atom } from 'jotai';
+
+const currentUserGql = graphql(`
+  query getCurrentUser {
+    currentUser {
+      id
+      username
+    }
+  }
+`);
 
 /**
  * 認証済みなら true
@@ -19,7 +29,7 @@ export const currentUserAtom = atom(async (get) => {
   get(currentUserVersionAtom);
 
   try {
-    const res = await gql.getCurrentUser();
+    const res = await gql.request(currentUserGql);
     // console.log('currentUser => ', res.currentUser);
     return res.currentUser;
   } catch {

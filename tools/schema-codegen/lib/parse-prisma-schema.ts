@@ -60,12 +60,13 @@ const parsePrismaSchema = (schemaContent: string) => {
         columns: [],
       };
     } else {
-      // Check if the line contains the @id or @relation annotation
+      // Check if the line contains the @id or @relation annotation etc
       const idMatch = line.match(/@id/);
       const relationMatch = line.match(/@relation/);
+      const uniqueMatch = line.match(/@@unique/);
 
       // If there is no current model or the line contains a relation annotation, skip to the next line
-      if (!currentModel || relationMatch) {
+      if (!currentModel || relationMatch || uniqueMatch) {
         return;
       }
 

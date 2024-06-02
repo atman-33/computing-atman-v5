@@ -1,5 +1,5 @@
 query get__model_plural__ {
-  __model_plural_kebab__ {
+  __model_plural_camel__ {
     __columns__
   }
 }

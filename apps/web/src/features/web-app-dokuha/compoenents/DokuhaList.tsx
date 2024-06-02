@@ -1,12 +1,12 @@
 'use client';
 
+import { transformScore } from '@/utils/rate-util';
 import { ScrollArea, Separator } from '@repo/ui';
 import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useBookDispatcher } from '../hooks/useBookDispatcher';
 import { bookSelectors, sortCriteriaAtom } from '../stores/book-atom';
-import { transformScore } from '../utils/rate-util';
 import { DokuhaSearchInput } from './DokuhaSearchInput';
 import { DokuhaSortButton } from './DokuhaSortButton';
 

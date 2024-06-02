@@ -1,10 +1,16 @@
 import { webEnv } from '@/config/web-env';
-import { getGraphqlClient } from '@repo/data-access-graphql';
+import { GraphQLClient } from 'graphql-request';
 
 if (!webEnv.NEXT_PUBLIC_API_GQL_URL) {
   throw new Error('env: NEXT_PUBLIC_API_GQL_URL is not defined');
 }
 
-export const gql: ReturnType<typeof getGraphqlClient> = getGraphqlClient(
+const getGraphQLClient = (url: string) => {
+  return new GraphQLClient(url, {
+    credentials: 'include',
+  });
+};
+
+export const gql: ReturnType<typeof getGraphQLClient> = getGraphQLClient(
   webEnv.NEXT_PUBLIC_API_GQL_URL,
 );

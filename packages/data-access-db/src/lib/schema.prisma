@@ -67,3 +67,30 @@ model Book {
 
     @@unique([userId, title]) // 複合ユニーク制約
 }
+
+model Video {
+    id             String    @id @default(auto()) @map("_id") @db.ObjectId
+    title          String
+    videoType      VideoType @relation(fields: [videoTypeId], references: [id])
+    currentChapter Float?
+    score          Float     @default(0.0)
+    completed      Int       @default(0) // 0:未完結, 1:完結
+    review         String?
+    createdAt      DateTime  @default(now())
+    updatedAt      DateTime  @default(now()) @updatedAt
+
+    // ---- Relations ---- //
+    userId      String // User.id
+    videoTypeId String @db.ObjectId
+
+    @@unique([userId, title]) // 複合ユニーク制約
+}
+
+model VideoType {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    name      String   @unique
+    sortOrder Int
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt
+    Video     Video[]
+}
