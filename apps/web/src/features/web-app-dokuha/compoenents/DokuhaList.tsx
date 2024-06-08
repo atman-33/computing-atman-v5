@@ -31,9 +31,11 @@ export const DokuhaList = () => {
   return (
     <div className="flex flex-col">
       <DokuhaSearchInput />
-      <div className="flex items-center space-x-4">
-        <DokuhaSortButton />
-        <div className="text-sm">Sort by: {sortCriteria.toString()}</div>
+      <div className="flex items-center justify-between space-x-4">
+        <div className="flex items-center space-x-4">
+          <DokuhaSortButton />
+          <div className="text-sm">Sort by: {sortCriteria.toString()}</div>
+        </div>
       </div>
       {/* NOTE: スマホアプリでスクロールエリアの高さを固定する場合は、h-[calc(100dvh-XXXpx)で指定するとよい */}
       <ScrollArea className="mb-2 h-[calc(100dvh-220px)] rounded-sm border-[1px] p-2">
