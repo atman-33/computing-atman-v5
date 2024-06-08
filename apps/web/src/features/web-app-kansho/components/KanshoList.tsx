@@ -9,6 +9,7 @@ import { useVideoDispatcher } from '../hooks/useVideoDispatcher';
 import { sortCriteriaAtom, videoSelectors } from '../stores/video-atom';
 import { KanshoSearchInput } from './KanshoSearchInput';
 import { KanshoSortButton } from './KanshoSortButton';
+import { KnashoTypeSelect } from './KnashoTypeSelect';
 
 export const KanshoList = () => {
   const router = useRouter();
@@ -31,9 +32,12 @@ export const KanshoList = () => {
   return (
     <div className="flex flex-col">
       <KanshoSearchInput />
-      <div className="flex items-center space-x-4">
-        <KanshoSortButton />
-        <div className="text-sm">Sort by: {sortCriteria.toString()}</div>
+      <div className="flex items-center justify-between space-x-4">
+        <div className="flex items-center space-x-4">
+          <KanshoSortButton />
+          <div className="text-sm">Sort by: {sortCriteria.toString()}</div>
+        </div>
+        <KnashoTypeSelect />
       </div>
       {/* NOTE: スマホアプリでスクロールエリアの高さを固定する場合は、h-[calc(100dvh-XXXpx)で指定するとよい */}
       <ScrollArea className="mb-2 h-[calc(100dvh-220px)] rounded-sm border-[1px] p-2">

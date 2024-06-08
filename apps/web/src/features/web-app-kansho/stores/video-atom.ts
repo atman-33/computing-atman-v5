@@ -1,6 +1,7 @@
 import { PrimitiveAtom, atom, useAtomValue } from 'jotai';
 import { atomFamily } from 'jotai/utils';
 import { PartialVideo } from '../types/video';
+import { selectedVideoTypeAtom } from './video-type-atom';
 
 export const videoAtomFamily = atomFamily<Partial<PartialVideo>, PrimitiveAtom<PartialVideo>>(
   (video: Partial<PartialVideo>) => atom(video),
@@ -35,10 +36,12 @@ export const sortCriteriaAtom = atom<SortCriteriaKind>(SortCriteria.TopRated);
 const filteredAndSortedVideosAtom = atom<PartialVideo[]>((get) => {
   const videos = get(videosAtom);
 
+  const videoType = get(selectedVideoTypeAtom);
   const searchQuery = get(searchQueryAtom);
   const sortCriteria = get(sortCriteriaAtom);
 
   return videos
+    .filter((video) => video.videoTypeId === videoType?.id)
     .filter((video) => video.title?.includes(searchQuery))
     .sort(sortFunctions[sortCriteria]);
 });

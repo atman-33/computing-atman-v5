@@ -7,6 +7,12 @@ interface AppConfig {
 
 export const appConfig: AppConfig[] = [
   {
+    title: '動画 Kansho',
+    description: `An app to keep track of the progress in watching movies and tv series.`,
+    image: '/app/kansho.png',
+    href: '/kansho',
+  },
+  {
     title: '本 Dokuha',
     description: `An app to keep track of the progress in reading books and manga.`,
     image: '/app/dokuha.png',
