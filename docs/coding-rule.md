@@ -1,6 +1,8 @@
 # コーディングルール
 
-## Next.js(React)ファイル名の命名規則
+## Frontend(web)
+
+### Next.js(React)ファイル名の命名規則
 
 - コンポーネント: パスカルケース（例：UserProfile.tsx）
 - hooks:キャメルケース
@@ -16,3 +18,12 @@
 e.g.  
 
 `handleStartButtonClick`
+
+## Backend(api)
+
+## NestJSのモジュール名の命名規則
+
+- module等を格納するフォルダ: 英単語の複数形とする。 - usersフォルダ etc
+- module, controller, resolver, service: 英単語の複数形とする。 - users.module.ts etc
+
+> ただし、認証処理（Auth）など、複数形の概念が必要無い場合は複数形でなくて良い。

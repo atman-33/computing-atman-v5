@@ -1,4 +1,4 @@
-import { Dummy } from '@repo/data-access-graphql';
+import { Dummy } from '@/gql/graphql';
 import { PrimitiveAtom, atom, useAtomValue } from 'jotai';
 import { atomFamily } from 'jotai/utils';
 

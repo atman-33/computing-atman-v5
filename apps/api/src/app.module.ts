@@ -7,6 +7,8 @@ import { AuthModule } from './api/auth/auth.module';
 import { BooksModule } from './api/books/books.module';
 import { DummiesModule } from './api/dummies/dummies.module';
 import { UsersModule } from './api/users/users.module';
+import { VideoTypesModule } from './api/video-types/video-types.module';
+import { VideosModule } from './api/videos/videos.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -28,6 +30,8 @@ import { AppService } from './app.service';
     DummiesModule,
     UsersModule,
     BooksModule,
+    VideosModule,
+    VideoTypesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

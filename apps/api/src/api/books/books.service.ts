@@ -22,7 +22,7 @@ export class BooksService {
   }
 
   /**
-   * 本データを作成する。ただし、既に同じタイトルの本が存在している場合はエラーにする。
+   * 本データを作成する。ただし、既に同じタイトルの本が存在している場合はエラーとする。
    * @param createBookData
    * @returns
    */

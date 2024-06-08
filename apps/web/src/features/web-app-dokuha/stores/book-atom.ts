@@ -1,4 +1,4 @@
-import { Book } from '@repo/data-access-graphql';
+import { Book } from '@/gql/graphql';
 import { PrimitiveAtom, atom, useAtomValue } from 'jotai';
 import { atomFamily } from 'jotai/utils';
 
@@ -55,7 +55,7 @@ export const sortCriteriaAtom = atom<SortCriteriaKind>(SortCriteria.TopRated);
 /**
  * Bookのフィルター&ソート済みデータ
  */
-const filteredAndSortedBooksAtom = atom((get) => {
+const filteredAndSortedBooksAtom = atom<Book[]>((get) => {
   const books = get(booksAtom);
 
   const searchQuery = get(searchQueryAtom);

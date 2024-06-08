@@ -3,7 +3,7 @@ const { withContentlayer } = require('next-contentlayer');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // NOTE: インターナルパッケージは、transpilePackages に設定する
-  transpilePackages: ['@repo/ui', '@repo/data-access-graphql'],
+  transpilePackages: ['@repo/ui'],
   images: {
     unoptimized: true,
   },

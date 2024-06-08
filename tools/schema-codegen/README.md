@@ -55,15 +55,15 @@ npx ts-node tools/schema-codegen/index.ts
 
 ### 変換文字について
 
-- `__model__`               => e.g. SampleDummy 
+- `__model__`               => e.g. SampleDummy
 - `__model_plural__`        => e.g. SampleDummies
 - `__model_kebab__`         => e.g. sample-dummy
 - `__model_plural_kebab__`  => e.g. sample-dummies
 - `__model_camel__`         => e.g. sampleDummy
 - `__model_plural_camel__`  => e.g. sampleDummies
-- `__columns__`             
+- `__columns__`
   => e.g.  
      id  
      name  
      message  
-     ...etc   
+     ...etc
